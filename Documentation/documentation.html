@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+        <meta name="keywords" content="">
+		<title>Mono - Documentation</title>
+		<!-- Favicon -->
+        <link rel="shortcut icon" href="../assets/images/favicon.png">
+		<!-- CSS -->
+		<link href="assets/css/normalize.css" rel="stylesheet">
+		<link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/styles.css" rel="stylesheet">
+		<!-- Fonts/Icons -->
+		<link href="assets/css/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+	</head>
+	<body>
+
+		<div class="sidebar">
+			<div class="sidebar-logo">
+				<img src="assets/images/logo-white.png" width="30%" alt="">
+			</div>
+			<div class="nav-wrapper">
+				<ul class="nav">
+					<li class="nav-item"><a class="nav-link" href="#introduction">Introduction</a></li>
+					<li class="nav-item"><a class="nav-link" href="#included">Included files</a></li>
+					<li class="nav-item"><a class="nav-link" href="#structure">HTML Structure</a></li>
+					<li class="nav-item"><a class="nav-link" href="#sass">Sass</a></li>
+					<li class="nav-item"><a class="nav-link" href="#fonts">Fonts &amp; Icons</a></li>
+					<li class="nav-item"><a class="nav-link" href="#preloaders">Preloaders</a></li>
+					<li class="nav-item"><a class="nav-link" href="#header">Header</a></li>
+					<li class="nav-item"><a class="nav-link" href="#grid">Grid</a></li>
+					<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+					<li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+					<li class="nav-item"><a class="nav-link" href="#sidebar-nav">Sidebar Navigation</a></li>
+					<li class="nav-item"><a class="nav-link" href="#slider">Slider</a></li>
+					<li class="nav-item"><a class="nav-link" href="#pie-chart">Pie Chart</a></li>
+					<li class="nav-item"><a class="nav-link" href="#maps">Maps</a></li>
+					<li class="nav-item"><a class="nav-link" href="#contactform">Contact Form</a></li>
+					<li class="nav-item"><a class="nav-link" href="#retina">Retina</a></li>
+					<li class="nav-item"><a class="nav-link" href="#scrollbutton">Smooth Scroll buttons</a></li>
+					<li class="nav-item"><a class="nav-link" href="#elements">Elements</a></li>
+					<li class="nav-item"><a class="nav-link" href="#helper">Helper Classes</a></li>
+					<li class="nav-item"><a class="nav-link" href="#credits">Credits</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="content">
+
+			<section id="introduction">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Introduction</h3>
+					</div>
+					<div class="margin-bottom-30">
+						<p>Thank you for purchasing "Mono - Creative Multi-Purpose HTML5 Template". This documentation will help you to familiarise how the template is structured and how to use the features. If you have any questions that are beyond the scope of this help file, please feel free to email via our user page contact form <a href="https://themeforest.net/user/flatheme" target="_blank">here</a>.</p>
+					</div>
+					<div class="margin-bottom-30">
+						<p>If you like this template please don't forget rate it 5. :)</p>
+						<a href="https://themeforest.net/downloads" target="_blank">themeforest.net/downloads</a>
+					</div>
+					<ul class="list-unstyled no-margin">
+						<li>Author: <a href="https://themeforest.net/user/flatheme" target="_blank">FlaTheme</a></li>
+						<li>Contact: flatheme@gmail.com</li>
+						<li>Created on: 17 Mar, 2018</li>
+					</ul>
+				</div>
+			</section>
+
+			<section id="included">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>What's Included</h3>
+					</div>
+					<ul class="list-folder">
+						<li class="folder-open"><span class="font-weight-bold">Mono v4.x</span> - Template files
+							<ul>
+								<li class="folder-open margin-top-10"><span class="font-weight-bold">assets</span> - All the neccessary source files of the template
+									<ul class="margin-top-10">
+										<li class="folder-open"><span class="font-weight-bold">css</span> - CSS and SASS files
+											<ul class="margin-top-10">
+												<li><span class="font-weight-bold">scss</span> - All Sass files</li>
+												<li class="folder-file-code"><span class="font-weight-bold">app.css</span> - Output of Sass (or Compiled Sass)</li>
+											</ul>
+										</li>
+										<li><span class="font-weight-bold">images</span> - Images</li>
+										<li><span class="font-weight-bold">js</span> - JavaScripts</li>
+										<li><span class="font-weight-bold">php</span> - PHP files</li>
+										<li><span class="font-weight-bold">plugins</span> - All the plugins that are used in the template</li>
+									</ul>
+								</li>
+								<li><span class="font-weight-bold">1. Home Pages</span> - Home Pages html files</li>
+								<li><span class="font-weight-bold">2. Pages</span> - Pages html files</li>
+								<li><span class="font-weight-bold">3. Portfolio</span> - Portfolio Pages html files</li>
+								<li><span class="font-weight-bold">4. Blog</span> - Blog Pages html files</li>
+								<li><span class="font-weight-bold">5. Shop</span> - Shop Pages html files</li>
+								<li><span class="font-weight-bold">6. Features</span> - Feature Pages html files(headers, footers etc.)</li>
+							</ul>
+						</li>
+						<li><span class="font-weight-bold">Documentation</span> - Documentation files</li>
+					</ul>
+				</div>
+			</section>
+
+			<section id="structure">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Basic HTML Structure</h3>
+					</div>
+<pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+  &lt;meta name="description" content=""&gt;
+  &lt;title&gt;Mono&lt;/title&gt;
+
+  &lt;!-- Favicon --&gt;
+  &lt;link rel="shortcut icon" href="../assets/images/favicon.png"&gt;
+
+  &lt;!-- CSS --&gt;
+  &lt;link href="../assets/plugins/bootstrap/bootstrap.min.css" rel="stylesheet"&gt;
+  &lt;link href="../assets/plugins/owl-carousel/owl.carousel.min.css" rel="stylesheet"&gt;
+  &lt;link href="../assets/plugins/owl-carousel/owl.theme.default.min.css" rel="stylesheet"&gt;
+  &lt;link href="../assets/plugins/magnific-popup/magnific-popup.min.css" rel="stylesheet"&gt;
+  &lt;link href="../assets/css/app.css" rel="stylesheet"&gt;
+  &lt;!-- Fonts/Icons --&gt;
+  &lt;link href="../assets/plugins/font-awesome/css/fontawesome-all.min.css" rel="stylesheet"&gt;
+  &lt;link href="../assets/plugins/themify/themify-icons.css" rel="stylesheet"&gt;
+
+  &lt;/head&gt;
+  &lt;body data-preloader="1"&gt;
+
+    &lt;header&gt;
+      &lt;nav class="navbar"&gt;
+        &lt;div class="container"&gt;
+          ...
+        &lt;/div&gt;
+      &lt;/nav&gt;
+
+      &lt;div class="section"&gt;
+        &lt;div class="container"&gt;
+          ...
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+
+    ...
+
+    &lt;footer&gt;
+      &lt;div class="footer"&gt;
+       &lt;div class="container"&gt;
+         ...
+       &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/footer&gt;
+
+  &lt;!-- ***** JAVASCRIPTS ***** --&gt;
+  &lt;!-- Libraries --&gt;
+  &lt;script src="../assets/plugins/jquery.min.js">&lt;/script&gt;
+  &lt;script src="../assets/plugins/bootstrap/popper.min.js">&lt;/script&gt;
+
+  &lt;!-- Plugins --&gt;
+  &lt;script src="../assets/plugins/bootstrap/bootstrap.min.js">&lt;/script&gt;
+  &lt;script src="../assets/plugins/appear.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/easing.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/retina.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/countdown.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/imagesloaded.pkgd.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/isotope.pkgd.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/jarallax/jarallax.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/jarallax/jarallax-video.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/jarallax/jarallax-element.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/magnific-popup/magnific-popup.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/owl-carousel/owl.carousel.min.js"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/jquery.easypiechart.min.js"&gt;&lt;/script&gt;
+  &lt;script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"&gt;&lt;/script&gt;
+  &lt;script src="../assets/plugins/gmaps.min.js"&gt;&lt;/script&gt;
+
+  &lt;!-- Scripts --&gt;
+  &lt;script src="../assets/js/functions.js"&gt;&lt;/script&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+				</div>
+			</section>
+
+			<section id="sass">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Sass</h3>
+					</div>
+					<p>Sass is an extension of CSS, adding nested rules, variables, mixins, selector inheritance, and more. It's translated to well-formatted, standard CSS using the command line tool or a web-framework plugin.</p>
+					<p>"SCSS" (for "Sassy CSS") is a superset of CSS's syntax. This means that every valid CSS stylesheet is valid SCSS as well. SCSS files use the extension <mark>.scss</mark></p>
+					<div class="margin-top-50">
+						<h5>Recommended Compiler - Scout-App</h5>
+						<p class="margin-top-10">We recommend you to use an application called <a href="http://scout-app.io" target="_blank">Scout-App</a> for converting Sass to CSS. Scout-App can run in windows, linux and mac.</p>
+						<p class="margin-top-10"><a href="http://scout-app.io" target="_blank">Click here</a> to download the application.</p>
+						<p class="margin-top-10">This video demonstrates how to use Scout-App application:</p>
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe src="https://www.youtube.com/embed/6zA78zMsH9w?rel=0" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="fonts">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Fonts &amp; Icons</h3>
+					</div>
+					<div class="margin-bottom-50">
+						<h5>Fonts</h5>
+						<p>Mono uses <a href="https://fonts.google.com/specimen/Heebo" target="_blank">Heebo</a> sans-serif and <a href="https://fonts.google.com/specimen/Playfair+Display" target="_blank">Playfair Display</a> serif fonts from <a href="https://fonts.google.com" target="_blank">Google Fonts Library</a>. And it's included through <mark>assets/css/scss/app.scss</mark></p>
+						<p class="font-italic">app.scss(line 12)</p>
+<pre>
+<code>
+@import url('https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900');
+</code>
+</pre>
+						<p>You can use these classes to set the font family of an element:</p>
+						<ul class="margin-top-20">
+							<li><span class="font-weight-bold">.font-family-primary</span> - Heebo sans-serif <span class="font-italic">(Default font-family of the template)</span></li>
+							<li><span class="font-weight-bold">.font-family-playfair</span> - Playfair Display serif</li>
+						</ul>
+					</div>
+					<div>
+						<h5>Icons</h5>
+						<p><a href="https://fontawesome.com/icons?d=gallery&m=free" target="_blank">FontAwesome</a> and <a href="https://themify.me/themify-icons" target="_blank">Themify Icon</a> sets are included in the template.</p>
+						<p>By default, icons will appear at 16px. And you can change the icon size by using classes:</p>
+						<ul class="margin-top-20">
+							<li><span class="font-weight-bold">.icon-sm</span> - sets icon size to 14px</li>
+							<li><span class="font-weight-bold">.icon-lg</span> - sets icon size to 20px</li>
+							<li><span class="font-weight-bold">.icon-xl</span> - sets icon size to 24px</li>
+							<li><span class="font-weight-bold">.icon-2xl</span> - sets icon size to 28px</li>
+							<li><span class="font-weight-bold">.icon-3xl</span> - sets icon size to 32px</li>
+							<li><span class="font-weight-bold">.icon-4xl</span> - sets icon size to 36px</li>
+							<li><span class="font-weight-bold">.icon-5xl</span> - sets icon size to 40px</li>
+						</ul>
+						<p>You should add the size class to the parent element of an icon:</p>
+<pre>
+<code>
+&lt;div class="icon-lg"&gt;
+  &lt;i class="ti-check"&gt;&lt;/i&gt;
+  &lt;i class="ti-check"&gt;&lt;/i&gt;
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+				</div>
+			</section>
+
+			<section id="preloaders">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Page Preloaders</h3>
+					</div>
+					<p>The template has 9 different Page Preloaders built in it. You can change the preloader style by just simply changing the value number of <mark>data-preloader</mark> in &lt;body&gt; tag with 1 to 9.</p>
+					<br>
+					<p><a href="http://mono.flatheme.net/features/preloaders.html" target="_blank">Click here</a> to view the live preview of page preloaders.</p>
+				</div>
+			</section>
+
+			<section id="header">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Header</h3>
+					</div>
+					<h4 class="text-center margin-bottom-50">Backgrounds</h4>
+					<div class="margin-bottom-50">
+						<h6>White(defualt):</h6>
+						<img src="assets/images/navbar-white.png" alt="">
+<pre>
+<code>
+&lt;nav class="navbar"&gt;
+  &lt;div class="container"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/nav&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<h6>Grey:</h6>
+						<img src="assets/images/navbar-grey.png" alt="">
+<pre>
+<code>
+&lt;nav class="navbar <span class="font-weight-bold">navbar-grey</span>"&gt;
+  &lt;div class="container"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/nav&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<h6>Dark:</h6>
+						<img src="assets/images/navbar-dark.png" alt="">
+<pre>
+<code>
+&lt;nav class="navbar <span class="font-weight-bold">navbar-dark</span>"&gt;
+  &lt;div class="container"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/nav&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<h6>Transparent white:</h6>
+						<img src="assets/images/navbar-transparent.png" alt="">
+<pre>
+<code>
+&lt;nav class="navbar <span class="font-weight-bold">navbar-transparent</span>"&gt;
+  &lt;div class="container"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/nav&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-60">
+						<h6>Transparent Dark:</h6>
+						<img src="assets/images/navbar-transparent-dark.png" alt="">
+<pre>
+<code>
+&lt;nav class="navbar <span class="font-weight-bold">navbar-transparent-dark</span>"&gt;
+  &lt;div class="container"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/nav&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<h4 class="text-center margin-bottom-30">Positions</h4>
+						<h6>Static(default):</h6>
+						<img src="assets/images/navbar-static.png" alt="">
+<pre>
+<code>
+&lt;nav class="navbar"&gt;
+  &lt;div class="container"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/nav&gt;
+&lt;div class="bg-image" style="background-image: url(../assets/images/background.jpg)"&gt;
+  &lt;div class="section bg-black-07"&gt;
+    &lt;div class="container text-center"&gt;
+      &lt;h1 class="font-weight-light"&gt;Page Title&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<h6>Absolute:</h6>
+						<img src="assets/images/navbar-absolute.png" alt="">
+<pre>
+<code>
+&lt;nav class="navbar <span class="font-weight-bold">navbar-absolute</span>"&gt;
+  &lt;div class="container"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/nav&gt;
+&lt;div class="bg-image" style="background-image: url(../assets/images/background.jpg)"&gt;
+  &lt;div class="section bg-white-08"&gt;
+    &lt;div class="container text-center"&gt;
+      &lt;h1 class="font-weight-light"&gt;Page Title&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<h6>Absolute Dark:</h6>
+						<img src="assets/images/navbar-absolute-dark.png" alt="">
+<pre>
+<code>
+&lt;nav class="navbar <span class="font-weight-bold">navbar-absolute-dark</span>"&gt;
+  &lt;div class="container"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/nav&gt;
+&lt;div class="bg-image" style="background-image: url(../assets/images/background.jpg)"&gt;
+  &lt;div class="section bg-black-07"&gt;
+    &lt;div class="container text-center"&gt;
+      &lt;h1 class="font-weight-light"&gt;Page Title&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<h6>Fixed:</h6>
+						<img src="assets/images/navbar-fixed.png" alt="">
+<pre>
+<code>
+&lt;nav class="navbar <span class="font-weight-bold">navbar-fixed</span>"&gt;
+  &lt;div class="container"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/nav&gt;
+...
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-60">
+						<h6>Sticky:</h6>
+						<p>You can use <mark>navbar-sticky</mark> class to stick the navbar to the top when scrolls down the page. <a href="http://mono.flatheme.net/features/navbar-sticky.html" target="_blank">Click here</a> to see the live preview of sticky navbar.</p>
+					</div>
+				</div>
+			</section>
+			<!-- end Header -->
+
+			<section>
+				<div class="box">
+					<h4 class="text-center margin-bottom-30">Header - Nav Font Styles</h4>
+					<h6>Default:</h6>
+					<img src="assets/images/nav-font-1.jpg" alt="">
+<pre>
+<code>
+&lt;nav class="navbar"&gt;
+  &lt;div class="container"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;
+      &lt;h5&gt;Mono&lt;/h5&gt;
+    &lt;/a&gt;
+
+    &lt;ul class="nav"&gt;
+      ...
+    &lt;/ul&gt;
+
+    &lt;button class="nav-toggle-btn"&gt;
+      &lt;span class="lines"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+</code>
+</pre>
+					<div class="margin-bottom-50">
+						<h6>Nav Font Style 2:</h6>
+						<img src="assets/images/nav-font-2.jpg" alt="">
+<pre>
+<code>
+&lt;nav class="navbar"&gt;
+  &lt;div class="container"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;
+      &lt;h5&gt;Mono&lt;/h5&gt;
+    &lt;/a&gt;
+
+    &lt;ul class="nav <span class="font-weight-bold">nav-font-2</span>"&gt;
+      ...
+    &lt;/ul&gt;
+    
+    &lt;button class="nav-toggle-btn"&gt;
+      &lt;span class="lines"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-60">
+						<h6>Nav Font Style 3:</h6>
+						<img src="assets/images/nav-font-3.jpg" alt="">
+<pre>
+<code>
+&lt;nav class="navbar"&gt;
+  &lt;div class="container"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;
+      &lt;h5&gt;Mono&lt;/h5&gt;
+    &lt;/a&gt;
+
+    &lt;ul class="nav <span class="font-weight-bold">nav-font-3</span>"&gt;
+      ...
+    &lt;/ul&gt;
+    
+    &lt;button class="nav-toggle-btn"&gt;
+      &lt;span class="lines"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+</code>
+</pre>
+					</div>
+				</div>
+			</section>
+			<!-- end Header - Nav Font Styles -->
+
+			<section>
+				<div class="box">
+					<h4 class="text-center margin-bottom-50">Header - Dropdown Menu</h4>
+					<p>Navbar dropdown menu has 5 different background color options. You can switch them by using classes. Those background color classes should added to <mark>&lt;ul class="nav"&gt;&lt;/ul&gt;</mark> element.</p>
+					<br>
+					<div class="row">
+						<div class="col-4">
+							<h6>White(default):</h6>
+							<img src="assets/images/dropdown-white.jpg" alt="">
+						</div>
+						<div class="col-8">
+<pre>
+<code>
+&lt;nav class="navbar"&gt;
+  &lt;div class="container"&gt;
+    &lt;ul class="nav"&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+...
+</code>
+</pre>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4">
+							<h6>Grey:</h6>
+							<img src="assets/images/dropdown-grey.jpg" alt="">
+						</div>
+						<div class="col-8">
+<pre>
+<code>
+&lt;nav class="navbar"&gt;
+  &lt;div class="container"&gt;
+    &lt;ul class="nav <span class="font-weight-bold">dropdown-grey</span>"&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+...
+</code>
+</pre>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4">
+							<h6>Dark:</h6>
+							<img src="assets/images/dropdown-dark.jpg" alt="">
+						</div>
+						<div class="col-8">
+<pre>
+<code>
+&lt;nav class="navbar"&gt;
+  &lt;div class="container"&gt;
+    &lt;ul class="nav <span class="font-weight-bold">dropdown-dark</span>"&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+...
+</code>
+</pre>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4">
+							<h6>Transparent White:</h6>
+							<img src="assets/images/dropdown-transparent.jpg" alt="">
+						</div>
+						<div class="col-8">
+<pre>
+<code>
+&lt;nav class="navbar"&gt;
+  &lt;div class="container"&gt;
+    &lt;ul class="nav <span class="font-weight-bold">dropdown-transparent</span>"&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+...
+</code>
+</pre>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4">
+							<h6>Transparent Dark:</h6>
+							<img src="assets/images/dropdown-transparent-dark.jpg" alt="">
+						</div>
+						<div class="col-8">
+<pre>
+<code>
+&lt;nav class="navbar"&gt;
+  &lt;div class="container"&gt;
+    &lt;ul class="nav <span class="font-weight-bold">dropdown-transparent-dark</span>"&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+...
+</code>
+</pre>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end Header - Dropdown Menu -->
+
+			<section id="grid">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Bootstrap Grid</h3>
+					</div>
+					<p>Mono is based on Bootstrap v4.x Front-end Framework. Bootstrap's grid system allows up to 12 columns across the page. You can use all 12 columns individually or you can group the columns together to create wider columns. Columns must be placed within a .row and the rows must be placed within a .container (fixed-width) or .container-fluid (full-width) for proper alignment and padding.</p>
+					<br>
+					<p><a href="https://getbootstrap.com/docs/4.1/layout/grid/" target="_blank">Click here</a> to read more information about bootstrap grid system.</p>
+					<br>
+					<p>The below example creates two equal-width columns on medium devices(768px+) and three equal-width columns on large devices(992px+):</p>
+<pre>
+<code>
+&lt;div class="row"&gt;
+  &lt;div class="col-md-6 col-lg-4"&gt;
+    One of three column
+  &lt;/div&gt;
+  &lt;div class="col-md-6 col-lg-4"&gt;
+    One of three column
+  &lt;/div&gt;
+  &lt;div class="col-md-6 col-lg-4"&gt;
+    One of three column
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+					<div class="row">
+						<div class="col-md-6 col-lg-4">
+							One of three column
+						</div>
+						<div class="col-md-6 col-lg-4">
+							One of three column
+						</div>
+						<div class="col-md-6 col-lg-4">
+							One of three column
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end Bootstrap Grid -->
+
+			<section id="portfolio">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Portfolio</h3>
+					</div>
+					<div class="margin-bottom-60">
+						<h4 class="text-center margin-bottom-30">Portfolio Filter</h4>
+						<p>Portfolio has 4 different filter styles you can choose from.</p>
+						<br>
+						<div class="margin-bottom-50">
+							<h6>Filter style 1(default):</h6>
+							<img src="assets/images/filter-style-1.jpg" alt="">
+<pre>
+<code>
+&lt;div class="filter"&gt;
+  &lt;ul&gt;
+    &lt;li class="active" data-filter="*"&gt;All&lt;/li&gt;
+    &lt;li data-filter=".category-1"&gt;First&lt;/li&gt;
+    &lt;li data-filter=".category-2"&gt;Second&lt;/li&gt;
+    &lt;li data-filter=".category-3"&gt;Third&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="row portfolio-wrapper"&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div class="margin-bottom-50">
+							<h6>Filter style 2:</h6>
+							<img src="assets/images/filter-style-2.jpg" alt="">
+<pre>
+<code>
+&lt;div class="filter <span class="font-weight-bold">filter-style-2</span>"&gt;
+  &lt;ul&gt;
+    &lt;li class="active" data-filter="*"&gt;All&lt;/li&gt;
+    &lt;li data-filter=".category-1"&gt;First&lt;/li&gt;
+    &lt;li data-filter=".category-2"&gt;Second&lt;/li&gt;
+    &lt;li data-filter=".category-3"&gt;Third&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="row portfolio-wrapper"&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div class="margin-bottom-50">
+							<h6>Filter style 3:</h6>
+							<img src="assets/images/filter-style-3.jpg" alt="">
+<pre>
+<code>
+&lt;div class="filter <span class="font-weight-bold">filter-style-3</span>"&gt;
+  &lt;ul&gt;
+    &lt;li class="active" data-filter="*"&gt;All&lt;/li&gt;
+    &lt;li data-filter=".category-1"&gt;First&lt;/li&gt;
+    &lt;li data-filter=".category-2"&gt;Second&lt;/li&gt;
+    &lt;li data-filter=".category-3"&gt;Third&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="row portfolio-wrapper"&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div>
+							<h6>Filter style 4:</h6>
+							<img src="assets/images/filter-style-4.jpg" alt="">
+<pre>
+<code>
+&lt;div class="filter <span class="font-weight-bold">filter-style-4</span>"&gt;
+  &lt;ul&gt;
+    &lt;li class="active" data-filter="*"&gt;All&lt;/li&gt;
+    &lt;li data-filter=".category-1"&gt;First&lt;/li&gt;
+    &lt;li data-filter=".category-2"&gt;Second&lt;/li&gt;
+    &lt;li data-filter=".category-3"&gt;Third&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="row portfolio-wrapper"&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+					</div>
+					<div class="margin-bottom-60">
+						<h4 class="text-center margin-bottom-30">Portfolio Filter - Font styles</h4>
+						<div>
+							<h6>Filter Font Style 2:</h6>
+							<img src="assets/images/filter-font-2.jpg" alt="">
+<pre>
+<code>
+&lt;div class="filter filter-style-4 <span class="font-weight-bold">filter-font-2</span>"&gt;
+  &lt;ul&gt;
+    &lt;li class="active" data-filter="*"&gt;All&lt;/li&gt;
+    &lt;li data-filter=".category-1"&gt;First&lt;/li&gt;
+    &lt;li data-filter=".category-2"&gt;Second&lt;/li&gt;
+    &lt;li data-filter=".category-3"&gt;Third&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="row portfolio-wrapper"&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div class="margin-top-50">
+							<h6>Filter Font Style 3:</h6>
+							<img src="assets/images/filter-font-3.jpg" alt="">
+<pre>
+<code>
+&lt;div class="filter filter-style-4 <span class="font-weight-bold">filter-font-3</span>"&gt;
+  &lt;ul&gt;
+    &lt;li class="active" data-filter="*"&gt;All&lt;/li&gt;
+    &lt;li data-filter=".category-1"&gt;First&lt;/li&gt;
+    &lt;li data-filter=".category-2"&gt;Second&lt;/li&gt;
+    &lt;li data-filter=".category-3"&gt;Third&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="row portfolio-wrapper"&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end Portfolio Filter -->
+
+			<section>
+				<div class="box">
+					<div class="margin-bottom-60">
+						<h4 class="text-center margin-bottom-50">Portfolio Spacing</h4>
+						<p>You can set the spacing between portfolio boxes for 0px, 6px, 10px, 20px or 30px by using classes. You should add the spacing classes to <mark>.row .portfolio-wrapper</mark> element.</p>
+						<br>
+						<div class="margin-bottom-50">
+							<h6>no-spacing (0px between boxes):</h6>
+							<img src="assets/images/no-spacing.png" alt="">
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper <span class="font-weight-bold">no-spacing</span>"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    ...
+  &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div class="margin-bottom-50">
+							<h6>spacing-6 (6px between boxes):</h6>
+							<img src="assets/images/spacing-6.png" alt="">
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper <span class="font-weight-bold">spacing-6</span>"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    ...
+  &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div class="margin-bottom-50">
+							<h6>spacing-10 (10px between boxes):</h6>
+							<img src="assets/images/spacing-10.png" alt="">
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper <span class="font-weight-bold">spacing-10</span>"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    ...
+  &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div class="margin-bottom-50">
+							<h6>spacing-20 (20px between boxes):</h6>
+							<img src="assets/images/spacing-20.png" alt="">
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper <span class="font-weight-bold">spacing-20</span>"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    ...
+  &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div class="margin-bottom-50">
+							<h6>spacing-30 (30px between boxes):</h6>
+							<img src="assets/images/spacing-30.png" alt="">
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper <span class="font-weight-bold">spacing-30</span>"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    ...
+  &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div class="margin-bottom-50">
+							<h6>spacing-40 (40px between boxes):</h6>
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper <span class="font-weight-bold">spacing-40</span>"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    ...
+  &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div>
+							<h6>spacing-50 (50px between boxes):</h6>
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper <span class="font-weight-bold">spacing-50</span>"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    ...
+  &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end Portfolio spacing -->
+
+			<section>
+				<div class="box">
+					<h4 class="text-center margin-bottom-50">Portfolio hovers</h4>
+					<p>You can choose from 4 different hover styles for your portfolio. </p>
+					<br>
+					<div class="margin-bottom-50">
+						<h6>Hover style 1(default) - Title Overlay 1:</h6>
+						<img src="assets/images/hover-style-1.jpg" alt="">
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper spacing-6"&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 1 --&gt;</span>
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    &lt;div class="portfolio-box"&gt;
+
+      &lt;div class="portfolio-img"&gt;
+        &lt;img src="../assets/images/img.jpg" alt=""&gt;
+      &lt;/div&gt;
+
+      &lt;a href="#"&gt;&lt;/a&gt;
+
+      &lt;div class="portfolio-title"&gt;
+        &lt;div&gt;
+          &lt;h5&gt;Project Title&lt;/h5&gt;
+          &lt;span&gt;Category&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 2 --&gt;</span>
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<h6>Hover style 2 - Title Outside:</h6>
+						<img src="assets/images/hover-style-2.jpg" alt="">
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper spacing-6 <span class="font-weight-bold">hover-style-2</span>"&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 1 --&gt;</span>
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    &lt;div class="portfolio-box"&gt;
+
+      &lt;div class="portfolio-img"&gt;
+        &lt;img src="../assets/images/img.jpg" alt=""&gt;
+      &lt;/div&gt;
+
+      &lt;a href="#"&gt;&lt;/a&gt;
+
+      &lt;div class="portfolio-title"&gt;
+        &lt;div&gt;
+          &lt;h5&gt;Project Title&lt;/h5&gt;
+          &lt;span&gt;Category&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 2 --&gt;</span>
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<h6>Hover style 3 - Title Inside:</h6>
+						<img src="assets/images/hover-style-3.jpg" alt="">
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper spacing-6 <span class="font-weight-bold">hover-style-3</span>"&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 1 --&gt;</span>
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    &lt;div class="portfolio-box"&gt;
+
+      &lt;div class="portfolio-img"&gt;
+        &lt;img src="../assets/images/img.jpg" alt=""&gt;
+      &lt;/div&gt;
+
+      &lt;a href="#"&gt;&lt;/a&gt;
+
+      &lt;div class="portfolio-title"&gt;
+        &lt;div&gt;
+          &lt;span&gt;Category&lt;/span&gt;
+          &lt;h5&gt;Project Title&lt;/h5&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 2 --&gt;</span>
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<h6>Hover style 4 - Title from bottom:</h6>
+						<img src="assets/images/hover-style-4.jpg" alt="">
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper spacing-6 <span class="font-weight-bold">hover-style-4</span>"&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 1 --&gt;</span>
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    &lt;div class="portfolio-box"&gt;
+
+      &lt;div class="portfolio-img"&gt;
+        &lt;img src="../assets/images/img.jpg" alt=""&gt;
+      &lt;/div&gt;
+
+      &lt;a href="#"&gt;&lt;/a&gt;
+
+      &lt;div class="portfolio-title"&gt;
+        &lt;div&gt;
+          &lt;h6&gt;Project Title&lt;/h6&gt;
+          &lt;span&gt;Category&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 2 --&gt;</span>
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<h6>Hover style 5 - Title Overlay 2:</h6>
+						<img src="assets/images/hover-style-5.jpg" alt="">
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper spacing-6 <span class="font-weight-bold">hover-style-5</span>"&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 1 --&gt;</span>
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    &lt;div class="portfolio-box"&gt;
+
+      &lt;div class="portfolio-img"&gt;
+        &lt;img src="../assets/images/img.jpg" alt=""&gt;
+      &lt;/div&gt;
+
+      &lt;a href="#"&gt;&lt;/a&gt;
+
+      &lt;div class="portfolio-title"&gt;
+        &lt;div&gt;
+          &lt;h6 class="heading-uppercase"&gt;Project Title&lt;/h6&gt;
+          &lt;span&gt;Category&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 2 --&gt;</span>
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+					<div>
+						<h6>Hover style 6 - Title Overlay 3:</h6>
+						<img src="assets/images/hover-style-6.png" alt="">
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper spacing-6 <span class="font-weight-bold">hover-style-6</span>"&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 1 --&gt;</span>
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    &lt;div class="portfolio-box"&gt;
+
+      &lt;div class="portfolio-img"&gt;
+        &lt;img src="../assets/images/img.jpg" alt=""&gt;
+      &lt;/div&gt;
+
+      &lt;a href="#"&gt;&lt;/a&gt;
+
+      &lt;div class="portfolio-title"&gt;
+        &lt;div&gt;
+          &lt;h6 class="font-weight-normal"&gt;Project Title&lt;/h6&gt;
+          &lt;span&gt;Category&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  <span class="text-secondary">&lt;-- Portfolio box 2 --&gt;</span>
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+				</div>
+			</section>
+			<!-- end Portfolio hovers -->
+
+			<section>
+				<div class="box">
+					<h4 class="text-center margin-bottom-50">Portfolio Grid</h4>
+					<p>Basic portfolio grid:</p>
+<pre>
+<code>
+&lt;div class="row portfolio-wrapper spacing-6 hover-style-2"&gt;
+
+  &lt;div class="col-12 col-md-6 col-lg-4 portfolio-item category-1"&gt;
+    ...
+  &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</code>
+</pre>
+				</div>
+			</section>
+			<!-- end Portfolio Grid -->
+
+			<section>
+				<div class="box">
+					<h4 class="text-center margin-bottom-50">Portfolio Masonry</h4>
+					<p>Since masonry doesn't work with bootstrap grid system, we've made our custom responsive 6 column system for masonry portfolio layout. Just simply add the column class(column-1 to column-6) to <mark>.portfolio-wrapper</mark> element.</p>
+					<br>
+					<p>The below example will set the columns to three equal-width:</p>
+<pre>
+<code>
+&lt;div class="portfolio-wrapper spacing-6 hover-style-2 column-3"&gt;
+
+  &lt;div class="portfolio-item category-1"&gt;
+    ...
+  &lt;/div&gt;
+  &lt;div class="portfolio-item category-2"&gt;
+    ...
+  &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</code>
+</pre>
+				</div>
+			</section>
+			<!-- end Portfolio Masonry -->
+
+			<section id="shop">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Shop</h3>
+					</div>
+					<div>
+						<p>There are 2 hover style options available for Shop Products.</p>
+						<p>You can add <span class="font-weight-bold">.product-hover-style-2</span> class to <mark>.product-wrapper</mark> element to use the second hover style.</p>
+					</div>
+<pre>
+<code>
+&lt;div class="row product-wrapper <span class="font-weight-bold">product-hover-style-2</span>"&gt;
+  <span class="text-secondary">&lt;!-- Product box 1 --&gt;</span>
+  &lt;div class="col-12 col-md-6 col-lg-4 product"&gt;
+    &lt;div class="product-img"&gt;
+      ..
+    &lt;/div&gt;<span class="text-secondary">&lt;!-- end product-img --&gt;</span>
+    &lt;div class="product-info"&gt;
+      ..
+    &lt;/div&gt;<span class="text-secondary">&lt;!-- end product-info --&gt;</span>
+  &lt;/div&gt;
+  <span class="text-secondary">&lt;!-- Product box 2 --&gt;</span>
+  ...
+&lt;/div&gt;<span class="text-secondary">&lt;!-- end row --&gt;</span>
+</code>
+</pre>
+				</div>
+			</section>
+
+			<section id="sidebar-nav">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Sidebar Navigation</h3>
+					</div>
+					<div class="margin-bottom-50">
+						<p>To show the sidebar navigation on the left side of the page please use <span class="font-weight-bold">.sidebar-nav-left</span> class and wrap the page contents within <span class="font-weight-bold">.sidebar-wrapper-left</span> class.</p>
+<pre>
+<code>
+&lt;body&gt;
+
+  &lt;div class="<span class="font-weight-bold">sidebar-nav-left</span>"&gt;
+    &lt;button class="sidebar-nav-toggle"&gt;
+      &lt;span class="lines"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="sidebar-nav-content"&gt;
+      &lt;div class="sidebar-logo"&gt;
+        &lt;img src="../assets/images/logo.jpg" alt=""&gt;
+      &lt;/div&gt;
+
+      &lt;ul class="sidebar-menu"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Menu link 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Menu link 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Menu link 3&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;div class="sidebar-bottom"&gt;
+        &lt;ul class="list-horizontal-unstyled margin-bottom-10"&gt;
+          &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fab fa-pinterest"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;&copy; 2018 Your Company&lt;/p&gt;
+      &lt;/div&gt;&lt;!-- end sidebar-bottom --&gt;
+    &lt;/div&gt;&lt;!-- end sidebar-nav-content --&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Page contents --&gt;
+  &lt;div class="<span class="font-weight-bold">sidebar-wrapper-left</span>"&gt;
+    &lt;div class="section"&gt;
+      ...
+    &lt;/div&gt;
+    ...
+    &lt;footer&gt;
+      ...
+    &lt;/footer&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+</code>
+</pre>
+					</div>
+					<div>
+						<p>To show the sidebar navigation on the right side of the page please use <span class="font-weight-bold">.sidebar-nav-right</span> class and wrap the page contents within <span class="font-weight-bold">.sidebar-wrapper-right</span> class element.</p>
+<pre>
+<code>
+&lt;body&gt;
+
+  &lt;div class="<span class="font-weight-bold">sidebar-nav-right</span>"&gt;
+    &lt;button class="sidebar-nav-toggle"&gt;
+      &lt;span class="lines"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="sidebar-nav-content"&gt;
+      &lt;div class="sidebar-logo"&gt;
+        &lt;img src="../assets/images/logo.jpg" alt=""&gt;
+      &lt;/div&gt;
+
+      &lt;ul class="sidebar-menu"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Menu link 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Menu link 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Menu link 3&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;div class="sidebar-bottom"&gt;
+        &lt;ul class="list-horizontal-unstyled margin-bottom-10"&gt;
+          &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fab fa-pinterest"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;&copy; 2018 Your Company&lt;/p&gt;
+      &lt;/div&gt;&lt;!-- end sidebar-bottom --&gt;
+    &lt;/div&gt;&lt;!-- end sidebar-nav-content --&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Page contents --&gt;
+  &lt;div class="<span class="font-weight-bold">sidebar-wrapper-right</span>"&gt;
+    &lt;div class="section"&gt;
+      ...
+    &lt;/div&gt;
+    ...
+    &lt;footer&gt;
+      ...
+    &lt;/footer&gt;
+  &lt;/div&gt;
+  
+&lt;/body&gt;
+</code>
+</pre>
+					</div>
+				</div>
+			</section>
+
+			<section id="slider">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Owl Carousel Sliders</h3>
+					</div>
+					<p>Mono uses <a href="https://owlcarousel2.github.io/OwlCarousel2/" target="_blank">Owl Carousel 2</a> jQuery plugin to handle all the sliders of the template. It's fully responsive and it has large amount of options. You can change the default options via html <mark>data-owl-*</mark> attribute.</p>
+					<br>
+					<div class="margin-bottom-50">
+						<p>You should create a div with <mark>.owl-carousel</mark> class and the first divs inside of this class will be the boxes of the slider:</p>
+<pre>
+<code>
+&lt;div class="owl-carousel"&gt;
+  &lt;!-- slider box 1 --&gt;
+  &lt;div&gt;
+  ..
+  &lt;/div&gt;
+  &lt;!-- slider box 2 --&gt;
+  &lt;div&gt;
+  ..
+  &lt;/div&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<p>The below example shows how to create slider with 2 columns(on all screen) with navigation.</p>
+<pre>
+<code>
+&lt;div class="owl-carousel" data-owl-items="2" data-owl-nav="true" data-owl-dots="false"&gt;
+  &lt;!-- slider box 1 --&gt;
+  &lt;div&gt;
+  ..
+  &lt;/div&gt;
+  &lt;!-- slider box 2 --&gt;
+  &lt;div&gt;
+  ..
+  &lt;/div&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+					</div>
+					<div class="margin-bottom-50">
+						<p>The below example shows how to create responsive slider with navigation and dots. <mark>data-owl-xs, data-owl-sm, data-owl-md, data-owl-lg and data-owl-xl</mark> are for screen size and the value number is how many columns to show on that screen size.</p>
+<pre>
+<code>
+&lt;div class="owl-carousel" data-owl-nav="true" data-owl-xs="1" data-owl-sm="2" data-owl-md="3" data-owl-lg="4" data-owl-xl="4"&gt;
+  &lt;!-- slider box 1 --&gt;
+  &lt;div&gt;
+  ..
+  &lt;/div&gt;
+  &lt;!-- slider box 2 --&gt;
+  &lt;div&gt;
+  ..
+  &lt;/div&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+						<ul>
+							<li><span class="font-weight-bold">data-owl-xs</span> - For screen resolution above 0px+</li>
+							<li><span class="font-weight-bold">data-owl-sm</span> - For screen resolution above 576px+</li>
+							<li><span class="font-weight-bold">data-owl-md</span> - For screen resolution above 768px+</li>
+							<li><span class="font-weight-bold">data-owl-lg</span> - For screen resolution above 992px+</li>
+							<li><span class="font-weight-bold">data-owl-xl</span> - For screen resolution above 1200px+</li>
+						</ul>
+					</div>
+					<div class="margin-bottom-60">
+						<h4 class="text-center margin-bottom-50">All data-attribute options</h4>
+						<ul>
+							<li><span class="font-weight-bold">data-owl-items</span> - The number of items you want to see on the screen.</li>
+							<li><span class="font-weight-bold">data-owl-margin</span> - margin-right(px) on item.</li>
+							<li><span class="font-weight-bold">data-owl-loop</span> - Infinity loop. Duplicate last and first items to get loop illusion.</li>
+							<li><span class="font-weight-bold">data-owl-center</span> - Center item. Works well with even an odd number of items.</li>
+							<li><span class="font-weight-bold">data-owl-mouseDrag</span> - Mouse drag enabled.</li>
+							<li><span class="font-weight-bold">data-owl-touchDrag</span> - Touch drag enabled.</li>
+							<li><span class="font-weight-bold">data-owl-pullDrag</span> - Stage pull to edge.</li>
+							<li><span class="font-weight-bold">data-owl-freeDrag</span> - Item pull to edge.</li>
+							<li><span class="font-weight-bold">data-owl-stagePadding</span> - Padding left and right on stage (can see neighbours).</li>
+							<li><span class="font-weight-bold">data-owl-autoWidth</span> - Set non grid content. Try using width style on divs.</li>
+							<li><span class="font-weight-bold">data-owl-startPosition</span> - Start position or URL Hash string like '#id'.</li>
+							<li><span class="font-weight-bold">data-owl-URLhashListener</span> - Listen to url hash changes. data-hash on items is required.</li>
+							<li><span class="font-weight-bold">data-owl-nav</span> - Show next/prev buttons.</li>
+							<li><span class="font-weight-bold">data-owl-rewind</span> - Go backwards when the boundary has reached.</li>
+							<li><span class="font-weight-bold">data-owl-navElement</span> - DOM element type for a single directional navigation link.</li>
+							<li><span class="font-weight-bold">data-owl-slideBy</span> - Navigation slide by x. 'page' string can be set to slide by page.</li>
+							<li><span class="font-weight-bold">data-owl-dots</span> - Show dots navigation.</li>
+							<li><span class="font-weight-bold">data-owl-dotsEach</span> - Show dots each x item.</li>
+							<li><span class="font-weight-bold">data-owl-autoPlay</span> - Autoplay.</li>
+							<li><span class="font-weight-bold">data-owl-autoPlayTimeOut</span> - Autoplay interval timeout.</li>
+							<li><span class="font-weight-bold">data-owl-smartSpeed</span> - Speed Calculate. More info to come.</li>
+							<li><span class="font-weight-bold">data-owl-fluidSpeed</span> - Speed Calculate. More info to come..</li>
+							<li><span class="font-weight-bold">data-owl-autoPlaySpeed</span> - autoplay speed.</li>
+							<li><span class="font-weight-bold">data-owl-navSpeed</span> - Navigation speed.</li>
+							<li><span class="font-weight-bold">data-owl-dotsSpeed</span> - Pagination speed.</li>
+							<li><span class="font-weight-bold">data-owl-dragEndSpeed</span> - Drag end speed.</li>
+							<li><span class="font-weight-bold">data-owl-callback</span> - Enable callback events.</li>
+							<li><span class="font-weight-bold">data-owl-video</span> - Enable fetching YouTube/Vimeo/Vzaar videos.</li>
+							<li><span class="font-weight-bold">data-owl-videoHeight</span> - Set height for videos.</li>
+							<li><span class="font-weight-bold">data-owl-videoWidth</span> - Set width for videos.</li>
+							<li><span class="font-weight-bold">data-owl-itemElement</span> - DOM element type for owl-item.</li>
+							<li><span class="font-weight-bold">data-owl-stageElement</span> - DOM element type for owl-stage.</li>
+							<li><span class="font-weight-bold">data-owl-navContainer</span> - Set your own container for nav.</li>
+							<li><span class="font-weight-bold">data-owl-dotsContainer</span> - Set your own container for nav.</li>
+						</ul>
+						<p><a href="https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html" target="_blank">Click here</a> to see all the default options.</p>
+					</div>
+					<div>
+						<h4 class="text-center margin-bottom-50">Owl navigation &amp; dots</h4>
+						<p>By default, owl navigations and dots will show outside of slider content. And you can overlay them on the content by using classes.</p>
+						<ul class="margin-top-20">
+							<li><span class="font-weight-bold">.owl-nav-overlay</span> - Overlay navigations on the content</li>
+							<li><span class="font-weight-bold">.owl-dots-overlay</span> - Overlay dots on the content</li>
+						</ul>
+						<div class="margin-bottom-50">
+							<h6>Default:</h6>
+							<img src="assets/images/owl-default.png" alt="">
+<pre>
+<code>
+&lt;div class="owl-carousel" data-owl-nav="true" data-owl-items="1"&gt;
+  &lt;div&gt;
+    &lt;img src="images/img.jpg"&gt;
+  &lt;/div&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div class="margin-bottom-50">
+							<h6>The below example shows how to overlay navigations:</h6>
+							<img src="assets/images/owl-nav-overlay.png" alt="">
+<pre>
+<code>
+&lt;div class="owl-carousel owl-nav-overlay" data-owl-nav="true" data-owl-items="1"&gt;
+  &lt;div&gt;
+    &lt;img src="images/img.jpg"&gt;
+  &lt;/div&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+						<div>
+							<h6>The below example shows how to overlay both navigations and dots:</h6>
+							<img src="assets/images/owl-both-overlay.png" alt="">
+<pre>
+<code>
+&lt;div class="owl-carousel owl-nav-overlay owl-dots-overlay" data-owl-nav="true" data-owl-items="1"&gt;
+  &lt;div&gt;
+    &lt;img src="images/img.jpg"&gt;
+  &lt;/div&gt;
+  ...
+&lt;/div&gt;
+</code>
+</pre>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="pie-chart">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Pie Chart</h3>
+					</div>
+					<p>You can create a Circular Chart Bar by using <mark class="font-weight-bold">.pie-chart</mark> class element. Any number, text or icon values should be wrapped inside <mark>.pie-chart-content</mark> class element.</p>
+					<br>
+					<p>Basic Pie Chart:</p>
+<pre>
+<code>
+&lt;div class="pie-chart" data-size="110" data-percent="90" data-bar-color="#141414" data-track-color="#e6e6e6" data-scale-color="rgba(0, 0, 0, 0.3)"&gt;
+  &lt;div class="pie-chart-content"&gt;
+    &lt;span class="percent"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+					<div class="margin-top-60">
+						<h5 class="margin-bottom-30 text-center">data-attribute options</h5>
+						<ul class="margin-top-20">
+							<li><span class="font-weight-bold">data-size</span> - Size of the pie chart in px. It will always be a square.</li>
+							<li><span class="font-weight-bold">data-bar-color</span> - The color of the curcular bar. You can pass either a css valid color string like rgb, rgba hex or string colors.</li>
+							<li><span class="font-weight-bold">data-track-color</span> - The color of the track for the bar, false to disable rendering.</li>
+							<li><span class="font-weight-bold">data-scale-color</span> - The color of the scale lines, false to disable rendering.</li>
+							<li><span class="font-weight-bold">data-line-cap</span> - Defines how the ending of the bar line looks like. Possible values are: <mark>butt</mark>, <mark>round</mark> and <mark>square</mark>.</li>
+							<li><span class="font-weight-bold">data-line-width</span> - Width of the bar line in px.</li>
+							
+							<li><span class="font-weight-bold">data-animate</span> - Time in milliseconds for a eased animation of the bar growing, or false to deactivate.</li>
+						</ul>
+					</div>
+					<p class="text-center margin-top-50"><a href="http://mono.flatheme.net/elements/pie-chart.html" target="_blank">Click here</a> to see the live demos of Pie Charts.</p>
+				</div>
+			</section>
+
+			<section id="maps">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Google Maps</h3>
+					</div>
+					<p>Mono uses <a href="https://hpneo.github.io/gmaps/" target="_blank">gmaps</a> plugin to show Google Maps. By default, the maps width is set to 100% and height is set to 0 and you can set the height of the map using classes.<br>You can use multiple maps on one page. And every single map should have different id's <span class="font-italic">(#map1, #map2 etc.)</span>.</p>
+					<ul class="margin-top-20">
+						<li><span class="font-weight-bold">gmap-xs</span> - sets height to 300px</li>
+						<li><span class="font-weight-bold">gmap-sm</span> - sets height to 350px</li>
+						<li><span class="font-weight-bold">gmap-md</span> - sets height to 400px</li>
+						<li><span class="font-weight-bold">gmap-lg</span> - sets height to 450px</li>
+						<li><span class="font-weight-bold">gmap-xl</span> - sets height to 500px</li>
+					</ul>
+					<p>Basic Map:</p>
+<pre>
+<code>
+&lt;div id="map1" class="gmap gmap-md" data-latitude="51.513569" data-longitude="-0.123443"&gt;&lt;/div&gt;
+</code>
+</pre>
+					<p>Use <mark>data-langitude</mark> and <mark>data-longitude</mark>to set your location for map. <a href="https://www.findlatitudeandlongitude.com" target="_blank">Click here</a> to find your Latitude and Longitude.</p>
+					<p class="margin-top-20"><a href="http://mono.flatheme.net/elements/maps.html" target="_blank">Click here</a> to see the live examples of Google Maps.</p>
+				</div>
+			</section>
+
+			<section id="contactform">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Contact Form</h3>
+					</div>
+					<p>Basic Contact form:</p>
+<pre>
+<code>
+&lt;div class="contact-form"&gt;
+  &lt;form method="post" id="contactform"&gt;
+    &lt;input type="text" id="name" name="name" placeholder="Name" required&gt;
+    &lt;input type="email" id="email" name="email" placeholder="E-Mail" required&gt;
+    &lt;input type="text" id="subject" name="subject" placeholder="Subject" required&gt;
+    &lt;textarea name="message" id="message" placeholder="Message"&gt;&lt;/textarea&gt;
+    &lt;button class="button button-xl button-dark" type="submit"&gt;Send Message&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;div class="submit-result"&gt;
+    &lt;span id="success"&gt;Thank you! Your Message has been sent.&lt;/span&gt;
+    &lt;span id="error"&gt;Something went wrong, Please try again!&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+					<p>The template has ready to use AJAX/PHP contact form built in it. In order to recieve emails directly to your email address just simply replace <mark>your-email@example.com</mark> with your email address in <mark>assets/php/contact-form.php</mark> file.</p>
+				</div>
+			</section>
+
+			<section id="retina">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Retina</h3>
+					</div>
+					<p>retina.js checks each image on the page to see if there is a high-resolution version of that image on the server. If a high-resolution variant exists, the script will swap in that image in-place.</p>
+					<p>For example, if your picture is located at "/images/my-picture.jpg" and the markup for this image looks like this:</p>
+<pre>
+<code>
+&lt;img src="images/picture.jpg"&gt;
+</code>
+</pre>
+					<p>retina.js will automatically look for a corresponding image located at "/images/my-picture@2x.jpg". If it finds the @2x image on your server then it will load that onto your web page, effectively transforming your picture's markup to look like this:</p>
+<pre>
+<code>
+&lt;img src="images/picture@2x.jpg"&gt;
+</code>
+</pre>
+				</div>
+			</section>
+
+			<section id="scrollbutton">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Smooth Scroll buttons</h3>
+					</div>
+					<div class="margin-bottom-50">
+						<h5>Scrolldown</h5>
+						<p>You can use the buttons to scroll down to sections smoothly. Add <mark>scrolldown</mark> class to the button you want to use for smooth scrolling.</p>
+						<br>
+						<p>The below example will scroll down to section with #about id:</p>
+<pre>
+<code>
+&lt;div&gt;
+  &lt;a class="<span class="font-weight-bold">scrolldown</span>" href="<span class="font-weight-bold">#about</span>"&gt;Button&lt;/a&gt;
+&lt;/div&gt;
+..
+&lt;div id="about"&gt;
+	...
+&lt;/div&gt;
+</code>
+</pre>	
+					</div>
+					<div>
+						<h5>Scroll to Top</h5>
+						<p>Scroll to Top button would appear at bottom right of the screen when you scroll down the page. And circle button styles can be applied to this button. This button should be wrapped inside <mark>.scrolltotop</mark> element.</p>
+						<br>
+						<p>Basic Scroll to Top button:</p>
+<pre>
+<code>
+&lt;div class="<span class="font-weight-bold">scrolltotop</span>"&gt;
+  &lt;a class="button-circle button-circle-md button-circle-dark" href="#"&gt;
+    &lt;i class="fa fa-angle-up"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+</code>
+</pre>	
+					</div>
+				</div>
+			</section>
+
+			<section id="elements">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Elements</h3>
+					</div>
+					<p class="text-center">You can see the Live Example of all the <span class="font-weight-bold">Web Elements</span> from here - <a href="http://mono.flatheme.net/elements/elements-list.html" target="_blank">http://mono.flatheme.net/elements/elements-list.html</a></p>
+				</div>
+			</section>
+
+			<section id="helper">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Helper Classes</h3>
+					</div>
+					<div class="margin-bottom-40">
+						<h5>Margin</h5>
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<tr>
+									<th>HTML Class Names</th>
+									<th>Description</th>
+								</tr>
+								<tr>
+									<td>margin-0, no-margin</td>
+									<td>Equals to 'margin: 0;'</td>
+								</tr>
+								<tr>
+									<td>margin-top-10</td>
+									<td>Equals to 'margin-top: 10px;'</td>
+								</tr>
+								<tr>
+									<td>margin-top-20</td>
+									<td>Equals to 'margin-top: 20px;'</td>
+								</tr>
+								<tr>
+									<td>margin-top-30</td>
+									<td>Equals to 'margin-top: 30px;'</td>
+								</tr>
+								<tr>
+									<td>margin-top-40</td>
+									<td>Equals to 'margin-top: 40px;'</td>
+								</tr>
+								<tr>
+									<td>margin-top-50</td>
+									<td>Equals to 'margin-top: 50px;'</td>
+								</tr>
+								<tr>
+									<td>margin-top-60</td>
+									<td>Equals to 'margin-top: 60px;'</td>
+								</tr>
+								<tr>
+									<td>margin-top-70</td>
+									<td>Equals to 'margin-top: 70px;'</td>
+								</tr>
+								<tr>
+									<td>margin-right-10</td>
+									<td>Equals to 'margin-right: 10px;'</td>
+								</tr>
+								<tr>
+									<td>margin-right-20</td>
+									<td>Equals to 'margin-right: 20px;'</td>
+								</tr>
+								<tr>
+									<td>margin-right-30</td>
+									<td>Equals to 'margin-right: 30px;'</td>
+								</tr>
+								<tr>
+									<td>margin-left-10</td>
+									<td>Equals to 'margin-left: 10px;'</td>
+								</tr>
+								<tr>
+									<td>margin-left-20</td>
+									<td>Equals to 'margin-left: 20px;'</td>
+								</tr>
+								<tr>
+									<td>margin-left-30</td>
+									<td>Equals to 'margin-left: 30px;'</td>
+								</tr>
+								<tr>
+									<td>margin-bottom-10</td>
+									<td>Equals to 'margin-bottom: 10px;'</td>
+								</tr>
+								<tr>
+									<td>margin-bottom-20</td>
+									<td>Equals to 'margin-bottom: 20px;'</td>
+								</tr>
+								<tr>
+									<td>margin-bottom-30</td>
+									<td>Equals to 'margin-bottom: 30px;'</td>
+								</tr>
+								<tr>
+									<td>margin-bottom-40</td>
+									<td>Equals to 'margin-bottom: 40px;'</td>
+								</tr>
+								<tr>
+									<td>margin-bottom-50</td>
+									<td>Equals to 'margin-bottom: 50px;'</td>
+								</tr>
+								<tr>
+									<td>margin-bottom-60</td>
+									<td>Equals to 'margin-bottom: 60px;'</td>
+								</tr>
+								<tr>
+									<td>margin-bottom-70</td>
+									<td>Equals to 'margin-bottom: 70px;'</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="margin-bottom-40">
+						<h5>Padding</h5>
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<tr>
+									<th>HTML Class Names</th>
+									<th>Description</th>
+								</tr>
+								<tr>
+									<td>padding-0, no-padding</td>
+									<td>Equals to 'padding: 0;'</td>
+								</tr>
+								<tr>
+									<td>padding-10</td>
+									<td>Equals to 'padding: 10px;'</td>
+								</tr>
+								<tr>
+									<td>padding-20</td>
+									<td>Equals to 'padding: 20px;'</td>
+								</tr>
+								<tr>
+									<td>padding-30</td>
+									<td>Equals to 'padding: 30px;'</td>
+								</tr>
+								<tr>
+									<td>padding-40</td>
+									<td>Equals to 'padding: 40px;'</td>
+								</tr>
+								<tr>
+									<td>padding-50</td>
+									<td>Equals to 'padding: 50px;'</td>
+								</tr>
+								<tr>
+									<td>padding-60</td>
+									<td>Equals to 'padding: 60px;'</td>
+								</tr>
+								<tr>
+									<td>padding-70</td>
+									<td>Equals to 'padding: 70px;'</td>
+								</tr>
+								<tr>
+									<td>padding-top-0</td>
+									<td>Equals to 'padding-top: 0;'</td>
+								</tr>
+								<tr>
+									<td>padding-right-0</td>
+									<td>Equals to 'padding-right: 0;'</td>
+								</tr>
+								<tr>
+									<td>padding-bottom-0</td>
+									<td>Equals to 'padding-bottom: 0;'</td>
+								</tr>
+								<tr>
+									<td>padding-left-0</td>
+									<td>Equals to 'padding-left: 0;'</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="margin-bottom-40">
+						<h5>Border</h5>
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<tr>
+									<th>HTML Class Names</th>
+									<th>Description</th>
+								</tr>
+								<tr>
+									<td>border-0, no-border</td>
+									<td>Equals to 'border: 0;'</td>
+								</tr>
+								<tr>
+									<td>border-all</td>
+									<td>Equals to 'border: 1px solid;'</td>
+								</tr>
+								<tr>
+									<td>border-y</td>
+									<td>Equals to 'border-top: 1px solid; border-bottom: 1px solid;'</td>
+								</tr>
+								<tr>
+									<td>border-x</td>
+									<td>Equals to 'border-right: 1px solid; border-left: 1px solid;'</td>
+								</tr>
+								<tr>
+									<td>border-top</td>
+									<td>Equals to 'border-top: 1px solid;'</td>
+								</tr>
+								<tr>
+									<td>border-right</td>
+									<td>Equals to 'border-right: 1px solid;'</td>
+								</tr>
+								<tr>
+									<td>border-bottom</td>
+									<td>Equals to 'border-bottom: 1px solid;'</td>
+								</tr>
+								<tr>
+									<td>border-left</td>
+									<td>Equals to 'border-left: 1px solid;'</td>
+								</tr>
+								<tr>
+									<td>border-style-dotted</td>
+									<td>Equals to 'border-style: dotted;'</td>
+								</tr>
+								<tr>
+									<td>border-style-dashed</td>
+									<td>Equals to 'border-style: dashed;'</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="margin-bottom-40">
+						<h5>Text Alignment</h5>
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<tr>
+									<th>HTML Class Names</th>
+									<th>Description</th>
+								</tr>
+								<tr>
+									<td>text-left</td>
+									<td>Equals to 'text-align: left;'</td>
+								</tr>
+								<tr>
+									<td>text-center</td>
+									<td>Equals to 'text-align: center;'</td>
+								</tr>
+								<tr>
+									<td>text-right</td>
+									<td>Equals to 'text-align: right;'</td>
+								</tr>
+								<tr>
+									<td>text-justify</td>
+									<td>Equals to 'text-align: justify;'</td>
+								</tr>
+							</table>
+						</div>
+						<p><a href="https://getbootstrap.com/docs/4.1/utilities/text/#text-alignment" target="_blank">Click here</a> to get more information about bootstrap text alignment.</p>
+					</div>
+					<div class="margin-bottom-40">
+						<h5>Text Decoration</h5>
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<tr>
+									<th>HTML Class Names</th>
+									<th>Description</th>
+								</tr>
+								<tr>
+									<td>text-decoration-overline</td>
+									<td>Equals to 'text-decoration: overline;'</td>
+								</tr>
+								<tr>
+									<td>text-decoration-line-through</td>
+									<td>Equals to 'text-decoration: line-through;'</td>
+								</tr>
+								<tr>
+									<td>text-decoration-underline</td>
+									<td>Equals to 'text-decoration: underline;'</td>
+								</tr>
+								<tr>
+									<td>text-decoration-underline-overline</td>
+									<td>Equals to 'text-decoration: underline overline;'</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="margin-bottom-40">
+						<h5>Typography</h5>
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<tr>
+									<th>HTML Class Names</th>
+									<th>Description</th>
+								</tr>
+								<tr>
+									<td>font-family-primary</td>
+									<td>Equals to 'font-family: 'Heebo', sans-serif'</td>
+								</tr>
+								<tr>
+									<td>font-family-secondary</td>
+									<td>Equals to 'font-family: 'Playfair Display', serif'</td>
+								</tr>
+								<tr>
+									<td>font-small</td>
+									<td>Equals to 'font-size: 14px'</td>
+								</tr>
+								<tr>
+									<td>font-large</td>
+									<td>Equals to 'font-size: 20px'</td>
+								</tr>
+								<tr>
+									<td>letter-spacing-1px</td>
+									<td>Equals to 'letter-spacing: 1px'</td>
+								</tr>
+								<tr>
+									<td>letter-spacing-2px</td>
+									<td>Equals to 'letter-spacing: 2px'</td>
+								</tr>
+								<tr>
+									<td>letter-spacing-3px</td>
+									<td>Equals to 'letter-spacing: 3px'</td>
+								</tr>
+								<tr>
+									<td>letter-spacing-4px</td>
+									<td>Equals to 'letter-spacing: 4px'</td>
+								</tr>
+								<tr>
+									<td>letter-spacing-5px</td>
+									<td>Equals to 'letter-spacing: 5px'</td>
+								</tr>
+								<tr>
+									<td>line-height-100</td>
+									<td>Equals to 'line-height: 100%'</td>
+								</tr>
+								<tr>
+									<td>line-height-110</td>
+									<td>Equals to 'line-height: 110%'</td>
+								</tr>
+								<tr>
+									<td>line-height-120</td>
+									<td>Equals to 'line-height: 120%'</td>
+								</tr>
+								<tr>
+									<td>line-height-130</td>
+									<td>Equals to 'line-height: 130%'</td>
+								</tr>
+								<tr>
+									<td>line-height-140</td>
+									<td>Equals to 'line-height: 140%'</td>
+								</tr>
+								<tr>
+									<td>line-height-150</td>
+									<td>Equals to 'line-height: 150%'</td>
+								</tr>
+								<tr>
+									<td>line-height-160</td>
+									<td>Equals to 'line-height: 160%'</td>
+								</tr>
+								<tr>
+									<td>line-height-170</td>
+									<td>Equals to 'line-height: 170%'</td>
+								</tr>
+								<tr>
+									<td>line-height-180</td>
+									<td>Equals to 'line-height: 180%'</td>
+								</tr>
+								<tr>
+									<td>line-height-190</td>
+									<td>Equals to 'line-height: 190%'</td>
+								</tr>
+								<tr>
+									<td>line-height-200</td>
+									<td>Equals to 'line-height: 200%'</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div>
+						<h5>Sizing</h5>
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<tr>
+									<th>HTML Class Names</th>
+									<th>Description</th>
+								</tr>
+								<tr>
+									<td>w-25</td>
+									<td>Equals to 'width: 25%'</td>
+								</tr>
+								<tr>
+									<td>w-50</td>
+									<td>Equals to 'width: 50%'</td>
+								</tr>
+								<tr>
+									<td>w-75</td>
+									<td>Equals to 'width: 75%'</td>
+								</tr>
+								<tr>
+									<td>w-100</td>
+									<td>Equals to 'width: 100%'</td>
+								</tr>
+								<tr>
+									<td>h-25</td>
+									<td>Equals to 'height: 25%'</td>
+								</tr>
+								<tr>
+									<td>h-50</td>
+									<td>Equals to 'height: 50%'</td>
+								</tr>
+								<tr>
+									<td>h-75</td>
+									<td>Equals to 'height: 75%'</td>
+								</tr>
+								<tr>
+									<td>h-100</td>
+									<td>Equals to 'height: 100%'</td>
+								</tr>
+							</table>
+						</div>
+						<p><a href="https://getbootstrap.com/docs/4.1/utilities/sizing/" target="_blank">Click here</a> to get more information about bootstrap sizing.</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="credits">
+				<div class="box">
+					<div class="section-title text-center">
+						<h3>Credits</h3>
+					</div>
+					<p class="text-center margin-bottom-20">Huge thanks to all this great plugins and resources that helped to make the template great and powerful.</p>
+					<div class="table-responsive">
+						<table class="table table-bordered no-margin">
+							<tr>
+								<th>Term</th>
+								<th>Link</th>
+							</tr>
+							<tr>
+								<td>Appear Plugin</td>
+								<td><a href="https://github.com/morr/jquery.appear" target="_blank">https://github.com/morr/jquery.appear</a></td>
+							</tr>
+							<tr>
+								<td>Easing Plugin</td>
+								<td><a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">http://gsgd.co.uk/sandbox/jquery/easing</a></td>
+							</tr>
+							<tr>
+								<td>Bootstrap</td>
+								<td><a href="http://getbootstrap.com" target="_blank">http://getbootstrap.com</a></td>
+							</tr>
+							<tr>
+								<td>FontAwesome</td>
+								<td><a href="http://fontawesome.io" target="_blank">http://fontawesome.io</a></td>
+							</tr>
+							<tr>
+								<td>ImagesLoaded</td>
+								<td><a href="https://imagesloaded.desandro.com" target="_blank">https://imagesloaded.desandro.com</a></td>
+							</tr>
+							<tr>
+								<td>Isotope</td>
+								<td><a href="https://isotope.metafizzy.co" target="_blank">https://isotope.metafizzy.co</a></td>
+							</tr>
+							<tr>
+								<td>GMaps</td>
+								<td><a href="https://hpneo.github.io/gmaps" target="_blank">https://hpneo.github.io/gmaps</a></td>
+							</tr>
+							<tr>
+								<td>Jarallax</td>
+								<td><a href="https://github.com/nk-o/jarallax" target="_blank">https://github.com/nk-o/jarallax</a></td>
+							</tr>
+							<tr>
+								<td>Magnific Popup</td>
+								<td><a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank">http://dimsemenov.com/plugins/magnific-popup</a></td>
+							</tr>
+							<tr>
+								<td>Owl Carousel</td>
+								<td><a href="https://owlcarousel2.github.io/OwlCarousel2/" target="_blank">https://owlcarousel2.github.io/OwlCarousel2</a></td>
+							</tr>
+							<tr>
+								<td>The Final Countdown</td>
+								<td><a href="http://hilios.github.io/jQuery.countdown/" target="_blank">http://hilios.github.io/jQuery.countdown</a></td>
+							</tr>
+							<tr>
+								<td>Easy Pie Chart</td>
+								<td><a href="https://github.com/rendro/easy-pie-chart" target="_blank">https://github.com/rendro/easy-pie-chart</a></td>
+							</tr>
+							<tr>
+								<td>Themify Icons</td>
+								<td><a href="https://themify.me/themify-icons" target="_blank">https://themify.me/themify-icons</a></td>
+							</tr>
+							<tr>
+								<td>Retina</td>
+								<td><a href="http://imulus.github.io/retinajs/" target="_blank">http://imulus.github.io/retinajs</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- ***** JAVASCRIPTS ***** -->
+		<!-- Libraries -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/bootstrap/popper.min.js"></script>
+		<!-- Plugins -->
+		<script src="assets/bootstrap/bootstrap.min.js"></script>
+		<script src="assets/js/easing.min.js"></script>
+		<script src="assets/js/retina.min.js"></script>
+		<!-- Scripts -->
+		<script src="assets/js/functions.js"></script>
+	</body>
+</html>

@@ -1,0 +1,2934 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+        <meta name="keywords" content="">
+		<title>Mono - ChangeLog</title>
+		<!-- Favicon -->
+        <link rel="shortcut icon" href="../assets/images/favicon.png">
+		<!-- CSS -->
+		<link href="assets/css/normalize.css" rel="stylesheet">
+		<link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/styles.css" rel="stylesheet">
+		<!-- Fonts/Icons -->
+		<link href="assets/css/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+	</head>
+	<body>
+
+		<div class="sidebar">
+			<div class="sidebar-logo">
+				<img src="assets/images/logo-white.png" width="30%" alt="">
+			</div>
+			<div class="nav-wrapper">
+				<ul class="nav">
+					<li class="nav-item"><a class="nav-link" href="#4-8-9-3">v4.8.9.3<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8-9-2">v4.8.9.2<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8-9-1">v4.8.9.1<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8-9">v4.8.9<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8-8">v4.8.8<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8-7">v4.8.7<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8-6">v4.8.6<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8-5">v4.8.5<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8-4">v4.8.4<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8-3">v4.8.3<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8-2">v4.8.2<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8-1">v4.8.1<a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-8">v4.8</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7-9-1">v4.7.9.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7-9">v4.7.9</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7-8">v4.7.8</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7-7">v4.7.7</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7-6-1">v4.7.6.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7-6">v4.7.6</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7-5">v4.7.5</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7-4">v4.7.4</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7-3">v4.7.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7-2">v4.7.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7-1">v4.7.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-7">v4.7</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-6-9-1">v4.6.9.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-6-9">v4.6.9</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-6-8">v4.6.8</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-6-7">v4.6.7</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-6-6">v4.6.6</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-6-5">v4.6.5</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-6-4">v4.6.4</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-6-3">v4.6.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-6-2">v4.6.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-6-1">v4.6.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-6">v4.6</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-5-4">v4.5.4</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-5-3-1">v4.5.3.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-5-3">v4.5.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-5-2">v4.5.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-5-1">v4.5.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-5">v4.5</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4-9-1">v4.4.9.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4-9">v4.4.9</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4-8">v4.4.8</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4-7">v4.4.7</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4-6">v4.4.6</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4-5">v4.4.5</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4-4">v4.4.4</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4-3-1">v4.4.3.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4-3">v4.4.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4-2">v4.4.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4-1">v4.4.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-4">v4.4</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-3-6">v4.3.6</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-3-5">v4.3.5</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-3-4">v4.3.4</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-3-3">v4.3.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-3-2">v4.3.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-3-1">v4.3.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-3">v4.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-2-9">v4.2.9</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-2-8">v4.2.8</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-2-7">v4.2.7</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-2-6">v4.2.6</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-2-5">v4.2.5</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-2-4">v4.2.4</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-2-3">v4.2.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-2-2">v4.2.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-2-1">v4.2.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-2">v4.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-1-9">v4.1.9</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-1-8">v4.1.8</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-1-7">v4.1.7</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-1-6">v4.1.6</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-1-5">v4.1.5</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-1-4">v4.1.4</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-1-3">v4.1.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-1-2">v4.1.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-1-1">v4.1.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-1">v4.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-0-4">v4.0.4</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-0-3">v4.0.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-0-2">v4.0.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-0-1">v4.0.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4-0">v4.0</a></li>
+					<li class="nav-item"><a class="nav-link" href="#3-3-4">v3.3.4</a></li>
+					<li class="nav-item"><a class="nav-link" href="#3-3-3">v3.3.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#3-3-2">v3.3.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#3-3-1">v3.3.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#3-3">v3.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#3-2">v3.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#3-1">v3.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#3-0-1">v3.0.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#3-0">v3.0</a></li>
+					<li class="nav-item"><a class="nav-link" href="#2-2">v2.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#2-1">v2.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#2-0">v2.0</a></li>
+					<li class="nav-item"><a class="nav-link" href="#1-3-1">v1.3.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#1-3">v1.3</a></li>
+					<li class="nav-item"><a class="nav-link" href="#1-2">v1.2</a></li>
+					<li class="nav-item"><a class="nav-link" href="#1-1">v1.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#1-0-1">v1.0.1</a></li>
+					<li class="nav-item"><a class="nav-link" href="#1-0">v1.0</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="content">
+			<section id="4-8-9-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.9.3 - June 6, 2019</h4>
+						<ul>
+							<li>Fixed: Hoverbox issue on TouchScreen devices</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_hoverbox.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8-9-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.9.2 - June 3, 2019</h4>
+						<ul>
+							<li>Added: Dropdown Icon Arrow option for 'Header Nav'</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8-9-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.9.1 - May 27, 2019</h4>
+						<ul>
+							<li>Added: New Element - Masonry</li>
+							<li>Improved: Portfolio CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_app.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_masonry.scss</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8-9">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.9 - May 19, 2019</h4>
+						<ul>
+							<li>Added: 1 New Layout for 'Toggle Menu'</li>
+							<li>Improved: Slider Nav CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_shop.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_slider.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Features/<span class="font-weight-bold">header-toggle-menu-5.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8-8">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.8 - May 14, 2019</h4>
+						<ul>
+							<li>Added: 1 New Layout option for 'Header Navbar'</li>
+							<li>Improved: Header Navbar CSS</li>
+							<li>Improved: Toggle Menu CSS</li>
+							<li>Improved: Fullscreen Search Bar CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_search.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_togglemenu.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Features/<span class="font-weight-bold">header-nav-icon-right.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8-7">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.7 - May 12, 2019</h4>
+						<ul>
+							<li>Updated: Font Awesome v5.8.2</li>
+							<li>Edited: Header Navbar CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8-6">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.6 - May 9, 2019</h4>
+						<ul>
+							<li>Improved: Typography CSS</li>
+							<li>Improved: Gallery Lightbox on Mobile</li>
+							<li>Fixed: Fullscreen Slider height issue on Window Resize</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_lightbox.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_slider.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_typography.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8-5">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.5 - May 3, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Event 2</li>
+							<li>Improved: Demo - Event 1</li>
+							<li>Improved: Demo - Portfolio Parallax</li>
+							<li>Improved: Toggle Menu CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Event 1.html</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_togglemenu.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Event 2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8-4">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.4 - April 30, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Careers 3</li>
+							<li>Added: New Horizontal List - Vertical Bar</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_list.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Pages/Careers/<span class="font-weight-bold">Careers-3.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.3 - April 23, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Co-Working 2</li>
+							<li>Improved: Minor CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_prices.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_section.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_variables.css</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Co-Working 2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.2 - April 21, 2019</h4>
+						<ul>
+							<li>Added: 2 New Style options for 'Accordion'</li>
+							<li>Improved: Accordion CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_accordion.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8.1 - April 17, 2019</h4>
+						<ul>
+							<li>Added: New Shortcode - 'hover-shadow'</li>
+							<li>Improved: Blockquote</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_blockquote.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_box.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-8">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.8 - April 13, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Agency Minimal 2</li>
+							<li>Added: New Demo - FAQ 3</li>
+							<li>Added: New Demo - Process 2</li>
+							<li>Improved: Google Maps</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li><span class="font-weight-bold">demos with Google Maps</span></li>
+							<li>assets/js/<span class="font-weight-bold">functions.js</span><span class="font-italic">(line: 821)</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_footer.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_map.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Agency Minimal 2.html</span></li>
+							<li>Pages/FAQ/<span class="font-weight-bold">FAQ-3.html</span></li>
+							<li>Pages/Process/<span class="font-weight-bold">Process-2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7-9-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7.9.1 - April 11, 2019</h4>
+						<ul>
+							<li>Added: 3 New Style options for 'Accordion'</li>
+							<li>Improved: Accordion</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/js/<span class="font-weight-bold">functions.js</span><span class="font-italic">(line: 673)</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_accordion.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7-9">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7.9 - April 9, 2019</h4>
+						<ul>
+							<li>Added: New Element - Pie Charts</li>
+							<li>Improved: Counter</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li><span class="font-weight-bold">All HTML files</span></li>
+							<li>assets/js/<span class="font-weight-bold">functions.js</span><span class="font-italic">(line: 708)</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">app.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/<span class="font-weight-bold">jquery.easypiechart.min.js</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_pie-chart.scss</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7-8">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7.8 - April 7, 2019</h4>
+						<ul>
+							<li>Improved: Overall CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_prices.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_search.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_section.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_form.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7-7">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7.7 - April 5, 2019</h4>
+						<ul>
+							<li>Added: 4 New Style options for 'Ordered List'</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_list.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7-6-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7.6.1 - April 3, 2019</h4>
+						<ul>
+							<li>Fixed: Issue with using List Elements inside 'Accordion'</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_accordion.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7-6">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7.6 - April 1, 2019</h4>
+						<ul>
+							<li>Improved: Badges</li>
+							<li>Improved: Select Menu</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_badges.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_form.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7-5">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7.5 - March 22, 2019</h4>
+						<ul>
+							<li>Added: New Demo - One Page Personal</li>
+							<li>Added: 2 New Size Options for 'Circle Image'</li>
+							<li>Updated: Font Awesome v5.8.1</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_image.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">One Page Personal.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7-4">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7.4 - February 25, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Coming Soon 5</li>
+							<li>Added: New Demo - Careers 2</li>
+							<li>Added: New Demo - 404 Simple</li>
+							<li>Improved: CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_blog.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_clients.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_section.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_togglemenu.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_variables.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Coming Soon 5.html</span></li>
+							<li>Pages/Careers/<span class="font-weight-bold">Careers-2.html</span></li>
+							<li>Pages/404/<span class="font-weight-bold">404 Simple.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7.3 - February 21, 2019</h4>
+						<ul>
+							<li>Added: 1 New Layout for 'Toggle Menu'</li>
+							<li>Improved: Toggle Menu</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_togglemenu.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+							<li>Features/<span class="font-weight-bold">header-toggle-menu-1.html</span></li>
+							<li>Features/<span class="font-weight-bold">header-toggle-menu-2.html</span></li>
+							<li>Features/<span class="font-weight-bold">header-toggle-menu-3.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Portfolio Simple 1.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Portfolio Minimal 1.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Portfolio Minimal 2.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Portfolio Parallax.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Portfolio Personal 2.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Portfolio Carousel.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Photographer Minimal.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Photographer Creative.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Product Landing.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Resume 1.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Resume 2.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Resume 3.html</span></li>
+							<li>Pages/Prices/<span class="font-weight-bold">Prices Minimal.html</span></li>
+							<li>Pages/Contact/<span class="font-weight-bold">Contact Simple.html</span></li>
+							<li>Pages/Contact/<span class="font-weight-bold">Contact Minimal.html</span></li>
+							<li>Portfolio/Parallax/<span class="font-weight-bold">Portfolio Parallax.html</span></li>
+							<li>Portfolio/<span class="font-weight-bold">Portfolio Fullwidth.html</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Features/<span class="font-weight-bold">header-toggle-menu-4.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7.2 - February 18, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Portfolio Simple 2</li>
+							<li>Added: New Helper Classes - 'padding-right-0, padding-left-0'</li>
+							<li>Edited: Header CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Portfolio Simple 2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7.1 - February 15, 2019</h4>
+						<ul>
+							<li>Updated: Bootstrap v4.3.1</li>
+							<li>Updated: Font Awesome v5.7.2</li>
+							<li>Fixed: Blog Masonry breaking issue</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/bootstrap/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+							<li>js/<span class="font-weight-bold">functions.js</span><span class="font-italic">(line: 536)</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-7">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.7 - February 10, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Blog Clean 2</li>
+							<li>Added: New Demo - Travel 2</li>
+							<li>Added: New Demo - Blog Single 2</li>
+							<li>Added: 1 New option for 'Button Font'</li>
+							<li>Edited: Blog CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_blog.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Blog Clean 2.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Travel 2.html</span></li>
+							<li>Blog/Single Post 2/<span class="font-weight-bold">Single Post 2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-6-9-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.6.9.1 - February 8, 2019</h4>
+						<ul>
+							<li>Improved: CSS Animation of Header Navbar</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-6-9">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.6.9 - February 4, 2019</h4>
+						<ul>
+							<li>Added: 'col-spacing-0' Option for 'Bootstrap Row Columns'</li>
+							<li>Updated: Font Awesome v5.7.1</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_base.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-6-8">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.6.8 - January 31, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Blog Clean</li>
+							<li>Added: 1 New Footer layout</li>
+							<li>Improved: Blog demos</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>Blog/Article/<span class="font-weight-bold">all files</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Blog Clean.html</span></li>
+							<li>Features/<span class="font-weight-bold">footer-clean-4.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-6-7">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.6.7 - January 29, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Agency Creative 3</li>
+							<li>Added: 1 New Button Style</li>
+							<li>Updated: Blog CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_blog.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Agency Creative 3.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-6-6">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.6.6 - January 22, 2019</h4>
+						<ul>
+							<li>Updated: Jarallax v1.10.7</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/jarallax/<span class="font-weight-bold">all files</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-6-5">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.6.5 - January 20, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Agency Creative 2</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Agency Creative 2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-6-4">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.6.4 - January 17, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Resume 3</li>
+							<li>Added: New Demo - Portfolio Single 4</li>
+							<li>Added: 2 New Option for 'Hover box'</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_hoverbox.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Resume 3.html</span></li>
+							<li>Portfolio/Single 4/<span class="font-weight-bold">all files</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-6-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.6.3 - January 15, 2019</h4>
+						<ul>
+							<li>Added: 1 New Footer Layout</li>
+							<li>Improved: Breadcrumb CSS</li>
+							<li>Improved: Preloaders</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_preloaders.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_breadcrumb.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Features/<span class="font-weight-bold">footer-classic-4.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-6-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.6.2 - January 9, 2019</h4>
+						<ul>
+							<li>Improved: CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_blog.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_hoverbox.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_shop.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-6-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.6.1 - January 7, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Portfolio Personal 2</li>
+							<li>Added: New Demo - Contact Simple 2</li>
+							<li>Added: 1 New Option for 'Hover box'</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_hoverbox.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Portfolio Personal 2.html</span></li>
+							<li>Pages/Contact/<span class="font-weight-bold">Contact Simple 2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-6">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.6 - January 5, 2019</h4>
+						<ul>
+							<li>Added: New Demo - Agency Clean 2</li>
+							<li>Added: New Demo - Corporate Clean 2</li>
+							<li>Added: 1 New Footer layout</li>
+							<li>Added: '60px, 70px width' option for Divider</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_divider.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Agency Clean 2.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Corporate Clean 2.html</span></li>
+							<li>Features/<span class="font-weight-bold">footer-classic-3.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-5-4">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.5.4 - January 3, 2019</h4>
+						<ul>
+							<li>Updated: Bootstrap v4.2.1</li>
+							<li>Improved: "About" Page demos</li>
+							<li>Improved: "Services" Page demos</li>
+							<li>Improved: "Prices" Page demos</li>
+							<li>Improved: "Contact" Page demos</li>
+							<li>Improved: "Clients" Page demos</li>
+							<li>Improved: "FAQ" Page demos</li>
+							<li>Improved: "Process" Page demo</li>
+							<li>Improved: "Careers" Page demo</li>
+							<li>Improved: "Account" Page demos</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/bootstrap/<span class="font-weight-bold">all files</span></li>
+							<li>Pages/<span class="font-weight-bold">all files</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-5-3-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.5.3.1 - Decemeber 22, 2018</h4>
+						<ul>
+							<li>Updated: Font Awesome v5.6.3</li>
+							<li>Updated: Masonry v4.2.2</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/<span class="font-weight-bold">masonry.pkgd.min.js</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-5-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.5.3 - Decemeber 20, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Clients 3</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Pages/Clients/<span class="font-weight-bold">Clients 3.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-5-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.5.2 - Decemeber 5, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Clients 2</li>
+							<li>Added: 1 New Option for 'Hover box'</li>
+							<li>Improved: Navbar shadow</li>
+							<li>Improved: Dropdown shadow</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_hoverbox.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_dropdown.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Pages/Clients/<span class="font-weight-bold">Clients 2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-5-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.5.1 - November 27, 2018</h4>
+						<ul>
+							<li>Added: New Demo - About Us 5</li>
+							<li>Improved: Overall CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">all files</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">all files</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_base.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Pages/About/<span class="font-weight-bold">About us 5.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-5">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.5 - November 13, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Photographer Simple</li>
+							<li>Added: New Demo - Portfolio Single 3</li>
+							<li>Updated: Font Awesome v5.5.0</li>
+							<li>Improved: Home Page Demos</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Photographer Simple.html</span></li>
+							<li>Portfolio/<span class="font-weight-bold">Single 3</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4-9-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4.9.1 - November 7, 2018</h4>
+						<ul>
+							<li>Improved: Breadcrumb CSS</li>
+							<li>Fixed: Slider Nav color issue on Dark background</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_breadcrumb.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_slider.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4-9">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4.9 - November 5, 2018</h4>
+						<ul>
+							<li>Improved: Box CSS</li>
+							<li>Improved: Button CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_box.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4-8">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4.8 - November 1, 2018</h4>
+						<ul>
+							<li>Added: Gradient Grey Background</li>
+							<li>Added: Gradient Buttons</li>
+							<li>Added: 1 New Layout option for 'Owl Navigation'</li>
+							<li>Improved: Slider CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_prices.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_slider.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_form.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4-7">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4.7 - October 23, 2018</h4>
+						<ul>
+							<li>Added: New Demo - One Page Creative</li>
+							<li>Added: New Demo - Clients Page</li>
+							<li>Updated: Font Awesome v5.4.1</li>
+							<li>Improved: Slider CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_slider.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">One Page Creative.html</span></li>
+							<li>Pages/Clients/<span class="font-weight-bold">Clients.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4-6">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4.6 - October 17, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Services Simple 2</li>
+							<li>Added: 1 New Footer layout</li>
+							<li>Fixed: Blog Small Thumb breaking issue</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_blog.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Pages/Services/<span class="font-weight-bold">Services Simple 2.html</span></li>
+							<li>Features/<span class="font-weight-bold">footer-clean-4.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4-5">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4.5 - October 11, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Interior</li>
+							<li>Added: 1 New Layout for 'Testimonial'</li>
+							<li>Improved: CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_image.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_app.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Interior.html</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Removed files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_iconbox.scss</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4-4">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4.4 - October 5, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Startup</li>
+							<li>Improved: Utilities CSS</li>
+							<li>Improved: Slider CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_slider.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Startup.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4-3-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4.3.1 - October 3, 2018</h4>
+						<ul>
+							<li>Fixed: Issue with Lightbox Video</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/js/<span class="font-weight-bold">functions.js</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4.3 - September 28, 2018</h4>
+						<ul>
+							<li>Added: Shortcode for 'Circle box'</li>
+							<li>Improved: Blog CSS</li>
+							<li>Removed: page-title CSS</li>
+							<li>Removed: InfiniteScroll js plugin</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/js/<span class="font-weight-bold">functions.js</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_blog.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_box.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_app.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Removed files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/<span class="font-weight-bold">infinite-scroll.pkgd.min.js</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_page-title.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4.2 - September 26, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Architecture</li>
+							<li>Added: 1 New Footer Layout</li>
+							<li>Improved: Slider CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_slider.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Architecture.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4.1 - September 21, 2018</h4>
+						<ul>
+							<li>Added: 1 New Footer layout</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>features/<span class="font-weight-bold">footer-clean-3.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-4">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.4 - September 20, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Photographer Minimal</li>
+							<li>Added: New Demo - About us 4</li>
+							<li>Added: New Demo - Portfolio Single 2</li>
+							<li>Added: 1 New option for 'Hyperlink'</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio-carousel.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_togglemenu.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_hyperlink.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_base.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Photographer Minimal.html</span></li>
+							<li>Pages/About/<span class="font-weight-bold">About us 4.html</span></li>
+							<li>Portfolio/<span class="font-weight-bold">Single 2</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-3-6">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.3.6 - September 13, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Portfolio Minimal 2</li>
+							<li>Added: New Demo - Portfolio Fullwidth Page</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Portfolio Minimal 2.html</span></li>
+							<li>Portfolio/<span class="font-weight-bold">Portfolio-Fullwidth.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-3-5">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.3.5 - September 8, 2018</h4>
+						<ul>
+							<li>Added: New Demo - About Us 3</li>
+							<li>Added: New Demo - Services Clean 2</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Pages/About/<span class="font-weight-bold">About us 3.html</span></li>
+							<li>Pages/Services/<span class="font-weight-bold">Services Clean 2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-3-4">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.3.4 - September 5, 2018</h4>
+						<ul>
+							<li>Added: 1 New Hover style option for 'Shop Product'</li>
+							<li>Updated: Font Awesome v5.3.1</li>
+							<li>Improved: Header CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_shop.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-3-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.3.3 - August 31, 2018</h4>
+						<ul>
+							<li>Added: Infinite Scroll for Portfolio</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/js/<span class="font-weight-bold">functions.js</span><span class="font-italic">(line: 444)</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/<span class="font-weight-bold">infinite-scroll.pkgd.min.js</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-3-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.3.2 - August 30, 2018</h4>
+						<ul>
+							<li>Added: 1 New Hover style for Portfolio</li>
+							<li>Added: 3 New Style option for Search</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_search.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>assets/images/<span class="font-weight-bold">cursor-black.png</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-3-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.3.1 - August 26, 2018</h4>
+						<ul>
+							<li>Fixed: Issue with closing Toggle Menu on IOS Safari</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_togglemenu.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.3 - August 19, 2018</h4>
+						<ul>
+							<li>Added: New Demo - 404 Creative</li>
+							<li>Added: Left, Right layout option for 'Timeline'</li>
+							<li>Added: 2 more size options for 'Circle Image'</li>
+							<li>Improved: Timeline CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_timeline.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_image.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Pages/404/<span class="font-weight-bold">404 Creative.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-2-9">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.2.9 - August 16, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Coming Soon 4</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home/<span class="font-weight-bold">Coming Soon 4.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-2-8">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.2.8 - August 15, 2018</h4>
+						<ul>
+							<li>Improved: Hover style of 'Single Lightbox Image'</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_lightbox.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-2-7">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.2.7 - July 31, 2018</h4>
+						<ul>
+							<li>Updated: Bootstrap v4.1.3</li>
+							<li>Updated: Font Awesome v5.2.0</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/bootstrap/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-2-6">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.2.6 - July 23, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Resume 2</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-2-5">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.2.5 - July 18, 2018</h4>
+						<ul>
+							<li>Added: Portfolio Single with Sidebar</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_gallery.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_base.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-2-4">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.2.4 - July 15, 2018</h4>
+						<ul>
+							<li>Updated: Bootstrap v4.1.2</li>
+							<li>Updated: Font Awesome v5.1.0</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li><span class="font-weight-bold">All HTML files (line: 18)</span> - 
+								<ul class="list-unstyled">
+									<li class="margin-top-10">'&lt;link href="../assets/plugins/font-awesome/css/fontawesome-all.min.css" rel="stylesheet"&gt;</li>
+									<li><span class="font-italic">changed into</span></li>
+									<li>'&lt;link href="../assets/plugins/font-awesome/css/all.css" rel="stylesheet"&gt;'</li>
+								</ul>
+							</li>
+							<li>assets/plugins/bootstrap/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-2-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.2.3 - July 7, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Product Landing</li>
+							<li>Improved: Button CSS</li>
+							<li>Improved: Section CSS</li>
+							<li>Fixed: Minor Bug Fixes</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/js/<span class="font-weight-bold">functions.js</span><span class="font-italic">(line: 562)</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_section.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-2-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.2.2 - July 1, 2018</h4>
+						<ul>
+							<li>Added: Circle Button Hover - Slide</li>
+							<li>Added: 1 New Hover style option for 'Gallery'</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_gallery.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio-carousel.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_slider.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_videobox.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-2-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.2.1 - June 29, 2018</h4>
+						<ul>
+							<li>Added: Position options for 'Owl Nav, Dots'</li>
+							<li>Improved: Slider CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_shop.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_slider.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.2 - June 21, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Business Creative</li>
+							<li>Added: New Element - Hover box</li>
+							<li>Added: Inline Menu layout option for 'Toggle Menu'</li>
+							<li>Improved: Overall CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_gallery.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_togglemenu.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_box.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_dropdown.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_progress.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_app.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_base.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_hoverbox.scss</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-1-9">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.1.9 - June 15, 2018</h4>
+						<ul>
+							<li>Added: Blog Single Posts with Sidebar</li>
+							<li>Fixed: Minor Bug Fixes</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Blog/Single Post/<span class="font-weight-bold">Sidebar-Right Image Post.html</span></li>
+							<li>Blog/Single Post/<span class="font-weight-bold">Sidebar-Right Carousel Post.html</span></li>
+							<li>Blog/Single Post/<span class="font-weight-bold">Sidebar-Right Gallery Post.html</span></li>
+							<li>Blog/Single Post/<span class="font-weight-bold">Sidebar-Right Video Post.html</span></li>
+							<li>Blog/Single Post/<span class="font-weight-bold">Sidebar-Right Audio Post.html</span></li>
+							<li>Blog/Single Post/<span class="font-weight-bold">Sidebar-Left Image Post.html</span></li>
+							<li>Blog/Single Post/<span class="font-weight-bold">Sidebar-Left Carousel Post.html</span></li>
+							<li>Blog/Single Post/<span class="font-weight-bold">Sidebar-Left Gallery Post.html</span></li>
+							<li>Blog/Single Post/<span class="font-weight-bold">Sidebar-Left Video Post.html</span></li>
+							<li>Blog/Single Post/<span class="font-weight-bold">Sidebar-Left Audio Post.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-1-8">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.1.8 - June 14, 2018</h4>
+						<ul>
+							<li>Added: 4 New Form style Options</li>
+							<li>Improved: Some of the Animations</li>
+							<li>Improved: Fullscreen Search Form CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/js/<span class="font-weight-bold">functions.js</span><span class="font-italic">(line: 415, 440)</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_search.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_form.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_hyperlink.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_app.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Removed files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_subscribe.scss</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-1-7">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.1.7 - June 12, 2018</h4>
+						<ul>
+							<li>Added: 1 New Font Style option for 'Breadcrumb'</li>
+							<li>Added: 1 New Font Style option for 'Header Nav'</li>
+							<li>Added: 1 New Font Style option for 'Portfolio Filter'</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_blog.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_breadcrumb.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-1-6">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.1.6 - June 10, 2018</h4>
+						<ul>
+							<li>Added: New Element - Hyperlink</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio-carousel.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_shop.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_team.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_app.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_hyperlink.scss</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-1-5">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.1.5 - June 8, 2018</h4>
+						<ul>
+							<li>Added: 1 New Font Style option for 'Header Nav'</li>
+							<li>Improved: Breadcrumb CSS</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_breadcrumb.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Features/<span class="font-weight-bold">header-nav-font-2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-1-4">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.1.4 - June 5, 2018</h4>
+						<ul>
+							<li>Added: 1 New Style for 'Accordion'</li>
+							<li>Added: 2 New Background Colors</li>
+							<li>Added: Border Style option for 'Clients Grid'</li>
+							<li>Added: Border Style option for 'Testimonial Grid'</li>
+							<li>Added: Shortcode for 'hover float & scale'</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_blog.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_clients.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_prices.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_shop.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_sidebar-nav.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_slider.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_testimonial.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_accordion.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_blockquote.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_box.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_breadcrumb.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_divider.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_pagination.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_progress.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_base.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_variables.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-1-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.1.3 - June 3, 2018</h4>
+						<ul>
+							<li>Added: New Shortcode - 'text-decoration'</li>
+							<li>Removed: MultiScroll js</li>
+							<li>Removed: Demo - Portfolio Split</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_app.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Removed files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/<span class="font-weight-bold">multiscroll</span></li>
+							<li>assets/js/<span class="font-weight-bold">multiscroll.js</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_multiscroll.scss</span></li>
+							<li>Home/<span class="font-weight-bold">Portfolio Split.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-1-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.1.2 - June 1, 2018</h4>
+						<ul>
+							<li>Added: New Layout & Hover style for 'Pagination'</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_page-title.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_pagination.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-1-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.1.1 - May 31, 2018</h4>
+						<ul>
+							<li>Improved: Header CSS Animations</li>
+							<li>Fixed: Minor Bug Fixes</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_prices.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.1 - May 30, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Agency Clean</li>
+							<li>Added: 1 New Footer Layout</li>
+							<li>Added: 3 New Blockquote styles</li>
+							<li>Added: Borderless Option for 'Testimonial Grid'</li>
+							<li>Improved: CSS Improvements</li>
+							<li>Fixed: Minor Bug Fixes</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_testimonial.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_blockquote.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_list.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home/<span class="font-weight-bold">Agency Clean.html</span></li>
+							<li>Features/<span class="font-weight-bold">footer-simple-3.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-0-4">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.0.4 - May 27, 2018</h4>
+						<ul>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_blog.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_shop.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_background-image.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-0-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.0.3 - May 24, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Business Clean 2</li>
+							<li>Added: 1 New Hover style for 'Team'</li>
+							<li>Added: 4 New Button styles</li>
+							<li>Added: New Shortcode for 'border-style-dotted, border-style-dashed'</li>
+							<li>Added: Slash List</li>
+							<li>Improved: CSS Improvements</li>
+							<li>Fixed: Minor Bug Fixes</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_prices.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_team.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_list.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_typography.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Business Clean 2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-0-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.0.2 - May 22, 2018</h4>
+						<ul>
+							<li>Improved: Portfolio Hover Style 2</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-0-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.0.1 - May 21, 2018</h4>
+						<ul>
+							<li>Added: 2 New Footer Layouts</li>
+							<li>Added: Long Dash List</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_list.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Features/<span class="font-weight-bold">footer-classic-2.html</span></li>
+							<li>Features/<span class="font-weight-bold">footer-clean-2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="4-0">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v4.0 - May 17, 2018</h4>
+						<ul>
+							<li>Added: New Demo - One Page Minimal</li>
+							<li>Added: Small thumbnail Blog Post Layout</li>
+							<li>Added: Testimonial Grid Layout</li>
+							<li>Added: 1 New Footer Layout</li>
+							<li>Added: 1 New Hover style for Portfolio</li>
+							<li>Added: Horizontal Dash List</li>
+							<li>Updated: Font-Awesome v5.0.13</li>
+							<li>Updated: ImagesLoaded v4.1.4</li>
+							<li>Updated: MultiScroll v0.2.1</li>
+							<li>Updated: Owl Carousel v2.3.4</li>
+							<li>Updated: Retina v2.1</li>
+							<li>Improved: CSS Improvements</li>
+							<li>Improved: Documentation</li>
+							<li>Fixed: Bug Fixes</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/<span class="font-weight-bold">imagesloaded.pkgd.min.js</span></li>
+							<li>assets/plugins/multiscroll/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/owl-carousel/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/<span class="font-weight-bold">retina.min.js</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_blog.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_clients.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_search.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_sidebar-nav.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_subscribe.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_testimonial.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_togglemenu.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_accordion.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_list.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_typography.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">One Page Minimal.html</span></li>
+							<li>Blog/Article/<span class="font-weight-bold">Blog Small Thumbnail - Sidebar Right.html</span></li>
+							<li>Blog/Article/<span class="font-weight-bold">Blog Small Thumbnail - Sidebar Left.html</span></li>
+							<li>Blog/Article/<span class="font-weight-bold">Blog Small Thumbnail - Fullwidth.html</span></li>
+							<li>Portfolio/Grid/<span class="font-weight-bold">Portfolio Grid - Title Overlay 2.html</span></li>
+							<li>Portfolio/Masonry/<span class="font-weight-bold">Portfolio Grid - Title Overlay 2.html</span></li>
+							<li>Features/<span class="font-weight-bold">footer-simple-2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="3-3-4">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v3.3.4 - May 14, 2018</h4>
+						<ul>
+							<li>Added: 3 New Header Layouts</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/js/<span class="font-weight-bold">functions.js</span><span class="font-italic">(line: 184)</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_togglemenu.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_base.css</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Features/<span class="font-weight-bold">header-nav-left.html</span></li>
+							<li>Features/<span class="font-weight-bold">header-nav-brand-left.html</span></li>
+							<li>Features/<span class="font-weight-bold">header-nav-only.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="3-3-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v3.3.3 - May 12, 2018</h4>
+						<ul>
+							<li>Added: Clients Grid Layout</li>
+							<li>Added: Dash List</li>
+							<li>Added: Height and border-radius options for 'Progress Bars'</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_clients.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_list.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_progress.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="3-3-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v3.3.2 - May 10, 2018</h4>
+						<ul>
+							<li>Added: New Layout for 'Icon Boxes'</li>
+							<li>Added: New Hover Style for 'Team'</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_iconbox.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_team.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="3-3-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v3.3.1 - May 5, 2018</h4>
+						<ul>
+							<li>Added: Font Style option for 'Buttons'</li>
+							<li>Added: Font Style option for 'Portfolio Filter'</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="3-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v3.3 - May 2, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Portfolio Minimal</li>
+							<li>Added: New Demo - Shop Minimal</li>
+							<li>Added: New Shortcode - Button Shadow</li>
+							<li>Added: 'Item Spacing 40px, 50px' option for Masonry Portfolio</li>
+							<li>Updated: Bootstrap v4.1.1</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/bootstrap/<span class="font-weight-bold">all files</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_shop.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Portfolio Minimal.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Shop Minimal.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="3-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v3.2 - April 26, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Agency Minimal</li>
+							<li>Added: New Demo - Corporate Minimal</li>
+							<li>Improved: CSS Improvements</li>
+							<li>Fixed: Minor Bug Fixes</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_team.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_progress.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Agency Minimal.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Corporate Minimal.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="3-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v3.1 - April 23, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Construction</li>
+							<li>Added: New Demo - Travel</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_badge.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Travel.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Construction.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="3-0-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v3.0.1 - April 20, 2018</h4>
+						<ul>
+							<li>Added: 'Elements' Extension for Jarallax</li>
+							<li>Fixed: Minor Bug Fixes</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li><span class="font-weight-bold">all html files</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>assets/plugins/jarallax/<span class="font-weight-bold">jarallax-element.min.js</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="3-0">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v3.0 - April 16, 2018</h4>
+						<ul>
+							<li>Added: New Demo - About me 2 Page</li>
+							<li>Updated: Bootstrap v4.1.0</li>
+							<li>Updated: Owl Carousel v2.3.3</li>
+							<li>Updated: Font-Awesome v5.0.10</li>
+							<li>Updated: Jarallax v1.10.3</li>
+							<li>Improved: CSS Improvements</li>
+							<li>Fixed: Navbar active color issue</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">One Page Classic.html</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_header.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+							<li>assets/plugins/bootstrap/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/owl-carousel/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/jarallax/<span class="font-weight-bold">all files</span></li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Added files:</h5>
+						<ul class="no-margin">
+							<li>Pages/About/<span class="font-weight-bold">About me 2.html</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="2-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v2.2 - April 10, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Services Simple Page</li>
+							<li>Added: New Demo - Prices Minimal Page</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_box.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_typography.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="2-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v2.1 - April 6, 2018</h4>
+						<ul>
+							<li>Added: 'New' badge on Shop</li>
+							<li>Added: New Shortcode - Dividers</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>Home Pages/<span class="font-weight-bold">Shop Classic.html</span></li>
+							<li>Home Pages/<span class="font-weight-bold">Shop Clean.html</span></li>
+							<li>Shop/Products/<span class="font-weight-bold">Sidebar Right.html</span></li>
+							<li>Shop/Products/<span class="font-weight-bold">Sidebar Left.html</span></li>
+							<li>Shop/Products/<span class="font-weight-bold">Fullwidth.html</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_shop.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_base.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_divider.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_form.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_app.scss</span></li>
+							<li>assets/css/scss/<span class="font-weight-bold">_utilities.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="2-0">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v2.0 - April 2, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Agency Creative</li>
+							<li>Added: 1 New Text Button style</li>
+							<li>Added: New Shortcode - Box</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_blog.scss</span></li>
+							<li>assets/css/scss/components/<span class="font-weight-bold">_preloaders.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_box.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="1-3-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v1.3.1 - March 29, 2018</h4>
+						<ul class="no-margin">
+							<li>Added: New Demo - Business Consulting</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="1-3">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v1.3 - March 26, 2018</h4>
+						<ul>
+							<li>Added: 1 New Text Button style</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="1-2">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v1.2 - March 24, 2018</h4>
+						<ul>
+							<li>Added: New Demo - Business Clean</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_slider.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="1-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v1.1 - March 23, 2018</h4>
+						<ul>
+							<li>Added: 2 New Portfolio Filter styles</li>
+							<li>Updated: Font-Awesome v5.0.8</li>
+							<li>Updated: Owl Carousel v2.3.2</li>
+							<li>Updated: Jarallax v1.10.2</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/css/scss/components/<span class="font-weight-bold">_portfolio.scss</span></li>
+							<li>assets/plugins/font-awesome/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/owl-carousel/<span class="font-weight-bold">all files</span></li>
+							<li>assets/plugins/jarallax/<span class="font-weight-bold">all files</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="1-0-1">
+				<div class="box">
+					<div>
+						<h4 class="margin-bottom-20">v1.0.1 - March 20, 2018</h4>
+						<ul>
+							<li>Added: New Demo - One Page Classic</li>
+							<li>Added: New Demo - About us 2 Page</li>
+							<li>Improved: Javascript Improvements</li>
+							<li>Improved: CSS Improvements</li>
+						</ul>
+					</div>
+					<div class="margin-top-50">
+						<h5 class="font-weight-normal margin-bottom-20">Affected files:</h5>
+						<ul class="no-margin">
+							<li>assets/js/<span class="font-weight-bold">functions.js</span><span class="font-italic">(line: 405)</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_background-image.scss</span></li>
+							<li>assets/css/scss/elements/<span class="font-weight-bold">_button.scss</span></li>
+							<li>assets/css/<span class="font-weight-bold">_app.css</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="content">
+			<section id="1-0">
+				<div class="box">
+					<h4 class="margin-bottom-20">v1.0 - March 17, 2018</h4>
+					<ul class="no-margin">
+						<li>Initial Release</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+
+		<!-- ***** JAVASCRIPTS ***** -->
+		<!-- Libraries -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/bootstrap/popper.min.js"></script>
+		<!-- Plugins -->
+		<script src="assets/bootstrap/bootstrap.min.js"></script>
+		<script src="assets/js/easing.min.js"></script>
+		<script src="assets/js/retina.min.js"></script>
+		<!-- Scripts -->
+		<script src="assets/js/functions.js"></script>
+	</body>
+</html>
