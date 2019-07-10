@@ -4576,7 +4576,7 @@ ol.list-ordered-style-5 li::before {
 }
 
 .navbar .navbar-brand img {
-  max-height: 40px;
+  max-height: 100px;
 }
 
 .navbar .navbar-brand h1, .navbar .navbar-brand h2, .navbar .navbar-brand h3, .navbar .navbar-brand h4, .navbar .navbar-brand h5, .navbar .navbar-brand h6 {
