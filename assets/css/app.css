@@ -4533,7 +4533,7 @@ ol.list-ordered-style-5 li::before {
 .navbar {
   z-index: 995;
   background: #fff;
-  height: 90px;
+  height: 150px;
   padding: 0;
   -webkit-transition: ease 0.3s;
   transition: ease 0.3s;
@@ -4573,10 +4573,13 @@ ol.list-ordered-style-5 li::before {
 
 .navbar .navbar-brand {
   margin-right: 2rem;
+  border-color: transparent;
 }
 
 .navbar .navbar-brand img {
-  max-height: 100px;
+  max-height: 150px;
+  min-width: 450px;
+  border-radius: 15px;
 }
 
 .navbar .navbar-brand h1, .navbar .navbar-brand h2, .navbar .navbar-brand h3, .navbar .navbar-brand h4, .navbar .navbar-brand h5, .navbar .navbar-brand h6 {
@@ -4587,7 +4590,7 @@ ol.list-ordered-style-5 li::before {
   position: relative;
   padding: 0;
   color: #141414;
-  font: 400 13px "Heebo", sans-serif;
+  font: 400 17px "Heebo", sans-serif;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   -webkit-transition: linear 0.1s;
@@ -4607,6 +4610,7 @@ ol.list-ordered-style-5 li::before {
   border: none;
   border-radius: 0;
   padding: 25px 0;
+  border-color: transparent;
 }
 
 .navbar .nav .nav-item .dropdown-menu h1, .navbar .nav .nav-item .dropdown-menu h2, .navbar .nav .nav-item .dropdown-menu h3, .navbar .nav .nav-item .dropdown-menu h4, .navbar .nav .nav-item .dropdown-menu h5, .navbar .nav .nav-item .dropdown-menu h6 {
@@ -4923,9 +4927,11 @@ ol.list-ordered-style-5 li::before {
   }
   .navbar .nav .nav-item {
     margin: 0;
+    
   }
   .navbar .nav .nav-item .nav-link {
     padding: 5px 0;
+
   }
   .navbar .nav .nav-item .dropdown-menu {
     position: relative;
@@ -7632,6 +7638,7 @@ i {
   -webkit-transform: scale(0.98);
   transform: scale(0.98);
   padding: 0 20px;
+  
 }
 
 .mfp-ready .mfp-container {
