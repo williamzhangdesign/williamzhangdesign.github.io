@@ -28,10 +28,32 @@
   </header>
   <main>
 	 <div class = "text_grid">
-		 <p>
-		 As a current sophomore, my free time is very limited. However, I happily invite you to contact me with anything related to UX design, UMSI, or clubs around campus.
-		 </p>
-	 </div>
+		  <p class = "text_component">
+      As a current sophomore, my free time is very limited.
+      However, I happily invite you to contact me with anything related to UX design, UMSI, or clubs around campus.
+      </p>
+      <p class = "text_component">Please fill out the form below, and I will be sure to respond within 3 business days.</p>
+      <p class = "text_component">If anything is urgent, please directly email me at whzhang@umich.edu</p>
+   </div>
+   <div class = "form">
+      <div class="wrapper">
+        <div class="contact__container">
+            <form class="contact__form" action="https://formspree.io/mwkqvkdj" method="POST">
+                <p class = "form">Name</p>
+                <input class="contact__form-input" name = "name" type="text" required>
+    
+                <p class = "form">Email</p>
+                <input class="contact__form-input" name = "email" type="text" required>
+    
+                <p class = "form">Message</p>
+                <textarea class="contact__form-textarea" name = "body" type="text" required></textarea>
+    
+                <input type="submit" value="Send message">
+        </div>
+    </div>
+
+    </form>
+   </div>
   </main>
 
     <footer>
