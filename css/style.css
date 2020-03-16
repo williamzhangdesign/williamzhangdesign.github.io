@@ -17,6 +17,12 @@
   }
 }
 
+@keyframes colorchange{
+    0%   {color: #1420ff;}
+    50% {color: #F04269;}
+    100% {color: }
+}
+
 
 /*Parallax*/
 .parallax{
@@ -393,12 +399,15 @@ input[type="submit"]:hover {
   color: #F04269;
 }
 
-footer{
+footer p{
   padding: 10px;
+  padding-top: 15px;
   text-align: center;
+  animation: colorchange 2s infinite;
 }
 
-
+@media screen and (min-width: 850px){
+}
 
 /*Reduce Motion Animation*/
 @media (prefers-reduced-motion: reduce) {
@@ -406,10 +415,8 @@ footer{
     animation: none;
   }
 
-  *{
-    transform: none;
-    transition: none;
-    
+  footer p {
+    animation: none;
   }
 
 }
