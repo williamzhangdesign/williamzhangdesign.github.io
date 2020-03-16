@@ -150,11 +150,16 @@ header{
   font-style: italic;
 }
 
-
 .current{
   font-size: 120%;
   font-weight: bold;
 }
+
+
+
+
+
+
 
 
 
@@ -184,15 +189,46 @@ section{
   border-radius: 11px !important;
   position: relative;  
   transition: all 300ms ease-out;
+}
+#image1{
+  background-image: url("../images/will1.jpg");
+  background-size: cover;
+}
 
+#image2{
+  background-image: url("../images/will2.jpg");
+  background-size: cover;
 
 }
 
-footer{
-  padding: 10px;
-  text-align: center;
+#image3{
+  background-image: url("../images/will3.jpg");
+  background-size: cover;
 
 }
+
+#image4{
+  background-image: url("../images/will4.jpg");
+  background-size: cover;
+
+}
+
+#image5{
+  background-image: url("../images/will5.jpg");
+  background-size: cover;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -277,4 +313,10 @@ input[type="submit"]:hover {
   transform: scale(0.96);
   transition: all 300ms ease-in;
   color: #F04269;
+}
+
+footer{
+  padding: 10px;
+  text-align: center;
+
 }
