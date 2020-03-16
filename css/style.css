@@ -75,7 +75,7 @@ h1{
 }
 .logo:hover a{
   color: #F04269;
-  transition-delay:1s;
+  transition-delay:0.5s;
   transition-duration: 0.95s;
   font-style: italic;
 }
