@@ -54,8 +54,6 @@
   transform:rotateY(-180deg);
 }
 
-
-
 .front{
   position:absolute;
   width: calc(100% - 2.6em);
@@ -193,6 +191,7 @@ header{
   transition-duration: 0.95s;
   color: #F04269;
 }
+
 .logo:hover a{
   color: #F04269;
   transition-delay:0.5s;
@@ -313,23 +312,6 @@ width: 40%;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .contact__container {
 		display: block;
 		border: 10px solid #1420ff;
@@ -418,10 +400,6 @@ footer{
 
 
 
-
-
-
-
 /*Reduce Motion Animation*/
 @media (prefers-reduced-motion: reduce) {
   .entry:hover{
@@ -431,6 +409,7 @@ footer{
   *{
     transform: none;
     transition: none;
+    
   }
 
 }
