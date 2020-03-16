@@ -50,6 +50,12 @@
   transform:rotateY(-180deg);
 }
 
+.card_container:focus .card{
+  transform:rotateY(-180deg);
+}
+
+
+
 .front{
   position:absolute;
   width: calc(100% - 2.6em);
