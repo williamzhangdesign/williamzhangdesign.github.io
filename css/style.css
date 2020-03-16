@@ -178,8 +178,10 @@ h1{
 header{
   background: #fff;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo{
@@ -218,7 +220,8 @@ header{
 .nav_links{
   display: flex;
   justify-content: center;
-  line-height: 100px;
+  flex-direction: column;
+  line-height: 30px;
   margin: 0 auto;
   
 }
@@ -230,7 +233,7 @@ header{
 }
 
 .navbar_box{
-  margin: 5px;
+  margin: 0px;
   width: 125px;
   text-align: center;
 }
@@ -406,10 +409,39 @@ footer p{
   animation: colorchange 2s infinite;
 }
 
-@media screen and (min-width: 850px){
+/*Phone display*/
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .nav_links{
+      display: flex;
+      justify-content: center;
+      line-height: 100px;
+      margin: 0 auto;
+      flex-direction: column;
+      
+    }
 }
 
-/*Reduce Motion Animation*/
+/*Tablet display*/
+@media screen and (min-width: 780px){
+  .nav_links{
+    display: flex;
+    justify-content: center;
+    line-height: 100px;
+    margin: 0 auto;
+    flex-direction: row;
+  }
+  .navbar_box{
+    margin: 5px;
+    width: 125px;
+    text-align: center;
+  }
+}
+
+/*Reduced Motion*/
 @media (prefers-reduced-motion: reduce) {
   .entry:hover{
     animation: none;
