@@ -93,18 +93,6 @@ h1{
 
 
 
-#skip:hover {
-  letter-spacing: 0.3em;
-  background-color: #F08C99;
-}
-
-#skip {
-  background-color: #F08C99 !important;
-  color: white !important;
-  display: flex; 
-  justify-content: center;
-  font-size: 0.8em;
-}
 
 header{
   background: #fff;
@@ -215,8 +203,6 @@ section{
 
 #image5{
   background-image: url("../images/will5.jpg");
-  background-size: cover;
-
 }
 
 
