@@ -19,7 +19,7 @@
 
 @keyframes colorchange{
     0%   {color: #1420ff;}
-    50% {color: navy;}
+    50% {color: #F04269;}
     100% {color: }
 }
 
@@ -175,7 +175,7 @@ h1{
 }
 
 .text_component a{
-  color: black;
+  color: #F04269;
 }
 
 
@@ -225,7 +225,7 @@ header{
 .nav_links{
   display: flex;
   justify-content: center;
-  line-height: 55px;
+  line-height: 40px;
   margin: 0 auto;
   flex-direction: column;
   
@@ -466,7 +466,7 @@ footer p{
     .nav_links{
       display: flex;
       justify-content: center;
-      line-height: 45px;
+      line-height: 55px;
       margin: 0 auto;
       flex-direction: column;
     }
