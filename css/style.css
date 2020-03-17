@@ -469,6 +469,17 @@ footer p{
       margin: 0 auto;
       flex-direction: column;
     }
+
+    .text_grid{
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: 1fr 1fr 1fr;
+      width: 851px;
+      height: 200px;
+      margin: 0 auto;
+      margin-top: 50px;
+    
+    }
 }
 
 /*Desktop display*/
@@ -494,6 +505,16 @@ footer p{
     padding: 50px;
     justify-content: space-evenly;
     align-items: stretch;
+  }
+
+  .text_grid{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 851px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 50px;  
   }
 
 }
