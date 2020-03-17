@@ -172,6 +172,9 @@ h1{
   justify-self: center;
 }
 
+.text_component a{
+  color: #F04269;
+}
 
 
 /*Header, Logo and Navbar*/
@@ -264,8 +267,8 @@ header{
 /*Gallery*/
 .gallery{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   margin: 0 auto;
   padding: 50px;
   justify-content: space-evenly;
@@ -409,14 +412,14 @@ footer p{
   animation: colorchange 2s infinite;
 }
 .resume{
-  margin: 0 auto;
-
+  margin-left: 100px;
 }
 .resume_image img{
-  margin: 0 auto;
   height: 70%;
   width: 70%;
 }
+
+
 
 /*Phone display*/
 @media only screen 
@@ -447,6 +450,16 @@ footer p{
     margin: 5px;
     width: 125px;
     text-align: center;
+  }
+
+  .gallery{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 0 auto;
+    padding: 50px;
+    justify-content: space-evenly;
+    align-items: stretch;
   }
 }
 
