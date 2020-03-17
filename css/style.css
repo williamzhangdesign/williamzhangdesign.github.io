@@ -408,6 +408,15 @@ footer p{
   text-align: center;
   animation: colorchange 2s infinite;
 }
+.resume{
+  margin: 0 auto;
+
+}
+.resume_image img{
+  margin: 0 auto;
+  height: 70%;
+  width: 70%;
+}
 
 /*Phone display*/
 @media only screen 
