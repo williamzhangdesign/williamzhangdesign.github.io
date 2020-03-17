@@ -19,10 +19,13 @@
 
 @keyframes colorchange{
     0%   {color: #1420ff;}
-    50% {color: #F04269;}
-    100% {color: }
+    50% {color: darkgreen;}
+    100% {color: #1420ff}
 }
 
+label{
+  color:white;
+}
 iframe{
   border: 0; max-width: 800px; height: 380px; margin-left: 160px; margin-top: 700px;
 }
