@@ -415,6 +415,9 @@ input[type="submit"]:hover {
   transition: all 300ms ease-in;
   color: #F04269;
 }
+footer{
+  margin-bottom: 10px;
+}
 
 footer p{
   padding: 10px;
