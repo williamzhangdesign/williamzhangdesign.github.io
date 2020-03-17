@@ -223,9 +223,9 @@ header{
 .nav_links{
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  line-height: 30px;
+  line-height: 45px;
   margin: 0 auto;
+  flex-direction: column;
   
 }
 
@@ -425,24 +425,20 @@ footer p{
 
 
 
-/*Phone display*/
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
+/*Tablet display*/
+@media only screen and (min-width: 600px) {
     .nav_links{
       display: flex;
       justify-content: center;
-      line-height: 100px;
+      line-height: 55px;
       margin: 0 auto;
       flex-direction: column;
       
     }
 }
 
-/*Tablet display*/
-@media screen and (min-width: 780px){
+/*Desktop display*/
+@media screen and (min-width: 768px){
   .nav_links{
     display: flex;
     justify-content: center;
