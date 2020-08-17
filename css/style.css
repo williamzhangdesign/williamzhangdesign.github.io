@@ -168,7 +168,7 @@ body {
     content: '';
     display: block;
     width: 100%;
-    height: 2px;
+    height: 4px;
 }
 
 .navTrigger i:nth-child(1) {
