@@ -23,22 +23,39 @@ body {
     line-height: 65px;
     text-align: center;
 }
-
+.nav .container{
+  position:relative;
+}
 .nav div.logo {
     float: left;
-    width: auto;
-    height: auto;
-    padding-left: 3rem;
+    width: 6em;
+    height: 6em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    background-image: url(../images/new_logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
+.nav div.logo:hover {
+  animation: rotation 2s infinite linear;
+}
 .nav div.logo a {
     text-decoration: none;
     color: #fff;
     font-size: 2.5rem;
-}
 
-.nav div.logo a:hover {
-    color: #00E676;
+
 }
 
 .nav div.main_list {
@@ -167,7 +184,7 @@ body {
     border-radius: 2px;
     content: '';
     display: block;
-    width: 100%;
+    width: 120%;
     height: 4px;
 }
 
