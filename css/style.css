@@ -8,6 +8,8 @@ body {
     font-family: "Raleway", sans-serif;
     font-size: 62.5%;
     font-size: 10px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 8px;
 }
 /*-- Inspiration taken from abdo steif -->
 /* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
@@ -57,12 +59,12 @@ body {
     width: auto;
     height: 65px;
     padding: 0;
-    padding-right: 3rem;
+    padding-right: 6rem;
 }
 
 .nav div.main_list ul li a {
     text-decoration: none;
-    color: #fff;
+    color: #000;
     line-height: 65px;
     font-size: 2.4rem;
 }
@@ -77,7 +79,7 @@ body {
 .home {
     width: 100%;
     height: 100vh;
-    background-image: url(https://images.unsplash.com/photo-1498550744921-75f79806b8a7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b0f6908fa5e81286213c7211276e6b3d&auto=format&fit=crop&w=1500&q=80);
+    background-image: white;
     background-position: center top;
 	background-size:cover;
 }
@@ -339,7 +341,7 @@ body {
 
 .affix {
     padding: 0;
-    background-color: #111;
+    background-color: #fff;
 }
 
 
@@ -493,9 +495,7 @@ a.skip:focus{
   text-decoration: none;
 }
 
-*:focus{
-  border: 3px solid black;
-}
+
 
 
 /*Text styling*/
@@ -512,13 +512,7 @@ p{
   text-align: center;
 }
 
-h1{
-  margin: 0 auto;
-  color: #1420ff;
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2em;
-}
+
 
 
 
@@ -555,39 +549,9 @@ header{
   align-items: center;
 }
 
-.logo{
-  background-image: url("../images/logo.png");
-  height: 112px;
-  width: 120px;
-  background-size: contain;
-  margin: 0 auto;
-  transition: all 0.95s ease-out;
-  text-align: center;
+.WZ{
+	font-size: 3em;
 }
-
-.logo:hover{
-  background-image: url('../images/logo-hover.png');
-  transition-duration: 0.95s;
-  color: #F04269;
-}
-
-.logo:hover a{
-  color: #F04269;
-  transition-delay:0.5s;
-  transition-duration: 0.95s;
-  font-style: italic;
-}
-
-.logo a{
-  text-decoration: none;
-  color: #1420ff;
-  text-align: center;
-  position: relative;
-  top: 22px;
-  right: 3px;
-  transition: all 0.95s ease-out;
-}
-
 .nav_links{
   display: flex;
   justify-content: center;
@@ -622,7 +586,6 @@ header{
 .nav_item a:hover, a:active{
   color: #F04269;
   transition-duration: 0.95s;
-  font-style: italic;
 }
 
 .current{
