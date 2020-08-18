@@ -106,18 +106,22 @@ body {
 	background-size:cover;
 }*/
 
-.intro{
+#intro{
+  font-family: 'Playfair Display', serif;
   padding-top: 130px;
 }
 #intro_message{
-  padding-top: 1em;
+  margin-left: 1.5em;
+  padding-top: 6vh;
   color: white;
-  font-size: 3.5em;
+  font-size: 2.25vw;
 }
 #intro_body{
-  padding-top: 1em;
+  margin-left: 1.05em;
+  padding-top: 0.5em;
   color: white;
-  font-size: 5em;
+  font-size: 3.2vw;
+  line-height: 1.3em;
 }
 
 
@@ -538,13 +542,6 @@ body{
   background-color: white;
   font-family: Raleway;
   font-size: 1.2em;
-}
-
-p{
-  font-family: Raleway;
-  color: #1420ff;
-  font-size: 1.2em;
-  text-align: center;
 }
 
 
