@@ -86,26 +86,41 @@ body {
     opacity: 0.7;
 }
 
+.navTrigger {
+  display: none;
+}
 
-/* Home section */
+.nav {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+/* Body section 
 .home {
     width: 100%;
     height: 100vh;
     background: black;
     background-position: center top;
 	background-size:cover;
+}*/
+
+.intro{
+  padding-top: 130px;
+}
+#intro_message{
+  padding-top: 1em;
+  color: white;
+  font-size: 3.5em;
+}
+#intro_body{
+  padding-top: 1em;
+  color: white;
+  font-size: 5em;
 }
 
-.navTrigger {
-    display: none;
-}
 
-.nav {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-}
 
 
 
