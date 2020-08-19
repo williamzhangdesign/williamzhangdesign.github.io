@@ -45,7 +45,7 @@ body {
   background-image: url(../images/new_logo_hover.png);
   background-size: contain;
   background-repeat: no-repeat;
-  transform: scale(1.16);
+  transform: scale(1.14);
 }
 .nav div.logo a {
     text-decoration: none;
