@@ -15,9 +15,7 @@ body {
 
 /* Navbar section */
 
-.navi{
-  font-family: "Quicksand", sans-serif;
-}
+
 .nav {
   background-color: black;
     width: 100%;
@@ -25,6 +23,8 @@ body {
     position: fixed;
     line-height: 65px;
     text-align: center;
+    font-family: "Quicksand", sans-serif;
+
 }
 .nav .container{
   position:relative;
@@ -38,6 +38,8 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     position:absolute;
+    transition: 2s;
+
 
 }
 
@@ -45,7 +47,10 @@ body {
   background-image: url(../images/new_logo_hover.png);
   background-size: contain;
   background-repeat: no-repeat;
-  transform: scale(1.14);
+  transition: 2s;
+  
+
+
 }
 .nav div.logo a {
     text-decoration: none;
@@ -97,14 +102,13 @@ body {
   transition: all 0.4s ease;
 }
 
-/* Body section 
 .home {
     width: 100%;
     height: 100vh;
     background: black;
     background-position: center top;
-	background-size:cover;
-}*/
+	  background-size:cover;
+}
 
 #intro{
   font-family: 'Playfair Display', serif;
@@ -135,7 +139,10 @@ body {
 }
 
 @media screen and (max-width:768px) {
-  
+    .home{
+      height: 50vh;
+      display: none;
+    }
     .navTrigger {
         display: block;
         
@@ -149,12 +156,12 @@ body {
      }
     .nav div.main_list {
         width: 100%;
-        height: 0;
+        height: 0px;
         overflow: hidden;
     }
     .nav div.show_list {
         height: auto;
-        display: none;
+        display: n;
     }
     .nav div.main_list ul {
         flex-direction: column;
@@ -164,7 +171,7 @@ body {
         right: 0;
         left: 0;
         bottom: 0;
-        background-color: black;
+        background-color: red;
         /*same background color of navbar*/
         background-position: center top;
     }
@@ -416,29 +423,7 @@ body {
 		padding:2%;
 	}
 }
-@keyframes hovershake{
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
 
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
-}
-
-@keyframes colorchange{
-    0%   {color: #1420ff;}
-    50% {color: darkgreen;}
-    100% {color: #1420ff}
-}
 
 label{
   color:white;
