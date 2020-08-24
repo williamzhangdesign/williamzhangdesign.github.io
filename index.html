@@ -28,7 +28,7 @@
 
   <body>
 
-    <nav class="nav">
+    <nav id = "pogger" class="nav">
           <div class="logo"></div>
      
       <div id="mainListDiv" class="main_list">
@@ -39,12 +39,11 @@
        </ul>
       </div>
 
-      <span onclick = "showMenu()" class="navTrigger">
+      <span class="navTrigger">
               <i></i>
               <i></i>
               <i></i>
       </span>
-
   </nav>
   <section id = "mobileMenu" class="home">
   </section>
@@ -62,6 +61,9 @@
       </div>
 
     </div> <!-- intro -->
+
+
+    
     <div>
     <section class="main">
       <a class="arrow-wrap" href="#content">
@@ -71,8 +73,9 @@
     </div>
     
     <section class = "content">
+      <div class = "container-fluid" id = "intro" style="height: 500px; background-color: #0E0E10;">
 
-      
+
     </section>
 
 
@@ -83,17 +86,12 @@
     console.log("Clicked menu");
     $("#mainListDiv").toggleClass("show_list");
     $("#mainListDiv").fadeIn();
-    console.log('hi');
+    $("#pogger").toggleClass("extend");
 });
 
-  function showMenu() {
-  var x = document.getElementById("mobileMenu");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
+
+
+
   //this is where we apply opacity to the arrow
 $(window).scroll( function(){
 

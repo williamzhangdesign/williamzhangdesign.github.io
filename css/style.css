@@ -107,6 +107,7 @@ body {
     line-height: 65px;
     text-align: center;
     font-family: "Quicksand", sans-serif;
+    z-index: 2;
 
 }
 .nav .container{
@@ -239,6 +240,10 @@ body {
       margin-top: 0px;
       margin-left: 20px;   
      }
+
+     .extend{
+       height: 118px;
+     }
     .nav div.main_list {
         width: 100%;
         height: 0px;
@@ -250,13 +255,12 @@ body {
     }
     .nav div.main_list ul {
         flex-direction: column;
-        margin-top: 98px;
         width: 100%;
         height: 100vh;
         right: 0;
         left: 0;
         bottom: 0;
-        background-color: black;
+        background-color: #1C1C1E;
         /*same background color of navbar*/
         background-position: center top;
     }
@@ -266,11 +270,18 @@ body {
     }
     .nav div.main_list ul li a {
         text-align: center;
-        text-align: center;
         width: 100%;
         font-size: 3rem;
-        padding: 20px;
-        color: white;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        color: rgba(255, 255, 255, 0.822);
+        background-repeat: repeat-x;
+        background-image: linear-gradient(to right,currentColor 100%,currentColor 0);
+        background-size: 1px 1.5px;
+        background-position: 0 calc(75% - 0.1em);
+        white-space: initial;
+    
     }
     .nav div.media_button {
         display: block;
@@ -485,7 +496,6 @@ body {
 
 .affix {
     padding: 0;
-    background-color: white;
     height: 100px;
 }
 
