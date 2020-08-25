@@ -1,3 +1,54 @@
+
+.gallery{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  padding: 50px;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+
+.entry{
+  height: 400px;
+  margin: 30px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 110px;
+  font-size: 0;
+  color: transparent;
+
+  
+  border-radius: 11px;
+  position: relative;  
+  overflow: hidden;
+  object-fit: cover;
+  transition: all 0.6s ease-out;
+  min-width: 600px;
+  min-height: 400px;
+
+}
+
+.entry:hover{
+  animation: hovershake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;transition: all 0.6s ease-out;
+}
+.entry img{
+  color: transparent;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  overflow: hidden;
+  filter: brightness(120%);
+  min-width: 600px;
+  min-height: 400px;
+  }
+
+.entry img:hover{
+  opacity: 85%;
+  transition: all 0.4s ease-out;
+}
 .scroll {
   position: absolute;
   bottom: 5vw;
@@ -517,14 +568,9 @@ iframe{
 
 /*Reduced Motion*/
 @media (prefers-reduced-motion: reduce) {
-  .entry:hover{
+  *{
     animation: none;
   }
-
-  footer p {
-    animation: none;
-  }
-
 }
 
 
