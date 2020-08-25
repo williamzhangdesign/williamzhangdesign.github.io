@@ -11,12 +11,14 @@
   align-items: stretch;
 }
 
-.entry {
-	background: linear-gradient(-45deg, #5840EC, #8070eb,#5840EC);
+
+#e1{
+  background: linear-gradient(-45deg, #5840EC, #8070eb,#5840EC);
 	background-size: 1200% 800%;
   animation: gradient 20s ease-in-out infinite;
-  transition: all .35s ease-in-out;
-
+}
+#e2{
+  background-color: #007CAD;
 }
 
 .entry:hover{
@@ -37,6 +39,8 @@
 }
 
 .entry{
+  transition: all .35s ease-in-out;
+
   height: 70vh;
   width: 35vw;
   margin: 30px;
@@ -272,10 +276,15 @@ body {
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
 .gallery{
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+
 }
 .entry {
   margin-bottom: 8rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  height: 48vw;
+
 }
     .container {
         margin: 0;
@@ -288,9 +297,11 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .entry {
-    margin-bottom: 8rem;
-  }
+    .entry {
+      margin-bottom: 8rem;
+      width: 62vw;
+      height: 68vw;
+    }
     .scroll {
       bottom: 8em;
     }
