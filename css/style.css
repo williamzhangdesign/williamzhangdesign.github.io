@@ -475,8 +475,6 @@ body {
         -webkit-transform: translateY(-9px) rotate(135deg);
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 @keyframes outBtm {
     0% {
@@ -489,10 +487,6 @@ body {
         transform: translateY(-9px) rotate(135deg);
     }
 }
-=======
->>>>>>> parent of 6cabfb0... asd
-=======
->>>>>>> parent of 6cabfb0... asd
 
 .affix {
     padding: 0;
