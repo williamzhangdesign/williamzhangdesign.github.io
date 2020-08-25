@@ -3,7 +3,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 0 auto;
-  padding: 100px;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+
   justify-content: space-evenly;
   align-items: stretch;
 }
@@ -267,15 +270,31 @@ body {
 
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+
+.gallery{
+  grid-template-columns: 1fr;
+}
+.entry {
+  margin-bottom: 8rem;
+}
     .container {
         margin: 0;
     }
 }
 
 @media screen and (max-width:768px) {
+
+  .gallery{
+    grid-template-columns: 1fr;
+  }
+
+  .entry {
+    margin-bottom: 8rem;
+  }
     .scroll {
       bottom: 8em;
     }
+
 
     .home{
       display: none;
