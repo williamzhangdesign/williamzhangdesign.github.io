@@ -16,7 +16,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 25px;
   padding-left: 100px;
   padding-right: 100px;
 
@@ -181,18 +181,18 @@ body {
   position: relative;
 }
 #intro_message{
-  margin-left: 0.4em;
+  margin-left: 1.5em;
   padding-top: 0.68em;
   color: rgba(255, 255, 255, 0.808);
-  font-size: 3.2vw;
+  font-size: 3vw;
 }
 #intro_body{
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  margin-left: 2em;
+  margin-right: 2em;
 
   padding-top: 0.5em;
   color: rgba(255, 255, 255, 0.808);
-  font-size: 2.5vw;
+  font-size: 2.3vw;
   line-height: 1.3em;
 }
 /*-- Inspiration taken from abdo steif -->
@@ -206,6 +206,9 @@ body {
 
 }
 
+.maizeText a:hover{
+  text-decoration: underline;
+}
 
 .nav {
   background-color: #1C1C1E;
