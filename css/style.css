@@ -1,3 +1,16 @@
+@keyframes pulse-white {
+  0% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  
+  70% {
+      box-shadow: 0 0 0 17px rgba(255, 255, 255, 0);
+  }
+  
+  100% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
 
 .gallery{
   display: grid;
@@ -24,10 +37,15 @@
 }
 
 .gallery img{
+  
   float: center;
   width: 12rem;
   position: relative;
   margin-top: 15%;
+  border-radius: 50%;
+
+  
+
 }
 
 .gallery h1{
@@ -37,6 +55,10 @@
   font-size: 3.5vw;
   position: relative;
   font-weight: bold;
+}
+
+#e1:hover img{
+  animation: pulse-white 1.7s infinite;
 }
 
 .gallery h2{
@@ -159,10 +181,10 @@ body {
   position: relative;
 }
 #intro_message{
-  margin-left: 0.68em;
+  margin-left: 0.4em;
   padding-top: 0.68em;
   color: rgba(255, 255, 255, 0.808);
-  font-size: 2vw;
+  font-size: 3.2vw;
 }
 #intro_body{
   margin-left: 0.5em;
@@ -407,9 +429,9 @@ body {
     }
 
     #intro_message{
-      margin-left: 1.6em;
+      margin-left: 0.45em;
       padding-top: 6vh;
-      font-size: 1em;
+      font-size: 1.6em;
     }
     #intro_body{
       padding-top: 0.5em;
