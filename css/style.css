@@ -36,18 +36,22 @@
   background-color: #12689B;
 }
 
-.gallery img{
+#e1 img{
   
   float: center;
   width: 12rem;
   position: relative;
   margin-top: 15%;
   border-radius: 50%;
-
-  
-
 }
 
+#e2 img{
+  
+  float: center;
+  width: 12rem;
+  position: relative;
+  margin-top: 15%;
+}
 .gallery h1{
   margin-top: 3%;
   text-align: center;
