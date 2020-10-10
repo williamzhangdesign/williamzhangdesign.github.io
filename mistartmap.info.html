@@ -168,10 +168,10 @@
                       return;
                     }   
                   </script> -->
-                  <path id = "m1" class="cls-1" transform="translate(-62.06 -14.06)" d="M126.94,230.8,71.31,258.54a15.78,15.78,0,0,0-7.63,19.94L99.4,368.57a15.77,15.77,0,0,0,15.29,9.95l115.08-4.58a15.79,15.79,0,0,0,13.17-8.12l50.65-91.38A15.78,15.78,0,0,0,287.43,253l-89.53-49.5a15.77,15.77,0,0,0-14.59-.36Z"/>
-                  <path id = "m2" class="cls-1" transform="translate(-62.06 -14.06)" d="M194.85,111.18l-6-61.88a15.78,15.78,0,0,1,12.87-17l95.33-17.45a15.77,15.77,0,0,1,16.54,7.69l57.1,100a15.76,15.76,0,0,1,.09,15.47l-50.65,91.38a15.78,15.78,0,0,1-21.47,6.14l-89.42-49.68a15.82,15.82,0,0,1-8-12.19Z"/>
-                  <path id = "m3" class="cls-1" transform="translate(-62.06 -14.06)" d="M462.33,134.65l61.88-6a15.8,15.8,0,0,1,17,12.87l17.45,95.33a15.76,15.76,0,0,1-7.7,16.54l-100,57.1a15.76,15.76,0,0,1-15.47.09L344.13,260A15.77,15.77,0,0,1,338,238.51l49.69-89.42a15.78,15.78,0,0,1,12.18-8Z"/>
-                  <path id = "m4" class="cls-1" transform="translate(-62.06 -14.06)" d="M290.48,444.29l27.74,55.64a15.79,15.79,0,0,0,19.94,7.63l90.09-35.72a15.79,15.79,0,0,0,10-15.3l-4.59-115.07a15.76,15.76,0,0,0-8.11-13.17l-91.38-50.66a15.79,15.79,0,0,0-21.46,6.17l-49.5,89.52a15.78,15.78,0,0,0-.36,14.59Z"/>
+                  <path id = "m1" onclick= "changeColor('m1')" class="cls-1" transform="translate(-62.06 -14.06)" d="M126.94,230.8,71.31,258.54a15.78,15.78,0,0,0-7.63,19.94L99.4,368.57a15.77,15.77,0,0,0,15.29,9.95l115.08-4.58a15.79,15.79,0,0,0,13.17-8.12l50.65-91.38A15.78,15.78,0,0,0,287.43,253l-89.53-49.5a15.77,15.77,0,0,0-14.59-.36Z"/>
+                  <path id = "m2" onclick= "changeColor('m2')" class="cls-1" transform="translate(-62.06 -14.06)" d="M194.85,111.18l-6-61.88a15.78,15.78,0,0,1,12.87-17l95.33-17.45a15.77,15.77,0,0,1,16.54,7.69l57.1,100a15.76,15.76,0,0,1,.09,15.47l-50.65,91.38a15.78,15.78,0,0,1-21.47,6.14l-89.42-49.68a15.82,15.82,0,0,1-8-12.19Z"/>
+                  <path id = "m3" onclick= "changeColor('m3')" class="cls-1" transform="translate(-62.06 -14.06)" d="M462.33,134.65l61.88-6a15.8,15.8,0,0,1,17,12.87l17.45,95.33a15.76,15.76,0,0,1-7.7,16.54l-100,57.1a15.76,15.76,0,0,1-15.47.09L344.13,260A15.77,15.77,0,0,1,338,238.51l49.69-89.42a15.78,15.78,0,0,1,12.18-8Z"/>
+                  <path id = "m4" onclick= "changeColor('m4')" class="cls-1" transform="translate(-62.06 -14.06)" d="M290.48,444.29l27.74,55.64a15.79,15.79,0,0,0,19.94,7.63l90.09-35.72a15.79,15.79,0,0,0,10-15.3l-4.59-115.07a15.76,15.76,0,0,0-8.11-13.17l-91.38-50.66a15.79,15.79,0,0,0-21.46,6.17l-49.5,89.52a15.78,15.78,0,0,0-.36,14.59Z"/>
                   </svg>  
               </div>
             </div>
@@ -197,6 +197,72 @@
       
 
   </div>
-  <footer><div id = "spacing"></div></footer>
+    
+
+
+<!-- Function used to shrink nav bar removing paddings and adding black background -->
+  <script>
+      $('.navTrigger').click(function () {
+    $(this).toggleClass('active');
+    console.log("Clicked menu");
+    $("#mainListDiv").toggleClass("show_list");
+    $("#mainListDiv").fadeIn();
+    $("#pogger").toggleClass("extend");
+});
+
+
+
+
+  //this is where we apply opacity to the arrow
+$(window).scroll( function(){
+
+//get scroll position
+var topWindow = $(window).scrollTop();
+//multipl by 1.5 so the arrow will become transparent half-way up the page
+var topWindow = topWindow * 1.5;
+
+//get height of window
+var windowHeight = $(window).height();
+    
+//set position as percentage of how far the user has scrolled 
+var position = topWindow / windowHeight;
+//invert the percentage
+position = 1 - position;
+
+//define arrow opacity as based on how far up the page the user has scrolled
+//no scrolling = 1, half-way up the page = 0
+$('.arrow-wrap').css('opacity', position);
+
+});
+
+var scrollPos = $(window).scrollTop();
+if (scrollPos > 1)
+    {
+      console.log("lol");
+        // element is at the end of its scroll, load more content
+    }
+
+
+//Code stolen from css-tricks for smooth scrolling:
+/*$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+/
+*/
+  </script>
+  <!-- function to show div -->
+  
+
   </body>
 </html>
