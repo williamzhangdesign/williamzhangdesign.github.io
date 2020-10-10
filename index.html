@@ -28,7 +28,8 @@
 
   <body>
   <nav id = "pogger" class="nav">
-          <div class="logo"></div>
+          <div class="logo">
+          </div>
      
       <div id="mainListDiv" class="main_list">
        <ul class="navlinks">
@@ -51,7 +52,7 @@
     <div class = "container-fluid" id = "intro">
       <div class = "row">
         <div class = "col-xs-12">
-            <p class = "text-left" id = "intro_message">Hey, I'm William Zhang,</p>
+            <p class = "text-left" id = "intro_message">I'm William Zhang,</p>
         </div>
       </div>
       <div class = "row">
@@ -149,7 +150,29 @@
 
             <div class = "row">
               <div class = "col-xs-12">
-                <img src = "images/pizza.png">
+                  <svg id = "mood" data-name="Layer 1" viewBox="0 0 497.39 495.11" xmlns="http://www.w3.org/2000/svg">
+                
+                  <defs>
+                  <style>.cls-1{fill:#fff;stroke:#fff;stroke-miterlimit:10;}</style>
+                  </defs>
+
+                  <!-- <script>
+                    function changeColor(pog) {
+                      var elem = document.getElementById(pog);
+
+                      if (elem.style.opacity == 0.5){
+                        elem.style.opacity = 1;
+                        return;
+                      }
+                      elem.style.opacity = 0.5;
+                      return;
+                    }   
+                  </script> -->
+                  <path id = "m1" onclick= "changeColor('m1')" class="cls-1" transform="translate(-62.06 -14.06)" d="M126.94,230.8,71.31,258.54a15.78,15.78,0,0,0-7.63,19.94L99.4,368.57a15.77,15.77,0,0,0,15.29,9.95l115.08-4.58a15.79,15.79,0,0,0,13.17-8.12l50.65-91.38A15.78,15.78,0,0,0,287.43,253l-89.53-49.5a15.77,15.77,0,0,0-14.59-.36Z"/>
+                  <path id = "m2" onclick= "changeColor('m2')" class="cls-1" transform="translate(-62.06 -14.06)" d="M194.85,111.18l-6-61.88a15.78,15.78,0,0,1,12.87-17l95.33-17.45a15.77,15.77,0,0,1,16.54,7.69l57.1,100a15.76,15.76,0,0,1,.09,15.47l-50.65,91.38a15.78,15.78,0,0,1-21.47,6.14l-89.42-49.68a15.82,15.82,0,0,1-8-12.19Z"/>
+                  <path id = "m3" onclick= "changeColor('m3')" class="cls-1" transform="translate(-62.06 -14.06)" d="M462.33,134.65l61.88-6a15.8,15.8,0,0,1,17,12.87l17.45,95.33a15.76,15.76,0,0,1-7.7,16.54l-100,57.1a15.76,15.76,0,0,1-15.47.09L344.13,260A15.77,15.77,0,0,1,338,238.51l49.69-89.42a15.78,15.78,0,0,1,12.18-8Z"/>
+                  <path id = "m4" onclick= "changeColor('m4')" class="cls-1" transform="translate(-62.06 -14.06)" d="M290.48,444.29l27.74,55.64a15.79,15.79,0,0,0,19.94,7.63l90.09-35.72a15.79,15.79,0,0,0,10-15.3l-4.59-115.07a15.76,15.76,0,0,0-8.11-13.17l-91.38-50.66a15.79,15.79,0,0,0-21.46,6.17l-49.5,89.52a15.78,15.78,0,0,0-.36,14.59Z"/>
+                  </svg>  
               </div>
             </div>
 
@@ -162,7 +185,7 @@
             <div class = "row">
               <div class = "col-xs-12">
                 <h2>
-                 A socially interactive lightboard that promotes reflection & relaxation.
+                 A socially interactive lightboard that promotes reflection, creativity & relaxation.
                   </h2>
               </div>
             </div>
