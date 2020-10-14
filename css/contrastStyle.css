@@ -26,8 +26,6 @@
   transition-duration: 0.5s;
 }
 
-
-
 #portfolio_title{
   padding-top: 3vh;
   font-size: 4.5em;
@@ -35,6 +33,8 @@
   text-align: center;
 
 }
+
+
 
 .gallery{
   display: grid;
@@ -251,7 +251,7 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
 html,
 body {
-  background-color: #0E0E10;
+  background-color: #000;
   overscroll-behavior-y: none;
 
     margin: 0;
@@ -262,7 +262,6 @@ body {
 
 #intro{
   height: 30vw;/*75vh;*/ 
-  background-color: #0E0E10;
 
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   padding-top: 130px;
@@ -271,7 +270,7 @@ body {
 #intro_message{
   margin-left: 1.5em;
   padding-top: 0.68em;
-  color: rgba(255, 255, 255, 0.808);
+  color: white;
   font-size: 4.5vw;
 }
 #intro_body{
@@ -279,7 +278,7 @@ body {
   margin-right: 1.5em;
 
   padding-top: 0.5em;
-  color: rgba(255, 255, 255, 0.808);
+  color: white;
   font-size: 2.52vw;
   line-height: 1.35em;
 }
@@ -299,7 +298,7 @@ body {
 }
 
 .nav {
-  background-color: #1C1C1E;
+  background-color: #000;
     width: 100%;
     height: 110px;
     position: fixed;
@@ -425,6 +424,7 @@ body {
 }
 
 @media screen and (max-width:768px) {
+
   #mood{
     width: 6rem;
     height: 6rem;
@@ -511,7 +511,7 @@ body {
         right: 0;
         left: 0;
         bottom: 0;
-        background-color: #1C1C1E;
+        background-color: #000;
         /*same background color of navbar*/
         background-position: center top;
     }
@@ -528,12 +528,12 @@ body {
         padding-bottom: 20px;
 
         /*color: rgba(255, 255, 255, 0.822);*/
-        color: white;
+        /*color: white;
         background-repeat: repeat-x;
         background-image: linear-gradient(to right,currentColor 100%,currentColor 0);
         background-size: 1px 1.5px;
         background-position: 0 calc(75% - 0.1em);
-        white-space: initial;
+        white-space: initial;*/
     
     }
     .nav div.media_button {

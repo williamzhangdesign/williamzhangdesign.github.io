@@ -11,7 +11,15 @@
 
     <link rel="stylesheet" type="text/css" href="css/html5reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    
+    <script>
+      $('.navTrigger').click(function () {
+    $(this).toggleClass('active');
+    console.log("Clicked menu");
+    $("#mainListDiv").toggleClass("show_list");
+    $("#mainListDiv").fadeIn();
+    $("#pogger").toggleClass("extend");
+  });
+</script>  
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151251727-1"></script>
     <script>
@@ -39,7 +47,7 @@
        </ul>
       </div>
 
-      <span class="navTrigger">
+      <span class="navTrigger" onClick>
               <i></i>
               <i></i>
               <i></i>
@@ -197,6 +205,16 @@
       
 
   </div>
+  <script>
+    $('.navTrigger').click(function () {
+  $(this).toggleClass('active');
+  console.log("Clicked menu");
+  $("#mainListDiv").toggleClass("show_list");
+  $("#mainListDiv").fadeIn();
+  $("#pogger").toggleClass("extend");
+});
+
+  </script>
   <footer><div id = "spacing"></div></footer>
   </body>
 </html>
