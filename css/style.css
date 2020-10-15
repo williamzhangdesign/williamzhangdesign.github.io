@@ -26,25 +26,6 @@
   transition-duration: 0.5s;
 }
 
-
-
-.portfolio_title{
-  padding-top: 3vh;
-  font-size: 4.5vw;
-  color: white;
-  text-align: center;
-}
-
-.portfolio_description{
-  text-align: center;
-  margin-left: 3em;
-  margin-right: 3em;
-  margin-top: 1em;
-  font-size: 1.8vw;
-  line-height: 1.35em;
-  color: white;
-}
-
 #covid{
   max-width: 100%;
   margin-top: 3%;
@@ -86,23 +67,28 @@
 }
 
 
-#e4 img{
+
+#e2 img{
+  
   float: center;
   width: 12rem;
   position: relative;
   margin-top: 15%;
 }
-
 #e3 img{
-  
   float: center;
-  width: 12rem;
+  width: 10rem;
+  height: auto;
   position: relative;
-  margin-top: 15%;
- 
-  
+  margin-top: 13.5%;
 }
+#mood{
+  margin-top: 14%;
+  width: 12rem;
+  height: 12rem;
+  margin-bottom: 1%;
 
+}
 #e3:hover img{
   animation-name: floating; 
   animation-duration: 2s; 
@@ -116,13 +102,6 @@
   position: relative;
   margin-top: 15%;
   border-radius: 50%;
-}
-#mood{
-  margin-top: 20%;
-  width: 12rem;
-  height: 12rem;
-  margin-bottom: 5%;
-
 }
 #pizzaholder{
   transition: all 0.8s ease-in-out;
@@ -145,13 +124,7 @@
 
   background-image: url(../images/pizza.png);
 }
-#e2 img{
-  
-  float: center;
-  width: 12rem;
-  position: relative;
-  margin-top: 15%;
-}
+
 
 #spacing{
   height: 5vw;
@@ -269,27 +242,26 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
 html,
 body {
-  background-color: #0E0E10;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0F0F11;
   overscroll-behavior-y: none;
-
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  color: white;
+  margin: 0;    
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
 #intro{
   height: 30vw;/*75vh;*/ 
-  background-color: #0E0E10;
-
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  /*color: rgba(255, 255, 255, 0.808);*/
   padding-top: 130px;
   position: relative;
 }
 #intro_message{
   margin-left: 1.5em;
   padding-top: 0.68em;
-  color: rgba(255, 255, 255, 0.808);
+  /*color: rgba(255, 255, 255, 0.808);*/
   font-size: 4.5vw;
 }
 #intro_body{
@@ -297,8 +269,23 @@ body {
   margin-right: 1.5em;
 
   padding-top: 0.5em;
-  color: rgba(255, 255, 255, 0.808);
+  /*color: rgba(255, 255, 255, 0.808);*/
   font-size: 2.52vw;
+  line-height: 1.35em;
+}
+
+.portfolio_title{
+  padding-top: 3vh;
+  font-size: 4.5vw;
+  text-align: center;
+}
+
+.portfolio_description{
+  text-align: left;
+  margin-left: 3.25em;
+  margin-right: 3.25em;
+  margin-top: 1em;
+  font-size: 1.8vw;
   line-height: 1.35em;
 }
 /*-- Inspiration taken from abdo steif -->
@@ -308,12 +295,8 @@ body {
 
 .maizeText a{
   color: #FFCB05;
-  text-decoration: none;
-
-}
-
-.maizeText a:hover{
   text-decoration: underline;
+
 }
 
 .covidText a{
@@ -333,7 +316,6 @@ body {
     position: fixed;
     line-height: 65px;
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     z-index: 2;
     box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
 
