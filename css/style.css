@@ -1,3 +1,30 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . ."
+    ". . . .";
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+
+}
+
+.grid-image{
+  max-width: 100%; 
+  height: auto;
+  filter: grayscale(100%);
+}
+
+.grid-image:hover{
+  transition: 1s;
+  filter: grayscale(0%);
+}
+
 .container-fluid{
   padding-left: 12vw;
   padding-right: 12vw;
