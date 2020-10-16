@@ -57,7 +57,7 @@
 #covid{
   max-width: 100%;
   margin-top: 3%;
-  width: 70%;
+  width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -340,12 +340,12 @@ body {
 }
 
 .covidText a{
-  color: #12689B;
+  color: #198fd3;
   text-decoration: none;
 }
 
 .covidText a:hover{
-  color: #1a8dcf;
+  color: #1ea2ee;
   text-decoration: underline;
 }
 
