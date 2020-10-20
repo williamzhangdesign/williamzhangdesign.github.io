@@ -1,3 +1,8 @@
+#topbar{
+  line-height: 0;
+  margin-bottom: 0;
+}
+
 #list{
   text-align: left;
 }
@@ -113,7 +118,7 @@ li{
   display: block;
   margin: 0 auto;
   width: auto;
-  height: 50em;
+  height: 43em;
   padding: 0;
   overflow: hidden;
 
@@ -128,7 +133,7 @@ li{
 }
 
 #scaled-frame {
-  zoom: 0.40;
+  zoom: 0.35;
 
 }
 
