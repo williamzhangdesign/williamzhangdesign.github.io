@@ -13,6 +13,12 @@ li {
   line-height: 1.25em;
 }
 
+
+.navi{
+  line-height: 3em;
+}
+
+
 #after_list {
   text-align: left;
   line-height: 1.25em;
@@ -477,7 +483,7 @@ body {
 }
 
 
-}
+
 
 /*-- Inspiration taken from abdo steif -->
 /* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
