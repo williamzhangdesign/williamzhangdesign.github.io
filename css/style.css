@@ -1,28 +1,31 @@
-#topbar{
+#topbar {
   line-height: 0;
   margin-bottom: 0;
 }
 
-#list{
+#list {
   text-align: left;
 }
 
-li{
+li {
   margin-bottom: 0.75em;
   font-size: 1.4vw;
   line-height: 1.25em;
 }
-#after_list{
+
+#after_list {
   text-align: left;
   line-height: 1.25em;
   margin-top: 1em;
 
 }
-#right-sided{
+
+#right-sided {
   text-align: left;
   margin-top: 1.7em;
   line-height: 1.25em;
 }
+
 .bn632-hover {
   width: 300px;
   font-size: 16px;
@@ -68,7 +71,8 @@ li{
 .space {
   height: 2.5em;
 }
-.half-space{
+
+.half-space {
   height: 1.25em;
 }
 
@@ -78,12 +82,14 @@ li{
   font-family: 'PT Serif';
   line-height: 1.2em;
 }
-.portfolio_blurb{
+
+.portfolio_blurb {
   text-align: center;
   margin-top: 1em;
   font-size: 1.6em;
 
 }
+
 .portfolio_title {
   padding-top: 3vh;
   font-size: 4.5vw;
@@ -96,11 +102,13 @@ li{
   font-size: 3vw;
   text-align: left;
 }
-.portfolio_info{
+
+.portfolio_info {
   margin-top: 1.5em;
   font-size: 1.4vw;
   text-align: center;
 }
+
 .portfolio_info_left {
   margin-top: 1.5em;
   text-align: left;
