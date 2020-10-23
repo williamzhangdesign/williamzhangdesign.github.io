@@ -14,11 +14,15 @@
 
 }
 
+
+
 .grid-image {
   max-width: 100%;
   height: auto;
   filter: grayscale(100%);
 }
+
+
 
 .grid-image:hover {
   transition: 1s;
