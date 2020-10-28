@@ -6,16 +6,6 @@ $('.navTrigger').click(function () {
     console.log('hi');
 });
 
-var prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-      var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementById("pogger").style.top = "0";
-      } else {
-        document.getElementById("pogger").style.top = "-110px";
-      }
-      prevScrollpos = currentScrollPos;
-    }
 
 window.dataLayer = window.dataLayer || [];
 
