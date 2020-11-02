@@ -403,10 +403,6 @@ body {
   position: relative;
 }
 
-.nav div.logo:after {
-  background-image: url(../images/logo_hover.png);
-  display: none;
-}
 
 .nav div.logo {
   float: left;
@@ -416,7 +412,6 @@ body {
   left: 10px;
   position: relative;
   margin-left: 40px;
-  background-image: url(../images/logo_hover.png);
   background-image: url(../images/logo.png);
   background-size: contain;
   background-repeat: no-repeat;
