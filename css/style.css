@@ -111,6 +111,13 @@ li {
   text-align: left;
 }
 
+.portfolio_subsubtitle {
+  margin-top: 4.5%;
+  padding-top: 3vh;
+  font-size: 2.4vw;
+  text-align: left;
+}
+
 .portfolio_info {
   margin-top: 1.5em;
   font-size: 1.4vw;
