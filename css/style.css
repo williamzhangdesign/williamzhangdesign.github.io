@@ -537,6 +537,10 @@ body {
   position: relative;
 }
 
+.nav div.logo:after {
+  background-image: url(../images/logo_hover.png);
+  display: none;
+}
 .nav div.logo {
   float: left;
   width: 6em;
