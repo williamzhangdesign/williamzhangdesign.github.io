@@ -1,7 +1,5 @@
-body:after{
-  display:none;
-  content: url(../images/logo_hover.png);
- }
+
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -413,6 +411,7 @@ body {
   left: 10px;
   position: relative;
   margin-left: 40px;
+  background-image: url(../images/logo_hover.png);
   background-image: url(../images/logo.png);
   background-size: contain;
   background-repeat: no-repeat;
