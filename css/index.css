@@ -1,3 +1,7 @@
+body:after{
+  display:none;
+  content: url(../images/logo_hover.png);
+ }
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

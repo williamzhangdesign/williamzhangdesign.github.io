@@ -1,4 +1,7 @@
-
+body:after{
+  display:none;
+  content: url(../images/logo_hover.png);
+ }
 #topbar {
   line-height: 0;
   margin-bottom: 0;
