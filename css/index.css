@@ -1,3 +1,5 @@
+
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -400,6 +402,7 @@ body {
 .nav .container {
   position: relative;
 }
+
 
 .nav div.logo {
   float: left;
