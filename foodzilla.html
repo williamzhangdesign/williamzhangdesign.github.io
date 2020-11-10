@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(window).on("load", function () {
+      $(".loader-wrapper").fadeOut("slow");
+    });
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
@@ -34,9 +39,14 @@
 </head>
 
 <body>
+
+
   <div style="display: none;" class="preload">
     <img src="images/logo_hover.png">
   </div>
+
+ 
+
   <nav id="pogger" class="nav">
     <a href="index.html">
       <div class="logo"></div>
@@ -219,7 +229,8 @@
               Development constraints also led us to agree, as coding out the map would require too much time on our
               end.<br><br>
               To cater to the primary pain-points of lack of time and inconvenience, we could either sort cards
-              by proximity to user or freshness of food. We decided to move forward with freshness because food safety is of utmost
+              by proximity to user or freshness of food. We decided to move forward with freshness because food safety
+              is of utmost
               important.
             </p>
             </p>
@@ -249,7 +260,8 @@
                   src="images/foodzilla/third.png"></div>
             </div>
             <p id="right-sided" class="portfolio_description">
-              After our design process, we developed a minimum-viable-product in Android Studio and Google Firebase. After the
+              After our design process, we developed a minimum-viable-product in Android Studio and Google Firebase.
+              After the
               class, I completed a complete redesign, improving the platform's visual, interface design, and
               copywriting,
               creating the
@@ -296,7 +308,8 @@
             <h1 class="portfolio_subtitle">Well-being</h1>
           </div>
           <div class="col-md-9">
-            <p id="right-sided" class="portfolio_description">How would we maintain high standards of food safety among users? Though
+            <p id="right-sided" class="portfolio_description">How would we maintain high standards of food safety among
+              users? Though
               Foodzilla feautures a colored-coded “freshness level” for the food in question,
               a strict automatic expiration for leftovers should be added to further protect the health of our users.
             </p>
@@ -354,7 +367,9 @@
 
 
 
-
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
 
 </body>
 
