@@ -1,4 +1,21 @@
+.container-fluid {
+  padding-right:0px;
+  padding-left:0px;
+}
 
+.half-space {
+  height: 1.25em;
+}
+
+
+.portfolio_footer {
+  margin-left: 25%;
+  margin-top: 1em;
+  text-align: left;
+  font-size: 1.4vw;
+  line-height: 1.2em;
+
+}
 
 .grid-container {
   display: grid;
@@ -301,6 +318,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #0F0F11;
   overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+
   color: white;
   margin: 0;
   padding: 0;
@@ -339,11 +358,7 @@ body {
   text-align: center;
 }
 
-.portfolio_info_left {
-  margin-top: 1.5em;
-  text-align: right;
-  font-size: 1.4vw;
-}
+
 
 .portfolio_info_right {
   margin-top: 1.5em;
