@@ -175,8 +175,15 @@ li {
 }
 
 .portfolio_info {
-  margin-top: 1.5em;
+  margin-top: 1em;
   font-size: 1.4vw;
+  text-align: center;
+  line-height: 1.2em;
+}
+
+.portfolio_info_title {
+  margin-top: 1.5em;
+  font-size: 2vw;
   text-align: center;
   line-height: 1.2em;
 }
