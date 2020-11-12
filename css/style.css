@@ -1,3 +1,13 @@
+
+.portfolio_footer {
+  margin-left: 20%;
+  margin-top: 1em;
+  text-align: left;
+  font-size: 1.4vw;
+  line-height: 1.2em;
+
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -192,6 +202,8 @@ li {
   margin-top: 1.5em;
   text-align: left;
   font-size: 1.4vw;
+  line-height: 1.2em;
+
 }
 
 .portfolio_description {
@@ -610,7 +622,7 @@ body {
   width: 6em;
   height: 6em;
   top: -14px;
-  left: 10px;
+  left: 3.5%;
   position: relative;
   margin-left: 40px;
   background-image: url(../images/logo_hover.png);
@@ -1111,3 +1123,4 @@ iframe {
     animation: none;
   }
 }
+

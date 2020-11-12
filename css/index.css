@@ -1,4 +1,9 @@
+.container-fluid{
+  padding-left: 0px;
+  padding-right: 0px;
 
+
+}
 
 .half-space {
   height: 1.25em;
@@ -421,7 +426,7 @@ body {
   width: 6em;
   height: 6em;
   top: -14px;
-  left: 10px;
+  left: 3.5%;
   position: relative;
   margin-left: 40px;
   background-image: url(../images/logo.png);
