@@ -10,7 +10,7 @@ $('.navTrigger').click(function () {
     console.log('hi');
 });
 
-var prevScrollpos = window.pageYOffset;
+/*var prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
@@ -19,6 +19,21 @@ var prevScrollpos = window.pageYOffset;
         document.getElementById("pogger").style.top = "-110px";
       }
       prevScrollpos = currentScrollPos;
+    }*/
+    window.onscroll = function() {
+      if (window.pageYOffset > 300) {
+        document.getElementById("pogger").style.top = "-110px";
+        document.getElementById("pogger").style.opacity = 0;
+        console.log("fade")
+
+      } else {
+        document.getElementById("pogger").style.top = "0";
+        document.getElementById("pogger").style.opacity = 1;
+
+        console.log("unfade")
+
+
+      }
     }
 
 window.dataLayer = window.dataLayer || [];

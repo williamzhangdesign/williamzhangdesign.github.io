@@ -597,8 +597,9 @@ body {
 
 
 .nav {
+  transition: 6s ease-in;
   background-color: #262629;
-
+  top: 0;
   width: 100%;
   height: 110px;
   position: fixed;
@@ -608,6 +609,7 @@ body {
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
 
 }
+
 
 .nav .container {
   position: relative;

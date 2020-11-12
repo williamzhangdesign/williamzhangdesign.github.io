@@ -446,7 +446,8 @@ body {
 
 
 .nav {
-  background-color: #1C1C1E;
+  transition: 6s ease-in;
+
   background-color: #262629;
 
   width: 100%;
