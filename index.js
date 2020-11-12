@@ -1,3 +1,8 @@
+$(window).on("load", function () {
+    $(".loader-wrapper").fadeOut("slow");
+  });
+
+
 $('.navTrigger').click(function () {
     $(this).toggleClass('active');
     console.log("Clicked menu");
