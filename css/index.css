@@ -712,8 +712,9 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-animation: flicker-in-1 1s linear both;
-  animation: flicker-in-1 1s linear both;}
-
+  animation: flicker-in-1 0.5s;
+  
+}
 .nav div.logo a {
   text-decoration: none;
   color: #fff;
@@ -723,7 +724,7 @@ body {
 .nav div.main_list {
   height: 65px;
   float: right;
-  margin-top: 0.6em;
+  margin-top: 0.8em;
 }
 
 .nav div.main_list ul {
