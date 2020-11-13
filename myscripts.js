@@ -24,14 +24,10 @@ $('.navTrigger').click(function () {
       if (window.pageYOffset > 300) {
         document.getElementById("pogger").style.top = "-110px";
         document.getElementById("pogger").style.opacity = 0;
-        console.log("fade")
 
       } else {
         document.getElementById("pogger").style.top = "0";
         document.getElementById("pogger").style.opacity = 1;
-
-        console.log("unfade")
-
 
       }
     }
