@@ -36,6 +36,20 @@
       <div class="logo"></div>
     </a>
 
+    <script>
+      window.onscroll = function () {
+        if (window.pageYOffset > 50) {
+          document.getElementById("pogger").style.opacity = 0;
+          document.getElementById("pogger").style.visibility = "none";
+          document.getElementById("pogger").style.pointerEvents = "none";
+        } else {
+          document.getElementById("pogger").style.opacity = 1;
+          document.getElementById("pogger").style.visibility = "auto";
+          document.getElementById("pogger").style.pointerEvents = "auto";
+        }
+      }
+    </script>
+
 
     <div id="mainListDiv" class="main_list">
       <ul class="navlinks">
@@ -43,6 +57,7 @@
             href="https://drive.google.com/file/d/1GzPVEbhsjEOLe1B_HiTz8OgsKrtrwlvQ/view?usp=sharing">Resumé</a></li>
       </ul>
     </div>
+
 
     <span class="navTrigger" onClick>
       <i></i>
@@ -55,18 +70,18 @@
   </section>
 
   <div class="container-fluid" id="intro">
-      <div class="col-xs-7">
-        <p class="text-left" id="intro_message">Hello, it's so nice to meet you!</p>
-        <p id="intro_body">I'm <span class="blueText"><a target="_blank"
-              href="https://www.linkedin.com/in/william-h-zhang/">William Zhang,</a></span> an experience designer
-          solving complex, challenging, and uniquely human-centered problems. As an empathetic designer, I thrive in
-          cross-functional teams and emphasize data-driven solutions.
-           <br><br>As a student creating, teaching, and performing at <span class="maizeText"><a target="_blank"
+    <div class="col-xs-7">
+      <p class="text-left" id="intro_message">Hello, it's so nice to meet you!</p>
+      <p id="intro_body">I'm <span class="blueText"><a target="_blank"
+            href="https://www.linkedin.com/in/william-h-zhang/">William Zhang,</a></span> an experience designer
+        solving complex, challenging, and uniquely human-centered problems. As an empathetic designer, I thrive in
+        cross-functional teams and emphasize data-driven solutions.
+        <br><br>As a student creating, teaching, and performing at <span class="maizeText"><a target="_blank"
             href="https://www.si.umich.edu/">Michigan,</a></span> I'm passionate about code, technology
-          education, and helping others.<Br><br> Please view
-          my works below.</p>
+        education, and helping others.<Br><br> Please view
+        my works below.</p>
 
-        <!--  <p id="intro_body">I'm <span class="blueText"><a target="_blank"
+      <!--  <p id="intro_body">I'm <span class="blueText"><a target="_blank"
             href="https://www.linkedin.com/in/william-h-zhang/">William Zhang,</a></span >a current junior creating, teaching, and performing at <span class="maizeText"><a target="_blank"
               href="https://www.si.umich.edu/">Michigan.</a></span> 
          <br><br>I'm an experience designer
@@ -75,10 +90,10 @@
         data-driven solutions.<br><br> View
         my works below.</p> -->
 
-      </div>
-      <div class="col-xs-6">
+    </div>
+    <div class="col-xs-6">
 
-      </div>
+    </div>
     <!-- <p class = "text-left" id = "intro_body">I am a current senior studying UX design and computer science <span class="maizeText"><a target="_blank" href  = "https://www.si.umich.edu/">@umschoolofinformation.</a></span> As a strong communicator, I combine human-centered design and robust programming skills to solve complex, challenging, and unique problems. My site is currently under-construction, thanks for your patience!</p> --->
 
   </div>
@@ -210,10 +225,10 @@
   background-color: #262629; margin-top: 8em; padding-bottom: 10.5em; padding-top: 0.75em;">
       <div class="half-space"></div>
       <div class="col-md-6" style="padding:none !important; margin: none !important;">
-        <p id ="intro_body">Designed and implemented by William Zhang.<br>Iterating
+        <p id="intro_body">Designed and implemented by William Zhang.<br>Iterating
           with 💛💙 in Ann
           Arbor.<br>© 2020 William Zhang</p>
-          
+
       </div>
       <div class="col-md-6"></div>
       <div class="half-space"></div>
