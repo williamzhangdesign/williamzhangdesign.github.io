@@ -360,9 +360,8 @@
 
 html,
 body {
-  font-family: "SF Pro";
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #0F0F11;
-  background-color: #0e0e0e;
   overscroll-behavior-y: none;
   overscroll-behavior-x: none;
 
@@ -382,28 +381,19 @@ body {
 }
 
 #intro_message {
-  font-weight: 500;
-  text-align: left;
-  font-family: "SF Pro Display";
-  margin-left: 15%;
-  padding-top: 8%;
-  padding-bottom: 2.4%;
-
+  margin-left: 1.5em;
+  padding-top: 0.68em;
   /*color: rgba(255, 255, 255, 0.808);*/
-  font-size: 3.5vw;
+  font-size: 4.5vw;
 }
 
 #intro_body {
-  margin-right: 2%;
-  margin-left: 15%;
-  font-weight: 359;
-  text-align: left;
-
-
+  margin-left: 2.7em;
+  margin-right: 1.5em;
 
   padding-top: 0.5em;
   /*color: rgba(255, 255, 255, 0.808);*/
-  font-size: 1.5em;
+  font-size: 2.52vw;
   line-height: 1.35em;
 }
 
@@ -436,19 +426,9 @@ body {
 
 .maizeText a {
   color: #e6b800;
-  font-weight: 600;
-
+  text-decoration: underline;
 }
 
-.blueText a {
-  color: #60aecf;
-  font-weight: 600;
-}
-
-.blueText a:hover{
-  color: #7cbbd6;
-
-}
 .maizeText a:hover {
   color: #ffd633;
   text-decoration: underline;
@@ -468,8 +448,7 @@ body {
 .nav {
   transition: 6s ease-in;
 
-  background-color: #0F0F11;
-  background-coloR: #0e0e0e;
+  background-color: #262629;
 
   width: 100%;
   height: 110px;
@@ -488,10 +467,10 @@ body {
 
 .nav div.logo {
   float: left;
-  width: 5em;
-  height: 5em;
-  top: 10%;
-  left: 4.1%;
+  width: 6em;
+  height: 6em;
+  top: -14px;
+  left: 3.5%;
   position: relative;
   margin-left: 40px;
   background-image: url(../images/logo.png);
