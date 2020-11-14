@@ -19,7 +19,7 @@
   <script src="myscripts.js"></script>
 </head>
 
-<body>
+<body onmousemove="raiseBar(event)">
   <div style="display: none;" class="preload">
     <img src="images/logo_hover.png">
   </div>
@@ -42,6 +42,44 @@
       <i></i>
     </span>
   </nav>
+
+  <script>
+    var freeze = true;
+    window.onscroll = function () {
+      if (window.pageYOffset > 50) {
+        document.getElementById("pogger").style.opacity = 0;
+        document.getElementById("pogger").style.visibility = "none";
+        document.getElementById("pogger").style.pointerEvents = "none";
+        freeze = false;
+        console.log("unfreeze");
+      } else {
+        document.getElementById("pogger").style.opacity = 1;
+        document.getElementById("pogger").style.visibility = "auto";
+        document.getElementById("pogger").style.pointerEvents = "auto";
+        freeze = true;
+        console.log("freeze");
+
+      }
+    }
+
+    function raiseBar(event) {
+      if (freeze) {
+        return;
+      }
+      var y = event.clientY;
+
+      if (y < 110) {
+        console.log("hi");
+        document.getElementById("pogger").style.opacity = 1;
+        document.getElementById("pogger").style.visibility = "auto";
+        document.getElementById("pogger").style.pointerEvents = "auto";
+      } else {
+        document.getElementById("pogger").style.opacity = 0;
+        document.getElementById("pogger").style.visibility = "none";
+        document.getElementById("pogger").style.pointerEvents = "none";
+      }
+    }
+  </script>
 
 
 

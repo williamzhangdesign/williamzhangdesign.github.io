@@ -25,7 +25,7 @@
 
 </head>
 
-<body onmousemove = "raiseBar(event)">
+<body onmousemove="raiseBar(event)">
   <div style="display: none;" class="preload">
     <img src="images/logo_hover.png">
     <img src="images/pizza.png">
@@ -37,7 +37,6 @@
     </a>
 
     <script>
-     
       var freeze = true;
       window.onscroll = function () {
         if (window.pageYOffset > 50) {
@@ -56,19 +55,18 @@
         }
       }
 
-      function raiseBar(event){
-        if (freeze){
+      function raiseBar(event) {
+        if (freeze) {
           return;
         }
         var y = event.clientY;
 
-        if (y < 110){
+        if (y < 110) {
           console.log("hi");
           document.getElementById("pogger").style.opacity = 1;
           document.getElementById("pogger").style.visibility = "auto";
           document.getElementById("pogger").style.pointerEvents = "auto";
-        }
-        else{
+        } else {
           document.getElementById("pogger").style.opacity = 0;
           document.getElementById("pogger").style.visibility = "none";
           document.getElementById("pogger").style.pointerEvents = "none";
@@ -247,8 +245,8 @@
     </div>
 
 
-    <footer style="  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
-  background-color: #0e0e0e; margin-top: 8em; padding-bottom: 10.5em; padding-top: 0.75em;">
+    <footer style="box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
+  background-color: #262629; margin-top: 8em; padding-bottom: 10.5em; padding-top: 0.75em;">
       <div class="half-space"></div>
       <div class="col-md-6" style="padding:none !important; margin: none !important;">
         <p id="intro_body">Designed and implemented by William Zhang.<br>Iterating
