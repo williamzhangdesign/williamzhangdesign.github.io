@@ -38,20 +38,28 @@
 
     <script>
      
-
+      var freeze;
       window.onscroll = function () {
         if (window.pageYOffset > 50) {
           document.getElementById("pogger").style.opacity = 0;
           document.getElementById("pogger").style.visibility = "none";
           document.getElementById("pogger").style.pointerEvents = "none";
+          freeze = false;
+          console.log("unfreeze");
         } else {
           document.getElementById("pogger").style.opacity = 1;
           document.getElementById("pogger").style.visibility = "auto";
           document.getElementById("pogger").style.pointerEvents = "auto";
+          freeze = true;
+          console.log("freeze");
+
         }
       }
 
       function raiseBar(event){
+        if (freeze){
+          return;
+        }
         var y = event.clientY;
 
         if (y < 110){
