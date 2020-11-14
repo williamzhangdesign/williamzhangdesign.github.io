@@ -565,7 +565,7 @@
 
 html,
 body {
-  font-family: "SF Pro";
+  font-family: "SF Pro Text";
   background-color: #0F0F11;
   background-color: #0e0e0e;
   overscroll-behavior-y: none;
@@ -673,8 +673,9 @@ body {
 .nav {
   transition: 6s ease-in;
 
-  background-color: #0F0F11;
-  background-coloR: #0e0e0e;
+  background-color: transparent;
+  background-color: #0e0e0e;
+ 
 
 
   width: 100%;

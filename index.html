@@ -25,7 +25,7 @@
 
 </head>
 
-<body>
+<body onmousemove = "raiseBar(event)">
   <div style="display: none;" class="preload">
     <img src="images/logo_hover.png">
     <img src="images/pizza.png">
@@ -37,6 +37,8 @@
     </a>
 
     <script>
+     
+
       window.onscroll = function () {
         if (window.pageYOffset > 50) {
           document.getElementById("pogger").style.opacity = 0;
@@ -46,6 +48,22 @@
           document.getElementById("pogger").style.opacity = 1;
           document.getElementById("pogger").style.visibility = "auto";
           document.getElementById("pogger").style.pointerEvents = "auto";
+        }
+      }
+
+      function raiseBar(event){
+        var y = event.clientY;
+
+        if (y < 110){
+          console.log("hi");
+          document.getElementById("pogger").style.opacity = 1;
+          document.getElementById("pogger").style.visibility = "auto";
+          document.getElementById("pogger").style.pointerEvents = "auto";
+        }
+        else{
+          document.getElementById("pogger").style.opacity = 0;
+          document.getElementById("pogger").style.visibility = "none";
+          document.getElementById("pogger").style.pointerEvents = "none";
         }
       }
     </script>
