@@ -32,7 +32,7 @@
   <title>William Zhang</title>
 </head>
 
-<body>
+<body onmousemove="raiseBar(event)">
 
 
   <div style="display: none;" class="preload">
@@ -46,9 +46,47 @@
       <div class="logo"></div>
     </a>
 
+    <script>
+      var freeze = true;
+      window.onscroll = function () {
+        if (window.pageYOffset > 50) {
+          document.getElementById("pogger").style.opacity = 0;
+          document.getElementById("pogger").style.visibility = "none";
+          document.getElementById("pogger").style.pointerEvents = "none";
+          freeze = false;
+          console.log("unfreeze");
+        } else {
+          document.getElementById("pogger").style.opacity = 1;
+          document.getElementById("pogger").style.visibility = "auto";
+          document.getElementById("pogger").style.pointerEvents = "auto";
+          freeze = true;
+          console.log("freeze");
+
+        }
+      }
+
+      function raiseBar(event) {
+        if (freeze) {
+          return;
+        }
+        var y = event.clientY;
+
+        if (y < 110) {
+          console.log("hi");
+          document.getElementById("pogger").style.opacity = 1;
+          document.getElementById("pogger").style.visibility = "auto";
+          document.getElementById("pogger").style.pointerEvents = "auto";
+        } else {
+          document.getElementById("pogger").style.opacity = 0;
+          document.getElementById("pogger").style.visibility = "none";
+          document.getElementById("pogger").style.pointerEvents = "none";
+        }
+      }
+    </script>
+
     <div id="mainListDiv" class="main_list">
       <ul class="navlinks">
-        <li id="topbar"><a class='navi' target="_blank"
+        <li><a class='navi' target="_blank"
             href="https://drive.google.com/file/d/1GzPVEbhsjEOLe1B_HiTz8OgsKrtrwlvQ/view?usp=sharing">Resumé</a></li>
       </ul>
     </div>
@@ -193,13 +231,13 @@
           <div class="col-md-3">
             <h1 class="portfolio_subtitle">Discovery</h1>
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9"> 
             <p id="right-sided" class="portfolio_description">We first began by sending out surveys to students around
               campus, asking students' about their experiences surrounding food insecurity and sharing leftovers. We
               learned that:<br><br></p>
             <ol style="list-style-type:none;">
-              <li>⦿&nbsp;&nbsp;77% of students saw leftovers around campus</li>
-              <li>⦿&nbsp;&nbsp;42% of students would definitely report leftover food to others, 47% might, and 10%
+              <li id = "bullet">⦿&nbsp;&nbsp;77% of students saw leftovers around campus</li>
+              <li id = "bullet">⦿&nbsp;&nbsp;42% of students would definitely report leftover food to others, 47% might, and 10%
                 wouldn't</li>
             </ol>
             <p id="after_list" class="portfolio_description">This verifies our established problem space and allows us
@@ -209,9 +247,9 @@
               Hungry students expressed 3 primary pain-points that
               interfered with normal eating habits and a sufficient diet:<br><br></p>
             <ol style="list-style-type:none;">
-              <li>⦿&nbsp;&nbsp;70% of students said Lack of Time</li>
-              <li>⦿&nbsp;&nbsp;45% of students said Inconvenience </li>
-              <li>⦿&nbsp;&nbsp;43% of students said Financial constraints</li>
+              <li id = "bullet">⦿&nbsp;&nbsp;70% of students said Lack of Time</li>
+              <li id = "bullet">⦿&nbsp;&nbsp;45% of students said Inconvenience </li>
+              <li id = "bullet">⦿&nbsp;&nbsp;43% of students said Financial constraints</li>
             </ol>
           </div>
         </div>
@@ -294,7 +332,7 @@
           </div>
         </div>
 
-<hr>
+        <hr>
 
         <div class="row">
           <div class="col-md-12">

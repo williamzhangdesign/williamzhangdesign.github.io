@@ -20,17 +20,7 @@ $('.navTrigger').click(function () {
       }
       prevScrollpos = currentScrollPos;
     }*/
-    window.onscroll = function() {
-      if (window.pageYOffset > 300) {
-        document.getElementById("pogger").style.top = "-110px";
-        document.getElementById("pogger").style.opacity = 0;
-
-      } else {
-        document.getElementById("pogger").style.top = "0";
-        document.getElementById("pogger").style.opacity = 1;
-
-      }
-    }
+ 
 
 window.dataLayer = window.dataLayer || [];
 
