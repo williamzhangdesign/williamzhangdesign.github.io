@@ -6,10 +6,11 @@
 }
 
 footer {
-  background-color: #262629;
   margin-top: 8em;
   padding-bottom: 5.5em;
   padding-top: 0.75em;
+  background-color: #0e0e0e;
+
 }
 
 .footer_holder {
