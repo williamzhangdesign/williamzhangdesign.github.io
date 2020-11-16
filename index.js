@@ -3,21 +3,7 @@ $(window).on("load", function () {
   });
 
 
-  window.onscroll = function() {
-    if (window.pageYOffset > 50) {
-      document.getElementById("pogger").style.visibility= "none";
-      document.getElementById("pogger").style.pointerEvents = "none";
 
-
-
-    } else {
-      document.getElementById("pogger").style.opacity = 1;
-      document.getElementById("pogger").style.visibility= "auto";
-      document.getElementById("pogger").style.pointerEvents = "auto";
-
-
-    }
-  }
 
 $('.navTrigger').click(function () {
     $(this).toggleClass('active');
