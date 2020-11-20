@@ -331,7 +331,6 @@
 .highlighted {
   text-align: center;
   font-size: 1.6vw;
-  font-family: 'PT Serif';
   line-height: 1.2em;
 }
 
@@ -711,7 +710,7 @@
 
 html,
 body {
-  font-family: "SF Pro Display";
+  font-family: "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont;
   background-color: #0F0F11;
   overscroll-behavior-y: none;
   color: white;
