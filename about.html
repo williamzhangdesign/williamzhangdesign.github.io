@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    $(window).on("load", function () {
+      $(".loader-wrapper").fadeOut("slow");
+    });
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>William Zhang</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="css/html5reset.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151251727-1"></script>
+  <script src="index.js"></script>
+
+
+</head>
+
+<body onmousemove="raiseBar(event)">
+  <div style="display: none;" class="preload">
+    <img src="images/logo_hover.png">
+    <img src="images/pizza.png">
+  </div>
+
+  <nav id="pogger" class="nav">
+    <a href="index.html">
+      <div class="logo"></div>
+    </a>
+
+    <script>
+      var freeze = true;
+      window.onscroll = function () {
+        if (window.pageYOffset > 50) {
+          document.getElementById("pogger").style.opacity = 0;
+          document.getElementById("pogger").style.visibility = "none";
+          document.getElementById("pogger").style.pointerEvents = "none";
+          freeze = false;
+          console.log("unfreeze");
+        } else {
+          document.getElementById("pogger").style.opacity = 1;
+          document.getElementById("pogger").style.visibility = "auto";
+          document.getElementById("pogger").style.pointerEvents = "auto";
+          freeze = true;
+          console.log("freeze");
+
+        }
+      }
+
+      function raiseBar(event) {
+        if (freeze) {
+          return;
+        }
+        var y = event.clientY;
+
+        if (y < 110) {
+          console.log("hi");
+          document.getElementById("pogger").style.opacity = 1;
+          document.getElementById("pogger").style.visibility = "auto";
+          document.getElementById("pogger").style.pointerEvents = "auto";
+        } else {
+          document.getElementById("pogger").style.opacity = 0;
+          document.getElementById("pogger").style.visibility = "none";
+          document.getElementById("pogger").style.pointerEvents = "none";
+        }
+      }
+    </script>
+
+
+    <div id="mainListDiv" class="main_list">
+      <ul class="navlinks">
+        <li><a class='navi' target="_blank"
+            href="https://drive.google.com/file/d/1GzPVEbhsjEOLe1B_HiTz8OgsKrtrwlvQ/view?usp=sharing">Resumé</a></li>
+        <li><a class='navi' href="about.html">About</a></li>
+
+      </ul>
+    </div>
+
+
+    <span class="navTrigger" onClick>
+      <i></i>
+      <i></i>
+      <i></i>
+    </span>
+  </nav>
+
+  <section id="mobileMenu" class="home">
+  </section>
+
+  <div style="height: 100vh" class="container-fluid" id="blurb">
+    <div  class="about_holder">
+        <p class="text-left" id="intro_message">About me</p>
+        <p id="intro_body">Throughout my life, I've always been drawn to creation. Whether it's making music
+          with my clarinet, building ideas through thoughtful conversations, or developing products using code, I've
+          found
+          that creativity is the unbreakable link that holds my life together.<br><br>
+          Over the years, I found my passion in creating
+          digital experiences to serve people, striving to contribute towards a more accessibile, convenient, and
+          pleasurable
+          digital
+          world.
+        </p>
+    </div>
+    <div class="image_holder">
+      <img style="height: auto; width: 25%;" src="images/cutout.png">
+    </div>
+
+  </div>
+
+
+
+
+
+  <footer>
+    <div class="footer_holder">
+      <p style="margin-top: 1em;" id="intro_body">Designed and implemented by William Zhang.<br>Iterating
+        with 💛💙 in Ann
+        Arbor.<br>© 2020 William Zhang</p>
+
+    </div>
+    <div class="col-md-6"></div>
+    <div class="half-space"></div>
+  </footer>
+
+  <script>
+    $('.navTrigger').click(function () {
+      $(this).toggleClass('active');
+      console.log("Clicked menu");
+      $("#mainListDiv").toggleClass("show_list");
+      $("#mainListDiv").fadeIn();
+      $("#pogger").toggleClass("extend");
+    });
+  </script>
+  </div>
+
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
+</body>
+
+</html>

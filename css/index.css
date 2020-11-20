@@ -1,8 +1,23 @@
 .intro_holder {
   position: absolute;
-  top: 20.5%;
+  top: 16.5%;
   left: 9.5%;
   width: 48%;
+}
+
+
+.about_holder {
+  position: absolute;
+  top: 15.5%;
+  left: 9.5%;
+  width: 50%;
+}
+
+.image_holder {
+  position: absolute;
+  top: 23.5%;
+  left: 65%;
+  width: 100%;
 }
 
 footer {
