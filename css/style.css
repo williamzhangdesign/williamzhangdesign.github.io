@@ -864,7 +864,7 @@ body {
   text-decoration: none;
   /*color: rgba(255, 255, 255, 0.822);*/
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 .nav div.main_list ul li a:hover {
