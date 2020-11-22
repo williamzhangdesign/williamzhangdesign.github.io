@@ -876,7 +876,7 @@ body {
   background-color: transparent;
   background-color: #0e0e0e;
   width: 100%;
-  height: 120px;
+  height: 132px;
   position: fixed;
   line-height: 55px;
   text-align: center;
@@ -889,10 +889,10 @@ body {
 }
 
 .nav div.logo {
-  top: -1%;
+  top: -2%;
   float: left;
-  width: 5.75em;
-  height: 5.75em;
+  width: 5.8em;
+  height: 5.8em;
   left: 5.5%;
   position: relative;
   margin-left: 40px;
@@ -921,7 +921,7 @@ body {
 .nav div.main_list {
   height: 65px;
   float: right;
-  margin-top: 0.8em;
+  margin-top: 1.05em;
 }
 
 .nav div.main_list ul {
@@ -944,7 +944,7 @@ body {
   text-decoration: none;
   /*color: rgba(255, 255, 255, 0.822);*/
   color: white;
-  font-size: 1.35rem;
+  font-size: 1.5rem;
 }
 
 .nav div.main_list ul li a:hover {
