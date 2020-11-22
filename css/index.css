@@ -674,7 +674,7 @@ footer {
 #pizzaholder {
   transition: all 0.8s ease-in-out;
 
-  background-image: url(../images/pizza_hover.png);
+  background-image: url(../images/index/pizza_hover.png);
   background-size: contain;
   background-repeat: no-repeat;
 
@@ -690,7 +690,7 @@ footer {
 #e2:hover #pizzaholder {
   transition: all 0.8s ease-in-out;
 
-  background-image: url(../images/pizza.png);
+  background-image: url(../images/index/pizza.png);
 }
 
 .gallery h1 {
@@ -726,8 +726,8 @@ footer {
 .entry {
   transition: all .35s ease-in-out;
 
-  height: 80vh;
-  width: 40vw;
+  height: 75vh;
+  width: 37vw;
   text-align: center;
   vertical-align: middle;
   font-size: 0;
@@ -881,7 +881,6 @@ body {
   line-height: 55px;
   text-align: center;
   z-index: 2;
-  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
 
 }
 
