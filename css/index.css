@@ -726,8 +726,8 @@ footer {
 .entry {
   transition: all .35s ease-in-out;
 
-  height: 75vh;
-  width: 37vw;
+  height: 550px;
+  width: 520px;
   text-align: center;
   vertical-align: middle;
   font-size: 0;
