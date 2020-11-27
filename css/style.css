@@ -350,8 +350,8 @@
 
 .portfolio_subtitle {
   margin-top: 2.5%;
-  padding-top: 3vh;
-  font-size: 3vw;
+  padding-top: 0.75em;
+  font-size: 2.25em;
   text-align: left;
 }
 
@@ -442,8 +442,8 @@
 }
 
 .container-fluid {
-  padding-left: 12vw;
-  padding-right: 12vw;
+  padding-left: 15vw;
+  padding-right: 15vw;
 
 }
 
