@@ -363,7 +363,6 @@
 }
 
 .portfolio_subtitle {
-  margin-top: -0.2em;
   font-size: 2.25em;
   text-align: left;
 }
@@ -937,8 +936,16 @@ body {
 
 @media screen and (max-width:768px) {
   .portfolio_subtitle{
-    margin-bottom: 0.25em;
+    margin-bottom: 0.35em;
+    font-size: 1.75em;
   }
+
+  .portfolio_title {
+    padding-top: 3vh;
+    font-size: 3em;
+    text-align: center;
+  }
+
 
   
 
