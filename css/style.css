@@ -1,3 +1,10 @@
+.mobile_spacing{
+  height: 0em;
+}
+
+.foodzilla_thumb{
+  width: 30em;
+}
 
 @-webkit-keyframes flicker-in-1 {
   0% {
@@ -258,7 +265,7 @@
 
 #bullet {
   margin-bottom: 0.75em;
-  font-size: 1.4vw;
+  font-size: 1.25em;
   line-height: 1.25em;
 }
 
@@ -274,7 +281,6 @@
 
 #right-sided {
   text-align: left;
-  margin-top: 1.7em;
   line-height: 1.25em;
 }
 
@@ -328,9 +334,13 @@
   height: 1.25em;
 }
 
+.quarter-space {
+  height: 0.625em;
+}
+
 .highlighted {
   text-align: center;
-  font-size: 1.6vw;
+  font-size: 1.25em;
   line-height: 1.2em;
 }
 
@@ -344,34 +354,35 @@
 
 .portfolio_title {
   padding-top: 3vh;
-  font-size: 4.5vw;
+  font-size: 4em;
   text-align: center;
 }
 
-.portfolio_subtitle {
+.portfolio_bigger_subtitle{
   margin-top: 2.5%;
   padding-top: 0.75em;
+  font-size: 2.8em;
+  text-align: left;
+}
+
+.portfolio_subtitle {
+  margin-top: -0.2em;
   font-size: 2.25em;
   text-align: left;
 }
 
-.portfolio_subsubtitle {
-  margin-top: 4.5%;
-  padding-top: 3vh;
-  font-size: 2.4vw;
-  text-align: left;
-}
+
 
 .portfolio_info {
   margin-top: 1em;
-  font-size: 1.4vw;
+  font-size: 1.25em;
   text-align: center;
   line-height: 1.2em;
 }
 
 .portfolio_info_title {
   margin-top: 1.5em;
-  font-size: 2vw;
+  font-size: 1.85em;
   text-align: center;
   line-height: 1.2em;
 }
@@ -387,7 +398,7 @@
 .portfolio_description {
   text-align: center;
 
-  font-size: 1.4vw;
+  font-size: 1.25em;
   line-height: 1.45em;
 }
 
@@ -716,7 +727,6 @@ body {
   color: white;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 
@@ -725,7 +735,6 @@ body {
   /*75vh;*/
   /*color: rgba(255, 255, 255, 0.808);*/
   padding-top: 130px;
-  position: relative;
 }
 
 #intro_message {
@@ -779,6 +788,7 @@ body {
   background-color: transparent;
   background-color: #0e0e0e;
   width: 100%;
+  min-width: 100vw;
   height: 132px;
   position: fixed;
   line-height: 55px;
@@ -896,6 +906,9 @@ body {
 
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+  .foodzilla_thumb{
+    width: 20em;
+  }
 
   .gallery {
     grid-template-columns: 1fr 1fr;
@@ -925,6 +938,16 @@ body {
 }
 
 @media screen and (max-width:768px) {
+
+  .foodzilla_thumb{
+    width: 300px;
+    height: 1000px;
+  }
+  .container-fluid {
+    padding-left: 12vw;
+    padding-right: 12vw;
+  
+  }
   #mood {
     width: 6rem;
     height: 6rem;
