@@ -3,11 +3,11 @@
 }
 
 #middle{
-  margin-left: 1.5em;
+  padding-left: 1.5em;
 }
 
 .desktop_space{
-  height: 2em;
+  height: 3em;
 }
 
 .desktopLine{
@@ -1038,7 +1038,7 @@ body {
   }
 
   #middle{
-    margin-left: 0em;
+    padding-left: 0em;
   }
   .desktop_space{
     height: 0em;
