@@ -179,6 +179,9 @@
             </p>
           </div>
         </div>
+
+        <div class ="desktop_space"></div>
+
         <div class="row">
           <div class="col-md-3">
             <h1 class="portfolio_subtitle">Audience</h1>
@@ -196,7 +199,7 @@
           </div>
         </div>
 
-
+        <div class ="half_desktop_space"></div>
 
 
 
@@ -221,13 +224,12 @@
           </div>
         </div>
 
+        <hr class = "bottomline">
+
 
         <div class="row">
           <div class="col-md-12">
-
-            <hr>
             <h1 class="portfolio_title">Our Process</h1>
-
           </div>
         </div>
 
@@ -266,16 +268,15 @@
             <h1 class="portfolio_subtitle">Sketches</h1>
           </div>
           <div class="col-md-9">
-            <!-- Never, Almost Never, Rarely, Occasionally, Sometimes, Frequently, All the Time-->
             <p id="right-sided" class="portfolio_description">I first began by sketching paper prototypes to test in
               class. Based on these sketches, our team was now deciding between either a map that showed spottings and
               events as pins, and a vertical card-list interface.<br><br>
             </p>
             <div class="row">
-              <div class="col-xs-12 col-sm-6"><img class = "foodzilla_trimage"
+              <div class="col-xs-12 col-sm-6"><img id = "sketch" class = "foodzilla_trimage"
                   style="border-radius: 10px; margin-top: 2em; width: auto "
                   src="images/foodzilla/1A.JPG"></div>
-              <div class="col-xs-12 col-sm-6"><img class = "foodzilla_trimage"
+              <div class="col-xs-12 col-sm-6"><img id = "sketch" class = "foodzilla_trimage"
                   style="border-radius: 10px; margin-top: 2em; width: auto;"
                   src="images/foodzilla/1B.JPG"></div>
             </div>
@@ -300,14 +301,14 @@
           <div class="col-md-3">
             <h1 class="portfolio_subtitle">Wireframe</h1>
           </div>
+
           <div class="col-md-9">
-            <!-- Never, Almost Never, Rarely, Occasionally, Sometimes, Frequently, All the Time-->
             <p id="right-sided" class="portfolio_description">After paper-prototyping and user-testing, I moved to Figma
               to design our high fidelity wireframes. I decided to use a lighter color-scheme to allow the warmer images
               of food and scenery to stand out more.</p>
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <img class="foodzilla_trimage"
+                <img class="foodzilla_trimage" id = "sketch" 
                   style="display: block; margin: 0 auto; border-radius: 10px; margin-top: 2em; width: auto;"
                   src="images/foodzilla/first.JPG"></div>
               <div class="col-xs-12 col-sm-4">
@@ -320,7 +321,7 @@
                   src="images/foodzilla/third.png"></div>
             </div>
             <div class="desktop_space"></div>
-
+            <div class = "mobile_space"></div>
             <p id="right-sided" class="portfolio_description">
               After our design process, we developed a minimum-viable-product in Android Studio and Google Firebase.
               After the
@@ -338,7 +339,7 @@
         <div class="row">
           <div class="col-md-3">
             <h1 class="portfolio_subtitle">Prototype:<br>'H' to Restart</h1>
-            <div class="mobileNegativeSpace" style="margin-bottom: -2em;"></div>
+            <div style="margin-bottom: -2em;"></div>
           </div>
           <div class="col-md-9">
             <div id="wrap">
@@ -405,20 +406,40 @@
           </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
       </div>
     </div>
+
+    <footer>
+        <p><hr class = "footerline"></p>
+        <p style="margin-top: 1em;" id = "foot" class="portfolio_description">
+          Designed and implemented by William Zhang.<br>Iterating
+          with 💛💙 in Ann
+          Arbor.<br>© 2020 William Zhang</p>
+  
+    </footer>
   </div>
+
+
+
+
+
+
+  
+
+
+
+
+  <script>
+    $('.navTrigger').click(function () {
+      $(this).toggleClass('active');
+      console.log("Clicked menu");
+      $("#mainListDiv").toggleClass("show_list");
+      $("#mainListDiv").fadeIn();
+      $("#pogger").toggleClass("extend");
+    });
+  </script>
+  </div>
+
 
 
 

@@ -1,3 +1,11 @@
+.footerline{
+  display: none;
+  margin-bottom: -1.85em;
+  width:37.3%;
+  text-align:left;
+  margin-left:0
+}
+
 .intro_holder {
   position: absolute;
   top: 16.5%;
@@ -1163,11 +1171,7 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     color: white;
-    background-repeat: repeat-x;
-    background-image: linear-gradient(to right, currentColor 100%, currentColor 0);
-    background-size: 1px 1.5px;
-    background-position: 0 calc(75% - 0.1em);
-    white-space: initial;
+    
 
   }
 
