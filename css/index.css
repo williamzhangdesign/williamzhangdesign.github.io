@@ -1046,6 +1046,8 @@ body {
     width: 40%;
   }
   .image_holder {
+    display: none;
+    margin-bottom: 5em;
     position: absolute;
     width: 100%;
     left: 20%;
