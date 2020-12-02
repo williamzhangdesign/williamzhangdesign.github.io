@@ -413,7 +413,9 @@ display: none;
   line-height: 1.25em;
 }
 
-
+#mistart_title{
+  margin-bottom: 0.5em;
+}
 
 
 #after_list {
