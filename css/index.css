@@ -1,9 +1,21 @@
+#melol{
+  height: auto; 
+  width: 25%;
+}
+
 .footerline{
   display: none;
   margin-bottom: -1.85em;
   width:37.3%;
   text-align:left;
   margin-left:0
+}
+
+.image_holder {
+  position: absolute;
+  top: 23.5%;
+  left: 65%;
+  width: 100%;
 }
 
 .intro_holder {
@@ -16,17 +28,14 @@
 
 .about_holder {
   position: absolute;
-  top: 15.5%;
+  top: 16.5%;
   left: 9.5%;
-  width: 50%;
+  width: 48%;
 }
 
-.image_holder {
-  position: absolute;
-  top: 23.5%;
-  left: 65%;
-  width: 100%;
-}
+
+
+
 
 footer {
   margin-top: 8em;
@@ -978,10 +987,16 @@ body {
 
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+
+
+
+  #about_holder{
+    width: 75%;
+
+  }
   .intro_holder {
     position: absolute;
     left: 0.95%;
-    width: 100%;
   }
 
   #intro_message {
@@ -1026,6 +1041,17 @@ body {
 }
 
 @media screen and (max-width:768px) {
+  #melol{
+    height: auto; 
+    width: 40%;
+  }
+  .image_holder {
+    position: absolute;
+    width: 100%;
+    left: 20%;
+    top: 70%;
+    
+  }
   #blurb {
     margin-bottom: 5%;
   }
