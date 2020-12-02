@@ -3,6 +3,11 @@
   width: 25%;
 }
 
+#foot{
+  text-align: middle;
+  line-height: 1.25em;
+}
+
 .footerline{
   display: none;
   margin-bottom: -1.85em;
@@ -844,11 +849,11 @@ body {
   font-size: 1.4vw;
 }
 
+
 .portfolio_description {
   text-align: center;
 
-  margin-top: 1em;
-  font-size: 1.8vw;
+  font-size: 1.25em;
   line-height: 1.45em;
 }
 
@@ -990,6 +995,7 @@ body {
 
 
 
+
   #about_holder{
     width: 75%;
 
@@ -1041,6 +1047,19 @@ body {
 }
 
 @media screen and (max-width:768px) {
+
+  .portfolio_description {
+    font-size: 1em;
+}
+  #foot{
+    padding-left: 15vw;
+    padding-right: 15vw;
+
+
+
+    text-align: left;
+    line-height: 1.25em;
+  }
   #melol{
     height: auto; 
     width: 40%;
