@@ -49,6 +49,7 @@ display: none;
 
 .topline{
   margin-bottom: 0em;
+  margin-top: 3.5em;
 }
 
 .bottomline{
@@ -491,7 +492,7 @@ display: none;
 }
 
 .portfolio_title {
-  margin-top: 0.5em;
+  margin-top: 0.75em;
   margin-bottom: 0.75em;
   font-size: 4em;
   text-align: center;
@@ -570,7 +571,7 @@ display: none;
   position: relative;
   left: calc(-50vw + 50%);
   margin-top: 2.5em;
-  margin-bottom: 2.5em;
+  margin-bottom: 1.5em;
 
 }
 
@@ -1101,7 +1102,7 @@ body {
  
 
   .portfolio_info_title {
-    font-weight: 400;
+    font-weight: 700;
     margin-top: 1.5em;
     font-size: 1.4em;
     text-align: center;
