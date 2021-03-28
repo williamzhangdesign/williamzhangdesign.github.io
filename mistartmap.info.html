@@ -496,13 +496,20 @@
           was the color scheme. This was constantly a point of discussion because we wanted to ensure the
           dashboard adhered to accessibility standards. However, due to state demands, we had to adopt a color scheme
           that strictly abided by Governor Whitmer's reopening plan phase colors. This was our first iteration and it
-          was on the live dashboard for many months.</p>
-        <img style="height: auto; width: 100%;" src="images/mistartmap/levels.svg" id="covid">
+          was on the live dashboard for many months.<br><br></p>
+        <p id="right-sided" class="portfolio_description">Mapping the
+          indicator color
+          on the dashboard's map with a reopening plan phase can be critically misleading. For example, a region that
+          has not
+          experienced much infection early-on in the pandemic would have the color that is considered "post-pandemic" as
+          shown in the phases below.
+        </p>
+        <img style="border-radius: 5px; height: auto; width: 100%;" src="images/mistartmap/levels.png" id="covid">
         <div class="half_desktop_space"></div>
-        <p id="right-sided" class="portfolio_description">However, this would constantly cause confusion among the
+        <!-- <p id="right-sided" class="portfolio_description">However, this would constantly cause confusion among the
           general public. Users mentioned that set risk-indicator colors (government assessment of current risk level at
           the selected date and region) lining up with the governor's reopening phase colors was misleading and
-          problematic.</p>
+          problematic.</p> -->
       </div>
     </div>
 
@@ -513,19 +520,22 @@
       <div class="col-md-12">
         <h1 id="mistart_title" class="portfolio_subtitle">Monochromatic Color Scheme</h1>
         <p id="right-sided" class="portfolio_description">To address the confusion caused by the reopening phase color
-          scheme, we decided to move towards a monochromatic color scheme.</p>
+          scheme, we decided to move towards a monochromatic color scheme that had no ties or resemblance to the
+          reopening plan phases.
+        </p>
         <img style="border-radius: 5px; height: auto; width: 80%;" src="images/mistartmap/colors.svg" id="covid">
         <div class="desktop_space"></div>
-        <p id="right-sided" class="portfolio_description">The point of discussion was to design a color scheme that
+        <p id="right-sided" class="portfolio_description">Now, we needed to design a color scheme that
           accurately portrayed and communicated the logical, emotional, and behavioral impact of a certain risk level.
-          Our primary stakeholder from MDHHS mentioned that among the public health community, the second iteration
+          Our primary stakeholder from the state health department mentioned that among the public health community, the
+          second iteration
           communicated
-          too much danger because of its red
+          too much danger and fear because of its red
           tones. The second iteration was never released onto the live dashboard.<br><br>
           Eventually, I settled down on a cooler color scheme that used our new risk level indicator legend, replacing
           Medium, Medium-High, High, Higher, and Highest with A, B, C, D, E, and F respectively. The third iteration is
           currently live on the dashboard, and has
-          cleared confusion related to the Governor's reopening plan colors.
+          cleared confusion related to the reopening phases color scheme.
           <!-- https://www.wilx.com/2020/09/24/mi-safe-start-dashboard-map-gets-makeover-to-ease-confusion/ -->
         </p>
       </div>
@@ -540,7 +550,7 @@
         <p id="right-sided" class="portfolio_description">Additional public health needs for the private dashboard
           called for distinct icons that matched CDC case trends. The challenge with CDC case-trends and their
           iconography existed because trends
-          that involved highly specialized language and complex epidemiological meaning had to be broken down into
+          that involved highly specialized language and complex epidemiological meanings had to be broken down into
           simple and easily identifiable icons that also each corresponded with a unique risk level.</p>
         <img style="height: auto; width: 75%;" src="images/mistartmap/cdc.svg" id="covid">
         <div class="half_desktop_space"></div>
