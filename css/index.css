@@ -800,6 +800,8 @@ footer {
 
 html,
 body {
+  max-width: 100%;
+    overflow-x: hidden;
   font-family: "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont;
   background-color: #0F0F11;
   background-color: #0e0e0e;
