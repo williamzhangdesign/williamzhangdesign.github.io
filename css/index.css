@@ -601,6 +601,9 @@ footer {
     animation: flickerAnimation .5s infinite;
 }
 
+@-webkit-keyframes jello-horizontal{0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}30%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}40%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}50%{-webkit-transform:scale3d(1.15,.85,1);transform:scale3d(1.15,.85,1)}65%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}75%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}@keyframes jello-horizontal{0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}30%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}40%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}50%{-webkit-transform:scale3d(1.15,.85,1);transform:scale3d(1.15,.85,1)}65%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}75%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}
+.jello-horizontal{-webkit-animation:jello-horizontal .9s both;animation:jello-horizontal .9s both}
+
 
 
 .loader-wrapper {
@@ -676,9 +679,15 @@ footer {
   margin-top: 8.5%;
 }
 
+#e6:hover img{
+  animation: jello-horizontal 1s infinite;
+}
+
 #e6{
   background-color: #07a39a;
 }
+
+
 
 
 #e1 {
@@ -740,12 +749,11 @@ footer {
 }
 
 #e6 img {
-  opacity: 0.6;
   float: center;
   width: 12rem;
   position: relative;
-  margin-top: 30%;
-  transform: scale(1.75);
+  margin-top: 23%;
+  transform: scale(1.2);
 }
 
 
