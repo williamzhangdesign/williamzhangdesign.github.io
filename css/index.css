@@ -753,7 +753,6 @@ footer {
   width: 12rem;
   position: relative;
   margin-top: 23%;
-  transform: scale(1.2);
 }
 
 
@@ -909,6 +908,14 @@ body {
   line-height: 1.35em;
 
 
+
+}
+
+.passwordtext{
+  text-align: center;
+  animation: none;
+  font-size: 1.5em;
+  font-weight: 359;
 
 }
 
