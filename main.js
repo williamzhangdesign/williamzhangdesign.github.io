@@ -1,27 +1,54 @@
 document.getElementById("original").href = "mobile.css";
 var currentPage = 0;
-
+var totalPages = $("#pages section").children().length;
+console.log(totalPages)
 $('body')
-    .on('click', '#next', nextPage)
-    .on('click', '#prev', prevPage);
+  .on('click', '#next', nextPage)
+  .on('click', '#prev', prevPage);
 
 $('.book').hammer().on("swipeleft", nextPage);
 $('.book').hammer().on("swiperight", prevPage);
 
 function prevPage() {
-    $('.flipped')
-        .last()
-        .toggleClass('flipped active')
-        .siblings('.page')
-        .removeClass('active');
-
+  currentPage++;
+  $('.flipped')
+    .last().toggleClass('flipDown')
+    .toggleClass('flipped active')
+    .siblings('.page')
+    .removeClass('active');
+  $('body')
+    .off('click', '#next', nextPage)
+    .off('click', '#prev', prevPage);
+  setTimeout(function () {
+    $('body')
+      .on('click', '#next', nextPage)
+      .on('click', '#prev', prevPage);
+  }, 1100);
 }
 
 function nextPage() {
-    $('.active')
-        .toggleClass('active flipped')
-        .next('.page')
-        .addClass('active');
+  if (currentPage == totalPages) {
+    console.log("Reached Back Cover (Thank you Page)");
+    return;
+  }
+
+
+  currentPage++;
+  console.log(currentPage)
+
+  $('.active')
+    .toggleClass('active flipped')
+    .next('.page')
+    .addClass('active')
+  $('body')
+    .off('click', '#next', nextPage)
+    .off('click', '#prev', prevPage);
+  setTimeout(function () {
+    $('body')
+      .on('click', '#next', nextPage)
+      .on('click', '#prev', prevPage);
+  }, 1100);
+
 }
 
 

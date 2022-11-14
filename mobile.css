@@ -19,11 +19,11 @@ h1 {
 :root {
   --shadow-color: 0deg 0% 68%;
   --shadow-elevation-low:
-    1px 0px 1.5px hsl(var(--shadow-color) / 0),
+    1px 0px 1.1px hsl(var(--shadow-color) / 0),
     3.3px 0px 4.9px hsl(var(--shadow-color) / 0.33);
   --shadow-elevation-medium:
     0.1px 0px 0.1px hsl(var(--shadow-color) / 0.44),
-    2.9px -0.7px 3.8px -1.5px hsl(var(--shadow-color) / 0.73);
+    2.9px -0.7px 3.8px -1.1px hsl(var(--shadow-color) / 0.73);
     --shadow-elevation-high:
     0.1px 0px 0.1px hsl(var(--shadow-color) / 0.37),
     2.2px 0.3px 2.9px -0.7px hsl(var(--shadow-color) / 0.58),
@@ -37,7 +37,6 @@ h1 {
   display: block;
   margin: 0 auto;
   margin-top: 50%;
-  box-shadow: var(--shadow-elevation-medium);
 }
 
 .book {
@@ -45,7 +44,8 @@ h1 {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  
+  box-shadow: var(--shadow-elevation-medium);
+
 
 }
 
@@ -83,7 +83,7 @@ h1 {
 
 @keyframes pageFlipBack{
   5% {
-    box-shadow: var(--shadow-elevation-high);
+    box-shadow: var(--shadow-elevation-low);
 
   }
 
@@ -92,13 +92,13 @@ h1 {
 
   }
 
-  100% {
-    box-shadow: none;
+  60% {
+    box-shadow: var(--shadow-elevation-medium);
   }
 }
 @keyframes pageFlip {
   5% {
-    box-shadow: var(--shadow-elevation-high);
+    box-shadow: var(--shadow-elevation-low);
 
   }
 
@@ -116,21 +116,20 @@ h1 {
 
 .page.active {
   transform: rotateY(0deg);
-  transition: 1.5s transform;
+  transition: 1.1s transform;
   z-index: 1;
-
-
-
-
-
+  /*animation: pageFlipBack 1.1s;*/
 }
 
+.page.flipDown{
+  animation: pageFlipBack 1.1s;
+}
 
 .page.flipped {
   transform: rotateY(-90deg);
-  transition: 1.5s transform;
+  transition: 1.1s transform;
   z-index: 2;
-  animation: pageFlip 1.5s;
+  animation: pageFlip 1.1s;
   
 }
 
@@ -146,8 +145,7 @@ h1 {
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   .scene {
-    width: 90%;
-    height: 90%;
+    
   }
 }
 
