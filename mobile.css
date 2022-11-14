@@ -58,6 +58,8 @@ h1 {
   transform-style: preserve-3d;
   transform-origin: left center;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
   
 
 
@@ -68,6 +70,8 @@ h1 {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
   box-sizing: border-box;
   background-image: url(./visuals/cover.svg);
   background-size:     contain;                      /* <------ */
@@ -105,6 +109,7 @@ h1 {
 
   100% {
     box-shadow: none;
+
   }
 }
 
