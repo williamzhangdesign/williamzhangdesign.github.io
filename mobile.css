@@ -23,7 +23,7 @@ body {
 .iPod{
   margin-top: 5vw;
   margin-bottom: 5vw;
-  width: 25.25vw;
+  width: 25vw;
   height: 41vw;
   border-radius: 2vw;
   box-shadow: var(--shadow-elevation-high);        
@@ -38,13 +38,13 @@ body {
   left: 0;
   right: 0;
   text-align: center;  
-width: 17vw;
-height: 13.28vw;
+width: 17.85vw;
+height: 13.6vw;
 
 background: linear-gradient(138.97deg, rgba(255, 255, 255, 0) 23.27%, rgba(245, 243, 233, 0.6) 98.19%), linear-gradient(56.46deg, #A09B8C 0%, #BAB7B0 100%);
 opacity: 0.9;
 box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), inset 0px -1px 3px rgba(0, 0, 0, 0.35), inset 0px 1px 7px rgba(0, 0, 0, 0.65);
-border-radius: 7px;
+border-radius: 6px;
 }
 h1 {
   text-align: center;
