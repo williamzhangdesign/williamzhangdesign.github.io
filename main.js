@@ -10,7 +10,7 @@ $('.book').hammer().on("swipeleft", nextPage);
 $('.book').hammer().on("swiperight", prevPage);
 
 function prevPage() {
-  currentPage++;
+  currentPage--;
   $('.flipped')
     .last().toggleClass('flipDown')
     .toggleClass('flipped active')
@@ -27,7 +27,7 @@ function prevPage() {
 }
 
 function nextPage() {
-  if (currentPage == totalPages) {
+  if (currentPage == totalPages - 1) {
     console.log("Reached Back Cover (Thank you Page)");
     return;
   }
