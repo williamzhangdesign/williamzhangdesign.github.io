@@ -8,44 +8,14 @@ html {
 body {
   display: flex;
   flex-direction: column;
-
+  flex-shrink: 0;
   background: #F0F0F0;
   margin: 0;
   width: 100%;
   height: 100%;
 }
-.iPodContainer{
-  margin: 0 auto;
-  width: 25vw;
-  height: 50vw;
-  
-}
-.iPod{
-  margin-top: 5vw;
-  margin-bottom: 5vw;
-  width: 25vw;
-  height: 41vw;
-  border-radius: 2vw;
-  box-shadow: var(--shadow-elevation-high);        
 
-}
 
-.screen{
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 7vw;
-  left: 0;
-  right: 0;
-  text-align: center;  
-width: 17.85vw;
-height: 13.6vw;
-
-background: linear-gradient(138.97deg, rgba(255, 255, 255, 0) 23.27%, rgba(245, 243, 233, 0.6) 98.19%), linear-gradient(56.46deg, #A09B8C 0%, #BAB7B0 100%);
-opacity: 0.9;
-box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), inset 0px -1px 3px rgba(0, 0, 0, 0.35), inset 0px 1px 7px rgba(0, 0, 0, 0.65);
-border-radius: 6px;
-}
 h1 {
   text-align: center;
 }
@@ -61,26 +31,28 @@ h1 {
     3.6px 5.5px 7.1px -1.9px hsl(var(--shadow-color) / 0.36),
     8.9px 13.7px 17.5px -2.8px hsl(var(--shadow-color) / 0.34);
     --shadow-elevation-high:
-    0.1px 0.1px 0.1px hsl(var(--shadow-color) / 1),
-    1.5px 1.5px 2px -1.9px hsl(var(--shadow-color) / 0.88),
-    8.5px 8.1px 11px -3.7px hsl(var(--shadow-color) / 0.63);
+    0.1px 0px 0.1px hsl(var(--shadow-color) / 0.37),
+    2.2px 0.3px 2.9px -0.7px hsl(var(--shadow-color) / 0.58),
+    8.1px 1.2px 10.6px -1.3px hsl(var(--shadow-color) / 0.79);
 }
 
 .scene {
+  margin-top: 6vh;
   height: 113.21vw;
   width: 95vw;
   perspective: 1000px;
-  
   margin-right: 5vw;
+
 }
 
 .book {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: inherit;
+  height: inherit;
   transform-style: preserve-3d;
   box-shadow: var(--shadow-elevation-medium);
 
+  
 
 }
 
@@ -217,4 +189,40 @@ h1 {
   display: flex;
   justify-content: space-between;
 
+}
+
+
+.iPodContainer{
+  z-index: -1;
+  margin: 0 auto;
+  margin-top: 8vw;
+
+  width: 25vw;
+  height: 50vw;
+
+  
+}
+.iPod{
+  width: 25vw;
+  height: 41vw;
+  border-radius: 2vw;
+  box-shadow: var(--shadow-elevation-high);        
+
+}
+
+.screen{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.5vw;
+  left: 0;
+  right: 0;
+  text-align: center;  
+width: 17.85vw;
+height: 13.6vw;
+
+background: linear-gradient(138.97deg, rgba(255, 255, 255, 0) 23.27%, rgba(245, 243, 233, 0.6) 98.19%), linear-gradient(56.46deg, #A09B8C 0%, #BAB7B0 100%);
+opacity: 0.9;
+box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), inset 0px -1px 3px rgba(0, 0, 0, 0.35), inset 0px 1px 7px rgba(0, 0, 0, 0.65);
+border-radius: 6px;
 }
