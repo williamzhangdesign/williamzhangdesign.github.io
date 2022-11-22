@@ -220,11 +220,11 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   margin-top: 2.5vw;
-  left: 0;
+  left: 5%;
   right: 0;
   text-align: center;
-  width: 17.85vw;
-  height: 13.6vw;
+  width: 22.85vw;
+  height: 15.6vw;
   background: linear-gradient(138.97deg, rgba(255, 255, 255, 0) 23.27%, rgba(245, 243, 233, 0.6) 98.19%), linear-gradient(56.46deg, #A09B8C 0%, #BAB7B0 100%);
   opacity: 0.9;
   box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), inset 0px -1px 3px rgba(0, 0, 0, 0.35), inset 0px 1px 7px rgba(0, 0, 0, 0.65);
