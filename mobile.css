@@ -223,7 +223,7 @@ h1 {
   left: 5%;
   right: 0;
   text-align: center;
-  width: 22.85vw;
+  width: 20.85vw;
   height: 15.6vw;
   background: linear-gradient(138.97deg, rgba(255, 255, 255, 0) 23.27%, rgba(245, 243, 233, 0.6) 98.19%), linear-gradient(56.46deg, #A09B8C 0%, #BAB7B0 100%);
   opacity: 0.9;
@@ -239,7 +239,7 @@ h1 {
 
 #regularText{
   margin-top: 0.2em;
-  font-size: 1.4vw;
+  font-size: 1.65vw;
   letter-spacing: 0.01px;
 }
 .statusbarline{
