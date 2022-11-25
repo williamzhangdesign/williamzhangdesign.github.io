@@ -269,34 +269,36 @@ h1 {
 .albumTitle {
   grid-area: 4 / 1 / 5 / 6;
 }
+.seek_slider{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 0.5em;
+  background: black;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius:100px;
+  width: 85%;
+  margin: 0 auto;
+}
+.current-time{
+float: left;
+margin-left: 0.95em;
+} 
+.total-duration{
+float: right;
+margin-right: 0.95em;
 
-#progressBar {
-  transform: scale(1.5);
-  position: absolute;
-  width: 154px;
-  height: 8px;
-  left: 1113px;
-  top: 147px;
-  border: 1px solid #282425;
-
-  box-sizing: border-box;
-
-  border-radius: 100px;
 }
 
-#progressBar div {
-  width: 154px;
-  height: inherit;
-  background-color: #282425;
-  border-radius: 1000px;
 
-}
 
 .artistTitle {
   grid-area: 5 / 1 / 6 / 6;
 }
 
-.div6 {
+.seekers{
   grid-area: 6 / 1 / 8 / 6;
 }
 

@@ -11,76 +11,67 @@
         <link href="https://fonts.cdnfonts.com/css/chicago-2" rel="stylesheet">
     </head>
     <body>
-        <iframe id="video1" type="text/html" width="0" height="0" src="https://www.youtube.com/embed/E8gmARGvPlI?enablejsapi=1&autoplay=1&rel=0&html5=1&showinfo=0&controls=0" frameborder="0"></iframe>
-<br/>
 
-
-<p>Current:<span class="val current"></span></p>
-<div id="progressBar">
-  <div></div>
-</div>
-
-<p>Totle:<span class="val duration"></span></p>
-
-<p>Volume:<input id="volume" type="range" min="0" max="100" step="1" value="30" /><span class="val vol"></span></p>
-
-
-        <iframe id="video1" type="text/html" width="0" height="0" src="https://www.youtube.com/embed/aML7JE1SHEA?enablejsapi=1&autoplay=1&rel=0&html5=1&showinfo=0&controls=0" frameborder="0"></iframe>
-        <script defer src="./main.js"></script>
-        <div class="scene">
-            <div id="controls">
-                <div id='next'></div>
-                <div id='prev'></div>
-
-            </div>
-            <article class="book" id="pages">
-                <section class="page active">
-                    <div class="content" id="cover">
-
-
-                    </div>
-                </section>
-                <section class="page">
-                    <div class="content" id="pg1">
-
-                    </div>
-                </section>
-                <section class="page">
-                    <div class="content">
-
-                    </div>
-                </section>
-                <section class="page">
-                    <div class="content">
-
-                    </div>
-                </section>
-                <section class="page">
-                    <div class="content">
-
-
-                    </div>
-                </section>
-
-            </article>
-
-        </div>
-        <div class="iPodContainer" id="song1">
-            <div>
-                <div class="screen">
-                    <div id = "regularText" class="statusbar">iPod<hr class = "statusbarline"></div>
-                    <div class="oneOf">1 of 19</div>
-                    <div id = "regularText" class="songTitle">Last Christmas<br>LAST CHRISTMAS<br>Wham!</div>
-                    <div id = "regularText" class="albumTitle"> 
-                        <div id="progressBar">
-                            
-                        </div>
-                    </div>
-                   
+            <script defer src="./main.js"></script>
+            <div class="scene">
+                <div id="controls">
+                    <div id='next'></div>
+                    <div id='prev'></div>
 
                 </div>
+                <article class="book" id="pages">
+                    <section class="page active">
+                        <div class="content" id="cover">
+
+
+                        </div>
+                    </section>
+                    <section class="page">
+                        <div class="content" id="pg1">
+
+                        </div>
+                    </section>
+                    <section class="page">
+                        <div class="content">
+
+                        </div>
+                    </section>
+                    <section class="page">
+                        <div class="content">
+
+                        </div>
+                    </section>
+                    <section class="page">
+                        <div class="content">
+
+
+                        </div>
+                    </section>
+
+                </article>
+
             </div>
-                <img class="iPod" src="/visuals/iPod.png">
+            <div class="iPodContainer playpause-track" id="song1">
+                <div>
+                    <div class="screen">
+                        <div id = "regularText" class="statusbar">iPod<hr class = "statusbarline"></div>
+                        <div class="oneOf now-playing"></div>
+                        <div id="regularText" class="songTitle track-name" style = "margin-top: -2.5%;"></div>
+                        <div id="regularText" class="albumTitle album-name"  style = "margin-top: -2.5%;"></div>
+                        <div id="regularText" class="artistTitle track-artist" style = "margin-top: -2.5%;"></div>
+
+                         <div id="regularText" class="seekers">
+                            <div class="seek_slider"></div>
+
+                            <div class="current-time">00:00</div>
+                            <div class="total-duration">00:00</div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <btn><img class="iPod" src="visuals/iPod.png"></btn>
             </div>
         </div>
 

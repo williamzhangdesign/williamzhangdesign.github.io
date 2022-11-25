@@ -2,143 +2,175 @@ document.getElementById("original").href = "mobile.css";
 var currentPage = 0;
 var totalPages = $("#pages section").children().length;
 var total = "";
-/*initialize*/
-var tag = document.createElement("script");
-tag.id = "iframe-demo";
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName("script")[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-/*player creation*/
 
-var player;
+// Select all the elements in the HTML page
+// and assign them to a variable
+let now_playing = document.querySelector(".now-playing");
+let track_art = document.querySelector(".track-art");
+let track_name = document.querySelector(".track-name");
+let album_name = document.querySelector(".album-name");
+let track_artist = document.querySelector(".track-artist");
+ 
+let playpause_btn = document.querySelector(".playpause-track");
+let next_btn = document.querySelector(".next-track");
+let prev_btn = document.querySelector(".prev-track");
+ 
+let seek_slider = document.querySelector(".seek_slider");
+let volume_slider = document.querySelector(".volume_slider");
+let curr_time = document.querySelector(".current-time");
+let total_duration = document.querySelector(".total-duration");
+ 
+// Specify globally used values
+let track_index = 0;
+let isPlaying = false;
+let updateTimer;
+ 
+// Create the audio element for the player
+let curr_track = document.createElement('audio');
+ 
+// Define the list of tracks that have to be played
+let track_list = [
+  {
+    name: "Last Christmas",
+    artist: "Wham!",
+    album: "LAST CHRISTMAS",
+    image: "Image URL",
+    path: "audio/Christmas.mp3"
+  },
+  {
+    name: "Enthusiast",
+    artist: "Tours",
+    image: "Image URL",
+    path: "Enthusiast.mp3"
+  },
+  {
+    name: "Shipping Lanes",
+    artist: "Chad Crouch",
+    image: "Image URL",
+    path: "Shipping_Lanes.mp3",
+  },
+];
 
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player("video1", {
-    events: {
-      onReady: onPlayerReady /*Callbacks*/,
-      onStateChange: onPlayerStateChange
-    }
-  });
-}
-function fancyTimeFormat(duration)
-{   
-    // Hours, minutes and seconds
-    var hrs = ~~(duration / 3600);
-    var mins = ~~((duration % 3600) / 60);
-    var secs = ~~duration % 60;
-
-    // Output like "1:01" or "4:03:59" or "123:03:59"
-    var ret = "";
-
-    if (hrs > 0) {
-        ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
-    }
-
-    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-    ret += "" + secs;
-    return ret;
-}
-/*Loading a video player*/
-function onPlayerReady(event) {
-  $("#play-button").click(function () {
-    player.playVideo();
-    total = player.getDuration();
-    time = player.getCurrentTime();
-    
-
-    playerTimeDifference = (time / total) * 100;
-    progress(playerTimeDifference, $("#progressBar"));
-    $(".current").text(Math.round(time));
-  });
-
-  $("#pause-button").click(function () {
-    player.pauseVideo();
-    total = player.getDuration();
-    time = player.getCurrentTime();
-    playerTimeDifference = (time / total) * 100;
-    progress(playerTimeDifference, $("#progressBar"));
-  });
-}
-
-function onPlayerStateChange(event) {
-  if (event.data == 1) {
-    // playing
-
-    $("#progressBar").show();
-
-    total = player.getDuration();
-
-    myTimer = setInterval(function () {
-      time = player.getCurrentTime();
-      playerTimeDifference = (time / total) * 100;
-
-      progress(playerTimeDifference, $("#progressBar"));
-
-      $(".current").text(fancyTimeFormat(time));
-    }, 1000); // 100 means repeat in 100 ms
-  } else {
-    // not playing
-
-    $("#progressBar").hide();
+function seekUpdate() {
+  let seekPosition = 0;
+ 
+  // Check if the current track duration is a legible number
+  if (!isNaN(curr_track.duration)) {
+    seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+    seek_slider.value = seekPosition;
+ 
+    // Calculate the time left and the total duration
+    let currentMinutes = Math.floor(curr_track.currentTime / 60);
+    let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+    let durationMinutes = Math.floor(curr_track.duration / 60);
+    let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+ 
+    // Add a zero to the single digit time values
+    if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+    if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+    if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+    if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+ 
+    // Display the updated duration
+    curr_time.textContent = currentMinutes + ":" + currentSeconds;
+    total_duration.textContent = durationMinutes + ":" + durationSeconds;
   }
-
-  $(".duration").text(fancyTimeFormat(total));
+}
+function resetValues() {
+  curr_time.textContent = "00:00";
+  total_duration.textContent = "00:00";
+  seek_slider.value = 0;
+}
+function playTrack() {
+  // Play the loaded track
+  curr_track.play();
+  isPlaying = true;
+  console.log("please")
 }
 
-/*
-Some Commonly used Methods:
 
-player.getDuration(); - Returns Time in Numbers
--------------------
-player.playVideo();
- --------------------	
-player.pauseVideo();
-------------------
-player.getVideoUrl():String
-------------------
-player.getVideoEmbedCode():String
-------------------
-player.destroy():Void
-------------------
-player.getPlayerState():
+function nextTrack() {
+  // Go back to the first track if the
+  // current one is the last in the track list
+  if (track_index < track_list.length - 1)
+    track_index += 1;
+  else track_index = 0;
+ 
+  // Load and play the new track
+  loadTrack(track_index);
+  playTrack();
+}
+ 
+function prevTrack() {
+  // Go back to the last track if the
+  // current one is the first in the track list
+  if (track_index > 0)
+    track_index -= 1;
+  else track_index = track_list.length - 1;
+   
+  // Load and play the new track
+  loadTrack(track_index);
+  playTrack();}
 
-    -1 – unstarted
-    0 – ended
-    1 – playing
-    2 – paused
-    3 – buffering
-    5 – video cued
--------------------
-player.getCurrentTime() - Returns Time in Numbers
------------------
-player.getPlaybackQuality():String
+function loadTrack(track_index) {
+  // Clear the previous seek timer
+  clearInterval(updateTimer);
+  resetValues();
+ 
+  // Load a new track
+  curr_track.src = track_list[track_index].path;
+  curr_track.load();
+ 
+  // Update details of the track
 
-highres, hd1080, hd720, large, medium and small 
------------------
-player.setPlaybackQuality(suggestedQuality:String) - Return type Void
+  track_name.textContent = track_list[track_index].name;
+  album_name.textContent = track_list[track_index].album;
 
-*/
-
-function progress(percent, $element) {
-  var progressBarWidth = (percent * $element.width()) / 100;
-
-  // $element.find('div').animate({ width: progressBarWidth }, 500).html(percent + "%&nbsp;");
-
-  $element.find("div").animate({ width: progressBarWidth });
+  track_artist.textContent = track_list[track_index].artist;
+  now_playing.textContent =
+     (track_index + 1) + " of " + track_list.length;
+ 
+  // Set an interval of 1000 milliseconds
+  // for updating the seek slider
+  updateTimer = setInterval(seekUpdate, 1000);
+ 
+  // Move to the next track if the current finishes playing
+  // using the 'ended' event
+  curr_track.addEventListener("ended", nextTrack);
+ 
+  // Apply a random background color
 }
 
-$(document).ready(function (e) {
-  $("#volume").on("mousemove", function () {
-    //alert();
-    $(".vol").text($(this).val());
-    player.setVolume($(this).val());
-  });
-});
+function playpauseTrack() {
+  // Switch between playing and pausing
+  // depending on the current state
+  if (!isPlaying) playTrack();
+  else pauseTrack();
+}
+ 
+
+ 
+function pauseTrack() {
+  // Pause the loaded track
+  curr_track.pause();
+  isPlaying = false;
+ 
+  // Replace icon with the play icon
+}
+function mute() {
+  // Mutes and
+  var elems = document.querySelectorAll("video, audio");
+
+  [].forEach.call(elems, function(elem) { muteMe(elem); });
+}
+
 
 
 
 console.log(totalPages)
+loadTrack(track_index);
+
 $('body')
   .on('click', '#next', nextPage)
   .on('click', '#prev', prevPage);
