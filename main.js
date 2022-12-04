@@ -29,6 +29,8 @@ let updateTimer;
 // Create the audio element for the player
 let curr_track = document.createElement('audio');
  
+
+
 // Define the list of tracks that have to be played
 let track_list = [
   {
@@ -39,19 +41,38 @@ let track_list = [
     path: "audio/Christmas.mp3"
   },
   {
-    name: "Enthusiast",
-    artist: "Tours",
+    name: "Last Christmas",
+    artist: "Wham!",
+    album: "LAST CHRISTMAS",
     image: "Image URL",
-    path: "Enthusiast.mp3"
+    path: "audio/Christmas.mp3"
   },
   {
-    name: "Shipping Lanes",
-    artist: "Chad Crouch",
+    name: "Last Christmas",
+    artist: "Wham!",
+    album: "LAST CHRISTMAS",
     image: "Image URL",
-    path: "Shipping_Lanes.mp3",
+    path: "audio/Christmas.mp3"
   },
+  
 ];
 
+function seekTo() {
+  // Calculate the seek position by the
+  // percentage of the seek slider
+  // and get the relative duration to the track
+  seekto = curr_track.duration * (seek_slider.value / 100);
+ 
+  // Set the current track position to the calculated seek position
+  curr_track.currentTime = seekto;
+}
+ 
+function setVolume() {
+  // Set the volume according to the
+  // percentage of the volume slider set
+  curr_track.volume = volume_slider.value / 100;
+}
+ 
 function seekUpdate() {
   let seekPosition = 0;
  
@@ -59,7 +80,14 @@ function seekUpdate() {
   if (!isNaN(curr_track.duration)) {
     seekPosition = curr_track.currentTime * (100 / curr_track.duration);
     seek_slider.value = seekPosition;
- 
+    
+
+
+    total =  curr_track.duration;
+    time = curr_track.currentTime;
+    playerTimeDifference = (time / total) * 100;
+    var progressBarWidth = (playerTimeDifference * $(".seek_slider").width()) / 100;
+    $(".seek_slider").find(".inner").animate({ width: progressBarWidth });
     // Calculate the time left and the total duration
     let currentMinutes = Math.floor(curr_track.currentTime / 60);
     let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
@@ -86,7 +114,6 @@ function playTrack() {
   // Play the loaded track
   curr_track.play();
   isPlaying = true;
-  console.log("please")
 }
 
 
@@ -145,10 +172,11 @@ function loadTrack(track_index) {
 function playpauseTrack() {
   // Switch between playing and pausing
   // depending on the current state
-  if (!isPlaying) playTrack();
-  else pauseTrack();
+  if (!isPlaying) {$(".statusbar").html("▶︎&nbsp;&nbsp;Now Playing&nbsp;<img style = 'margin-right: -0.3em;margin-top: 0.1em; margin-bottom: -0.1em; height: 0.98em; width: auto;' src = 'visuals/battery.svg'><hr class = 'statusbarline'>");
+  playTrack();}
+  else{ $(".statusbar").html("❚❚&nbsp;&nbsp;Now Playing&nbsp;<img style = 'margin-right: -0.225em;margin-top: -0.4em; margin-bottom: -0.05em; height: 0.98em; width: auto;' src = 'visuals/battery.svg'><hr class = 'statusbarline'>");
+  pauseTrack();}
 }
- 
 
  
 function pauseTrack() {
@@ -168,15 +196,7 @@ function mute() {
 
 
 
-console.log(totalPages)
-loadTrack(track_index);
 
-$('body')
-  .on('click', '#next', nextPage)
-  .on('click', '#prev', prevPage);
-
-$('.book').hammer().on("swipeleft", nextPage);
-$('.book').hammer().on("swiperight", prevPage);
 
 function prevPage() {
   currentPage--;
@@ -219,7 +239,15 @@ function nextPage() {
   }, 1100);
 
 }
+console.log(totalPages)
+loadTrack(track_index);
+$('body')
+  .on('click', '#next',  playpauseTrack)
+  .on('click', '#prev', prevPage)
+  .on('click', '#trigger', playpauseTrack)
 
+$('.book').hammer().on("swipeleft", nextPage);
+$('.book').hammer().on("swiperight", prevPage);
 
 /*
 var mediaQuery = window.matchMedia("(max-width: 414px)");

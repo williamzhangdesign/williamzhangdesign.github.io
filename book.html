@@ -12,7 +12,7 @@
     </head>
     <body>
 
-            <script defer src="./main.js"></script>
+            <script defer src="main.js"></script>
             <div class="scene">
                 <div id="controls">
                     <div id='next'></div>
@@ -51,27 +51,28 @@
                 </article>
 
             </div>
-            <div class="iPodContainer playpause-track" id="song1">
+            <div class="iPodContainer playpause-track" id='trigger'>
                 <div>
                     <div class="screen">
-                        <div id = "regularText" class="statusbar">iPod<hr class = "statusbarline"></div>
+                        <div id = "regularText" class="statusbar">▶︎&nbsp;&nbsp;Now Playing&nbsp;<img style = "margin-right: -0.3em;margin-top: 0.1em; margin-bottom: -0.1em; height: 0.98em; width: auto;"src = "visuals/battery.svg"><hr class = "statusbarline"></div>
                         <div class="oneOf now-playing"></div>
                         <div id="regularText" class="songTitle track-name" style = "margin-top: -2.5%;"></div>
                         <div id="regularText" class="albumTitle album-name"  style = "margin-top: -2.5%;"></div>
                         <div id="regularText" class="artistTitle track-artist" style = "margin-top: -2.5%;"></div>
 
                          <div id="regularText" class="seekers">
-                            <div class="seek_slider"></div>
-
+                            <div class="seek_slider"><div class="inner"></div></div>
                             <div class="current-time">00:00</div>
                             <div class="total-duration">00:00</div>
-
                         </div>
+                       
+                            
+                       
 
 
                     </div>
                 </div>
-                <btn><img class="iPod" src="visuals/iPod.png"></btn>
+              <img class="iPod" src="visuals/iPod.png">
             </div>
         </div>
 

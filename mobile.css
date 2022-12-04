@@ -196,7 +196,7 @@ h1 {
 
 
 .iPodContainer {
-  z-index: -1;
+  z-index: 999;
   margin: 0 auto;
   margin-top: 2vw;
 
@@ -241,12 +241,13 @@ h1 {
   margin-top: 0.2em;
   font-size: 1.65vw;
   letter-spacing: 0.01px;
+  font-stretch: condensed !important;
 }
 
 .statusbarline {
-  border: 0.1vw solid #282425;
+  border: 0.1vw solid; 
   margin-top: -0.05vw;
-  width: 85%;
+  width: 90%;
 }
 
 .statusbar {
@@ -257,7 +258,7 @@ h1 {
 .oneOf {
   grid-area: 2 / 1 / 3 / 6;
   font-size: 1.4vw;
-  margin-right: 8em;
+  margin-right: 9.6em;
   margin-top: -0.55em;
 }
 
@@ -269,30 +270,50 @@ h1 {
 .albumTitle {
   grid-area: 4 / 1 / 5 / 6;
 }
+
 .seek_slider{
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   height: 0.5em;
-  background: black;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  background: transparent;
+  border: 0.13em solid #282425;
+  box-sizing: border-box;
+ 
   border-radius:100px;
   width: 85%;
   margin: 0 auto;
 }
+.playpause{
+  background-image: url("visuals/play.svg");
+  background-repeat: no-repeat;
+  height: 1.65vw;
+ 
+}
+.inner{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: inherit;
+  background: transparent;
+
+
+  border-radius:100px;
+  margin: -0.13em auto;
+  background: black;
+  float: left;
+}
+
 .current-time{
+  position: absolute;
 float: left;
 margin-left: 0.95em;
 } 
+
 .total-duration{
 float: right;
 margin-right: 0.95em;
-
 }
-
-
 
 .artistTitle {
   grid-area: 5 / 1 / 6 / 6;
