@@ -41,11 +41,11 @@ let track_list = [
     path: "audio/Christmas.mp3"
   },
   {
-    name: "Last Christmas",
-    artist: "Wham!",
-    album: "LAST CHRISTMAS",
+    name: "Big Love",
+    artist: "Louis The Child",
+    album: "Here For Now",
     image: "Image URL",
-    path: "audio/Christmas.mp3"
+    path: "audio/Big Love.mp3"
   },
   {
     name: "Last Christmas",
@@ -208,6 +208,11 @@ function prevPage() {
   $('body')
     .off('click', '#next', nextPage)
     .off('click', '#prev', prevPage);
+
+    $('.iPodContainer').addClass("temp_back");
+    setTimeout(function () {
+      $('.iPodContainer').removeClass("temp_back");
+    }, 500);
   setTimeout(function () {
     $('body')
       .on('click', '#next', nextPage)
@@ -232,6 +237,11 @@ function nextPage() {
   $('body')
     .off('click', '#next', nextPage)
     .off('click', '#prev', prevPage);
+
+    $('.iPodContainer').addClass("temp_back");
+    setTimeout(function () {
+      $('.iPodContainer').removeClass("temp_back");
+    }, 500);
   setTimeout(function () {
     $('body')
       .on('click', '#next', nextPage)
@@ -242,7 +252,7 @@ function nextPage() {
 console.log(totalPages)
 loadTrack(track_index);
 $('body')
-  .on('click', '#next',  playpauseTrack)
+  .on('click', '#next',  nextPage)
   .on('click', '#prev', prevPage)
   .on('click', '#trigger', playpauseTrack)
 

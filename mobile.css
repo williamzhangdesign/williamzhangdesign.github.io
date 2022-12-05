@@ -96,6 +96,10 @@ h1 {
   background-image: url(./visuals/pg1.svg);
 
 }
+#pg2 {
+  background-image: url(./visuals/pg2.svg);
+
+}
 
 @keyframes pageFlipBack {
   5% {
@@ -134,7 +138,6 @@ h1 {
 .page.active {
   transform: rotateY(0deg);
   transition: 1.1s transform;
-  z-index: 1;
   /*animation: pageFlipBack 1.1s;*/
 }
 
@@ -145,7 +148,6 @@ h1 {
 .page.flipped {
   transform: rotateY(-90deg);
   transition: 1.1s transform;
-  z-index: 2;
   animation: pageFlip 1.1s;
 
 }
@@ -155,7 +157,9 @@ h1 {
 }
 
 
-
+.temp_back{
+  z-index: -1;
+}
 
 
 
@@ -168,7 +172,6 @@ h1 {
   bottom: 0px;
   height: 100%;
   width: 50%;
-  z-index: 101;
   background: transparent;
   border: transparent;
 }
@@ -179,7 +182,6 @@ h1 {
   bottom: 0px;
   height: 100%;
   width: 50%;
-  z-index: 100;
   background: transparent;
   border: transparent;
 
@@ -196,7 +198,6 @@ h1 {
 
 
 .iPodContainer {
-  z-index: 999;
   margin: 0 auto;
   margin-top: 2vw;
 
