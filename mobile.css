@@ -100,7 +100,26 @@ h1 {
   background-image: url(./visuals/pg2.svg);
 
 }
+#pg3 {
+  background-image: url(./visuals/pg3.svg);
 
+}
+#pg4 {
+  background-image: url(./visuals/pg4.svg);
+
+}
+#pg5 {
+  background-image: url(./visuals/pg5.svg);
+
+}
+#pg6 {
+  background-image: url(./visuals/pg6.svg);
+
+}
+#pg7 {
+  background-image: url(./visuals/pg7.svg);
+
+}
 @keyframes pageFlipBack {
   5% {
     box-shadow: var(--shadow-elevation-low);
