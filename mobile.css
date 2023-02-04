@@ -83,6 +83,7 @@ h1 {
   /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
+  background-size: cover;background-position:50% 50%;
   /* optional, center the image */
 
 }
@@ -101,23 +102,24 @@ h1 {
 
 }
 #pg3 {
-  background-image: url(./visuals/pg3.png);
+  background-image: url(./visuals/pg3.jpg);
 
 }
 #pg4 {
-  background-image: url(./visuals/pg4.png);
+  background-image: url(./visuals/pg4.jpg);
 
 }
 #pg5 {
-  background-image: url(./visuals/pg5..png);
+  background-image: url(./visuals/pg5.jpg);
 
 }
 #pg6 {
-  background-image: url(./visuals/pg6.png);
+  background-image: url(./visuals/pg6.jpg);
 
 }
 #pg7 {
-  background-image: url(./visuals/pg7.png);
+  
+  background-image: url(./visuals/pg7.jpg);
 
 }
 @keyframes pageFlipBack {
