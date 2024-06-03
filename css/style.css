@@ -1,5 +1,14 @@
-#main_title{
-  margin-bottom: 0.35em;
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+
+}
+.red_underline{
+  color: orange;
+}
+
+.fadein{
+  opacity:0;
 }
 
 footer {
@@ -57,6 +66,7 @@ display: none;
 }
 .foodzilla_thumb {
   width: 30em;
+  margin-top: 1em;
 }
 
 @-webkit-keyframes flicker-in-1 {
@@ -486,17 +496,30 @@ display: none;
 
 .portfolio_blurb {
   text-align: center;
-  font-size: 1.6em;
+  font-size: 1.15em;
   line-height: 1.25em;
+  margin-left: 15em;
+  margin-right: 15em;
+  font-family: "HelveticaNeue-Light";
 
 }
 
-.portfolio_title {
-  margin-top: 0.75em;
+
+.portfolio_title{
   margin-bottom: 0.75em;
-  font-size: 4em;
-  text-align: center;
+  font-size: 2.4em;
+  text-align: left;
+
 }
+
+#main_title{
+  margin-bottom: 0.5em;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2.5em;
+}
+
+
 
 
 .portfolio_subtitle {
@@ -510,17 +533,21 @@ display: none;
 
 .portfolio_info {
   margin-top: 1em;
-  font-size: 1.25em;
-  text-align: center;
+  font-size: 1em;
+  text-align: left;
   line-height: 1.2em;
+  font-family: "HelveticaNeue-Light";
+
 }
 
 .portfolio_info_title {
   font-weight: 700;
-  margin-top: 1.5em;
+  margin-bottom: 0.5em;
   font-size: 1.4em;
-  text-align: center;
+  text-align: left;
   line-height: 1.2em;
+  font-family: "HelveticaNeue-Light";
+
 }
 
 .portfolio_info_left {
@@ -528,14 +555,26 @@ display: none;
   text-align: left;
   font-size: 1.4vw;
   line-height: 1.2em;
+  
 
 }
 
 .portfolio_description {
   text-align: center;
-
-  font-size: 1.25em;
+  font-size: 1.15em;
   line-height: 1.45em;
+  font-family: "HelveticaNeue-Light";
+
+
+
+}
+
+#problem_statement{
+  margin-top: 0;
+text-align: left;
+  line-height: 1.2em;
+  font-size: 1.45em;
+
 }
 
 #wrap {
@@ -589,8 +628,8 @@ display: none;
 }
 
 .container-fluid {
-  padding-left: 15vw;
-  padding-right: 15vw;
+  padding-left: 8.5vw;
+  padding-right: 8.5vw;
 
 }
 #left{
@@ -867,10 +906,11 @@ display: none;
 
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
 
+
 html,
 body {
-  font-family: "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont;
-  background-color: #0e0e0e;
+  font-family: "Lexend", -apple-system, system-ui, BlinkMacSystemFont;
+  background-color: #000;
   overscroll-behavior-y: none;
   color: white;
   margin: 0;
@@ -932,7 +972,7 @@ body {
 .nav {
   transition: 6s ease-in;
   background-color: transparent;
-  background-color: #0e0e0e;
+  background-color: #000;
   width: 100%;
   min-width: 100vw;
   height: 132px;
@@ -950,7 +990,7 @@ body {
 .nav {
   transition: 6s ease-in;
   background-color: transparent;
-  background-color: #0e0e0e;
+  background-color: #000;
   width: 100%;
   height: 132px;
   position: fixed;
@@ -1055,7 +1095,7 @@ body {
 
 
   .foodzilla_thumb {
-    width: 20em;
+    width: 15em;
   }
 
   .gallery {
@@ -1117,7 +1157,6 @@ body {
 
   .portfolio_info_title {
     font-weight: 700;
-    margin-top: 1.5em;
     font-size: 1.4em;
     text-align: center;
     line-height: 1.2em;
@@ -1127,8 +1166,8 @@ body {
   }
 
   .container-fluid {
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
 
   }
 
@@ -1158,14 +1197,14 @@ body {
   }
 
   #bullet {
-    font-size: 1em;
+    font-size: 0em;
   }
 
 
 
   .foodzilla_thumb {
-    width: 300px;
-    height: 1000px;
+    width: 100px;
+    height: 2000px;
   }
 
   .container-fluid {

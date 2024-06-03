@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/lexend" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="css/html5reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"> <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151251727-1"></script>
+    <script> $(document).ready(function () { $(window).scroll(function () { $('.fadein').each(function (i) { var bottom_of_element = $(this).offset().top + $(this).outerHeight(); var bottom_of_window = $(window).scrollTop() + $(window).height(); if (bottom_of_window > bottom_of_element) { $(this).animate({ 'opacity': '1' }, 1000); } }); }); }); window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-151251727-1'); </script>
+    <script src="myscripts.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>William Zhang</title>
+</head>
+
+<body onmousemove="raiseBar(event)">
+    <div style="display: none;" class="preload"> <img src="images/logo_hover.png"> </div>
+    <nav id="pogger" class="nav"> <a href="/">
+            <div class="logo"></div>
+        </a>
+        <script>
+            var freeze = true;
+            window.onscroll = function () {
+                if (window.pageYOffset > 50) {
+                    document.getElementById("pogger").style.opacity = 0;
+                    document.getElementById("pogger").style.visibility = "none";
+                    document.getElementById("pogger").style.pointerEvents = "none";
+                    freeze = false; console.log("unfreeze");
+                }
+                else {
+                    document.getElementById("pogger").style.opacity = 1;
+                    document.getElementById("pogger").style.visibility = "auto"; document.getElementById("pogger").style.pointerEvents = "auto"; freeze = true; console.log("freeze");
+                }
+            };
+            function raiseBar(event) { if (freeze) { return; } var y = event.clientY; if (y < 110) { console.log("hi"); document.getElementById("pogger").style.opacity = 1; document.getElementById("pogger").style.visibility = "auto"; document.getElementById("pogger").style.pointerEvents = "auto"; } else { document.getElementById("pogger").style.opacity = 0; document.getElementById("pogger").style.visibility = "none"; document.getElementById("pogger").style.pointerEvents = "none"; } } </script>
+        <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+                <li><a class='navi' target="_blank"
+                        href="https://drive.google.com/file/d/13R3f9fHUXsiGOr4QNj19mQqpy-8F0rtr/view?usp=sharing">Resumé</a>
+                </li>
+                <li><a class='navi' href="about">About</a></li>
+            </ul>
+        </div> <span class="navTrigger"> <i></i> <i></i> <i></i> </span>
+    </nav>
+    <section id="mobileMenu" class="home"></section>
+
+    <div class="container-fluid" id="intro">
+        <div class="row">
+            <h1 id="main_title" class="portfolio_title">Capital One: Product Selector</h1>
+            <div class="row">
+                <p class="portfolio_blurb">Reducing friction in our potential customer's card application journey by
+                    refreshing the Product Selector web component.<br><br> Our mission: Empower and
+                    improve our customer's lives by connecting them with the best credit card that fits their
+                    needs.</p>
+                <!-- <a href="/"><button class="bn632-hover bn20">View full case-study slides</button></a> -->
+            </div>
+            <div class="row">
+                <div class="col-md-12"> <img class="foodzilla_thumb"
+                        style=" display: block; margin: auto; margin-top: 2em; margin-bottom: 3em;"
+                        src="images/capitalone/thumb.png"> </div>
+                <!-- <div class="col-md-8"> <video loop autoplay class="foodzilla_thumb" style="display: block; margin: auto; margin-top: 5%; margin-bottom: 1.5em;" src="images/capitalone/proto.webm"> </div> -->
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <h1 class="portfolio_title">Overview</h1>
+                <div class="col-xs-12 col-sm-6"> <video class="foodzilla_thumb" controls autoplay
+                        src="images/capitalone/proto.webm"> </video> </div>
+                <div class="col-xs-12 col-sm-6">
+
+                    <p id="left" class="portfolio_description">The Product Selector Component lives on the Credit
+                        Card
+                        Homepage (CCHP), which is the top of the marketing funnel for prospective Capital One card
+                        customers. </p> <br>
+                    <p id="left" class="portfolio_description">First launched in 2022, this component serves as a
+                        crucial tool
+                        to getting customers to start their application, or learn more about products.<br><br> We
+                        continued
+                        iterating on the component, serving potential customers to
+                        meet our
+                        evolving business goals.<br><br> </p>
+                </div>
+            </div>
+            <div class="desktop_space"></div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3">
+                    <p class="portfolio_info_title">Team:</p>
+                    <p class="portfolio_info">Acquisitions & Welcome </p>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <p class="portfolio_info_title">Timeline:</p>
+                    <p class="portfolio_info">March 2023-August 2023 </p>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <p class="portfolio_info_title">Tools:</p>
+                    <p class="portfolio_info">Figma </p>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <p class="portfolio_info_title">Role:</p>
+                    <p class="portfolio_info">Lead designer </p>
+                </div>
+            </div>
+
+            <div class="desktop_space"></div>
+            <hr>
+            <div class="row">
+                <h1 class="portfolio_title">Business Context</h1>
+                <h2 class="portfolio_info_title">Oppportunity sizing</h2>
+                <div class="col-md-6">
+                    <p id="left" class="portfolio_description">The CCHP is the highest traffic and most valuable
+                        revenue-generating page,
+                        with the most applications and new accounts booked. <br><br>Working with our data analyst and
+                        product manager,
+                        we identified the Product Selector as a major opportunity area to improve page
+                        performance,
+                        since it is the primary entrypoint for customers to begin their application.
+                        <br><br><span style="font-weight:bold">With a 5% increase in new accounts booked, annual
+                            revenue would grow by $14 million dollars.</span><br><br>
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img class="foodzilla_thumb"
+                        style=" display: block; margin: auto; margin-top: 0%; margin-bottom: 1em;"
+                        src="images/capitalone/thumb2.png">
+                    <p style="margin: 0 auto; display: block; text-align: center">Old Product Selector from
+                        2022.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <h2 class="portfolio_info_title">Problems</h2>
+                <div class="col-md-12">
+                    <p id="left" class="portfolio_description">With so many opportunities for failure in the card
+                        application journey, we narrowed down our problems to customers not being able to:<br>
+                        <span class="red_underline">find credit cards that fit
+                            their needs</span> (Product Discovery), <br>
+                        <span class="red_underline">have enough information
+                            to proceed with applying</span> (Lack of Product Knowledge), <br>which leads to
+                        difficulty
+                        in
+                        starting applications, preventing
+                        customers from becoming cardholders, reducing bookings and revenue.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="desktop_space"></div>
+            <hr>
+            <div class="row">
+                <h1 class="portfolio_title">Solving for Product Discovery</h1>
+                <p id="left" class="portfolio_description"><strong>Problem: Customers can't find the product that fits their needs,
+                    leading to difficulty in starting their card applications.</strong>
+                </p>
+                <div class = "desktop_space"></div>
+                <h2 class="portfolio_info_title">Understanding the Problem</h1>
+                    <div class="col-md-6">
+                        <p id="left" class="portfolio_description">To
+                            solve
+                            for customers pain-points surrounding credit card discovery, we first looked at engagement
+                            data. In terms of customer interaction,
+                            the product selector's
+                            dropdown only had 5% engagement. This means potential customers:
+                            <br><br>1. are only looking at the three featured products (missing out on 30 other
+                            products that may be a better fit)<br><br>2. aren't being
+                            exposed to the 7 more specific product categories
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <video class="foodzilla_thumb"
+                            style="width: 30em; display: block; margin: 0 auto; margin-bottom: 1em;" loop autoplay
+                            src="images/capitalone/dropdown.mov"> </video>
+                        <p
+                            style="margin: 0 auto; display: block; text-align: center; margin-left: 4em; margin-right: 4em;">
+                            Product Selector Dropdown, note 2 hidden categories that are revealed only by scrolling.</p>
+                    </div>
+            </div>
+
+            <div class="half_desktop_space"></div>
+
+
+            <div class="row">
+                <h2 class="portfolio_info_title">Rapid Competitive Analysis</h2>
+                <div class="col-md-12">
+                    <p id="left" class="portfolio_description">Lacking competitive benchmarking, we delivered product
+                        a quick analysis of top competitors and their main credit card page to our product partners.
+                        Pulling
+                        primarily from banking and fintech, we found that competitors:
+                        <br><br>1. reduced the number of interactions 1 tap button/link instead of 2-tap dropdown
+                        <br><br>2. surfaced categories directly on the page, instead of hiding it behind a
+                        dropdown<br><br>
+                        This revealed deeper learnings- <strong>that our shared customer audience needed efficient
+                            interactions and
+                            visible card categories when they're browsing card products.</strong>
+                    </p>
+                    <!--With this variant chosen, I believed it was key to aligning customer needs, design expertise, engineering resources, and business performance goals.-->
+                </div>
+            </div>
+
+            <div class="half_desktop_space"></div>
+            <div class="half_desktop_space"></div>
+
+            <div class="row">
+                <h2 class="portfolio_info_title">Redesign, Implementation, and Market Testing</h2>
+                <div class="col-md-12">
+                    <p id="left" class="portfolio_description">After creating numerous prototypes in medium to
+                        high fidelity,
+                        I worked with product to select a solution that reduces the number of interactions
+                        and visible card categories, also leveraging our design system in order to save engineering
+                        bandwidth.
+
+                        <br><br>
+                    </p>
+                    <div class="col-md-6">
+                        <img class=""
+                            style=" display: block; margin: auto; margin-top: 2em; margin-bottom: 3em; width: 40em;"
+                            src="images/capitalone/desktop_ghost.PNG">
+                    </div>
+                    <div class="col-md-6">
+                        <img class=""
+                            style=" display: block; margin: auto; margin-top: 2em; margin-bottom: 3em; width: 12em;"
+                            src="images/capitalone/mobile_ghost.PNG">
+                    </div>
+                    <p id="left" class="portfolio_description">
+                        This "ghost-button" design was the final design put in the market for A/B testing.
+                        In the process of providing design support and QA during the implementation process,
+                        I noticed text-alignment problems (See "Apply Now" in the buttons above) with engineers,
+                        adressing these problems
+                        together.
+                        This was communicated to our
+                        enterprise design team, which was put on their backlog.<br><br>
+                        After a month,
+                        we learned that these variants underperformed compared to our original design and
+                        they were pulled from the market. This was a temporary setback, as we soon set out to test our
+                        2nd hypothesis.
+                    </p>
+
+                    <!--With this variant chosen, I believed it was key to aligning customer needs, design expertise, engineering resources, and business performance goals.-->
+                </div>
+
+            </div>
+
+            <div class="desktop_space"></div>
+            <hr>
+            <div class="row">
+                <h1 class="portfolio_title">Solving for Lack of Product Knowledge</h1>
+                <h2 class="portfolio_info_title">Understanding the Problem</h1>
+                    <div class="col-md-6">
+                        <p id="left" class="portfolio_description">With the second hypothesis, we
+                            set out to solve customers pain-points around having sufficient product information. In
+                            order to get customers through the application journey, before they can make a decision, we
+                            believed that potential customers need to know:
+                            <br><br>1. sufficient information about
+                            products they're interested in to make a decision (understanding of product terms)<br><br>
+                            2. where to go to retrieve this information
+                            (wayfinding/navigation)<br><br>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <video class="foodzilla_thumb"
+                            style="width: 30em; display: block; margin: 0 auto; margin-bottom: 1em;" loop autoplay
+                            src="images/capitalone/dropdown.mov"> </video>
+                        <p
+                            style="margin: 0 auto; display: block; text-align: center; margin-left: 4em; margin-right: 4em;">
+                            Product Selector Dropdown, note 2 hidden categories that are revealed only by scrolling.</p>
+                    </div>
+            </div>
+
+            <div class="half_desktop_space"></div>
+
+
+
+
+            <div class="half_desktop_space"></div>
+            <div class="half_desktop_space"></div>
+
+            <div class="row">
+                <h2 class="portfolio_info_title">Redesign, Implementation, and Market Testing</h2>
+                <div class="col-md-12">
+                    <p id="left" class="portfolio_description">After auditing the component this time around, we
+                        realized that entry-points into the application could be confusing. With a hard constraint of
+                        certain product terms, some of our products were not eligible for pre-approval (a soft hit to
+                        credit to view eligible card products). This gave us the real estate we needed to give our
+                        potential customers an entry-point to product pages with more specific information.
+
+                        <br><br>
+                    </p>
+                    <div class="col-md-6">
+                        <img class=""
+                            style=" display: block; margin: auto; margin-top: 2em; margin-bottom: 3em; width: 40em;"
+                            src="images/capitalone/desktop_ghost.PNG">
+                    </div>
+                    <div class="col-md-6">
+                        <img class=""
+                            style=" display: block; margin: auto; margin-top: 2em; margin-bottom: 3em; width: 12em;"
+                            src="images/capitalone/mobile_ghost.PNG">
+                    </div>
+                    <p id="left" class="portfolio_description">
+                        This "ghost-button" design was the final design put in the market for A/B testing.
+                        In the process of providing design support and QA during the implementation process,
+                        I fixed the "Apply Now" text-alignment problems with development in this release,
+                        and brought up text alignment problems to the
+                        enterprise design team to put on their backlog.<br><br>
+                        After a month,
+                        we learned that these variants underperformed compared to our original design and
+                        they were pulled from the market. This was a temporary setback, as we soon set out to test our
+                        2nd hypothesis.
+                    </p>
+
+                    <!--With this variant chosen, I believed it was key to aligning customer needs, design expertise, engineering resources, and business performance goals.-->
+                </div>
+
+            </div>
+
+            <div class="half_desktop_space"></div>
+
+
+            <footer>
+                <p>
+                    <hr class="footerline">
+                </p>
+                <p style="margin-top: 1em;" id="foot" class="portfolio_description"> Designed and implemented by William
+                    Zhang.<br>Iterating with 💛💙 in Chicago <br>© 2020-2024 William Zhang </p>
+            </footer>
+        </div>
+
+    </div>
+    <script> $('.navTrigger').click(function () { $(this).toggleClass('active'); console.log("Clicked menu"); $("#mainListDiv").toggleClass("show_list"); $("#mainListDiv").fadeIn(); $("#pogger").toggleClass("extend"); }); </script>
+    </div>
+    <div class="loader-wrapper"> <span class="loader"><span class="loader-inner"></span></span> </div>
+</body>
+
+</html>

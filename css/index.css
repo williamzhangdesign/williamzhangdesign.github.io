@@ -638,17 +638,16 @@ footer {
 
 .gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   margin: 0 auto;
-  margin-left: 7.5em;
-  margin-right: 7.5em;
 
+  margin-top: 8em;
 
 
   justify-content: space-evenly;
   align-items: stretch;
-  column-gap: 5vw;
-  row-gap: 5vw;
+  column-gap: 0vw;
+  row-gap: 0vw;
 }
 
 .cls-1:hover {
@@ -669,7 +668,9 @@ footer {
 }
 
 #e0{
-  background-color: rgb(34, 34, 34);
+background-size: cover;
+background-size: 100% 100%;
+  background-image: url("/images/credit_card.png");
 }
 
 #e0:hover img{
@@ -691,14 +692,15 @@ footer {
 
 
 #e1 {
-  background-color: #12689B;
+  background-size: 100% 100%;
+  background-image: url(/images/fsbaf_website.png);
+
 }
 
 
 #e2 {
-  background: linear-gradient(45deg, #3320b1 0%, #5840EC 33.3%, #8070eb 66.3%, #bfb5ff 100%);
-  background-size: 400% 400%;
-  animation: gradient 5s ease-in-out infinite;
+  background-size: 100% 100%;
+  background-image: url(/images/covid_dashboard.png);
 }
 
 #e3 {
@@ -810,25 +812,24 @@ footer {
   margin-right: 3%;
   line-height: 1.25em;
 }
-
+/*
 .entry:hover {
   transition: all .35s ease-in-out;
   transform: translateY(-10px) translateZ(0);
 
 }
-
+*/
 .entry {
   transition: all .35s ease-in-out;
 
-  height: 40vw;
-  width: 37vw;
+  height: 25vw;
+  width: auto;
   text-align: center;
   vertical-align: middle;
   font-size: 0;
   color: transparent;
   margin: 0 auto;
 
-  border-radius: 11px;
   position: relative;
 }
 
@@ -1104,6 +1105,7 @@ body {
   .gallery {
     grid-template-columns: 1fr 1fr;
     row-gap: 0vw;
+  
 
   }
 
@@ -1117,9 +1119,8 @@ body {
   }
 
   .entry {
-    margin-bottom: 8rem;
+    height: 38vw;
 
-    height: 48vw;
 
   }
 
@@ -1197,7 +1198,7 @@ body {
     grid-template-columns: 1fr;
     margin-left: 0em;
     margin-right: 0em;
-    margin-top: 5em;
+    margin-top: 8em;
   }
 
   #e0 img {
@@ -1236,9 +1237,7 @@ body {
   }
 
   .entry {
-    margin-bottom: 3rem;
-    width: 70vw;
-    height: 80vw;
+    height: 72vw;
   }
 
   .scroll {
