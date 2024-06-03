@@ -1,405 +1,299 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="images/favicon_io/site.webmanifest">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://fonts.cdnfonts.com/css/lexend" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" type="text/css" href="css/html5reset.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css"> <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151251727-1"></script>
-    <script> $(document).ready(function () { $(window).scroll(function () { $('.fadein').each(function (i) { var bottom_of_element = $(this).offset().top + $(this).outerHeight(); var bottom_of_window = $(window).scrollTop() + $(window).height(); if (bottom_of_window > bottom_of_element) { $(this).animate({ 'opacity': '1' }, 1000); } }); }); }); window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-151251727-1'); </script>
-    <script src="myscripts.js"></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>William Zhang</title>
-</head>
-
-<body onmousemove="raiseBar(event)">
-    <div style="display: none;" class="preload"> <img src="images/logo_hover.png"> </div>
-    <nav id="pogger" class="nav"> <a href="/">
-            <div class="logo"></div>
-        </a>
-        <script>
-            var freeze = true;
-            window.onscroll = function () {
-                if (window.pageYOffset > 50) {
-                    document.getElementById("pogger").style.opacity = 0;
-                    document.getElementById("pogger").style.visibility = "none";
-                    document.getElementById("pogger").style.pointerEvents = "none";
-                    freeze = false; console.log("unfreeze");
-                }
-                else {
-                    document.getElementById("pogger").style.opacity = 1;
-                    document.getElementById("pogger").style.visibility = "auto"; document.getElementById("pogger").style.pointerEvents = "auto"; freeze = true; console.log("freeze");
-                }
-            };
-            function raiseBar(event) { if (freeze) { return; } var y = event.clientY; if (y < 110) { console.log("hi"); document.getElementById("pogger").style.opacity = 1; document.getElementById("pogger").style.visibility = "auto"; document.getElementById("pogger").style.pointerEvents = "auto"; } else { document.getElementById("pogger").style.opacity = 0; document.getElementById("pogger").style.visibility = "none"; document.getElementById("pogger").style.pointerEvents = "none"; } } </script>
-        <div id="mainListDiv" class="main_list">
-            <ul class="navlinks">
-                <li><a class='navi' target="_blank"
-                        href="https://drive.google.com/file/d/13R3f9fHUXsiGOr4QNj19mQqpy-8F0rtr/view?usp=sharing">Resumé</a>
-                </li>
-                <li><a class='navi' href="about">About</a></li>
-            </ul>
-        </div> <span class="navTrigger"> <i></i> <i></i> <i></i> </span>
-    </nav>
-    <section id="mobileMenu" class="home"></section>
-
-    <div class="container-fluid" id="intro">
-        <div class="row">
-            <h1 id="main_title" class="portfolio_title">Capital One: Product Selector</h1>
-            <div class="row">
-                <p class="portfolio_blurb">Reducing customer friction in the customer's card application journey by
-                    refreshing the Product Selector web component.<br><br> Our mission: to connect prospective Capital
-                    One
-                    customers to the best possible card product that fits their
-                    needs.</p>
-                <!-- <a href="/"><button class="bn632-hover bn20">View full case-study slides</button></a> -->
-            </div>
-            <div class="row">
-                <div class="col-md-12"> <img class="foodzilla_thumb"
-                        style=" display: block; margin: auto; margin-top: 2em; margin-bottom: 3em;"
-                        src="images/capitalone/thumb.png"> </div>
-                <!-- <div class="col-md-8"> <video loop autoplay class="foodzilla_thumb" style="display: block; margin: auto; margin-top: 5%; margin-bottom: 1.5em;" src="images/capitalone/proto.webm"> </div> -->
-            </div>
-
-            <hr>
-
-            <div class="row">
-                <h1 class="portfolio_title">Overview</h1>
-                <div class="col-xs-12 col-sm-6"> <video class="foodzilla_thumb" controls autoplay
-                        src="images/capitalone/proto.webm"> </video> </div>
-                <div class="col-xs-12 col-sm-6">
-
-                    <p id="left" class="portfolio_description">The Product Selector Component lives on the Credit
-                        Card
-                        Homepage (CCHP), which is the top of the marketing funnel for prospective Capital One card
-                        customers. </p> <br>
-                    <p id="left" class="portfolio_description">First launched in 2022, this component serves as a
-                        crucial tool in helping customers start their application or learn more about the credit cards
-                        we offer.<br><br> We
-                        continued
-                        iterating on the component, constantly learning and advocating for our customer as we
-                        simultaneously
-                        meet our
-                        evolving business goals.<br><br> </p>
-                </div>
-            </div>
-            <div class="desktop_space"></div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-3">
-                    <p class="portfolio_info_title">Team:</p>
-                    <p class="portfolio_info">Acquisitions & Welcome </p>
-                </div>
-                <div class="col-xs-12 col-sm-3">
-                    <p class="portfolio_info_title">Timeline:</p>
-                    <p class="portfolio_info">March 2023-August 2023 </p>
-                </div>
-                <div class="col-xs-12 col-sm-3">
-                    <p class="portfolio_info_title">Tools:</p>
-                    <p class="portfolio_info">Figma </p>
-                </div>
-                <div class="col-xs-12 col-sm-3">
-                    <p class="portfolio_info_title">Role:</p>
-                    <p class="portfolio_info">Lead designer </p>
-                </div>
-            </div>
-
-            <div class="desktop_space"></div>
-            <hr>
-            <div class="row">
-                <h1 class="portfolio_title">Business Context</h1>
-                <h2 class="portfolio_info_title">Oppportunity sizing</h2>
-                <div class="col-md-6">
-                    <p id="left" class="portfolio_description">The CCHP is the highest traffic and most valuable
-                        revenue-generating page,
-                        with the most applications and new accounts booked. <br><br>Working with our data analyst and
-                        product manager,
-                        we identified the Product Selector as a major opportunity area to improve page
-                        performance,
-                        since it is the primary entrypoint for customers to begin their application.
-                        <br><br><span style="font-weight:bold">With a 5% increase in new accounts booked, annual
-                            revenue would grow an estimated $14 million dollars.</span><br><br>
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <img class="foodzilla_thumb"
-                        style=" display: block; margin: auto; margin-top: 0%; margin-bottom: 1em;"
-                        src="images/capitalone/thumb2.png">
-                    <p style="margin: 0 auto; display: block; text-align: center">Old Product Selector from
-                        2022.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row">
-                <h2 class="portfolio_info_title">Customer Problems</h2>
-                <div class="col-md-12">
-                    <p id="left" class="portfolio_description">With our product partners, we hypothesized that
-                        customers <span class="red_underline">can't find credit cards that fit
-                            their needs</span> (Unfound Product Options), <br> or that customers
-                        <span class="red_underline"> interested in a product don't have enough information
-                            to proceed with applying</span> (Lack of Product Knowledge), <br><br> which leads to
-                        difficulty
-                        in
-                        starting applications, preventing
-                        customers from becoming cardholders, reducing bookings and revenue.
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="desktop_space"></div>
-            <hr>
-            <div class="row">
-                <h1 class="portfolio_title">Solving for Unfound Product Options</h1>
-                <h2 class="portfolio_info_title">Problem Framing</h1>
-                    <div class="col-md-6">
-                        <p id="left" class="portfolio_description">We started by
-                            solving
-                            for customers pain-points surrounding browsing and finding cards through the selector. In terms of interaction,
-                            the
-                            dropdown only had 5% engagement. This means 95% of potential customers:
-                            <br><br>1. are only looking at the three featured products (missing out on 30 other
-                            products that may be a better fit)<br><br>2. aren't being
-                            exposed to the 7 more specific product categories
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <video class="foodzilla_thumb"
-                            style="width: 30em; display: block; margin: 0 auto; margin-bottom: 1em;" loop autoplay
-                            src="images/capitalone/dropdown.mov"> </video>
-                        <p
-                            style="margin: 0 auto; display: block; text-align: center; margin-left: 4em; margin-right: 4em;">
-                            Product Selector Dropdown, note 2 hidden categories that are revealed only by scrolling.</p>
-                    </div>
-            </div>
-
-            <div class="half_desktop_space"></div>
-
-
-            <div class="row">
-                <h2 class="portfolio_info_title">Rapid Competitive Analysis</h2>
-                <div class="col-md-12">
-                    <p id="left" class="portfolio_description">Lacking competitive benchmarking, we approached product
-                        partners with a quick analysis of top competitors and their main credit card page (deck not
-                        shown due to NDA). Pulling
-                        primarily from banking and fintech, we found that competitors:
-                        <br><br>1. reduced the number of interactions 1 tap button/link instead of 2-tap dropdown
-                        <br><br>2. surfaced categories directly on the page, instead of hiding it behind a
-                        dropdown<br><br>
-                        This revealed deeper learnings- <strong>that our competitor's customers are treated to more
-                            efficient
-                            interactions and
-                            visible card categories when they're browsing card products.</strong>
-                    </p>
-                    <!--With this variant chosen, I believed it was key to aligning customer needs, design expertise, engineering resources, and business performance goals.-->
-                </div>
-            </div>
-
-            <div class="half_desktop_space"></div>
-            <div class="half_desktop_space"></div>
-
-            <div class="row">
-                <h2 class="portfolio_info_title">Redesign & Implementation</h2>
-                <div class="col-md-12">
-                    <p id="left" class="portfolio_description">
-                        Simultaneously during the design process,
-                        I called out issues specific to desktop:
-                        <br> 1. alignment problems for the "Apply Now" text within CTA buttons, which was visually
-                        unprofessional
-                        <br> 2. CTA horizontal alignment discreptancies across all 3 credit cards, which hinders the
-                        customer's ability to scan quickly
-                        <br><br>After mocking up properly aligned elements,
-                        I socialized the text within CTA buttons issue to the
-                        enterprise design team to put on their backlog to fix across the entire enterprise. In the
-                        meantime, I
-                        worked with our engineers to fix alignment issues internally for this test, supporting them
-                        during the implementation and QA process.<br><br>
-                    </p>
-                    <img class=""
-                        style=" display: block; margin: auto; margin-top: 2em; margin-bottom: 3em; width: 40em;"
-                        src="images/capitalone/alignment.PNG">
-                    <p id="left" class="portfolio_description">As for the actual redesign, creating numerous variants in
-                        medium to
-                        high fidelity,
-                        I worked with product to select a solution that reduces the number of interactions
-                        and visible card categories, also leveraging our design system in order to save engineering
-                        bandwidth. This "ghost-button" design beat other similar options because of its ability to
-                        support mobile interactions and reduce additional scrolling. It was then chosen as the final
-                        design put in the market for
-                        A/B testing.
-
-                        <br><br>
-                    </p>
-                    <div class="col-md-6">
-                        <img class=""
-                            style=" display: block; margin: auto; margin-top: 2em; margin-bottom: 3em; width: 40em;"
-                            src="images/capitalone/desktop_ghost.PNG">
-                    </div>
-                    <div class="col-md-6">
-                        <img class=""
-                            style=" display: block; margin: auto; margin-top: 2em; margin-bottom: 3em; width: 12em;"
-                            src="images/capitalone/mobile_ghost.PNG">
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <h2 class="portfolio_info_title">A/B Testing & Learnings</h2>
-                <div class="col-md-12">
-                    <p id="left" class="portfolio_description">After a month,
-                        we learned that our redesign underperformed compared to our original design.<br><br>
-                        Even though this solution was unsuccessful, we learned that potential customers were very
-                        interested in exploring different credit card categories and products. However, this does not
-                        always
-                        translate into action in moving forward with the application.<br><br> This major learning set
-                        the stage,
-                        reinforcing the opportunity for us to solve for potential customer's clear lack of product
-                        knowledge and information. If we could equip them with this information that they
-                        seek, and empower them to take action, we could greatly increase the chance of winning for the
-                        business.
-
-                        <br><br>
-                    </p>
-
-
-
-                    <!--With this variant chosen, I believed it was key to aligning customer needs, design expertise, engineering resources, and business performance goals.-->
-                </div>
-
-            </div>
-
-
-
-            <div class="desktop_space"></div>
-            <hr>
-            <div class="row">
-                <h1 class="portfolio_title">Solving for Lack of Product Knowledge</h1>
-                <h2 class="portfolio_info_title">Problem Framing</h1>
-                    <div class="col-md-6">
-                        <p id="left" class="portfolio_description">This time, we were laser focused on
-                            solving potential customers pain-points around having sufficient product information. Before
-                            potential customers can make a decision, they need to know:
-                            <br><br>1. sufficient information about
-                            products they're interested in to make a decision (understanding of product terms)<br><br>
-                            2. where, and how to go to retrieve this information
-                            (wayfinding/navigation)<br><br>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <img class="foodzilla_thumb" style="width: 30em; display: block; margin: 0 auto;" loop autoplay
-                            src="images/capitalone/thoughts.png">
-                    </div>
-            </div>
-
-
-
-
-
-            <div class="half_desktop_space"></div>
-
-            <div class="row">
-                <h2 class="portfolio_info_title">Design Audit</h2>
-                <div class="col-md-12">
-                    <p id="left" class="portfolio_description">We first started by auditing the component, looking for
-                        previous design choices that could cause confusion for potential customers. We realized: <br>
-
-                        <br>1. links to the product didn't properly signify the ability to go to a product's information
-                        page, preventing customers from exploring and learning more specific details<br>
-                        2. credit card description text wasn't always useful
-                        <br>3. certain credit cards that were not eligible for pre-approval (a
-                        soft hit to
-                        credit to view eligible card products) only had an "Apply Now" CTA, and lacked a clear CTA
-                        entrypoint to help the customer get more information about a specific product
-
-
-                        <br><br>
-                    </p>
-                    <div class="col-md-12">
-                        <img class=""
-                            style=" display: block; margin: auto; margin-top: 2em; margin-bottom: 3em; width: 40em;"
-                            src="images/capitalone/thumb3.PNG">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Password Protected Page</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #dialogText {
+            color: white;
+            background-color: #333333;
+        }
+        
+        #dialogWrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: table;
+            background-color: #EEEEEE;
+        }
+        
+        #dialogWrapCell {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        #mainDialog {
+            max-width: 400px;
+            margin: 5px;
+            border: solid #AAAAAA 1px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px 3px #AAAAAA;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            text-align: left;
+        }
+        #mainDialog > * {
+            padding: 10px 30px;
+        }
+        #passArea {
+            padding: 20px 30px;
+            background-color: white;
+        }
+        #passArea > * {
+            margin: 5px auto;
+        }
+        #pass {
+            width: 100%;
+            height: 40px;
+            font-size: 30px;
+        }
+        
+        #messageWrapper {
+            float: left;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+        
+        .notifyText {
+            display: none;
+        }
+        
+        #invalidPass {
+            color: red;
+        }
+        
+        #success {
+            color: green;
+        }
+        
+        #submitPass {
+            font-size: 20px;
+            border-radius: 5px;
+            background-color: #E7E7E7;
+            border: solid gray 1px;
+            float: right;
+            cursor: pointer;
+        }
+        #contentFrame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        #attribution, #attribution a {
+            color: #999;
+        }
+        .error {
+            display: none;
+            color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
+    <div id="dialogWrap">
+        <div id="dialogWrapCell">
+            <div id="mainDialog">
+                <div id="dialogText">This page is password protected.</div>
+                <div id="passArea">
+                    <p id="passwordPrompt">Password</p>
+                    <input id="pass" type="password" name="pass" autofocus>
+                    <div>
+                        <span id="messageWrapper">
+                            <span id="invalidPass" class="error">Sorry, please try again.</span>
+                            <span id="trycatcherror" class="error">Sorry, something went wrong.</span>
+                            <span id="success" class="notifyText">Success!</span>
+                            &nbsp;
+                        </span>
+                        <button id="submitPass" type="button">Submit</button>
+                        <div style="clear: both;"></div>
                     </div>
                 </div>
-            </div>
-
-
-            <div class="row">
-                <h2 class="portfolio_info_title">Redesign & Partner Collaboration</h2>
-                <div class="col-md-12">
-                    <p id="left" class="portfolio_description">Before the redesign, the enterprise design team
-                        implemented changes that corrected consistency for CTAs, flipping colors for "See if I'm
-                        pre-approved" and
-                        "Apply Now" to correctly fit customer mental models.<br><br>
-                        We intended to test different treatments to improve
-                        the way we educate and guide customers. I made changes to
-                        information architecture, accessibility, content strategy, and standardized CTAs with different
-                        entry-points, creating multiple variants.<br><br>
-                        With a divergent mindset, these variants served as a starting point. I then worked
-                        with product to converge, modify, and choose variants that given our tech resources, wouldn't
-                        overwhelm our awesome engineers, and
-                        would feasibly receive
-                        buy-in from business leadership.
-                        Screenshots of the original variants I designed cannot be shown due to NDA, since the exact
-                        designs
-                        weren't implemented in market testing.
-                        <br><br>
+                <div id="securecontext" class="error">
+                    <p>
+                        Sorry, but password protection only works over a secure connection. Please load this page via HTTPS.
+                    </p>
+                </div>
+                <div id="nocrypto" class="error">
+                    <p>
+                        Your web browser appears to be outdated. Please visit this page using a modern browser.
                     </p>
                 </div>
             </div>
-
-            <div class="row">
-                <h2 class="portfolio_info_title">A/B/n=8 Testing & Learnings</h2>
-                <div class="col-md-12">
-                    <p id="left" class="portfolio_description">After a month,
-                        we learned that one variant, with multiple interventions that included:<br><br>
-                        1. swapping QuicksilverOne for the more popular QuickersilverOne credit card (Marketing
-                        changes)<br>
-                        2. underlining the Product text-link to a specific product page to signify the ability to learn
-                        more (Proper signifiers)<br>
-                        3. introducing a "View Card Details" CTA button that took the customer to a specific product
-                        page if that product didn't have pre-approval (Clear entrypoints to gain crucial product
-                        information)<br><br>
-                        <strong>beat out 7 other variants, leading to a 4.7% lift in new accounts booked. Assuming the design was implemented and metrics were annualized, revenue would increase by a whopping $13.7m!
-                        </strong>
-
-                        <br><br>
-                    </p>
-
-
-
-                    <!--With this variant chosen, I believed it was key to aligning customer needs, design expertise, engineering resources, and business performance goals.-->
-                </div>
-
-            </div>
-
-            <div class="half_desktop_space"></div>
-
-
-            <footer>
-                <p>
-                    <hr class="footerline">
-                </p>
-                <p style="margin-top: 1em;" id="foot" class="portfolio_description"> Designed and implemented by William
-                    Zhang.<br>Iterating with 💛💙 in Chicago <br>© 2020-2024 William Zhang </p>
-            </footer>
         </div>
-
     </div>
-    <script> $('.navTrigger').click(function () { $(this).toggleClass('active'); console.log("Clicked menu"); $("#mainListDiv").toggleClass("show_list"); $("#mainListDiv").fadeIn(); $("#pogger").toggleClass("extend"); }); </script>
+    <div id="attribution">
+        Protected by <a href="https://www.maxlaumeister.com/pagecrypt/">PageCrypt</a>
     </div>
-    <div class="loader-wrapper"> <span class="loader"><span class="loader-inner"></span></span> </div>
-</body>
+    <script>
+    (function() {
 
+        var pl = "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";
+        
+        var submitPass = document.getElementById('submitPass');
+        var passEl = document.getElementById('pass');
+        var invalidPassEl = document.getElementById('invalidPass');
+        var trycatcherror = document.getElementById('trycatcherror');
+        var successEl = document.getElementById('success');
+        var contentFrame = document.getElementById('contentFrame');
+        
+        // Sanity checks
+
+        if (pl === "") {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+            alert("This page is meant to be used with the encryption tool. It doesn't work standalone.");
+            return;
+        }
+
+        if (!isSecureContext) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#securecontext").style.display = "block";
+            return;
+        }
+
+        if (!crypto.subtle) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#nocrypto").style.display = "block";
+            return;
+        }
+        
+        function str2ab(str) {
+            var ustr = atob(str);
+            var buf = new ArrayBuffer(ustr.length);
+            var bufView = new Uint8Array(buf);
+            for (var i=0, strLen=ustr.length; i < strLen; i++) {
+                bufView[i] = ustr.charCodeAt(i);
+            }
+            return bufView;
+        }
+
+        async function deriveKey(salt, password) {
+            const encoder = new TextEncoder()
+            const baseKey = await crypto.subtle.importKey(
+                'raw',
+                encoder.encode(password),
+                'PBKDF2',
+                false,
+                ['deriveKey'],
+            )
+            return await crypto.subtle.deriveKey(
+                { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+                baseKey,
+                { name: 'AES-GCM', length: 256 },
+                true,
+                ['decrypt'],
+            )
+        }
+        
+        async function doSubmit(evt) {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+
+            let iv, ciphertext, key;
+            
+            try {
+                var unencodedPl = str2ab(pl);
+
+                const salt = unencodedPl.slice(0, 32)
+                iv = unencodedPl.slice(32, 32 + 16)
+                ciphertext = unencodedPl.slice(32 + 16)
+
+                key = await deriveKey(salt, passEl.value);
+            } catch (e) {
+                trycatcherror.style.display = "inline";
+                console.error(e);
+                return;
+            }
+
+            try {
+                const decryptedArray = new Uint8Array(
+                    await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ciphertext)
+                );
+
+                let decrypted = new TextDecoder().decode(decryptedArray);
+
+                if (decrypted === "") throw "No data returned";
+
+                const basestr = '<base href="." target="_top">';
+                const anchorfixstr = `
+                    <script>
+                        Array.from(document.links).forEach((anchor) => {
+                            const href = anchor.getAttribute("href");
+                            if (href.startsWith("#")) {
+                                anchor.addEventListener("click", function(e) {
+                                    e.preventDefault();
+                                    const targetId = this.getAttribute("href").substring(1);
+                                    const targetEl = document.getElementById(targetId);
+                                    targetEl.scrollIntoView();
+                                });
+                            }
+                        });
+                    <\/script>
+                `;
+                
+                // Set default iframe link targets to _top so all links break out of the iframe
+                if (decrypted.includes("<head>")) decrypted = decrypted.replace("<head>", "<head>" + basestr);
+                else if (decrypted.includes("<!DOCTYPE html>")) decrypted = decrypted.replace("<!DOCTYPE html>", "<!DOCTYPE html>" + basestr);
+                else decrypted = basestr + decrypted;
+
+                // Fix fragment links
+                if (decrypted.includes("</body>")) decrypted = decrypted.replace("</body>", anchorfixstr + '</body>');
+                else if (decrypted.includes("</html>")) decrypted = decrypted.replace("</html>", anchorfixstr + '</html>');
+                else decrypted = decrypted + anchorfixstr;
+                
+                contentFrame.srcdoc = decrypted;
+                
+                successEl.style.display = "inline";
+                setTimeout(function() {
+                    dialogWrap.style.display = "none";
+                }, 1000);
+            } catch (e) {
+                invalidPassEl.style.display = "inline";
+                passEl.value = "";
+                submitPass.disabled = false;
+                passEl.disabled = false;
+                console.error(e);
+                return;
+            }
+        }
+        
+        submitPass.onclick = doSubmit;
+        passEl.onkeypress = function(e){
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            invalidPassEl.style.display = "none";
+            if (keyCode == '13'){
+              // Enter pressed
+              doSubmit();
+              return false;
+            }
+        }
+    })();
+    </script>
+  </body>
 </html>
