@@ -3,6 +3,13 @@
   width: 25%;
 }
 
+.profile{
+  width: 25vw; margin: 0 auto; display: block;
+  animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3.15s both;
+  -webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3.15s both;
+
+
+}
 #foot{
   text-align: middle;
   line-height: 1.25em;
@@ -23,11 +30,13 @@
   width: 100%;
 }
 
+
+
 .intro_holder {
   position: absolute;
   top: 16.5%;
   left: 9.5%;
-  width: 48%;
+  width: 80%;
 }
 
 
@@ -899,8 +908,8 @@ body {
 }
 
 #intro_body {
-  -webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3s both;
-  animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3s both;
+  -webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 2.5s both;
+  animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 2.5s both;
   margin-right: 2%;
   font-weight: 359;
   text-align: left;
@@ -1130,6 +1139,10 @@ body {
 }
 
 @media screen and (max-width:768px) {
+  .profile{
+    width: 50vw;
+    margin-top: 2em;
+    }
 
   .portfolio_description {
     font-size: 1em;

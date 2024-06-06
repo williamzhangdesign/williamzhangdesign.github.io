@@ -1169,11 +1169,7 @@ body {
     margin-bottom: -0.5em;
   }
 
-  .container-fluid {
-    margin-left: 2em;
-    margin-right: 2em;;
-
-  }
+ 
 
   .portfolio_subtitle {
     margin-top: 2em;
@@ -1219,8 +1215,8 @@ body {
 
 
   .container-fluid {
-    padding-left: 3vw;
-    padding-right: 3vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5w;
 
   }
 
