@@ -16,6 +16,7 @@
 #foot {
   text-align: middle;
   line-height: 1.25em;
+  font-family: "HelveticaNeue-Light";
 }
 
 .footerline {
@@ -1022,7 +1023,7 @@ body {
   text-align: left;
   padding-top: 8%;
   padding-bottom: 2.4%;
-  font-size: 2.8em;
+  font-size: 2.6em;
 }
 
 #intro_body {
