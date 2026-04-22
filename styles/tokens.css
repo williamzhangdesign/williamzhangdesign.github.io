@@ -1,0 +1,192 @@
+/* ============================================
+   William Zhang Portfolio — Atelier
+   Design Tokens (source of truth)
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Canvas */
+  --ink:         #0B0D12;
+  --ink-deep:    #070910;
+  --ink-raised:  #10131A;
+  --ink-higher:  #161A23;
+
+  /* Foreground */
+  --fg:          #F2EEE4;
+  --fg-muted:    #A8A6A0;
+  --fg-dim:      #6B6A65;
+  --fg-faint:    #3A3A38;
+
+  /* Accent — lamplight */
+  --glow:        #E8D4A2;
+  --glow-soft:   #C9B482;
+  --glow-deep:   #6B5A3A;
+  --glow-trace:  rgba(232, 212, 162, 0.12);
+
+  --dusk:        #9FB4D1;
+
+  /* Borders */
+  --line:        rgba(242, 238, 228, 0.08);
+  --line-strong: rgba(242, 238, 228, 0.16);
+
+  /* Type */
+  --font-display: "Fraunces", "Times New Roman", Georgia, serif;
+  --font-sans:    "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --text-2xs:   10px;
+  --text-xs:    11px;
+  --text-sm:    13px;
+  --text-base:  14px;
+  --text-md:    16px;
+  --text-lg:    20px;
+  --text-xl:    28px;
+  --text-2xl:   44px;
+  --text-display: 96px;
+  --text-hero:    140px;
+
+  --leading-tight:  1.05;
+  --leading-snug:   1.25;
+  --leading-normal: 1.5;
+  --leading-body:   1.65;
+
+  --tracking-display: -0.03em;
+  --tracking-tight:   -0.01em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.04em;
+  --tracking-wider:    0.14em;
+
+  /* Spacing — 4px base */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-5: 20px;  --s-6: 24px;  --s-8: 32px;  --s-10: 40px;
+  --s-12: 48px; --s-16: 64px; --s-20: 80px; --s-24: 96px;
+  --s-32: 128px; --s-40: 160px;
+
+  /* Radii */
+  --r-sm: 2px; --r-md: 6px; --r-lg: 12px; --r-xl: 20px; --r-pill: 999px;
+
+  /* Motion */
+  --ease:      cubic-bezier(0.2, 0, 0, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:  160ms;
+  --dur:       280ms;
+  --dur-slow:  560ms;
+  --dur-reveal: 1200ms;
+
+  /* Layout */
+  --page-max:   1180px;
+  --page-pad:   48px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-pad: 24px;
+  }
+}
+
+/* ============================================
+   Base
+   ============================================ */
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--ink);
+  color: var(--fg-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  color: var(--fg);
+  margin: 0;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-snug);
+  font-weight: 500;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-tight);
+  color: var(--fg);
+  font-variation-settings: "opsz" 144;
+}
+
+.display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-tight);
+  color: var(--fg);
+  font-variation-settings: "opsz" 144;
+}
+
+p { margin: 0 0 var(--s-4) 0; text-wrap: pretty; color: var(--fg-muted); }
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--fg-faint);
+  padding-bottom: 1px;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+a:hover { color: var(--glow); border-bottom-color: var(--glow); }
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+.mono { font-family: var(--font-mono); font-feature-settings: "tnum"; }
+
+.atelier-canvas {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 140% 90% at 50% 0%,
+      rgba(232, 212, 162, 0.04) 0%,
+      transparent 55%),
+    radial-gradient(ellipse 100% 100% at 50% 100%,
+      var(--ink-deep) 0%,
+      var(--ink) 50%);
+}
+
+.rule-glow {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--glow-trace) 20%,
+    var(--glow-soft) 50%,
+    var(--glow-trace) 80%,
+    transparent 100%);
+}
+
+.rule { height: 1px; background: var(--line); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  #stars { display: none; }
+}
+
+/* Selection */
+::selection {
+  background: rgba(232, 212, 162, 0.22);
+  color: var(--fg);
+}

@@ -1,149 +1,144 @@
-<!DOCTYPE html>
-<html lang="eng">
-
+<!doctype html>
+<html lang="en">
 <head>
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
-  <link rel="manifest" href="images/favicon_io/site.webmanifest">
-  <script>
-    $(window).on("load", function () {
-      $(".loader-wrapper").fadeOut("slow");
-    });
-  </script>
   <meta charset="utf-8">
+  <title>About — William Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>William Zhang</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-  <link rel="stylesheet" type="text/css" href="css/html5reset.css">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151251727-1"></script>
-  <script src="index.js"></script>
-
-
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    .bio {
+      max-width: 640px;
+      margin-top: var(--s-12);
+    }
+    .bio p {
+      font-size: var(--text-md);
+      line-height: var(--leading-body);
+      margin-bottom: var(--s-5);
+    }
+    .bio p em {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--fg);
+      font-size: 1.06em;
+    }
+    .timeline {
+      margin-top: var(--s-16);
+      border-top: 1px solid var(--line);
+    }
+    .timeline .row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      padding: var(--s-5) 0;
+      border-bottom: 1px solid var(--line);
+      gap: var(--s-4);
+    }
+    .timeline .yr {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--fg-dim);
+      letter-spacing: 0.05em;
+    }
+    .timeline .role {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: var(--text-lg);
+      color: var(--fg);
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+    .timeline .where {
+      display: block;
+      margin-top: var(--s-1);
+      font-family: var(--font-sans);
+      font-style: normal;
+      font-size: var(--text-xs);
+      color: var(--fg-dim);
+      letter-spacing: 0.02em;
+    }
+    @media (max-width: 640px) {
+      .timeline .row { grid-template-columns: 80px 1fr; gap: var(--s-3); }
+    }
+  </style>
 </head>
+<body class="atelier-canvas">
 
-<body onmousemove="raiseBar(event)">
-  <div style="display: none;" class="preload">
-    <img src="images/logo_hover.png">
-    <img src="images/pizza.png">
-  </div>
+<canvas id="stars"></canvas>
 
-  <nav id="pogger" class="nav">
-    <a href="/">
-      <div class="logo"></div>
-    </a>
+<div class="page narrow">
 
-    <script>
-      var freeze = true;
-      window.onscroll = function () {
-        if (window.pageYOffset > 50) {
-          document.getElementById("pogger").style.opacity = 0;
-          document.getElementById("pogger").style.visibility = "none";
-          document.getElementById("pogger").style.pointerEvents = "none";
-          freeze = false;
-          console.log("unfreeze");
-        } else {
-          document.getElementById("pogger").style.opacity = 1;
-          document.getElementById("pogger").style.visibility = "auto";
-          document.getElementById("pogger").style.pointerEvents = "auto";
-          freeze = true;
-          console.log("freeze");
+  <header class="topbar">
+    <a class="mark" href="index.html">wz</a>
+    <nav class="nav">
+      <a href="index.html">home</a>
+      <a href="archive.html">index</a>
+      <a href="about.html" class="active">about</a>
+      <a href="https://www.linkedin.com/in/william-h-zhang/">linkedin</a>
+      <a href="https://drive.google.com/file/d/1tJ-ryxh_Kg9Oci4PQrroSXubIdvTAY3_/view">resume</a>
+    </nav>
+  </header>
 
-        }
-      }
+  <section class="head">
+    <h1>On <span class="ital">craft</span>.</h1>
+  </section>
 
-      function raiseBar(event) {
-        if (freeze) {
-          return;
-        }
-        var y = event.clientY;
+  <section class="bio">
+    <p>
+      I'm William &mdash; a designer working at the seam between <em>product</em> and <em>engineering</em>.
+      Currently at Capital One, leading the end-to-end modernization of the mobile bank
+      application flow &mdash; 2.2 million customers a year depend on getting this right.
+    </p>
+    <p>
+      Before this, I shipped the Credit Card Homepage redesign (+$14.7M annualized), and in an earlier life
+      I designed the Michigan COVID Dashboard &mdash; which served 200K monthly visitors at pandemic peak.
+    </p>
+    <p>
+      I think portfolio-level, not screen-level. Good design wins for the business <em>and</em> the customer.
+      Good systems make the next team faster. I spend as much time in code and in research as I do in Figma.
+    </p>
+    <p>
+      Outside work, I'm exploring how AI changes the shape of a design practice &mdash;
+      prototyping concepts with vibe-coded tools, and trying to keep my taste ahead of my tools.
+    </p>
+  </section>
 
-        if (y < 110) {
-          console.log("hi");
-          document.getElementById("pogger").style.opacity = 1;
-          document.getElementById("pogger").style.visibility = "auto";
-          document.getElementById("pogger").style.pointerEvents = "auto";
-        } else {
-          document.getElementById("pogger").style.opacity = 0;
-          document.getElementById("pogger").style.visibility = "none";
-          document.getElementById("pogger").style.pointerEvents = "none";
-        }
-      }
-    </script>
+  <section class="timeline">
+    <div class="row">
+      <div class="yr">2023 — now</div>
+      <div class="role">
+        Full-stack Designer
+        <span class="where">Capital One · Mobile Bank Apply, Credit Cards</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="yr">2021 — 2023</div>
+      <div class="role">
+        Designer &amp; Researcher
+        <span class="where">University of Michigan · MI Safe Start (COVID dashboard)</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="yr">2024 —</div>
+      <div class="role">
+        AI-assisted prototyping
+        <span class="where">Ongoing · personal + applied practice</span>
+      </div>
+    </div>
+  </section>
 
+  <footer class="footer">
+    <span>&copy; william zhang · mmxxvi</span>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/william-h-zhang/">linkedin</a>
+      <a href="mailto:whzhang@umich.edu">email</a>
+      <a href="https://drive.google.com/file/d/1tJ-ryxh_Kg9Oci4PQrroSXubIdvTAY3_/view">resume</a>
+    </div>
+    <span>crafted in the dark.</span>
+  </footer>
 
-<div id="mainListDiv" class="main_list">
-  <ul class="navlinks">
-    <li><a class='navi' target="_blank"
-        href="https://drive.google.com/file/d/13R3f9fHUXsiGOr4QNj19mQqpy-8F0rtr/view?usp=sharing">Resumé</a></li>
-    <li><a class='navi' href="about">About</a></li>
-
-  </ul>
 </div>
 
-
-    <span class="navTrigger" onClick>
-      <i></i>
-      <i></i>
-      <i></i>
-    </span>
-  </nav>
-
-  <section id="mobileMenu" class="home">
-  </section>
-<!--  -->
-  <div style="height: 100vh" class="container-fluid" id="blurb">
-    <div id = "about_holder" class="intro_holder">
-        <p class="text-left" id="intro_message">About me</p>
-        <p id="intro_body">Motivated and driven by creativity, I strive to create
-          digital experiences to help people, working to contribute towards a more accessible, convenient, and
-          pleasurable
-          digital
-          world.
-          <br><br>
-          In my free time, I love making music
-          with my clarinet, organizing and arranging music for my live cover band to perform, and bringing people together through music. I play saxophone around Chicago, focusing on EDM, Pop, and Jazz genres. 
-        </p>
-    </div>
-    <div  class="image_holder">
-      <img id = "melol" src="images/about/cutout-min.png">
-    </div>
- 
-
-  </div>
-
-
-
-
-
-  <footer>
-    <p><hr class = "footerline"></p>
-    <p style="margin-top: 1em;" id="foot" class="portfolio_description"> Designed and implemented by William
-      Zhang.<br>Iterating with 💛💙 in Chicago <br>© 2020-2024 William Zhang </p>
-
-</footer>
-
-  <script>
-    $('.navTrigger').click(function () {
-      $(this).toggleClass('active');
-      console.log("Clicked menu");
-      $("#mainListDiv").toggleClass("show_list");
-      $("#mainListDiv").fadeIn();
-      $("#pogger").toggleClass("extend");
-    });
-  </script>
-  </div>
-
-  <div class="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
-  </div>
+<script src="scripts/main.js"></script>
 </body>
-
 </html>
