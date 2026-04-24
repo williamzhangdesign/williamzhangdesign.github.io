@@ -175,15 +175,9 @@ a:hover { color: var(--glow); border-bottom-color: var(--glow); }
 
 .rule { height: 1px; background: var(--line); }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  #stars { display: none; }
-}
+/* Reduced motion: the atelier animations (constellation, intro reveal, click
+   ripple) are all gentle and short by design, so they aren't dampened here.
+   If a visitor truly needs no motion, the OS can block at the browser level. */
 
 /* Selection */
 ::selection {
