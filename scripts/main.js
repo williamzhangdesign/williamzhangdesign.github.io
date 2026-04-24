@@ -9,18 +9,45 @@
   // Progressive enhancement: CSS animations only apply when .js is present
   if (!reduced) document.documentElement.classList.add('js');
 
-  // ---------- Clock ----------
+  // ---------- Clock (Chicago) ----------
   const clock = document.getElementById('clock');
   if (clock) {
-    const tick = () => {
-      const d = new Date();
-      const h = String(d.getHours()).padStart(2, '0');
-      const m = String(d.getMinutes()).padStart(2, '0');
-      const s = String(d.getSeconds()).padStart(2, '0');
-      clock.textContent = `${h}:${m}:${s}`;
-    };
+    const fmt = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Chicago',
+      hour: 'numeric', minute: '2-digit', hour12: true
+    });
+    const tick = () => { clock.textContent = fmt.format(new Date()); };
     tick();
-    setInterval(tick, 1000);
+    setInterval(tick, 15000);
+  }
+
+  // ---------- Weather (Chicago) ----------
+  const weather = document.getElementById('weather');
+  if (weather) {
+    // WMO weather code → short glyph
+    const glyph = (c) => {
+      if (c === 0) return '☀';
+      if (c <= 2) return '⛅';
+      if (c === 3) return '☁';
+      if (c >= 45 && c <= 48) return '🌫';
+      if (c >= 51 && c <= 67) return '🌧';
+      if (c >= 71 && c <= 77) return '❄';
+      if (c >= 80 && c <= 82) return '🌧';
+      if (c >= 85 && c <= 86) return '❄';
+      if (c >= 95) return '⛈';
+      return '·';
+    };
+    const url = 'https://api.open-meteo.com/v1/forecast'
+      + '?latitude=41.8781&longitude=-87.6298'
+      + '&current=temperature_2m,weather_code'
+      + '&temperature_unit=fahrenheit&timezone=America/Chicago';
+    fetch(url)
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(d => {
+        const t = Math.round(d.current.temperature_2m);
+        weather.textContent = `${glyph(d.current.weather_code)} ${t}°F`;
+      })
+      .catch(() => { weather.textContent = '—'; });
   }
 
   // ---------- Count-up ----------
@@ -57,6 +84,38 @@
   const works = document.getElementById('works');
   if (works) {
     window.addEventListener('load', () => works.classList.add('revealed'));
+  }
+
+  // ---------- Archive sort toggle ----------
+  const sortToggle = document.querySelector('.sort-toggle');
+  if (sortToggle) {
+    const tbody = document.querySelector('table.archive tbody');
+    const opts = sortToggle.querySelectorAll('.sort-opt');
+    const apply = (mode) => {
+      if (!tbody) return;
+      const rows = Array.from(tbody.querySelectorAll('tr.row'));
+      rows.sort((a, b) => mode === 'recency'
+        ? Number(b.dataset.year) - Number(a.dataset.year)
+        : Number(a.dataset.impact) - Number(b.dataset.impact));
+      rows.forEach((r, i) => {
+        const num = r.querySelector('.num');
+        if (num) num.textContent = String(i + 1).padStart(2, '0');
+        tbody.appendChild(r);
+      });
+    };
+    opts.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.sort;
+        if (sortToggle.dataset.active === mode) return;
+        sortToggle.dataset.active = mode;
+        opts.forEach(o => {
+          const on = o === btn;
+          o.classList.toggle('active', on);
+          o.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        apply(mode);
+      });
+    });
   }
 
   // ---------- Constellation ----------

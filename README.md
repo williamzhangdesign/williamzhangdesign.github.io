@@ -10,7 +10,6 @@ Plain HTML + CSS + vanilla JS. No build step. No framework.
 
 - `index.html` — home (hero + impact + selected works + about strip)
 - `archive.html` — index / archive table
-- `about.html` — longer bio + timeline
 - `projects/*.html` — case studies
 - `styles/tokens.css` — design tokens (colors, type, spacing, motion)
 - `styles/main.css` — component styles
@@ -66,4 +65,3 @@ the `@import` with local `@font-face` rules.
 
 - Consider self-hosting fonts for perf + privacy.
 - Consider adding `og:image` social card.
-- `about.html` timeline is minimal — expand as the story grows.
