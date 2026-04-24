@@ -1,17 +1,17 @@
 <!--
-  GOLD PILL TOGGLE — reusable interaction asset.
+  GOLD PILL TOGGLE: reusable interaction asset.
   Originally built for archive.html sort (Impact / Recency).
   Saved 2026-04-24 for redeployment on future interactions.
 
   Pieces:
     - HTML (this file)        : the markup pattern
     - styles/main.css         : .sort-toggle / .sort-opt / .sort-indicator block
-    - scripts/main.js         : "Archive sort toggle" block (archive-specific logic —
+    - scripts/main.js         : "Archive sort toggle" block (archive-specific logic;
                                 reuse the click/indicator pattern, rewrite the payload)
 
   How to adapt:
     1. Keep the structure below (container + N .sort-opt buttons + .sort-indicator).
-    2. The indicator width is calc(100% / N - gap) in CSS — for 3+ options, update
+    2. The indicator width is calc(100% / N - gap) in CSS. For 3+ options, update
        .sort-indicator { width: calc(33.33% - 4px); } and add matching
        [data-active="..."] .sort-indicator { transform: translateX(...) } rules.
     3. In JS, replace the tbody re-sort payload with whatever the toggle should drive
@@ -19,7 +19,7 @@
 
   Visual vocabulary:
     - Track:    --ink-raised + --line-strong hairline + pill radius
-    - Knob:     linear-gradient(--glow → --glow-soft) with soft glow shadow
+    - Knob:     linear-gradient(--glow to --glow-soft) with soft glow shadow
     - Active:   --ink-deep text on the knob; --fg-dim text off-knob
     - Motion:   transform: translateX, --dur --ease
 -->

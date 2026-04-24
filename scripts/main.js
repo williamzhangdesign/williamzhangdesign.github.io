@@ -1,5 +1,5 @@
 // ============================================
-// William Zhang — Atelier
+// William Zhang, Atelier
 // Clock · Count-up · Works reveal · Constellation
 // ============================================
 
@@ -47,7 +47,7 @@
         const t = Math.round(d.current.temperature_2m);
         weather.textContent = `${glyph(d.current.weather_code)} ${t}°F`;
       })
-      .catch(() => { weather.textContent = '—'; });
+      .catch(() => { weather.textContent = '…'; });
   }
 
   // ---------- Count-up ----------

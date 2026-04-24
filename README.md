@@ -1,6 +1,6 @@
-# William Zhang — Portfolio
+# William Zhang · Portfolio
 
-Personal portfolio. Visual direction: **Atelier** — a designer's workspace at night.
+Personal portfolio. Visual direction: **Atelier**, a designer's workspace at night.
 Deep ink canvas, warm lamplight accent, editorial italic serif for the name,
 compact Inter for everything else, slow-drift constellation behind the hero.
 
@@ -8,14 +8,14 @@ compact Inter for everything else, slow-drift constellation behind the hero.
 
 Plain HTML + CSS + vanilla JS. No build step. No framework.
 
-- `index.html` — home (hero + impact + selected works + about strip)
-- `archive.html` — index / archive table
-- `projects/*.html` — case studies
-- `styles/tokens.css` — design tokens (colors, type, spacing, motion)
-- `styles/main.css` — component styles
-- `scripts/main.js` — clock, count-up, works reveal, constellation
-- `images/` — case study screenshots
-- `.nojekyll` — tells GitHub Pages to serve files as-is
+- `index.html`: home (hero + impact + selected works + about strip)
+- `archive.html`: index / archive table
+- `projects/*.html`: case studies
+- `styles/tokens.css`: design tokens (colors, type, spacing, motion)
+- `styles/main.css`: component styles
+- `scripts/main.js`: clock, count-up, works reveal, constellation
+- `images/`: case study screenshots
+- `.nojekyll`: tells GitHub Pages to serve files as-is
 
 ## Deploy to GitHub Pages
 

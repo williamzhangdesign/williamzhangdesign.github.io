@@ -1,5 +1,5 @@
 /* ============================================
-   William Zhang Portfolio — shared components
+   William Zhang Portfolio, shared components
    ============================================ */
 
 /* ---------- Page shell ---------- */
@@ -712,7 +712,7 @@ table.archive tr.row:hover td.num { color: var(--glow); }
   color: var(--fg-muted);
 }
 .cs-section ul li::before {
-  content: "—";
+  content: "·";
   position: absolute;
   left: 0;
   color: var(--glow);
