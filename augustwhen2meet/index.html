@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>August 2026 — when are you free?</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #1e293b;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --accent: #22c55e;
+        --accent-ink: #052e16;
+        --border: #334155;
+        --error: #f87171;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        font: 16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        padding: 24px 16px 48px;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .wrap { max-width: 520px; margin: 0 auto; }
+      h1 { font-size: 22px; margin: 0 0 4px; }
+      .sub { color: var(--muted); margin: 0 0 20px; font-size: 14px; }
+      .gate label { display: block; margin-bottom: 12px; font-size: 15px; color: var(--muted); }
+      input[type="text"] {
+        width: 100%;
+        font: inherit;
+        font-size: 18px;
+        padding: 14px 16px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        color: var(--text);
+        outline: none;
+      }
+      input[type="text"]:focus { border-color: var(--accent); }
+      .btn {
+        display: inline-block;
+        margin-top: 12px;
+        width: 100%;
+        padding: 14px 16px;
+        font: inherit;
+        font-size: 17px;
+        font-weight: 600;
+        border-radius: 10px;
+        border: 1px solid var(--accent);
+        background: var(--accent);
+        color: var(--accent-ink);
+        cursor: pointer;
+      }
+      .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+      .err { color: var(--error); font-size: 13px; margin-top: 8px; min-height: 1em; }
+      .setup-warn {
+        margin-top: 16px; padding: 12px 14px; border-radius: 10px;
+        background: #422006; color: #fed7aa; border: 1px solid #9a3412;
+        font-size: 13px; line-height: 1.5;
+      }
+      .setup-warn code { background: rgba(0,0,0,.3); padding: 1px 5px; border-radius: 4px; }
+      .hello { font-size: 18px; margin: 0 0 4px; }
+      .hint { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+      .weeks { display: grid; gap: 10px; margin-bottom: 24px; }
+      .week {
+        display: flex; align-items: center; justify-content: space-between;
+        min-height: 56px; padding: 12px 16px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        color: var(--text);
+        font-size: 17px;
+        cursor: pointer; user-select: none;
+        transition: background 0.12s, border-color 0.12s, transform 0.05s;
+      }
+      .week:active { transform: scale(0.99); }
+      .week[aria-pressed="true"] {
+        background: var(--accent); border-color: var(--accent); color: var(--accent-ink);
+      }
+      .check {
+        width: 22px; height: 22px; border-radius: 50%;
+        border: 1.5px solid var(--muted);
+        display: grid; place-items: center; flex: 0 0 auto;
+      }
+      .week[aria-pressed="true"] .check {
+        border-color: var(--accent-ink); background: var(--accent-ink);
+      }
+      .check svg { display: block; opacity: 0; }
+      .week[aria-pressed="true"] .check svg { opacity: 1; }
+      .summary h2 {
+        font-size: 14px; color: var(--muted);
+        text-transform: uppercase; letter-spacing: 0.08em;
+        margin: 0 0 10px;
+      }
+      .row {
+        display: flex; align-items: baseline; justify-content: space-between;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        margin-bottom: 8px;
+        background: var(--panel);
+      }
+      .row .label { font-weight: 500; }
+      .row .count { color: var(--muted); font-size: 13px; margin-left: 8px; }
+      .row .names { color: var(--muted); font-size: 13px; max-width: 60%; text-align: right; }
+      .row .names.empty { font-style: italic; }
+      .status { font-size: 12px; color: var(--muted); margin-top: 12px; text-align: center; min-height: 1em; }
+      .switch {
+        display: inline-block; margin-top: 16px;
+        color: var(--muted); font-size: 13px;
+        background: none; border: 0; padding: 4px 0; cursor: pointer;
+      }
+      .switch:hover { color: var(--text); }
+      .hidden { display: none !important; }
+      .crumb {
+        display: inline-block;
+        margin-bottom: 16px;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 13px;
+      }
+      .crumb:hover { color: var(--text); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="crumb" href="/">← williamzhangdesign</a>
+      <h1>August 2026 — which weeks work?</h1>
+      <p class="sub">No login. Just your first name. Tap every week you're free.</p>
+
+      <section id="gate" class="gate">
+        <label for="name-input">Your first name</label>
+        <input id="name-input" type="text" autocomplete="given-name" autocapitalize="words"
+               inputmode="text" maxlength="30" spellcheck="false" placeholder="e.g. Alex" />
+        <button id="continue-btn" class="btn" type="button">Continue</button>
+        <div id="gate-err" class="err"></div>
+        <div id="setup-warn" class="setup-warn hidden">
+          <strong>Setup needed:</strong> open <code>index.html</code> and set
+          <code>BIN_ID</code> and <code>MASTER_KEY</code> near the top of the
+          script. See the README for the 3-step setup.
+        </div>
+      </section>
+
+      <section id="picker" class="hidden">
+        <p class="hello">Hey, <span id="hello-name"></span> <button id="switch-btn" class="switch" type="button">(not you?)</button></p>
+        <p class="hint">Tap each week you're available. Changes save automatically.</p>
+        <div id="weeks" class="weeks" role="group" aria-label="August 2026 weeks"></div>
+
+        <div class="summary">
+          <h2>Who's in</h2>
+          <div id="summary"></div>
+        </div>
+
+        <div id="status" class="status"></div>
+      </section>
+    </div>
+
+    <script>
+      // ============ CONFIGURE ME ============
+      // 1. Sign up free at https://jsonbin.io
+      // 2. Create a bin with initial content: {"users":{}}
+      // 3. Paste the Bin ID (from the bin URL) and your Master Key (from the API Keys page) below.
+      const BIN_ID = "69ec3ede36566621a8ec7394";
+      const MASTER_KEY = "$2a$10$id6ZPEu9Hj5v90Rik80Fj.V4KJEhdlP4.aU76sqLFpR2vISZHREoO";
+      // ======================================
+
+      const WEEKS = [
+        { id: 0, label: "Aug 3 – Aug 9" },
+        { id: 1, label: "Aug 10 – Aug 16" },
+        { id: 2, label: "Aug 17 – Aug 23" },
+        { id: 3, label: "Aug 24 – Aug 30" },
+        { id: 4, label: "Aug 31 – Sep 6" },
+      ];
+      const VALID_IDS = new Set(WEEKS.map((w) => w.id));
+      const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+      const HEADERS = { "X-Master-Key": MASTER_KEY, "Content-Type": "application/json" };
+      const CHECK_SVG = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>';
+
+      const state = {
+        name: null,
+        mine: new Set(),
+        all: {},
+        pendingSave: null,
+        saving: false,
+      };
+
+      const els = {
+        gate: document.getElementById("gate"),
+        picker: document.getElementById("picker"),
+        nameInput: document.getElementById("name-input"),
+        continueBtn: document.getElementById("continue-btn"),
+        gateErr: document.getElementById("gate-err"),
+        setupWarn: document.getElementById("setup-warn"),
+        helloName: document.getElementById("hello-name"),
+        weeks: document.getElementById("weeks"),
+        summary: document.getElementById("summary"),
+        status: document.getElementById("status"),
+        switchBtn: document.getElementById("switch-btn"),
+      };
+
+      const isConfigured = BIN_ID && MASTER_KEY
+        && !BIN_ID.startsWith("PASTE_") && !MASTER_KEY.startsWith("PASTE_");
+      if (!isConfigured) {
+        els.setupWarn.classList.remove("hidden");
+        els.continueBtn.disabled = true;
+      }
+
+      const saved = localStorage.getItem("firstName");
+      if (saved) els.nameInput.value = saved;
+      els.nameInput.focus();
+
+      els.nameInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") { e.preventDefault(); enterPicker(); }
+      });
+      els.continueBtn.addEventListener("click", enterPicker);
+      els.switchBtn.addEventListener("click", signOut);
+
+      async function enterPicker() {
+        const raw = els.nameInput.value.trim();
+        if (!raw) { els.gateErr.textContent = "Please enter your first name."; return; }
+        if (raw.length > 30) { els.gateErr.textContent = "Please keep it under 30 characters."; return; }
+        els.gateErr.textContent = "";
+        els.continueBtn.disabled = true;
+        try {
+          await refresh();
+          state.name = raw;
+          localStorage.setItem("firstName", raw);
+          const key = raw.toLowerCase();
+          state.mine = state.all[key] ? new Set(state.all[key].weeks) : new Set();
+          els.helloName.textContent = raw;
+          els.gate.classList.add("hidden");
+          els.picker.classList.remove("hidden");
+          renderWeeks();
+          renderSummary();
+          startPolling();
+        } catch (err) {
+          els.gateErr.textContent = "Couldn't reach the server. Check your connection and try again.";
+          console.error(err);
+        } finally {
+          els.continueBtn.disabled = false;
+        }
+      }
+
+      function signOut() {
+        stopPolling();
+        state.name = null;
+        state.mine = new Set();
+        localStorage.removeItem("firstName");
+        els.nameInput.value = "";
+        els.picker.classList.add("hidden");
+        els.gate.classList.remove("hidden");
+        els.nameInput.focus();
+      }
+
+      function renderWeeks() {
+        els.weeks.innerHTML = "";
+        for (const w of WEEKS) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "week";
+          btn.setAttribute("aria-pressed", state.mine.has(w.id) ? "true" : "false");
+          btn.dataset.weekId = String(w.id);
+          btn.innerHTML = `<span class="label">${w.label}</span><span class="check">${CHECK_SVG}</span>`;
+          btn.addEventListener("click", () => toggleWeek(w.id, btn));
+          els.weeks.appendChild(btn);
+        }
+      }
+
+      function renderSummary() {
+        els.summary.innerHTML = "";
+        for (const w of WEEKS) {
+          const takers = [];
+          for (const row of Object.values(state.all)) {
+            if (row.weeks.includes(w.id)) takers.push(row.display);
+          }
+          takers.sort((a, b) => a.localeCompare(b));
+          const row = document.createElement("div");
+          row.className = "row";
+          const namesHtml = takers.length
+            ? `<span class="names">${takers.map(escapeHtml).join(", ")}</span>`
+            : `<span class="names empty">nobody yet</span>`;
+          row.innerHTML =
+            `<span><span class="label">${w.label}</span><span class="count">· ${takers.length}</span></span>` +
+            namesHtml;
+          els.summary.appendChild(row);
+        }
+      }
+
+      function setStatus(text, isError) {
+        els.status.textContent = text;
+        els.status.style.color = isError ? "var(--error)" : "var(--muted)";
+      }
+
+      function toggleWeek(id, btn) {
+        if (state.mine.has(id)) state.mine.delete(id);
+        else state.mine.add(id);
+        btn.setAttribute("aria-pressed", state.mine.has(id) ? "true" : "false");
+        const key = state.name.toLowerCase();
+        state.all[key] = { display: state.name, weeks: [...state.mine].sort((a,b)=>a-b) };
+        renderSummary();
+        scheduleSave();
+      }
+
+      function scheduleSave() {
+        if (state.pendingSave) clearTimeout(state.pendingSave);
+        setStatus("Saving…");
+        state.pendingSave = setTimeout(save, 500);
+      }
+
+      async function save() {
+        state.pendingSave = null;
+        if (state.saving) { scheduleSave(); return; }
+        state.saving = true;
+        try {
+          // Fetch-merge-PUT: race window ~100ms; fine for a small group.
+          const latest = await fetchLatest();
+          const users = sanitize(latest.users);
+          const weeks = [...state.mine].sort((a, b) => a - b);
+          const key = state.name.toLowerCase();
+          users[key] = { display: state.name, weeks };
+          const res = await fetch(BIN_URL, {
+            method: "PUT", headers: HEADERS,
+            body: JSON.stringify({ users }),
+          });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          state.all = users;
+          renderSummary();
+          setStatus("Saved.");
+        } catch (err) {
+          console.error("save failed", err);
+          setStatus("Couldn't save — retrying.", true);
+          setTimeout(scheduleSave, 2000);
+        } finally {
+          state.saving = false;
+        }
+      }
+
+      async function fetchLatest() {
+        const res = await fetch(`${BIN_URL}/latest`, {
+          headers: { "X-Master-Key": MASTER_KEY },
+          cache: "no-store",
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        return (data && data.record) ? data.record : { users: {} };
+      }
+
+      async function refresh() {
+        const record = await fetchLatest();
+        state.all = sanitize(record.users);
+        if (state.name && !state.pendingSave && !state.saving) {
+          const key = state.name.toLowerCase();
+          if (state.all[key]) state.mine = new Set(state.all[key].weeks);
+        }
+        if (state.name) renderSummary();
+      }
+
+      function sanitize(users) {
+        const out = {};
+        for (const [k, v] of Object.entries(users || {})) {
+          if (!v || typeof v !== "object") continue;
+          const display = typeof v.display === "string" ? v.display.slice(0, 30) : k;
+          const weeks = Array.isArray(v.weeks)
+            ? [...new Set(v.weeks.filter((n) => Number.isInteger(n) && VALID_IDS.has(n)))].sort((a,b)=>a-b)
+            : [];
+          out[k.toLowerCase()] = { display, weeks };
+        }
+        return out;
+      }
+
+      let pollId = null;
+      function startPolling() {
+        stopPolling();
+        pollId = setInterval(() => { refresh().catch(() => {}); }, 20000);
+        document.addEventListener("visibilitychange", onVisibility);
+      }
+      function stopPolling() {
+        if (pollId) clearInterval(pollId);
+        pollId = null;
+        document.removeEventListener("visibilitychange", onVisibility);
+      }
+      function onVisibility() {
+        if (!document.hidden) refresh().catch(() => {});
+      }
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, (c) => ({
+          "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+        })[c]);
+      }
+    </script>
+  </body>
+</html>
