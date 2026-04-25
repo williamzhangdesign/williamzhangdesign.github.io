@@ -228,37 +228,30 @@
       els.continueBtn.addEventListener("click", enterPicker);
       els.switchBtn.addEventListener("click", signOut);
 
-      function enterPicker() {
+      async function enterPicker() {
         const raw = els.nameInput.value.trim();
         if (!raw) { els.gateErr.textContent = "Please enter your first name."; return; }
         if (raw.length > 30) { els.gateErr.textContent = "Please keep it under 30 characters."; return; }
         els.gateErr.textContent = "";
-
-        state.name = raw;
-        localStorage.setItem("firstName", raw);
-        const cached = loadCache();
-        state.all = cached;
-        const key = raw.toLowerCase();
-        state.mine = cached[key] ? new Set(cached[key].weeks) : new Set();
-
-        els.helloName.textContent = raw;
-        els.gate.classList.add("hidden");
-        els.picker.classList.remove("hidden");
-        renderWeeks();
-        renderSummary();
-        setStatus("Loading latest…");
-        startPolling();
-        refresh().then(() => setStatus("")).catch(() => setStatus("Offline — your changes will save when reconnected.", true));
-      }
-
-      function loadCache() {
+        els.continueBtn.disabled = true;
         try {
-          const raw = localStorage.getItem("allUsers");
-          return raw ? sanitize(JSON.parse(raw)) : {};
-        } catch { return {}; }
-      }
-      function saveCache() {
-        try { localStorage.setItem("allUsers", JSON.stringify(state.all)); } catch {}
+          await refresh();
+          state.name = raw;
+          localStorage.setItem("firstName", raw);
+          const key = raw.toLowerCase();
+          state.mine = state.all[key] ? new Set(state.all[key].weeks) : new Set();
+          els.helloName.textContent = raw;
+          els.gate.classList.add("hidden");
+          els.picker.classList.remove("hidden");
+          renderWeeks();
+          renderSummary();
+          startPolling();
+        } catch (err) {
+          els.gateErr.textContent = "Couldn't reach the server. Check your connection and try again.";
+          console.error(err);
+        } finally {
+          els.continueBtn.disabled = false;
+        }
       }
 
       function signOut() {
@@ -344,7 +337,6 @@
           });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           state.all = users;
-          saveCache();
           renderSummary();
           setStatus("Saved.");
         } catch (err) {
@@ -357,30 +349,21 @@
       }
 
       async function fetchLatest() {
-        const ctrl = new AbortController();
-        const timer = setTimeout(() => ctrl.abort(), 8000);
-        try {
-          const res = await fetch(`${BIN_URL}/latest`, {
-            headers: { "X-Master-Key": MASTER_KEY },
-            cache: "no-store",
-            signal: ctrl.signal,
-          });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          const data = await res.json();
-          return (data && data.record) ? data.record : { users: {} };
-        } finally {
-          clearTimeout(timer);
-        }
+        const res = await fetch(`${BIN_URL}/latest`, {
+          headers: { "X-Master-Key": MASTER_KEY },
+          cache: "no-store",
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        return (data && data.record) ? data.record : { users: {} };
       }
 
       async function refresh() {
         const record = await fetchLatest();
         state.all = sanitize(record.users);
-        saveCache();
         if (state.name && !state.pendingSave && !state.saving) {
           const key = state.name.toLowerCase();
           if (state.all[key]) state.mine = new Set(state.all[key].weeks);
-          renderWeeks();
         }
         if (state.name) renderSummary();
       }
