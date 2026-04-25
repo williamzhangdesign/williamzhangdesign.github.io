@@ -73,6 +73,24 @@
         cursor: pointer;
       }
       .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+      .btn .btn-spinner {
+        display: none;
+        width: 16px; height: 16px;
+        border: 2.5px solid var(--accent-ink);
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+      .btn.loading { cursor: wait; }
+      .btn.loading .btn-spinner { display: inline-block; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .loading-hint {
+        margin-top: 12px; padding: 10px 14px; border-radius: 8px;
+        background: var(--panel); border: 1px dashed var(--border);
+        color: var(--muted); font-size: 13px; text-align: center; line-height: 1.4;
+      }
       .err { color: var(--error); font-size: 13px; margin-top: 8px; min-height: 1em; }
       .setup-warn {
         margin-top: 16px; padding: 12px 14px; border-radius: 10px;
@@ -145,7 +163,10 @@
         <label for="name-input">Your first name</label>
         <input id="name-input" type="text" autocomplete="given-name" autocapitalize="words"
                inputmode="text" maxlength="30" spellcheck="false" placeholder="e.g. Alex" />
-        <button id="continue-btn" class="btn" type="button">Continue</button>
+        <button id="continue-btn" class="btn" type="button"><span class="btn-spinner" aria-hidden="true"></span><span class="btn-label">Continue</span></button>
+        <div id="loading-hint" class="loading-hint hidden">
+          Heads up — this can take a few seconds to load. Hang tight!
+        </div>
         <div id="gate-err" class="err"></div>
         <div id="setup-warn" class="setup-warn hidden">
           <strong>Setup needed:</strong> open <code>index.html</code> and set
@@ -159,7 +180,7 @@
         <p class="hint">Tap each week you're available. Changes save automatically.</p>
         <div id="weeks" class="weeks" role="group" aria-label="August 2026 weeks"></div>
 
-        <div class="summary">
+        <div id="summary-section" class="summary hidden">
           <h2>Who's in</h2>
           <div id="summary"></div>
         </div>
@@ -193,8 +214,9 @@
         name: null,
         mine: new Set(),
         all: {},
-        pendingSave: null,
         saving: false,
+        dirty: false,
+        committed: false,
       };
 
       const els = {
@@ -202,14 +224,22 @@
         picker: document.getElementById("picker"),
         nameInput: document.getElementById("name-input"),
         continueBtn: document.getElementById("continue-btn"),
+        loadingHint: document.getElementById("loading-hint"),
         gateErr: document.getElementById("gate-err"),
         setupWarn: document.getElementById("setup-warn"),
         helloName: document.getElementById("hello-name"),
         weeks: document.getElementById("weeks"),
+        summarySection: document.getElementById("summary-section"),
         summary: document.getElementById("summary"),
         status: document.getElementById("status"),
         switchBtn: document.getElementById("switch-btn"),
       };
+
+      function setContinueLoading(loading) {
+        els.continueBtn.disabled = loading;
+        els.continueBtn.classList.toggle("loading", loading);
+        els.loadingHint.classList.toggle("hidden", !loading);
+      }
 
       const isConfigured = BIN_ID && MASTER_KEY
         && !BIN_ID.startsWith("PASTE_") && !MASTER_KEY.startsWith("PASTE_");
@@ -233,24 +263,28 @@
         if (!raw) { els.gateErr.textContent = "Please enter your first name."; return; }
         if (raw.length > 30) { els.gateErr.textContent = "Please keep it under 30 characters."; return; }
         els.gateErr.textContent = "";
-        els.continueBtn.disabled = true;
+        setContinueLoading(true);
         try {
           await refresh();
           state.name = raw;
           localStorage.setItem("firstName", raw);
           const key = raw.toLowerCase();
           state.mine = state.all[key] ? new Set(state.all[key].weeks) : new Set();
+          state.committed = state.all[key] ? true : false;
           els.helloName.textContent = raw;
           els.gate.classList.add("hidden");
           els.picker.classList.remove("hidden");
           renderWeeks();
-          renderSummary();
+          if (state.committed) {
+            els.summarySection.classList.remove("hidden");
+            renderSummary();
+          }
           startPolling();
         } catch (err) {
           els.gateErr.textContent = "Couldn't reach the server. Check your connection and try again.";
           console.error(err);
         } finally {
-          els.continueBtn.disabled = false;
+          setContinueLoading(false);
         }
       }
 
@@ -258,8 +292,11 @@
         stopPolling();
         state.name = null;
         state.mine = new Set();
+        state.committed = false;
+        state.dirty = false;
         localStorage.removeItem("firstName");
         els.nameInput.value = "";
+        els.summarySection.classList.add("hidden");
         els.picker.classList.add("hidden");
         els.gate.classList.remove("hidden");
         els.nameInput.focus();
@@ -308,43 +345,47 @@
         if (state.mine.has(id)) state.mine.delete(id);
         else state.mine.add(id);
         btn.setAttribute("aria-pressed", state.mine.has(id) ? "true" : "false");
-        const key = state.name.toLowerCase();
-        state.all[key] = { display: state.name, weeks: [...state.mine].sort((a,b)=>a-b) };
-        renderSummary();
-        scheduleSave();
+        saveNow();
       }
 
-      function scheduleSave() {
-        if (state.pendingSave) clearTimeout(state.pendingSave);
+      function saveNow() {
         setStatus("Saving…");
-        state.pendingSave = setTimeout(save, 500);
+        state.dirty = true;
+        if (state.saving) return;
+        save();
       }
 
       async function save() {
-        state.pendingSave = null;
-        if (state.saving) { scheduleSave(); return; }
         state.saving = true;
+        state.dirty = false;
+        const weeks = [...state.mine].sort((a, b) => a - b);
+        const key = state.name.toLowerCase();
+        // Optimistic local merge — polling re-syncs others' updates every 20s.
+        // Tiny clobber risk if two people save in the same ~500ms window; fine for a small group.
+        state.all[key] = { display: state.name, weeks };
         try {
-          // Fetch-merge-PUT: race window ~100ms; fine for a small group.
-          const latest = await fetchLatest();
-          const users = sanitize(latest.users);
-          const weeks = [...state.mine].sort((a, b) => a - b);
-          const key = state.name.toLowerCase();
-          users[key] = { display: state.name, weeks };
           const res = await fetch(BIN_URL, {
             method: "PUT", headers: HEADERS,
-            body: JSON.stringify({ users }),
+            body: JSON.stringify({ users: state.all }),
+            keepalive: true,
           });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          state.all = users;
-          renderSummary();
           setStatus("Saved.");
+          if (!state.committed) {
+            state.committed = true;
+            els.summarySection.classList.remove("hidden");
+            renderSummary();
+          } else {
+            renderSummary();
+          }
         } catch (err) {
           console.error("save failed", err);
           setStatus("Couldn't save — retrying.", true);
-          setTimeout(scheduleSave, 2000);
+          state.dirty = true;
+          setTimeout(() => { if (state.dirty && !state.saving) save(); }, 2000);
         } finally {
           state.saving = false;
+          if (state.dirty) save();
         }
       }
 
@@ -361,11 +402,11 @@
       async function refresh() {
         const record = await fetchLatest();
         state.all = sanitize(record.users);
-        if (state.name && !state.pendingSave && !state.saving) {
+        if (state.name && !state.dirty && !state.saving) {
           const key = state.name.toLowerCase();
           if (state.all[key]) state.mine = new Set(state.all[key].weeks);
         }
-        if (state.name) renderSummary();
+        if (state.name && state.committed) renderSummary();
       }
 
       function sanitize(users) {
