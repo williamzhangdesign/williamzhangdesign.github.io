@@ -168,11 +168,6 @@
           Heads up — this can take a few seconds to load. Hang tight!
         </div>
         <div id="gate-err" class="err"></div>
-        <div id="setup-warn" class="setup-warn hidden">
-          <strong>Setup needed:</strong> open <code>index.html</code> and set
-          <code>BIN_ID</code> and <code>MASTER_KEY</code> near the top of the
-          script. See the README for the 3-step setup.
-        </div>
       </section>
 
       <section id="picker" class="hidden">
@@ -189,14 +184,13 @@
       </section>
     </div>
 
-    <script>
-      // ============ CONFIGURE ME ============
-      // 1. Sign up free at https://jsonbin.io
-      // 2. Create a bin with initial content: {"users":{}}
-      // 3. Paste the Bin ID (from the bin URL) and your Master Key (from the API Keys page) below.
-      const BIN_ID = "69ec3ede36566621a8ec7394";
-      const MASTER_KEY = "$2a$10$id6ZPEu9Hj5v90Rik80Fj.V4KJEhdlP4.aU76sqLFpR2vISZHREoO";
-      // ======================================
+    <script type="module">
+      import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+      const SUPABASE_URL = "https://xybpmnkamxeneblltnzf.supabase.co";
+      const SUPABASE_KEY = "sb_publishable_bTYxoBB6kE_jIzEv1KazCg_IjDhaT3_";
+      const TABLE = "reunion_users";
+      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
       const WEEKS = [
         { id: 0, label: "Aug 3 – Aug 9" },
@@ -206,8 +200,6 @@
         { id: 4, label: "Aug 31 – Sep 6" },
       ];
       const VALID_IDS = new Set(WEEKS.map((w) => w.id));
-      const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
-      const HEADERS = { "X-Master-Key": MASTER_KEY, "Content-Type": "application/json" };
       const CHECK_SVG = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>';
 
       const state = {
@@ -217,6 +209,7 @@
         saving: false,
         dirty: false,
         committed: false,
+        channel: null,
       };
 
       const els = {
@@ -226,7 +219,6 @@
         continueBtn: document.getElementById("continue-btn"),
         loadingHint: document.getElementById("loading-hint"),
         gateErr: document.getElementById("gate-err"),
-        setupWarn: document.getElementById("setup-warn"),
         helloName: document.getElementById("hello-name"),
         weeks: document.getElementById("weeks"),
         summarySection: document.getElementById("summary-section"),
@@ -239,13 +231,6 @@
         els.continueBtn.disabled = loading;
         els.continueBtn.classList.toggle("loading", loading);
         els.loadingHint.classList.toggle("hidden", !loading);
-      }
-
-      const isConfigured = BIN_ID && MASTER_KEY
-        && !BIN_ID.startsWith("PASTE_") && !MASTER_KEY.startsWith("PASTE_");
-      if (!isConfigured) {
-        els.setupWarn.classList.remove("hidden");
-        els.continueBtn.disabled = true;
       }
 
       const saved = localStorage.getItem("firstName");
@@ -270,7 +255,7 @@
           localStorage.setItem("firstName", raw);
           const key = raw.toLowerCase();
           state.mine = state.all[key] ? new Set(state.all[key].weeks) : new Set();
-          state.committed = state.all[key] ? true : false;
+          state.committed = !!state.all[key];
           els.helloName.textContent = raw;
           els.gate.classList.add("hidden");
           els.picker.classList.remove("hidden");
@@ -279,7 +264,7 @@
             els.summarySection.classList.remove("hidden");
             renderSummary();
           }
-          startPolling();
+          subscribeRealtime();
         } catch (err) {
           els.gateErr.textContent = "Couldn't reach the server. Check your connection and try again.";
           console.error(err);
@@ -289,7 +274,7 @@
       }
 
       function signOut() {
-        stopPolling();
+        unsubscribeRealtime();
         state.name = null;
         state.mine = new Set();
         state.committed = false;
@@ -360,24 +345,18 @@
         state.dirty = false;
         const weeks = [...state.mine].sort((a, b) => a - b);
         const key = state.name.toLowerCase();
-        // Optimistic local merge — polling re-syncs others' updates every 20s.
-        // Tiny clobber risk if two people save in the same ~500ms window; fine for a small group.
         state.all[key] = { display: state.name, weeks };
         try {
-          const res = await fetch(BIN_URL, {
-            method: "PUT", headers: HEADERS,
-            body: JSON.stringify({ users: state.all }),
-            keepalive: true,
-          });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const { error } = await supabase
+            .from(TABLE)
+            .upsert({ name: key, display: state.name, weeks });
+          if (error) throw error;
           setStatus("Saved.");
           if (!state.committed) {
             state.committed = true;
             els.summarySection.classList.remove("hidden");
-            renderSummary();
-          } else {
-            renderSummary();
           }
+          renderSummary();
         } catch (err) {
           console.error("save failed", err);
           setStatus("Couldn't save — retrying.", true);
@@ -389,19 +368,16 @@
         }
       }
 
-      async function fetchLatest() {
-        const res = await fetch(`${BIN_URL}/latest`, {
-          headers: { "X-Master-Key": MASTER_KEY },
-          cache: "no-store",
-        });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        return (data && data.record) ? data.record : { users: {} };
-      }
-
       async function refresh() {
-        const record = await fetchLatest();
-        state.all = sanitize(record.users);
+        const { data, error } = await supabase
+          .from(TABLE)
+          .select("name, display, weeks");
+        if (error) throw error;
+        const users = {};
+        for (const row of data || []) {
+          users[row.name] = sanitizeRow(row);
+        }
+        state.all = users;
         if (state.name && !state.dirty && !state.saving) {
           const key = state.name.toLowerCase();
           if (state.all[key]) state.mine = new Set(state.all[key].weeks);
@@ -409,32 +385,39 @@
         if (state.name && state.committed) renderSummary();
       }
 
-      function sanitize(users) {
-        const out = {};
-        for (const [k, v] of Object.entries(users || {})) {
-          if (!v || typeof v !== "object") continue;
-          const display = typeof v.display === "string" ? v.display.slice(0, 30) : k;
-          const weeks = Array.isArray(v.weeks)
-            ? [...new Set(v.weeks.filter((n) => Number.isInteger(n) && VALID_IDS.has(n)))].sort((a,b)=>a-b)
-            : [];
-          out[k.toLowerCase()] = { display, weeks };
-        }
-        return out;
+      function sanitizeRow(row) {
+        const display = typeof row.display === "string" ? row.display.slice(0, 30) : row.name;
+        const weeks = Array.isArray(row.weeks)
+          ? [...new Set(row.weeks.filter((n) => Number.isInteger(n) && VALID_IDS.has(n)))].sort((a,b)=>a-b)
+          : [];
+        return { display, weeks };
       }
 
-      let pollId = null;
-      function startPolling() {
-        stopPolling();
-        pollId = setInterval(() => { refresh().catch(() => {}); }, 20000);
-        document.addEventListener("visibilitychange", onVisibility);
+      function subscribeRealtime() {
+        if (state.channel) return;
+        state.channel = supabase
+          .channel("reunion-users-changes")
+          .on(
+            "postgres_changes",
+            { event: "*", schema: "public", table: TABLE },
+            (payload) => {
+              if (payload.eventType === "DELETE") {
+                const k = payload.old && payload.old.name;
+                if (k) delete state.all[k];
+              } else if (payload.new && payload.new.name) {
+                state.all[payload.new.name] = sanitizeRow(payload.new);
+              }
+              if (state.committed) renderSummary();
+            }
+          )
+          .subscribe();
       }
-      function stopPolling() {
-        if (pollId) clearInterval(pollId);
-        pollId = null;
-        document.removeEventListener("visibilitychange", onVisibility);
-      }
-      function onVisibility() {
-        if (!document.hidden) refresh().catch(() => {});
+
+      function unsubscribeRealtime() {
+        if (state.channel) {
+          supabase.removeChannel(state.channel);
+          state.channel = null;
+        }
       }
 
       function escapeHtml(s) {
