@@ -10,7 +10,7 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Chicago Blue Chops Reunion!" />
-    <meta property="og:description" content="August 2026 — tap every week you're free." />
+    <meta property="og:description" content="August 2026 — tap every weekend you're free." />
     <meta property="og:image" content="https://williamzhangdesign.github.io/bluebopchopchicagoreunion/blue-chops.png" />
     <meta property="og:image:width" content="960" />
     <meta property="og:image:height" content="720" />
@@ -18,7 +18,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Chicago Blue Chops Reunion!" />
-    <meta name="twitter:description" content="August 2026 — tap every week you're free." />
+    <meta name="twitter:description" content="August 2026 — tap every weekend you're free." />
     <meta name="twitter:image" content="https://williamzhangdesign.github.io/bluebopchopchicagoreunion/blue-chops.png" />
     <style>
       :root {
@@ -156,8 +156,9 @@
   <body>
     <div class="wrap">
       <p class="invite">William is inviting you to come to Chicago for a blue bop/chop reunion/dancing through the decades reunion.</p>
-      <h1>August 2026 — which weeks work?</h1>
-      <p class="sub">No login. Just your first name. Tap every week you're free.</p>
+      <h1>August 2026 — which weekends work?</h1>
+      <p class="sub">No login. Just your first name. Tap every weekend you're free.</p>
+      <p class="sub" style="color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:20px;">All dates are listed as <strong>Friday to Sunday</strong>. You're welcome to come crash earlier if you're staying with me (Will Zhang)!</p>
 
       <section id="gate" class="gate">
         <label for="name-input">Your first name</label>
@@ -172,8 +173,8 @@
 
       <section id="picker" class="hidden">
         <p class="hello">Hey, <span id="hello-name"></span> <button id="switch-btn" class="switch" type="button">(not you?)</button></p>
-        <p class="hint">Tap each week you're available. Changes save automatically.</p>
-        <div id="weeks" class="weeks" role="group" aria-label="August 2026 weeks"></div>
+        <p class="hint">Tap each weekend you're available. Changes save automatically.</p>
+        <div id="weeks" class="weeks" role="group" aria-label="August 2026 weekends"></div>
 
         <div id="summary-section" class="summary hidden">
           <h2>Who's in</h2>
@@ -193,11 +194,11 @@
       const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
       const WEEKS = [
-        { id: 0, label: "Aug 3 – Aug 9" },
-        { id: 1, label: "Aug 10 – Aug 16" },
-        { id: 2, label: "Aug 17 – Aug 23" },
-        { id: 3, label: "Aug 24 – Aug 30" },
-        { id: 4, label: "Aug 31 – Sep 6" },
+        { id: 0, label: "Aug 7 – Aug 9" },
+        { id: 1, label: "Aug 14 – Aug 16" },
+        { id: 2, label: "Aug 21 – Aug 23" },
+        { id: 3, label: "Aug 28 – Aug 30" },
+        { id: 4, label: "Sep 4 – Sep 6" },
       ];
       const VALID_IDS = new Set(WEEKS.map((w) => w.id));
       const CHECK_SVG = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>';
