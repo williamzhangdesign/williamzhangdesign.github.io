@@ -143,6 +143,7 @@
       .row .count { color: var(--muted); font-size: 13px; margin-left: 8px; }
       .row .names { color: var(--muted); font-size: 13px; max-width: 60%; text-align: right; }
       .row .names.empty { font-style: italic; }
+      .row .names .golden { color: #c9a227; font-weight: 600; }
       .status { font-size: 12px; color: var(--muted); margin-top: 12px; text-align: center; min-height: 1em; }
       .switch {
         display: inline-block; margin-top: 16px;
@@ -312,8 +313,9 @@
           takers.sort((a, b) => a.localeCompare(b));
           const row = document.createElement("div");
           row.className = "row";
+          const GOLDEN_NAMES = new Set(["Maya", "Karthik"]);
           const namesHtml = takers.length
-            ? `<span class="names">${takers.map(escapeHtml).join(", ")}</span>`
+            ? `<span class="names">${takers.map(n => GOLDEN_NAMES.has(n) ? `<span class="golden">${escapeHtml(n)}</span>` : escapeHtml(n)).join(", ")}</span>`
             : `<span class="names empty">nobody yet</span>`;
           row.innerHTML =
             `<span><span class="label">${w.label}</span><span class="count">· ${takers.length}</span></span>` +
