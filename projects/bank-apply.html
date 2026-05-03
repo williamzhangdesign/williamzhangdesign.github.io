@@ -60,11 +60,98 @@
     <h2><span class="num">II</span> Approach</h2>
     <h3>Conceptual framework</h3>
     <p>
-      I worked end-to-end, from scoping and conceptual framing through high-fidelity
-      execution and cross-team evangelism. Rather than patch screen by screen, I framed the
-      refresh at the <em>portfolio level</em>: one coherent system the enterprise could extend,
-      not another siloed project.
+      I led the technical framing for implementing XMOD at the local <em>portfolio level</em>. Capital
+      One Account Opening's future CMS architecture depended on content alignment across all
+      platforms — Native app, mobile, and desktop Web. This unlocks dynamic content editable
+      within the CMS without needing per-release engineering cycles.
     </p>
+    <p>
+      However, this architecture only works if the UI underneath is modular and token-driven,
+      not locked to custom illustrations and hardcoded styles. I advocated for scoping the
+      refresh against what XMOD needed, and made that case across teams locally and within the
+      broader enterprise. Eliminating the illustrations wasn't an aesthetic call — it was a
+      prerequisite to faster content editing and, subsequently, testing. This discussion turned
+      a deadline-driven requirement into a foundational dynamic platform we can build on past
+      2025.
+    </p>
+
+    <figure class="xmod-timeline">
+      <div class="xmod-track">
+        <div class="xmod-phase">
+          <span class="xmod-era">Before · 2021</span>
+          <p class="xmod-label">Hardcoded</p>
+          <ul class="xmod-attrs">
+            <li>Outdated illustrations per screen</li>
+            <li>Styles locked to each release</li>
+            <li>Partially-siloed from enterprise components due to abundance of custom implementation</li>
+          </ul>
+        </div>
+        <div class="xmod-arrow" aria-hidden="true">→</div>
+        <div class="xmod-phase xmod-phase--now">
+          <span class="xmod-era">Now · 2025</span>
+          <p class="xmod-label">XMOD</p>
+          <ul class="xmod-attrs">
+            <li>Token-driven, modular components</li>
+            <li>Aligned across Native, mobile &amp; web</li>
+            <li>CMS-ready architecture</li>
+          </ul>
+        </div>
+        <div class="xmod-arrow" aria-hidden="true">→</div>
+        <div class="xmod-phase">
+          <span class="xmod-era">Future · 2026+</span>
+          <p class="xmod-label">CMS-Driven</p>
+          <ul class="xmod-attrs">
+            <li>Dynamic content via CMS</li>
+            <li>No per-release engineering cycles</li>
+            <li>Enterprise-scale content editing</li>
+          </ul>
+        </div>
+      </div>
+      <figcaption>Architecture evolution: before XMOD through to CMS-enabled future state</figcaption>
+    </figure>
+
+    <h3>Cross-functional partnership</h3>
+    <p>
+      I served as the primary communication bridge across five distinct stakeholder groups:
+      local product, local tech, local design leadership, the enterprise design team, and
+      enterprise developers. Each group had different constraints and vocabulary — I translated
+      between all of them, aligning on decisions that held up across every layer.
+    </p>
+    <p>
+      That alignment is what made a 90% reduction in even the code footprint possible: For
+      example, I championed the XMOD campaign that affected other experience teams that shared
+      components within our experience by diverting responsibility for custom component updates
+      to other tech teams, reducing local tech effort and eliminating duplicate work.
+    </p>
+    <p>
+      I also shared product responsibility — writing stories and defining the work at the
+      execution level to keep delivery moving across teams.
+    </p>
+
+    <figure class="partnership-callout">
+      <div class="partnership-photo-row">
+        <img class="partnership-photo" src="../images/me.jpeg" alt="William Zhang">
+        <p class="partnership-photo-caption">Me, communicating and pushing across 50+ teammates and 4 leaders.</p>
+      </div>
+      <div class="partnership-stats">
+        <div class="partnership-stat">
+          <div class="p-num">50<span class="p-unit">+</span></div>
+          <div class="p-label">teammates coordinated</div>
+        </div>
+        <div class="partnership-stat">
+          <div class="p-num">4</div>
+          <div class="p-label">leaders aligned</div>
+        </div>
+        <div class="partnership-stat">
+          <div class="p-num">5</div>
+          <div class="p-label">teams bridged</div>
+        </div>
+        <div class="partnership-stat">
+          <div class="p-num">1</div>
+          <div class="p-label">coherent direction</div>
+        </div>
+      </div>
+    </figure>
 
     <h3>Key design decisions</h3>
     <ul>
@@ -73,12 +160,17 @@
       <li>Portfolio-level thinking over siloed, screen-by-screen fixes</li>
     </ul>
 
-    <h3>Cross-functional partnership</h3>
+    <h3>Execution</h3>
     <p>
-      The work spanned 4+ teams: Android engineers, enterprise tech, product, design
-      leadership, and the OAO tech group. I served as the design point of contact across
-      them, translating design intent into tokens and specs that engineering could ship the
-      same sprint.
+      While all of that alignment work was happening, I was building. Every screen went through
+      Figma at pixel-perfect fidelity — reviewed and signed off by design leadership before
+      anything reached engineering.
+    </p>
+    <p>
+      Before any of this was possible, leadership's primary concern was tech resourcing — there
+      was no committed engineering path. Early on, I worked with my manager to scope the initial
+      discovery work and led the pitch to product that secured it. Without that, the project
+      never gets off the ground.
     </p>
   </section>
 
