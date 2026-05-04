@@ -1054,6 +1054,45 @@ figure.partnership-callout .p-label {
   }
 }
 
+/* ---------- Execution Flow (bank-apply) ---------- */
+figure.execution-flow {
+  display: block;
+  width: 100%;
+  margin: var(--s-10) 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--ink-raised);
+}
+
+figure.execution-flow .flow-track {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: var(--s-6);
+  gap: var(--s-2);
+}
+
+figure.execution-flow .flow-step {
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  background: var(--ink);
+}
+
+figure.execution-flow .flow-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+figure.execution-flow .flow-connector {
+  color: var(--glow-deep);
+  font-size: var(--text-sm);
+  flex-shrink: 0;
+}
+
 /* Animations */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
