@@ -24,9 +24,9 @@
       <span class="cs-index">02</span>
       <span class="cs-client">Capital One &middot; Credit Card Shopping Experience</span>
     </div>
-    <h1 class="cs-title">The <span class="ital">card shopping experience</span>, rebuilt.</h1>
+    <h1 class="cs-title">The <span class="ital">card shopping experience</span>, reimagined.</h1>
     <p class="cs-lede">
-      Three concurrent workstreams &mdash; a product selector overhaul, a content redesign, and a comparison feature rebuild &mdash; that together set the stage for Capital One&rsquo;s unified card shopping platform. <em>+4.7% new accounts booked.</em> <em>+$14.7M annualized revenue.</em>
+      Redesigning the product selector component, product content, and comparison feature to set the stage for Capital One&rsquo;s unified card shopping platform. 
     </p>
   </section>
 
@@ -37,29 +37,48 @@
     <div class="cs-meta-cell"><span class="k">Impact</span><span class="v">+$14.7M annualized</span></div>
   </div>
 
-  <figure class="artwork">
-    <img src="../images/credit-card-homepage.png" alt="Capital One credit card homepage, desktop and mobile">
-    <figcaption>Live design &mdash; desktop &amp; mobile, Capital One credit cards homepage</figcaption>
-  </figure>
-
   <section class="cs-section">
     <h2><span class="num">I</span> The problem</h2>
     <p>
-      The Capital One credit card shopping experience had three distinct failure points across the same funnel.
-    </p>
-    <p>
-      On the homepage, the card-category dropdown had <em>~95% non-engagement</em>. Users lacked enough product knowledge to move forward with an application, and competitors were surfacing categories directly instead of hiding them behind a two-tap flow.
-    </p>
-    <p>
-      On the browse page, card descriptions were long and dense &mdash; stacked bullet points covering APR, transfer terms, and rewards detail all treated with equal weight. Scrolling the full catalog was exhausting, and nothing helped users quickly distinguish one card from another.
-    </p>
-    <p>
-      The comparison feature &mdash; accessible via a checkbox on any card &mdash; let users stack cards side by side. On mobile it was broken: no visual hierarchy, misaligned columns in the scrolled view, ambiguous labels, and no pre-approval path despite Capital One actively pushing to make more cards pre-approvable.
-    </p>
-    <p>
-      The opportunity: fixing the homepage selector alone could lift new account bookings by 5%, worth roughly $14M annualized. The other two workstreams were about setting the platform up to convert better at every layer of the funnel.
+      The Capital One credit card shopping experience had three distinct failure points across the same funnel. The opportunity: fixing the homepage selector alone could lift new account bookings by 5%, worth roughly $14M annualized. The other two workstreams were about setting the platform up to convert better at every layer of the funnel.
     </p>
   </section>
+
+  <figure class="xmod-timeline">
+    <div class="xmod-track">
+      <div class="xmod-phase xmod-phase--now">
+        <span class="xmod-era">Workstream 1</span>
+        <p class="xmod-label">Homepage</p>
+        <ul class="xmod-attrs">
+          <li>Card-category dropdown had <em>~95% non-engagement</em></li>
+          <li>Users lacked enough product knowledge to move forward with an application</li>
+          <li>The business fails to connect potential customers to the right information and landing points</li>
+        </ul>
+      </div>
+      <div class="xmod-arrow" aria-hidden="true">→</div>
+      <div class="xmod-phase xmod-phase--now">
+        <span class="xmod-era">Workstream 2</span>
+        <p class="xmod-label">Browse Page</p>
+        <ul class="xmod-attrs">
+          <li>Card descriptions were long and dense paragraphs</li>
+          <li>Scrolling the full catalog was exhausting, one product took up the entire vertical viewport</li>
+          <li>The business fails to help customers quickly understand credit cards</li>
+        </ul>
+      </div>
+      <div class="xmod-arrow" aria-hidden="true">→</div>
+      <div class="xmod-phase xmod-phase--now">
+        <span class="xmod-era">Workstream 3</span>
+        <p class="xmod-label">Comparison</p>
+        <ul class="xmod-attrs">
+          <li>No visual hierarchy on mobile; misaligned columns in the scrolled view</li>
+          <li>Ambiguous labels and no pre-approval path despite Capital One actively pushing to make more cards pre-approvable</li>
+          <li>The business fails to help customers differentiate credit cards</li>
+
+        </ul>
+      </div>
+    </div>
+    <figcaption>Three concurrent failure points across the card shopping funnel</figcaption>
+  </figure>
 
   <section class="cs-section">
     <h2><span class="num">II</span> Product selector</h2>
@@ -150,23 +169,6 @@
     </ul>
     <p>
       The pre-approval addition was the most strategically significant. Capital One was actively pushing to make more cards pre-approvable, and surfacing that path at the comparison step &mdash; where intent is highest &mdash; directly supported that initiative. It removed the credit-score risk that caused users to abandon rather than apply.
-    </p>
-  </section>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem">
-    <figure class="artwork" style="margin:0">
-      <img src="../images/credit-card-sticky-before.png" alt="Before: misaligned sticky comparison header">
-      <figcaption>Before &mdash; sticky view, misaligned columns</figcaption>
-    </figure>
-    <figure class="artwork" style="margin:0">
-      <img src="../images/credit-card-sticky-after.png" alt="After: aligned sticky comparison header">
-      <figcaption>After &mdash; sticky view, aligned</figcaption>
-    </figure>
-  </div>
-
-  <section class="cs-section">
-    <p>
-      I directed developers to align the column dividers in the scrolled sticky header, restoring the visual relationship between card identity and benefit content that the misalignment had broken.
     </p>
   </section>
 
