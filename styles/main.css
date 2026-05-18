@@ -641,11 +641,99 @@ table.archive tr.row:hover td.num { color: var(--glow); }
   border-top: 1px solid var(--line);
   background: var(--ink-deep);
 }
+.artwork > figcaption.caption-gold {
+  position: relative;
+  color: var(--glow-soft);
+  border-top-color: transparent;
+}
+.artwork > figcaption.caption-gold::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--glow-trace) 15%,
+    var(--glow-soft) 50%,
+    var(--glow-trace) 85%,
+    transparent 100%);
+}
+.artwork > figcaption.caption-gold-bottom {
+  border-top-color: transparent;
+  border-bottom: 1px solid transparent;
+}
+.artwork > figcaption.caption-gold-bottom::before {
+  display: none;
+}
+.artwork > figcaption.caption-gold-bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--glow-trace) 15%,
+    var(--glow-soft) 50%,
+    var(--glow-trace) 85%,
+    transparent 100%);
+}
 .artwork > figcaption .nda {
   color: var(--glow-soft);
   font-style: italic;
   font-family: var(--font-display);
   margin-left: var(--s-2);
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--s-4);
+  align-items: start;
+  margin-bottom: var(--s-8);
+}
+.comparison-caption {
+  padding: var(--s-3) var(--s-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--fg-dim);
+  letter-spacing: 0.04em;
+  border: 1px solid var(--line);
+  border-bottom: 0;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  background: var(--ink-deep);
+}
+.comparison-caption.caption-gold {
+  position: relative;
+  color: var(--glow-soft);
+  border-top-color: transparent;
+}
+.comparison-caption.caption-gold::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--glow-trace) 15%,
+    var(--glow-soft) 50%,
+    var(--glow-trace) 85%,
+    transparent 100%);
+}
+.comparison-artwork {
+  margin: 0;
+  border-top: 0;
+  border-radius: 0 0 var(--r-lg) var(--r-lg);
+}
+.comparison-artwork img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* Confidential tile (NDA-blurred variants) */

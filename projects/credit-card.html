@@ -134,13 +134,14 @@
 
   <figure class="artwork">
     <img src="../images/old_images/capitalone/thumb.png" alt="Winning variant — product selector redesign">
-    <figcaption>The winning variant &mdash; updated signifiers, underlined links, and a revised default card set lifted new accounts booked by 4.7%.</figcaption>
+    <figcaption class="caption-gold caption-gold-bottom">The winning variant &mdash; updated signifiers, underlined links, and a revised default card set lifted new accounts booked by 4.7% and revenue by +$14.7M annualized.</figcaption>
   </figure>
 
   <section class="cs-section">
     <h2><span class="num">02</span> Content</h2>
     <p>
       Concurrently, I pushed for simplified bulleted-language as opposed to paragraph-driven content design on the card comparison page. Too much information, presented without hierarchy, dramatically hurt readability and comparability.
+      <br><br>To make matters worse, customers across all platforms could barely see any content above the fold upon page load.
     </p>
   </section>
 
@@ -150,34 +151,44 @@
   </figure>
 
   <section class="cs-section">
-    <p>
-      Each card carried a wall of bullet points: APR ranges, transfer fees, rewards rates &mdash; all given equal visual weight. The browse experience demanded reading work before users could compare anything.
-    </p>
-    <p>
-      The redesign distilled each card to its <em>key product value proposition</em> &mdash; one or two benefit statements that answered &ldquo;why this card&rdquo; without requiring the user to parse full terms. This reduced the vertical footprint of each card significantly, making the catalog scannable in a way the dense format never was. It was also a prerequisite for the combination of the homepage and comparison page that followed.
-    </p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
+      <div>
+        <p>
+          Each card carried a wall of bullet points: APR ranges, transfer fees, rewards rates &mdash; all given equal visual weight. The browse experience demanded reading work before users could compare anything.
+        </p>
+        <p>
+          The redesign distilled each card to its <em>key product value proposition</em> &mdash; one or two benefit statements that answered &ldquo;why this card&rdquo; without requiring the user to parse full terms. This reduced the vertical footprint of each card significantly, making the catalog scannable in a way the dense format never was. More granular details were tucked behind "More Details".<br><br>This was also a prerequisite for the eventual combination of the homepage and comparison page that followed years later.
+        </p>
+      </div>
+      <figure class="artwork" style="margin:0">
+        <img src="../images/credit-card-content-after.png" alt="After: simplified card content with key value props" style="width:100%;display:block">
+        <figcaption class="caption-gold">After &mdash; key value props cut each card&rsquo;s vertical footprint, making the catalog far easier to scan and compare.</figcaption>
+      </figure>
+    </div>
   </section>
-
-  <figure class="artwork" style="display:inline-block;width:25%">
-    <figcaption>After &mdash; distilling each card to its key value prop cut the vertical footprint dramatically, letting users scan and compare the full catalog without reading through dense paragraphs to understand what they were looking at.</figcaption>
-    <img src="../images/credit-card-content-after.png" alt="After: simplified card content with key value props" style="width:100%;display:block">
-  </figure>
 
   <section class="cs-section">
-    <h2><span class="num">03</span> Comparison</h2>
+    <h2><span class="num">03</span> Comparison Feature</h2>
     <p>
-      I led a full information architecture audit of the comparison feature across mobile, tablet, and desktop. The existing mobile experience had no structure &mdash; card names below card art, an X dismiss button buried in the wrong corner, a single generic &ldquo;Card Details&rdquo; link, and only one CTA when two were needed. In the scrolled sticky view, column dividers didn&rsquo;t align with the benefit rows below them, visually decoupling the card header from its content.
+      I led a full information architecture audit of the comparison feature across mobile, tablet, and desktop. The existing mobile experience had no structure:
     </p>
+    <ul>
+      <li>Card names sat below card art, even though the name was the primary identifier</li>
+      <li>The X dismiss button was unnaturally centered and easy to miss</li>
+      <li>A generic &ldquo;Card Details&rdquo; link made the destination unclear</li>
+      <li>Only one CTA appeared where both apply and pre-approval paths were needed</li>
+      <li>In the scrolled sticky view, column dividers didn&rsquo;t align with the benefit rows below them</li>
+    </ul>
   </section>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem">
-    <figure class="artwork" style="margin:0">
+  <div class="comparison-grid">
+    <div class="comparison-caption">Before &mdash; mobile comparison</div>
+    <div class="comparison-caption caption-gold">After &mdash; redesigned comparison</div>
+    <figure class="artwork comparison-artwork">
       <img src="../images/credit-card-compare-before.jpg" alt="Before: broken mobile comparison feature">
-      <figcaption>Before &mdash; mobile comparison</figcaption>
     </figure>
-    <figure class="artwork" style="margin:0">
+    <figure class="artwork comparison-artwork">
       <img src="../images/credit-card-compare-after.png" alt="After: redesigned comparison feature">
-      <figcaption>After &mdash; redesigned comparison</figcaption>
     </figure>
   </div>
 
@@ -199,12 +210,14 @@
   <section class="cs-section">
     <h2>Outcome</h2>
     <p>
-      <em>+4.7% new accounts booked.</em> <em>+$14.7M annualized revenue.</em>
-      The product selector design has remained live &mdash; you can verify it on
-      <a href="https://www.capitalone.com/credit-cards/">capitalone.com/credit-cards</a>.
+      <em>+4.7% new accounts booked.</em> <em>+$14.7M annualized revenue from the product selector component alone.</em>
+      The product selector design had remained live until 2026.
     </p>
     <p>
-      The content overhaul and comparison redesign were qualitative contributions without standalone metrics, but they were structurally necessary: they reduced the friction in browsing and decision-making that the selector alone could not address.
+      The content overhaul and comparison redesign were qualitative contributions that were structurally necessary to the broader strategy of modernized shopping. They reduced friction in browsing and decision-making that the selector alone could not address.
+    </p>
+    <p>
+      These overhauls eventually enabled the always-on comparison experience. After I rotated off the team, the Credit Card Homepage and Card Comparison Page were combined, and can be viewed at <a href="https://www.capitalone.com/credit-cards/">capitalone.com/credit-cards</a> today.
     </p>
   </section>
 
@@ -223,15 +236,6 @@
     </div>
   </div>
 
-  <section class="cs-section">
-    <h2>What this set up</h2>
-    <p>
-      The three workstreams weren&rsquo;t independent improvements &mdash; they were a coordinated reset of the card shopping funnel. A navigable selector on the homepage. Scannable card descriptions on the browse page. A structured, pre-approval-first comparison experience. Each layer reduced friction at a different step, and together they made a unified surface viable.
-    </p>
-    <p>
-      After I rotated off the team, Capital One combined the homepage and comparison page into a single surface &mdash; what&rsquo;s live at <a href="https://www.capitalone.com/credit-cards/">capitalone.com/credit-cards</a> today. The foundation was already in place.
-    </p>
-  </section>
 
   <div class="next">
     <span class="k">Next case</span>
