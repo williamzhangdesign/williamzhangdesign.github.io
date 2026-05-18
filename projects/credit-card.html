@@ -37,10 +37,14 @@
     <div class="cs-meta-cell"><span class="k">Impact</span><span class="v">+$14.7M annualized</span></div>
   </div>
 
+  <figure class="artwork" style="border:none;box-shadow:none;background:none">
+    <img src="../images/credit-card-hero.png" alt="Capital One credit card shopping experience" style="width:100%;display:block;margin:0 auto">
+  </figure>
+
   <section class="cs-section">
     <h2><span class="num">I</span> The problems</h2>
     <p>
-      Prospective Capital One customers encountered three distinct failure points across the same funnel. The opportunity to fix the highest-trafficking credit card homepage's selector component alone could lift new account bookings by 5%, worth roughly $14M annualized. <br><br>The other two workstreams set the platform up to convert better in comparison experiences, setting the stage for a modernized credit card shopping experience.
+      Prospective Capital One customers encountered three distinct failure points across the same funnel. On the homepage, a ~95% non-engaged dropdown left users without enough product knowledge to move forward. On the browse page, dense card descriptions made the catalog exhausting to scroll, with nothing to help users quickly distinguish one card from another. On the comparison feature, broken mobile hierarchy and missing pre-approval paths left conversion on the table at the exact moment intent was highest.<br><br>The opportunity to fix the highest-trafficking credit card homepage's selector component alone could lift new account bookings by 5%, worth roughly $14M annualized. <br><br>The other two workstreams set the platform up to convert better in comparison experiences, setting the stage for a modernized credit card shopping experience and maximizing new credit card accounts booked for the business.
     </p>
   </section>
 
@@ -81,30 +85,40 @@
   </figure>
 
   <section class="cs-section">
-    <h2><span class="num">II</span> Product selector</h2>
-    <h3>Audits before variants</h3>
-    <p>
-      Two audits framed the work &mdash; a <em>visual design audit</em> flagging alignment issues in CTAs, and a <em>communication design audit</em> focused on visual signifiers: what users thought was clickable, and what actually was.
-    </p>
+    <h2><span class="num">01</span> Product Selector</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
+      <div>
+        <h3>Audits before variants</h3>
+        <p>
+          Two audits framed the work &mdash; a <em>visual design audit</em> flagging alignment issues in CTAs, and a <em>communication design audit</em> focused on visual signifiers: what users thought was clickable, and what actually was.
+        </p>
 
-    <h3>Competitive analysis</h3>
-    <p>
-      Competitors collapsed the same job-to-be-done into a single tap where Capital One required two &mdash; open the dropdown, then select. That gap defined the solution space.
-    </p>
+        <h3>Competitive analysis</h3>
+        <p>
+          Competitors collapsed the same job-to-be-done into a single tap where Capital One required two &mdash; open the dropdown, then select. That gap defined the solution space.
+        </p>
 
-    <h3>Ten+ variants, eight tested live</h3>
-    <p>
-      I produced 10+ rapid variant designs including a ghost-button prototype for market testing. Eight ran as live experiments on the Capital One site.
-    </p>
+        <h3>Ten+ variants, eight tested live</h3>
+        <p>
+          I produced 10+ rapid variant designs including a ghost-button prototype for market testing. Eight ran as live experiments on the Capital One site.
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.5rem">
+        <figure class="artwork" style="margin:0">
+          <img src="../images/old_images/capitalone/thumb2.png" alt="Audit 1 — misaligned CTAs">
+          <figcaption>Audit 1 &mdash; misaligned CTAs across the page hindered visual readability and made the hierarchy harder to parse.</figcaption>
+        </figure>
+        <figure class="artwork" style="margin:0">
+          <img src="../images/old_images/capitalone/thumb3.PNG" alt="Audit 2 — clickability signifiers">
+          <figcaption>Audit 2 &mdash; inconsistent links and CTAs weren&rsquo;t clearly signifying clickability, leaving users unsure what they could interact with.</figcaption>
+        </figure>
+      </div>
+    </div>
   </section>
 
-  <div class="confidential-tile">
-    <span class="lock">Variant grid &mdash; confidential</span>
-    10+ rapid iterations &middot; 8 tested live &middot; NDA protects display
-  </div>
 
   <section class="cs-section">
-    <h2><span class="num">III</span> The winning variant</h2>
+    <h3>The winning variant</h3>
     <p>
       Three changes carried the lift:
     </p>
@@ -118,16 +132,21 @@
     </p>
   </section>
 
+  <figure class="artwork">
+    <img src="../images/old_images/capitalone/thumb.png" alt="Winning variant — product selector redesign">
+    <figcaption>The winning variant &mdash; updated signifiers, underlined links, and a revised default card set lifted new accounts booked by 4.7%.</figcaption>
+  </figure>
+
   <section class="cs-section">
-    <h2><span class="num">IV</span> Content overhaul</h2>
+    <h2><span class="num">02</span> Content</h2>
     <p>
-      Concurrently, I worked with content designers to audit and simplify how card benefits were communicated on the browse page. The problem wasn&rsquo;t missing information &mdash; it was too much of it, presented without hierarchy.
+      Concurrently, I pushed for simplified bulleted-language as opposed to paragraph-driven content design on the card comparison page. Too much information, presented without hierarchy, dramatically hurt readability and comparability.
     </p>
   </section>
 
   <figure class="artwork">
-    <img src="../images/credit-card-browse-before.png" alt="Before: browse all cards page with dense bullet-point card descriptions">
-    <figcaption>Before &mdash; browse page with dense, stacked card descriptions</figcaption>
+    <figcaption>Before &mdash; cards spanned the full viewport, and the longest card in any row forced its neighbors to match. No distilled value prop meant customers had to read everything just to compare anything.</figcaption>
+    <img src="../images/credit-card-browse-before.png" alt="Before: browse all cards page with dense bullet-point card descriptions" style="width:100%;display:block">
   </figure>
 
   <section class="cs-section">
@@ -139,8 +158,13 @@
     </p>
   </section>
 
+  <figure class="artwork" style="display:inline-block;width:25%">
+    <figcaption>After &mdash; distilling each card to its key value prop cut the vertical footprint dramatically, letting users scan and compare the full catalog without reading through dense paragraphs to understand what they were looking at.</figcaption>
+    <img src="../images/credit-card-content-after.png" alt="After: simplified card content with key value props" style="width:100%;display:block">
+  </figure>
+
   <section class="cs-section">
-    <h2><span class="num">V</span> Comparison feature redesign</h2>
+    <h2><span class="num">03</span> Comparison</h2>
     <p>
       I led a full information architecture audit of the comparison feature across mobile, tablet, and desktop. The existing mobile experience had no structure &mdash; card names below card art, an X dismiss button buried in the wrong corner, a single generic &ldquo;Card Details&rdquo; link, and only one CTA when two were needed. In the scrolled sticky view, column dividers didn&rsquo;t align with the benefit rows below them, visually decoupling the card header from its content.
     </p>
@@ -173,7 +197,7 @@
   </section>
 
   <section class="cs-section">
-    <h2><span class="num">VI</span> Outcome</h2>
+    <h2>Outcome</h2>
     <p>
       <em>+4.7% new accounts booked.</em> <em>+$14.7M annualized revenue.</em>
       The product selector design has remained live &mdash; you can verify it on
@@ -200,7 +224,7 @@
   </div>
 
   <section class="cs-section">
-    <h2><span class="num">VII</span> What this set up</h2>
+    <h2>What this set up</h2>
     <p>
       The three workstreams weren&rsquo;t independent improvements &mdash; they were a coordinated reset of the card shopping funnel. A navigable selector on the homepage. Scannable card descriptions on the browse page. A structured, pre-approval-first comparison experience. Each layer reduced friction at a different step, and together they made a unified surface viable.
     </p>
