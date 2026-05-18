@@ -22,7 +22,7 @@
       timeZone: 'America/Chicago',
       hour: 'numeric', minute: '2-digit', hour12: true
     });
-    const tick = () => { clock.textContent = fmt.format(new Date()); };
+    const tick = () => { clock.textContent = fmt.format(new Date()) + ' CST'; };
     tick();
     setInterval(tick, 15000);
   }

@@ -140,22 +140,24 @@
   <section class="cs-section">
     <h2><span class="num">02</span> Content</h2>
     <p>
-      Concurrently, I pushed for simplified bulleted-language as opposed to paragraph-driven content design on the card comparison page. Too much information, presented without hierarchy, dramatically hurt readability and comparability.
-      <br><br>To make matters worse, customers across all platforms could barely see any content above the fold upon page load.
+      Concurrently, I pushed for simplified bulleted-language as opposed to paragraph-driven content design on the card comparison page. Too much information, presented without hierarchy, dramatically hurt readability and comparability. 
+    
     </p>
+       <p>
+          Each card carried a wall of bullet points: APR ranges, transfer fees, rewards rates &mdash; all given equal visual weight. The browse experience demanded reading work before users could compare anything.
+          <br><br>To make matters worse, customers across all platforms could barely see any content above the fold upon page load.
+        </p>
   </section>
 
   <figure class="artwork">
-    <figcaption>Before &mdash; cards spanned the full viewport, and the longest card in any row forced its neighbors to match. No distilled value prop meant customers had to read everything just to compare anything.</figcaption>
+    <figcaption>Before &mdash; cards spanned the full viewport, and the longest card in any row forced its neighbors to match. No distilled value prop meant customers had to read everything just to compare anything. With each card content showing 12 possible types of information and CTAs, it was nightmarish for users to comprehend.</figcaption>
     <img src="../images/credit-card-browse-before.png" alt="Before: browse all cards page with dense bullet-point card descriptions" style="width:100%;display:block">
   </figure>
 
   <section class="cs-section">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
       <div>
-        <p>
-          Each card carried a wall of bullet points: APR ranges, transfer fees, rewards rates &mdash; all given equal visual weight. The browse experience demanded reading work before users could compare anything.
-        </p>
+    
         <p>
           The redesign distilled each card to its <em>key product value proposition</em> &mdash; one or two benefit statements that answered &ldquo;why this card&rdquo; without requiring the user to parse full terms. This reduced the vertical footprint of each card significantly, making the catalog scannable in a way the dense format never was. More granular details were tucked behind "More Details".<br><br>This was also a prerequisite for the eventual combination of the homepage and comparison page that followed years later.
         </p>
@@ -173,6 +175,7 @@
       I led a full information architecture audit of the comparison feature across mobile, tablet, and desktop. The existing mobile experience had no structure:
     </p>
     <ul>
+      <li>Infinite star bug</li>
       <li>Card names sat below card art, even though the name was the primary identifier</li>
       <li>The X dismiss button was unnaturally centered and easy to miss</li>
       <li>A generic &ldquo;Card Details&rdquo; link made the destination unclear</li>

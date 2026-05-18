@@ -16,7 +16,7 @@
   <header class="topbar">
     <a class="mark" href="../index.html">wz</a>
     <a class="back-link" href="../index.html">&larr; home</a>
-    <span class="meta">2021 · university of michigan</span>
+    <span class="meta">2020&ndash;2024 · university of michigan</span>
   </header>
 
   <section class="cs-hero">
@@ -26,17 +26,16 @@
     </div>
     <h1 class="cs-title">The COVID dashboard <span class="ital">for Michigan</span>.</h1>
     <p class="cs-lede">
-      A public-health dashboard that served state officials and <em>200K monthly</em> visitors from
-      <em>May 2020</em> through <em>April 2024</em>, translating CDC case definitions into a
-      seven-icon system that anyone could read at a glance.
+      A public-health dashboard commissioned by the State of Michigan and built with UMSI and UMSPH &mdash;
+      serving state officials and <em>200K monthly</em> visitors from <em>May 2020</em> through <em>April 2024</em>.
     </p>
   </section>
 
   <div class="cs-meta">
-    <div class="cs-meta-cell"><span class="k">Role</span><span class="v">UX / UI Design · Research</span></div>
-    <div class="cs-meta-cell"><span class="k">Year</span><span class="v">2020–2024</span></div>
+    <div class="cs-meta-cell"><span class="k">Role</span><span class="v">Co-designer · Co-researcher</span></div>
+    <div class="cs-meta-cell"><span class="k">Year</span><span class="v">2020&ndash;2024</span></div>
     <div class="cs-meta-cell"><span class="k">Reach</span><span class="v">200K monthly visitors</span></div>
-    <div class="cs-meta-cell"><span class="k">Partner</span><span class="v">U-M School of Public Health</span></div>
+    <div class="cs-meta-cell"><span class="k">Partner</span><span class="v">UMSI · UMSPH · State of Michigan</span></div>
   </div>
 
   <figure class="artwork">
@@ -47,74 +46,133 @@
   <section class="cs-section">
     <h2><span class="num">I</span> The problem</h2>
     <p>
-      Two constituencies with conflicting needs converged on the same dashboard. State
-      officials needed a secure, data-dense view to make rapid reopening decisions.
-      The general public needed transparent, legible access to what was happening with the
-      pandemic in their county.
+      The State of Michigan needed a data-backed resource to decide whether to initiate
+      statewide re-opening procedures or reinstate shutdowns during COVID-19. Because the
+      pandemic moved fast, there was no time to deeply explore the problem space &mdash; we
+      gathered requirements directly with the Michigan Department of Health and Human Services
+      (MDHHS) and prioritized shipping quickly.
+    </p>
+    <p>
+      The result was two distinct dashboard versions serving two completely different audiences:
+    </p>
+    <ul>
+      <li><em>Private:</em> government officials and public health experts making rapid reopening decisions</li>
+      <li><em>Public:</em> the general public trying to understand what those decisions meant for their county</li>
+    </ul>
+  </section>
+
+  <section class="cs-section">
+    <h2><span class="num">II</span> Research</h2>
+    <h3>Private user tests &amp; interviews</h3>
+    <p>
+      Once a closed-beta private version launched, we ran user tests and interviews with
+      public health workers and government employees. Sessions included a pre-test questionnaire
+      for device and professional context, structured task walkthroughs, and a debrief on
+      usability priorities. Key findings:
+    </p>
+    <ul>
+      <li>Regional and county-level data granularity was insufficient</li>
+      <li>Officials needed downloadable raw datasets to run independent analysis</li>
+      <li>Data had to be digestible for staff who didn&rsquo;t work with COVID data daily</li>
+    </ul>
+
+    <h3>Public user tests &amp; interviews</h3>
+    <p>
+      Roughly two months after the public launch, we ran a second round &mdash; empathetic
+      semi-structured interviews to build rapport, followed by task walkthroughs and open-ended
+      feedback. Key findings:
+    </p>
+    <ul>
+      <li>The timeline slider was not perceived as interactive</li>
+      <li>Users anchored heavily to the detailed graph rather than the map</li>
+      <li>The mobile version was effectively unusable</li>
+      <li>Trust and transparency of published data were the primary public concern</li>
+      <li>Hospital capacity was a top anxiety point due to fears around availability</li>
+    </ul>
+
+    <h3>Cognitive walkthrough</h3>
+    <p>
+      By September I was one of two designers remaining on the team. Without the resources
+      for another full user research cycle, I conducted an expert-user cognitive walkthrough &mdash;
+      putting myself in the shoes of a general public user completing a typical task
+      (finding the current COVID state for Washtenaw County) while thinking aloud.
+      The goal was to surface functional usability issues that previous iterations had
+      deprioritized in favor of feature delivery. Findings were ranked and handed off directly to developers.
     </p>
   </section>
 
   <section class="cs-section">
-    <h2><span class="num">II</span> Needfinding</h2>
-    <h3>Officials</h3>
+    <h2><span class="num">III</span> Design</h2>
+    <h3>Color &mdash; three iterations</h3>
     <p>
-      Interviews surfaced the need for <em>granular data at regional and county levels</em>
-      and downloadable datasets to support analysis and decision-making.
+      Color was the most contested design decision across the project&rsquo;s lifespan.
     </p>
-
-    <h3>Public</h3>
     <p>
-      Public-facing research revealed concerns about <em>data integrity and transparency</em>,
-      and worry around <em>hospital capacity and availability</em>. People didn't just want
-      numbers; they wanted to trust them.
+      <em>Iteration 1</em> used Governor Whitmer&rsquo;s official reopening phase colors by state mandate.
+      The problem: a region with low case counts early in the pandemic would inherit the
+      &ldquo;post-pandemic&rdquo; color, which was critically misleading regardless of actual risk.
+      This version ran live for several months.
+    </p>
+    <p>
+      <em>Iteration 2</em> moved to a monochromatic scheme with no ties to the reopening plan.
+      Our primary state health department stakeholder flagged that the red tones communicated
+      too much fear and danger to the public health community. It was never released.
+    </p>
+    <p>
+      <em>Iteration 3</em> &mdash; the version that shipped and stayed live &mdash; used a cooler palette
+      and replaced the Medium / High / Highest labels with A through F, eliminating the
+      reopening phase association entirely while communicating risk level clearly.
     </p>
   </section>
 
   <figure class="artwork">
     <img src="../images/covid-phases.png" alt="Six-phase risk model table">
-    <figcaption>Six-phase risk framework: from Uncontrolled Growth through Post-pandemic</figcaption>
+    <figcaption>Final risk framework: A&ndash;F scale replacing the governor&rsquo;s reopening phase colors</figcaption>
   </figure>
 
   <section class="cs-section">
-    <h2><span class="num">III</span> Design contributions</h2>
-    <h3>Color iteration</h3>
+    <h3>Iconography &mdash; nine CDC case trends</h3>
     <p>
-      Moved from the Governor's official reopening-phase colors to a <em>calmer</em> palette,
-      reducing the chart's emotional intensity while preserving the information.
+      The private dashboard required unique icons mapping to CDC case trend definitions &mdash;
+      highly specialized language that had to be broken into immediately recognizable symbols.
+      Public health stakeholders also required icons for low-falling trends:
+      no cases ever, no cases in two weeks, and fewer than five new cases in two weeks.
+      That brought the total to nine distinct case trends.
     </p>
-
-    <h3>Seven-icon CDC case trend system</h3>
     <p>
-      Simplified complex CDC case definitions into <em>seven distinguishable icons</em>
-      with matching color scales: one glance, one state.
+      With only six risk levels to map against nine trends, I worked with stakeholders to
+      consolidate overlapping CDC definitions and group all low-falling trends under the
+      &ldquo;Low&rdquo; risk level &mdash; reducing icon count without losing clinical precision.
     </p>
   </section>
 
   <figure class="artwork">
-    <img src="../images/covid-icons.png" alt="Seven CDC case-trend icons with color scales">
-    <figcaption>The seven-icon system: from Elevated-Incidence Growth to No cases in 2 weeks</figcaption>
+    <img src="../images/covid-icons.png" alt="Nine CDC case-trend icons with color scales">
+    <figcaption>The consolidated icon system: nine CDC case trends mapped to six risk levels</figcaption>
   </figure>
 
   <section class="cs-section">
     <h2><span class="num">IV</span> Outcome</h2>
     <p>
       Live from May 2020 through April 2024. Over 200K monthly unique visitors at peak.
-      Covered in a Governor Whitmer press release and on Fox2 Detroit.
+      Covered in a Governor Whitmer press release, Fox17, WILX10, and a University of Michigan
+      news feature. The dashboard directly informed state-level public health decisions
+      throughout Michigan&rsquo;s pandemic response.
     </p>
   </section>
 
   <div class="outcomes">
     <div class="out">
       <div class="num">200<span class="u">K</span></div>
-      <div class="label">monthly unique visitors</div>
+      <div class="label">monthly unique visitors at peak</div>
     </div>
     <div class="out">
       <div class="num">4<span class="u"> yrs</span></div>
-      <div class="label">live in production (May 2020 to April 2024)</div>
+      <div class="label">live in production, May 2020 to April 2024</div>
     </div>
     <div class="out">
-      <div class="num">7<span class="u">×</span></div>
-      <div class="label">CDC case-trend states, simplified into a single icon system</div>
+      <div class="num">9<span class="u">→6</span></div>
+      <div class="label">CDC case trends consolidated into six risk-level icons</div>
     </div>
   </div>
 
