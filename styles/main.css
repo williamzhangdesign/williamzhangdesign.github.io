@@ -606,6 +606,11 @@ table.archive tr.row:hover td.num { color: var(--glow); }
   width: 100%;
   height: auto;
 }
+.artwork--phone img {
+  width: auto;
+  max-width: 280px;
+  margin: var(--s-8) auto;
+}
 .artwork.placeholder {
   aspect-ratio: 16 / 9;
   background:
