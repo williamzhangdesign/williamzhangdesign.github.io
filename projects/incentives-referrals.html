@@ -1,91 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <title>Password Protected Page</title>
+    <title>Protected · William Zhang</title>
+    <link rel="stylesheet" href="../styles/tokens.css">
     <style>
         html, body {
             margin: 0;
             width: 100%;
             height: 100%;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        #dialogText {
-            color: white;
-            background-color: #333333;
-        }
-        
-        #dialogWrap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: table;
-            background-color: #EEEEEE;
-        }
-        
-        #dialogWrapCell {
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
-        }
-        
-        #mainDialog {
-            max-width: 400px;
-            margin: 5px;
-            border: solid #AAAAAA 1px;
-            border-radius: 10px;
-            box-shadow: 3px 3px 5px 3px #AAAAAA;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #FFFFFF;
-            overflow: hidden;
-            text-align: left;
-        }
-        #mainDialog > * {
-            padding: 10px 30px;
-        }
-        #passArea {
-            padding: 20px 30px;
-            background-color: white;
-        }
-        #passArea > * {
-            margin: 5px auto;
-        }
-        #pass {
-            width: 100%;
-            height: 40px;
-            font-size: 30px;
-        }
-        
-        #messageWrapper {
-            float: left;
-            vertical-align: middle;
-            line-height: 30px;
-        }
-        
-        .notifyText {
-            display: none;
-        }
-        
-        #invalidPass {
-            color: red;
-        }
-        
-        #success {
-            color: green;
-        }
-        
-        #submitPass {
-            font-size: 20px;
-            border-radius: 5px;
-            background-color: #E7E7E7;
-            border: solid gray 1px;
-            float: right;
-            cursor: pointer;
+            background: var(--ink, #0B0D12);
         }
         #contentFrame {
             position: absolute;
@@ -94,22 +20,165 @@
             width: 100%;
             height: 100%;
         }
+        #dialogWrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-sans, "Inter", system-ui, sans-serif);
+            background:
+                radial-gradient(ellipse 140% 90% at 50% 0%,
+                    rgba(232, 212, 162, 0.05) 0%,
+                    transparent 55%),
+                var(--ink, #0B0D12);
+        }
+        #dialogWrapCell {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+        #mainDialog {
+            width: 100%;
+            max-width: 420px;
+            background: var(--ink-raised, #10131A);
+            border: 1px solid var(--line-strong, rgba(242, 238, 228, 0.16));
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: left;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+        }
+        #dialogText {
+            padding: 30px 32px 0;
+        }
+        .lock-eyebrow {
+            display: block;
+            font-family: var(--font-mono, ui-monospace, monospace);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--glow-soft, #C9B482);
+            margin-bottom: 14px;
+        }
+        .lock-title {
+            display: block;
+            font-family: var(--font-display, Georgia, serif);
+            font-weight: 300;
+            font-size: 27px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--fg, #F2EEE4);
+            margin-bottom: 10px;
+        }
+        .lock-title em {
+            font-style: italic;
+            color: var(--glow, #E8D4A2);
+        }
+        .lock-sub {
+            display: block;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--fg-dim, #93918B);
+        }
+        .lock-sub a {
+            color: var(--fg, #F2EEE4);
+        }
+        #passArea {
+            padding: 6px 32px 28px;
+        }
+        #passwordPrompt {
+            font-family: var(--font-mono, ui-monospace, monospace);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--fg-dim, #93918B);
+            margin: 18px 0 8px;
+        }
+        #pass {
+            width: 100%;
+            box-sizing: border-box;
+            height: 46px;
+            padding: 0 14px;
+            font-size: 15px;
+            font-family: inherit;
+            color: var(--fg, #F2EEE4);
+            background: var(--ink-deep, #070910);
+            border: 1px solid var(--line-strong, rgba(242, 238, 228, 0.16));
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 200ms ease;
+        }
+        #pass:focus {
+            border-color: var(--glow-deep, #6B5A3A);
+        }
+        #messageWrapper {
+            float: left;
+            vertical-align: middle;
+            line-height: 34px;
+            font-size: 12px;
+        }
+        .notifyText {
+            display: none;
+        }
+        #invalidPass {
+            color: #C97B7B;
+        }
+        #success {
+            color: var(--glow, #E8D4A2);
+        }
+        #submitPass {
+            float: right;
+            margin-top: 6px;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--fg, #F2EEE4);
+            background: transparent;
+            border: 1px solid var(--line-strong, rgba(242, 238, 228, 0.16));
+            border-radius: 999px;
+            padding: 9px 22px;
+            cursor: pointer;
+            transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+        }
+        #submitPass:hover {
+            color: var(--glow, #E8D4A2);
+            border-color: var(--glow-deep, #6B5A3A);
+            background: rgba(232, 212, 162, 0.12);
+        }
+        #submitPass:disabled {
+            opacity: 0.45;
+            cursor: default;
+        }
+        #securecontext, #nocrypto {
+            padding: 0 32px 24px;
+            font-size: 13px;
+        }
+        .error {
+            display: none;
+            color: #C97B7B;
+        }
         #attribution {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 0.8em;
+            padding: 14px;
+            font-family: var(--font-mono, ui-monospace, monospace);
+            font-size: 10px;
+            letter-spacing: 0.04em;
         }
         #attribution, #attribution a {
-            color: #999;
-        }
-        .error {
-            display: none;
-            color: red;
+            color: var(--fg-faint, #4A4A48);
+            border-bottom: none;
         }
     </style>
   </head>
@@ -118,18 +187,23 @@
     <div id="dialogWrap">
         <div id="dialogWrapCell">
             <div id="mainDialog">
-                <div id="dialogText">This page is password protected.</div>
+                <div id="dialogText">
+                    <span class="lock-eyebrow">wz &middot; confidential</span>
+                    <span class="lock-title">This work is <em>protected.</em></span>
+                    <span class="lock-sub">Enter the password to view. Don&rsquo;t have it?
+                        <a href="mailto:whzhang@umich.edu">Request access</a>.</span>
+                </div>
                 <div id="passArea">
                     <p id="passwordPrompt">Password</p>
                     <input id="pass" type="password" name="pass" autofocus>
                     <div>
                         <span id="messageWrapper">
-                            <span id="invalidPass" class="error">Sorry, please try again.</span>
-                            <span id="trycatcherror" class="error">Sorry, something went wrong.</span>
-                            <span id="success" class="notifyText">Success!</span>
+                            <span id="invalidPass" class="error">Incorrect password &mdash; try again.</span>
+                            <span id="trycatcherror" class="error">Something went wrong &mdash; refresh and retry.</span>
+                            <span id="success" class="notifyText">Unlocked.</span>
                             &nbsp;
                         </span>
-                        <button id="submitPass" type="button">Submit</button>
+                        <button id="submitPass" type="button">Unlock</button>
                         <div style="clear: both;"></div>
                     </div>
                 </div>
