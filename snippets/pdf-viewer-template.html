@@ -1,0 +1,215 @@
+<!doctype html>
+<!--
+  TEMPLATE: protected PDF viewer page (pagecrypt-ready)
+  ═════════════════════════════════════════════════════
+  A case-study page that displays a PDF embedded in the HTML itself as
+  base64, so encrypting the page with pagecrypt protects the document too
+  (no separate .pdf URL to fetch).
+
+  To use:
+  1. Copy this file into projects/ and rename it.
+  2. Replace every {{PLACEHOLDER}} below with real content.
+  3. Inject the PDF over the %%PDF_B64%% marker:
+
+     python3 -c "
+     import base64
+     b64 = base64.b64encode(open('/path/to/file.pdf','rb').read()).decode()
+     p = 'projects/your-page.html'
+     s = open(p).read()
+     assert s.count('%%PDF_B64%%') == 1
+     open(p,'w').write(s.replace('%%PDF_B64%%', b64))
+     "
+
+  4. Run pagecrypt on the page and replace it with the encrypted output at
+     the SAME path. Never commit the unencrypted version (git history).
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{PAGE_TITLE}} · William Zhang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <style>
+    /* ---- PDF viewer (page-local) ---- */
+    .pdf-shell {
+      margin-bottom: var(--s-16);
+    }
+    .pdf-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--s-4);
+      padding: var(--s-3) var(--s-4);
+      border: 1px solid var(--line-strong);
+      border-bottom: none;
+      border-radius: var(--r-lg) var(--r-lg) 0 0;
+      background: var(--ink-raised);
+    }
+    .pdf-toolbar .doc {
+      display: flex;
+      align-items: baseline;
+      gap: var(--s-3);
+      min-width: 0;
+    }
+    .pdf-toolbar .doc .k {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--glow-soft);
+      white-space: nowrap;
+    }
+    .pdf-toolbar .doc .v {
+      font-size: var(--text-xs);
+      color: var(--fg-dim);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .pdf-actions {
+      display: flex;
+      gap: var(--s-2);
+      flex-shrink: 0;
+    }
+    .pdf-btn {
+      font-family: var(--font-sans);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: var(--tracking-wide);
+      color: var(--fg);
+      background: transparent;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--r-pill);
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+    }
+    .pdf-btn:hover {
+      color: var(--glow);
+      border-color: var(--glow-deep);
+      background: var(--glow-trace);
+    }
+    .pdf-frame {
+      display: block;
+      width: 100%;
+      height: 82vh;
+      min-height: 480px;
+      border: 1px solid var(--line-strong);
+      border-radius: 0 0 var(--r-lg) var(--r-lg);
+      background: var(--ink-deep);
+    }
+    .pdf-fallback {
+      display: none;
+      border: 1px solid var(--line-strong);
+      border-radius: 0 0 var(--r-lg) var(--r-lg);
+      background: var(--ink-deep);
+      padding: var(--s-16) var(--s-6);
+      text-align: center;
+    }
+    .pdf-fallback p {
+      max-width: 42ch;
+      margin: 0 auto var(--s-6);
+      color: var(--fg-dim);
+      font-size: var(--text-sm);
+    }
+    .pdf-fallback .pdf-btn { font-size: var(--text-sm); padding: 10px 22px; }
+    /* Inline PDF rendering is unreliable on small/touch screens —
+       swap the frame for a download card instead. */
+    @media (max-width: 720px) {
+      .pdf-frame { display: none; }
+      .pdf-fallback { display: block; }
+      .pdf-toolbar .doc .v { display: none; }
+    }
+  </style>
+</head>
+<body class="atelier-canvas">
+
+<canvas id="stars"></canvas>
+
+<div class="page narrow">
+
+  <header class="topbar">
+    <a class="mark" href="../index.html">wz</a>
+    <a class="back-link" href="{{BACK_HREF}}">&larr; {{BACK_LABEL}}</a>
+    <span class="meta">{{YEAR}} · confidential</span>
+  </header>
+
+  <section class="cs-hero">
+    <div class="cs-eyebrow">
+      <span class="cs-index">{{INDEX}}</span>
+      <span class="cs-client">{{CLIENT_LINE}}</span>
+    </div>
+    <h1 class="cs-title">{{TITLE_MAIN}} <span class="ital">{{TITLE_ITAL}}</span></h1>
+  </section>
+
+  <div class="cs-meta">
+    <div class="cs-meta-cell"><span class="k">Role</span><span class="v">{{ROLE}}</span></div>
+    <div class="cs-meta-cell"><span class="k">Timeline</span><span class="v">{{TIMELINE}}</span></div>
+    <div class="cs-meta-cell"><span class="k">Discipline</span><span class="v">{{DISCIPLINE}}</span></div>
+    <div class="cs-meta-cell"><span class="k">Format</span><span class="v">PDF deck</span></div>
+  </div>
+
+  <section class="pdf-shell">
+    <div class="pdf-toolbar">
+      <span class="doc">
+        <span class="k">Document</span>
+        <span class="v">{{DOC_LABEL}}</span>
+      </span>
+      <span class="pdf-actions">
+        <button class="pdf-btn" id="pdf-open" type="button">Open in new tab</button>
+        <button class="pdf-btn" id="pdf-download" type="button">Download</button>
+      </span>
+    </div>
+    <iframe class="pdf-frame" id="pdf-frame" title="{{IFRAME_TITLE}}"></iframe>
+    <div class="pdf-fallback">
+      <p>Inline preview isn&rsquo;t supported on this screen size &mdash; grab the deck directly instead.</p>
+      <button class="pdf-btn" id="pdf-download-2" type="button">Download the PDF</button>
+    </div>
+  </section>
+
+  <div class="next">
+    <span class="k">Next case</span>
+    <a href="{{NEXT_HREF}}">{{NEXT_TITLE}} &nbsp;&rarr;</a>
+  </div>
+
+  <footer class="footer">
+    <span>&copy; william zhang</span>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/william-h-zhang/">linkedin</a>
+      <a href="mailto:whzhang@umich.edu">email</a>
+    </div>
+  </footer>
+</div>
+
+<script src="../scripts/main.js"></script>
+<script>
+(function () {
+  /* The PDF ships inside this page as base64 so that encrypting the HTML
+     (pagecrypt) protects the document itself — there is no separate .pdf
+     URL to fetch. */
+  var PDF_NAME = '{{DOWNLOAD_FILENAME}}.pdf';
+  var PDF_B64 = '%%PDF_B64%%';
+
+  var bytes = Uint8Array.from(atob(PDF_B64), function (c) { return c.charCodeAt(0); });
+  var url = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
+
+  document.getElementById('pdf-frame').src = url + '#view=FitH';
+  document.getElementById('pdf-open').addEventListener('click', function () {
+    window.open(url, '_blank');
+  });
+  function download() {
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = PDF_NAME;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+  document.getElementById('pdf-download').addEventListener('click', download);
+  document.getElementById('pdf-download-2').addEventListener('click', download);
+})();
+</script>
+</body>
+</html>
