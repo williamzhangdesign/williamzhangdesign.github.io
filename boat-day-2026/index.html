@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Boat Day 2026</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B5%3C/text%3E%3C/svg%3E" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Boat Day 2026" />
+    <meta property="og:description" content="Select all that work." />
+    <meta property="og:url" content="https://williamzhangdesign.github.io/boat-day-2026/" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Boat Day 2026" />
+    <meta name="twitter:description" content="Select all that work." />
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #1e293b;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --accent: #22c55e;
+        --accent-ink: #052e16;
+        --border: #334155;
+        --error: #f87171;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        font: 16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        padding: 24px 16px 48px;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .wrap { max-width: 520px; margin: 0 auto; }
+      h1 { font-size: 22px; margin: 0 0 4px; }
+      .sub { color: var(--muted); margin: 0 0 20px; font-size: 14px; }
+      .invite { font-size: 16px; margin: 0 0 16px; line-height: 1.4; }
+      .gate label { display: block; margin-bottom: 12px; font-size: 15px; color: var(--muted); }
+      input[type="text"] {
+        width: 100%;
+        font: inherit;
+        font-size: 18px;
+        padding: 14px 16px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        color: var(--text);
+        outline: none;
+      }
+      input[type="text"]:focus { border-color: var(--accent); }
+      .btn {
+        display: inline-block;
+        margin-top: 12px;
+        width: 100%;
+        padding: 14px 16px;
+        font: inherit;
+        font-size: 17px;
+        font-weight: 600;
+        border-radius: 10px;
+        border: 1px solid var(--accent);
+        background: var(--accent);
+        color: var(--accent-ink);
+        cursor: pointer;
+      }
+      .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+      .btn .btn-spinner {
+        display: none;
+        width: 16px; height: 16px;
+        border: 2.5px solid var(--accent-ink);
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+      .btn.loading { cursor: wait; }
+      .btn.loading .btn-spinner { display: inline-block; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .loading-hint {
+        margin-top: 12px; padding: 10px 14px; border-radius: 8px;
+        background: var(--panel); border: 1px dashed var(--border);
+        color: var(--muted); font-size: 13px; text-align: center; line-height: 1.4;
+      }
+      .err { color: var(--error); font-size: 13px; margin-top: 8px; min-height: 1em; }
+      .hello { font-size: 18px; margin: 0 0 4px; }
+      .hint { color: var(--muted); font-size: 14px; margin: 0 0 12px; }
+      .selectall {
+        display: inline-block; margin: 0 0 16px;
+        padding: 9px 14px; font: inherit; font-size: 14px; font-weight: 600;
+        border-radius: 9px; border: 1px solid var(--accent);
+        background: transparent; color: var(--accent);
+        cursor: pointer;
+      }
+      .selectall:active { transform: scale(0.99); }
+      .weeks { display: grid; gap: 8px; margin-bottom: 24px; }
+      .weekend-label {
+        font-size: 12px; color: var(--muted);
+        text-transform: uppercase; letter-spacing: 0.08em;
+        margin: 14px 0 4px;
+      }
+      .weekend-label:first-child { margin-top: 0; }
+      .week {
+        display: flex; align-items: center; justify-content: space-between;
+        min-height: 52px; padding: 12px 16px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        color: var(--text);
+        font-size: 17px;
+        cursor: pointer; user-select: none;
+        transition: background 0.12s, border-color 0.12s, transform 0.05s;
+      }
+      .week:active { transform: scale(0.99); }
+      .week[aria-pressed="true"] {
+        background: var(--accent); border-color: var(--accent); color: var(--accent-ink);
+      }
+      .check {
+        width: 22px; height: 22px; border-radius: 50%;
+        border: 1.5px solid var(--muted);
+        display: grid; place-items: center; flex: 0 0 auto;
+      }
+      .week[aria-pressed="true"] .check {
+        border-color: var(--accent-ink); background: var(--accent-ink);
+      }
+      .check svg { display: block; opacity: 0; }
+      .week[aria-pressed="true"] .check svg { opacity: 1; }
+      .summary h2 {
+        font-size: 14px; color: var(--muted);
+        text-transform: uppercase; letter-spacing: 0.08em;
+        margin: 0 0 10px;
+      }
+      .row {
+        display: flex; align-items: baseline; justify-content: space-between;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        margin-bottom: 8px;
+        background: var(--panel);
+      }
+      .row .label { font-weight: 500; }
+      .row .count { color: var(--muted); font-size: 13px; margin-left: 8px; }
+      .row .names { color: var(--muted); font-size: 13px; max-width: 60%; text-align: right; }
+      .row .names.empty { font-style: italic; }
+      .status { font-size: 12px; color: var(--muted); margin-top: 12px; text-align: center; min-height: 1em; }
+      .switch {
+        display: inline-block; margin-top: 16px;
+        color: var(--muted); font-size: 13px;
+        background: none; border: 0; padding: 4px 0; cursor: pointer;
+      }
+      .switch:hover { color: var(--text); }
+      .hidden { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Boat Day 2026</h1>
+      <p class="sub">No login. Just your first name. Select all that work.</p>
+
+      <section id="gate" class="gate">
+        <label for="name-input">Your first name</label>
+        <input id="name-input" type="text" autocomplete="given-name" autocapitalize="words"
+               inputmode="text" maxlength="30" spellcheck="false" placeholder="e.g. Alex" />
+        <button id="continue-btn" class="btn" type="button"><span class="btn-spinner" aria-hidden="true"></span><span class="btn-label">Continue</span></button>
+        <div id="loading-hint" class="loading-hint hidden">
+          Heads up — this can take a few seconds to load. Hang tight!
+        </div>
+        <div id="gate-err" class="err"></div>
+      </section>
+
+      <section id="picker" class="hidden">
+        <p class="hello">Hey, <span id="hello-name"></span> <button id="switch-btn" class="switch" type="button">(not you?)</button></p>
+        <p class="hint">Tap every day you're available. Changes save automatically.</p>
+        <button id="selectall-btn" class="selectall" type="button">Select all</button>
+        <div id="weeks" class="weeks" role="group" aria-label="Boat Day 2026 dates"></div>
+
+        <div id="summary-section" class="summary hidden">
+          <h2>Who's in</h2>
+          <div id="summary"></div>
+        </div>
+
+        <div id="status" class="status"></div>
+      </section>
+    </div>
+
+    <script type="module">
+      import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+      const SUPABASE_URL = "https://xybpmnkamxeneblltnzf.supabase.co";
+      const SUPABASE_KEY = "sb_publishable_bTYxoBB6kE_jIzEv1KazCg_IjDhaT3_";
+      const TABLE = "boat_day_2026_users";
+      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+      // Fri/Sat/Sun for every weekend from the 2nd week of July through the end of August 2026.
+      const WEEKENDS = [
+        { label: "Weekend of Jul 10", days: ["Fri Jul 10", "Sat Jul 11", "Sun Jul 12"] },
+        { label: "Weekend of Jul 17", days: ["Fri Jul 17", "Sat Jul 18", "Sun Jul 19"] },
+        { label: "Weekend of Jul 24", days: ["Fri Jul 24", "Sat Jul 25", "Sun Jul 26"] },
+        { label: "Weekend of Jul 31", days: ["Fri Jul 31", "Sat Aug 1", "Sun Aug 2"] },
+        { label: "Weekend of Aug 7",  days: ["Fri Aug 7", "Sat Aug 8", "Sun Aug 9"] },
+        { label: "Weekend of Aug 14", days: ["Fri Aug 14", "Sat Aug 15", "Sun Aug 16"] },
+        { label: "Weekend of Aug 21", days: ["Fri Aug 21", "Sat Aug 22", "Sun Aug 23"] },
+        { label: "Weekend of Aug 28", days: ["Fri Aug 28", "Sat Aug 29", "Sun Aug 30"] },
+      ];
+
+      // Flatten into id'd day options while keeping the weekend grouping for rendering.
+      const DAYS = [];
+      const GROUPS = WEEKENDS.map((wk) => ({
+        label: wk.label,
+        items: wk.days.map((label) => {
+          const d = { id: DAYS.length, label };
+          DAYS.push(d);
+          return d;
+        }),
+      }));
+      const VALID_IDS = new Set(DAYS.map((d) => d.id));
+      const CHECK_SVG = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>';
+
+      const state = {
+        name: null,
+        mine: new Set(),
+        all: {},
+        saving: false,
+        dirty: false,
+        committed: false,
+        channel: null,
+      };
+
+      const els = {
+        gate: document.getElementById("gate"),
+        picker: document.getElementById("picker"),
+        nameInput: document.getElementById("name-input"),
+        continueBtn: document.getElementById("continue-btn"),
+        loadingHint: document.getElementById("loading-hint"),
+        gateErr: document.getElementById("gate-err"),
+        helloName: document.getElementById("hello-name"),
+        selectAllBtn: document.getElementById("selectall-btn"),
+        weeks: document.getElementById("weeks"),
+        summarySection: document.getElementById("summary-section"),
+        summary: document.getElementById("summary"),
+        status: document.getElementById("status"),
+        switchBtn: document.getElementById("switch-btn"),
+      };
+
+      function setContinueLoading(loading) {
+        els.continueBtn.disabled = loading;
+        els.continueBtn.classList.toggle("loading", loading);
+        els.loadingHint.classList.toggle("hidden", !loading);
+      }
+
+      const saved = localStorage.getItem("firstName");
+      if (saved) els.nameInput.value = saved;
+      els.nameInput.focus();
+
+      els.nameInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") { e.preventDefault(); enterPicker(); }
+      });
+      els.continueBtn.addEventListener("click", enterPicker);
+      els.switchBtn.addEventListener("click", signOut);
+      els.selectAllBtn.addEventListener("click", toggleSelectAll);
+
+      async function enterPicker() {
+        // Name is required before the picker is ever shown.
+        const raw = els.nameInput.value.trim();
+        if (!raw) { els.gateErr.textContent = "Please enter your first name."; els.nameInput.focus(); return; }
+        if (raw.length > 30) { els.gateErr.textContent = "Please keep it under 30 characters."; return; }
+        els.gateErr.textContent = "";
+        setContinueLoading(true);
+        try {
+          await refresh();
+          state.name = raw;
+          localStorage.setItem("firstName", raw);
+          const key = raw.toLowerCase();
+          state.mine = state.all[key] ? new Set(state.all[key].days) : new Set();
+          state.committed = !!state.all[key];
+          els.helloName.textContent = raw;
+          els.gate.classList.add("hidden");
+          els.picker.classList.remove("hidden");
+          renderDays();
+          if (state.committed) {
+            els.summarySection.classList.remove("hidden");
+            renderSummary();
+          }
+          subscribeRealtime();
+        } catch (err) {
+          els.gateErr.textContent = "Couldn't reach the server. Check your connection and try again.";
+          console.error(err);
+        } finally {
+          setContinueLoading(false);
+        }
+      }
+
+      function signOut() {
+        unsubscribeRealtime();
+        state.name = null;
+        state.mine = new Set();
+        state.committed = false;
+        state.dirty = false;
+        localStorage.removeItem("firstName");
+        els.nameInput.value = "";
+        els.summarySection.classList.add("hidden");
+        els.picker.classList.add("hidden");
+        els.gate.classList.remove("hidden");
+        els.nameInput.focus();
+      }
+
+      function renderDays() {
+        els.weeks.innerHTML = "";
+        for (const group of GROUPS) {
+          const heading = document.createElement("div");
+          heading.className = "weekend-label";
+          heading.textContent = group.label;
+          els.weeks.appendChild(heading);
+          for (const d of group.items) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "week";
+            btn.setAttribute("aria-pressed", state.mine.has(d.id) ? "true" : "false");
+            btn.dataset.dayId = String(d.id);
+            btn.innerHTML = `<span class="label">${d.label}</span><span class="check">${CHECK_SVG}</span>`;
+            btn.addEventListener("click", () => toggleDay(d.id, btn));
+            els.weeks.appendChild(btn);
+          }
+        }
+        updateSelectAllLabel();
+      }
+
+      function renderSummary() {
+        els.summary.innerHTML = "";
+        for (const group of GROUPS) {
+          const heading = document.createElement("div");
+          heading.className = "weekend-label";
+          heading.textContent = group.label;
+          els.summary.appendChild(heading);
+          for (const d of group.items) {
+            const takers = [];
+            for (const row of Object.values(state.all)) {
+              if (row.days.includes(d.id)) takers.push(row.display);
+            }
+            takers.sort((a, b) => a.localeCompare(b));
+            const row = document.createElement("div");
+            row.className = "row";
+            const namesHtml = takers.length
+              ? `<span class="names">${takers.map((n) => escapeHtml(n)).join(", ")}</span>`
+              : `<span class="names empty">nobody yet</span>`;
+            row.innerHTML =
+              `<span><span class="label">${d.label}</span><span class="count">· ${takers.length}</span></span>` +
+              namesHtml;
+            els.summary.appendChild(row);
+          }
+        }
+      }
+
+      function setStatus(text, isError) {
+        els.status.textContent = text;
+        els.status.style.color = isError ? "var(--error)" : "var(--muted)";
+      }
+
+      function updateSelectAllLabel() {
+        const allSelected = state.mine.size === DAYS.length;
+        els.selectAllBtn.textContent = allSelected ? "Clear all" : "Select all";
+      }
+
+      function syncPressedStates() {
+        for (const btn of els.weeks.querySelectorAll(".week")) {
+          const id = Number(btn.dataset.dayId);
+          btn.setAttribute("aria-pressed", state.mine.has(id) ? "true" : "false");
+        }
+        updateSelectAllLabel();
+      }
+
+      function toggleDay(id, btn) {
+        if (state.mine.has(id)) state.mine.delete(id);
+        else state.mine.add(id);
+        btn.setAttribute("aria-pressed", state.mine.has(id) ? "true" : "false");
+        updateSelectAllLabel();
+        saveNow();
+      }
+
+      function toggleSelectAll() {
+        if (state.mine.size === DAYS.length) state.mine = new Set();
+        else state.mine = new Set(DAYS.map((d) => d.id));
+        syncPressedStates();
+        saveNow();
+      }
+
+      function saveNow() {
+        setStatus("Saving…");
+        state.dirty = true;
+        if (state.saving) return;
+        save();
+      }
+
+      async function save() {
+        state.saving = true;
+        state.dirty = false;
+        const days = [...state.mine].sort((a, b) => a - b);
+        const key = state.name.toLowerCase();
+        state.all[key] = { display: state.name, days };
+        try {
+          const { error } = await supabase
+            .from(TABLE)
+            .upsert({ name: key, display: state.name, days });
+          if (error) throw error;
+          setStatus("Saved.");
+          if (!state.committed) {
+            state.committed = true;
+            els.summarySection.classList.remove("hidden");
+          }
+          renderSummary();
+        } catch (err) {
+          console.error("save failed", err);
+          setStatus("Couldn't save — retrying.", true);
+          state.dirty = true;
+          setTimeout(() => { if (state.dirty && !state.saving) save(); }, 2000);
+        } finally {
+          state.saving = false;
+          if (state.dirty) save();
+        }
+      }
+
+      async function refresh() {
+        const { data, error } = await supabase
+          .from(TABLE)
+          .select("name, display, days");
+        if (error) throw error;
+        const users = {};
+        for (const row of data || []) {
+          users[row.name] = sanitizeRow(row);
+        }
+        state.all = users;
+        if (state.name && !state.dirty && !state.saving) {
+          const key = state.name.toLowerCase();
+          if (state.all[key]) state.mine = new Set(state.all[key].days);
+        }
+        if (state.name && state.committed) renderSummary();
+      }
+
+      function sanitizeRow(row) {
+        const display = typeof row.display === "string" ? row.display.slice(0, 30) : row.name;
+        const days = Array.isArray(row.days)
+          ? [...new Set(row.days.filter((n) => Number.isInteger(n) && VALID_IDS.has(n)))].sort((a, b) => a - b)
+          : [];
+        return { display, days };
+      }
+
+      function subscribeRealtime() {
+        if (state.channel) return;
+        state.channel = supabase
+          .channel("boat-day-2026-changes")
+          .on(
+            "postgres_changes",
+            { event: "*", schema: "public", table: TABLE },
+            (payload) => {
+              if (payload.eventType === "DELETE") {
+                const k = payload.old && payload.old.name;
+                if (k) delete state.all[k];
+              } else if (payload.new && payload.new.name) {
+                state.all[payload.new.name] = sanitizeRow(payload.new);
+              }
+              if (state.committed) renderSummary();
+            }
+          )
+          .subscribe();
+      }
+
+      function unsubscribeRealtime() {
+        if (state.channel) {
+          supabase.removeChannel(state.channel);
+          state.channel = null;
+        }
+      }
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, (c) => ({
+          "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+        })[c]);
+      }
+    </script>
+  </body>
+</html>

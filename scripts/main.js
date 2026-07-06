@@ -1,6 +1,6 @@
 // ============================================
 // William Zhang, Atelier
-// Clock · Count-up · Works reveal · Constellation
+// Count-up · Works reveal · Constellation
 // ============================================
 
 (function () {
@@ -11,50 +11,6 @@
 
   // Click pulses — shared between the click handler and the constellation draw loop
   const clickPulses = [];
-
-  // Intro state (Milky Way loading animation on the home page)
-  const introState = { active: false, start: 0, duration: 3000 };
-
-  // ---------- Clock (Chicago) ----------
-  const clock = document.getElementById('clock');
-  if (clock) {
-    const fmt = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/Chicago',
-      hour: 'numeric', minute: '2-digit', hour12: true
-    });
-    const tick = () => { clock.textContent = fmt.format(new Date()) + ' CST'; };
-    tick();
-    setInterval(tick, 15000);
-  }
-
-  // ---------- Weather (Chicago) ----------
-  const weather = document.getElementById('weather');
-  if (weather) {
-    // WMO weather code → short glyph
-    const glyph = (c) => {
-      if (c === 0) return '☀';
-      if (c <= 2) return '⛅';
-      if (c === 3) return '☁';
-      if (c >= 45 && c <= 48) return '🌫';
-      if (c >= 51 && c <= 67) return '🌧';
-      if (c >= 71 && c <= 77) return '❄';
-      if (c >= 80 && c <= 82) return '🌧';
-      if (c >= 85 && c <= 86) return '❄';
-      if (c >= 95) return '⛈';
-      return '·';
-    };
-    const url = 'https://api.open-meteo.com/v1/forecast'
-      + '?latitude=41.8781&longitude=-87.6298'
-      + '&current=temperature_2m,weather_code'
-      + '&temperature_unit=fahrenheit&timezone=America/Chicago';
-    fetch(url)
-      .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then(d => {
-        const t = Math.round(d.current.temperature_2m);
-        weather.textContent = `${glyph(d.current.weather_code)} ${t}°F`;
-      })
-      .catch(() => { weather.textContent = '…'; });
-  }
 
   // ---------- Count-up ----------
   const nodes = document.querySelectorAll('[data-count]');
@@ -160,31 +116,7 @@
     };
 
     const draw = (t) => {
-      // Intro progress: 0 at start, 1 at end, clamped. active=false outside intro.
-      let introProgress = 1;
-      if (introState.active) {
-        introProgress = Math.min(1, (performance.now() - introState.start) / introState.duration);
-        if (introProgress >= 1) introState.active = false;
-      }
-
       ctx.clearRect(0, 0, w, h);
-
-      // Slow inward swirl toward screen center during intro
-      if (introState.active) {
-        const cx = w / 2, cy = h / 2;
-        const ease = Math.pow(1 - introProgress, 1.4);
-        const inwardSpeed = 2.2 * ease;
-        const spiral = 0.18;
-        for (const s of stars) {
-          const dx = cx - s.x, dy = cy - s.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 2) continue;
-          const nx = dx / dist, ny = dy / dist;
-          // Tangential perpendicular gives the gentle swirl quality
-          s.x += inwardSpeed * (nx + spiral * -ny);
-          s.y += inwardSpeed * (ny + spiral * nx);
-        }
-      }
 
       // Age click pulses: shrink life each frame, drop when dead
       for (let i = clickPulses.length - 1; i >= 0; i--) {
@@ -238,14 +170,6 @@
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fill();
-
-        const totalBoost = boost + clickBoost;
-        if (totalBoost > 0.1) {
-          ctx.fillStyle = `rgba(232, 212, 162, ${totalBoost * 0.15})`;
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r * 3, 0, Math.PI * 2);
-          ctx.fill();
-        }
       }
       requestAnimationFrame(draw);
     };
@@ -258,56 +182,6 @@
     requestAnimationFrame(draw);
   }
 
-  // Click sound (satisfying tactile tick + thump, synthesized via Web Audio)
-  let audioCtx = null;
-  const getCtx = () => {
-    if (audioCtx) return audioCtx;
-    const AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) return null;
-    audioCtx = new AC();
-    return audioCtx;
-  };
-  const playClick = () => {
-    const ctx = getCtx();
-    if (!ctx) return;
-    if (ctx.state === 'suspended') ctx.resume();
-    const now = ctx.currentTime;
-    const master = ctx.createGain();
-    master.gain.value = 0.4;
-    master.connect(ctx.destination);
-
-    // Typewriter keystroke: three noise voices stacked, no sine tone.
-    // Reads as a mechanical "clack" with wooden body and a metallic edge.
-    const makeNoise = (dur, curve) => {
-      const b = ctx.createBuffer(1, Math.max(1, Math.floor(ctx.sampleRate * dur)), ctx.sampleRate);
-      const d = b.getChannelData(0);
-      for (let i = 0; i < d.length; i++) {
-        d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / d.length, curve);
-      }
-      return b;
-    };
-    const playNoise = (buf, freq, Q, peak, dur, filterType) => {
-      const src = ctx.createBufferSource();
-      src.buffer = buf;
-      const f = ctx.createBiquadFilter();
-      f.type = filterType || 'bandpass';
-      f.frequency.value = freq;
-      f.Q.value = Q;
-      const g = ctx.createGain();
-      g.gain.setValueAtTime(peak, now);
-      g.gain.exponentialRampToValueAtTime(0.001, now + dur);
-      src.connect(f).connect(g).connect(master);
-      src.start(now);
-      src.stop(now + dur + 0.005);
-    };
-
-    // 1. Metallic edge: tight high-frequency spark (key lever pivoting).
-    playNoise(makeNoise(0.004, 3),  3500 + Math.random() * 400, 3,   0.14, 0.004);
-    // 2. Main clack: broader mid-range percussive hit (key strike).
-    playNoise(makeNoise(0.009, 2),  1400 + Math.random() * 250, 1.5, 0.5,  0.009);
-    // 3. Wooden body: low-mid resonance (type bar impact).
-    playNoise(makeNoise(0.016, 1.5), 240 + Math.random() * 50,   1,   0.22, 0.016);
-  };
   // Gold ring ripple spawned at the cursor on each click
   const spawnRipple = (x, y) => {
     const r = document.createElement('div');
@@ -326,86 +200,7 @@
   };
 
   document.addEventListener('pointerdown', (e) => {
-    playClick();
     spawnRipple(e.clientX, e.clientY);
     clickPulses.push({ x: e.clientX, y: e.clientY, life: 1 });
   }, { passive: true });
-
-  // PS2-inspired synthesized intro audio (cinematic drone + chime at the peak).
-  // Real Sony audio is copyrighted; this is a non-infringing tribute using the
-  // same dramatic shape: sub-bass rise, glassy detuned pad, impact chime at ~2.5s.
-  const playIntroSound = () => {
-    const actx = getCtx();
-    if (!actx) return;
-    if (actx.state === 'suspended') actx.resume().catch(() => {});
-    const now = actx.currentTime;
-    const master = actx.createGain();
-    master.gain.value = 0.28;
-    master.connect(actx.destination);
-
-    // Sub-bass drone rising from 55 Hz to 110 Hz
-    const sub = actx.createOscillator();
-    sub.type = 'sine';
-    sub.frequency.setValueAtTime(55, now);
-    sub.frequency.exponentialRampToValueAtTime(110, now + 2.5);
-    const subG = actx.createGain();
-    subG.gain.setValueAtTime(0.0001, now);
-    subG.gain.linearRampToValueAtTime(0.45, now + 1.8);
-    subG.gain.linearRampToValueAtTime(0.0001, now + 3.1);
-    sub.connect(subG).connect(master);
-    sub.start(now); sub.stop(now + 3.15);
-
-    // Mid triangle drone, octave + fifth up
-    const mid = actx.createOscillator();
-    mid.type = 'triangle';
-    mid.frequency.setValueAtTime(165, now);
-    mid.frequency.exponentialRampToValueAtTime(220, now + 2.5);
-    const midG = actx.createGain();
-    midG.gain.setValueAtTime(0.0001, now);
-    midG.gain.linearRampToValueAtTime(0.18, now + 2.2);
-    midG.gain.linearRampToValueAtTime(0.0001, now + 3);
-    mid.connect(midG).connect(master);
-    mid.start(now); mid.stop(now + 3.05);
-
-    // Glassy detuned pad cluster (shimmer)
-    [440, 554, 659, 880].forEach((f) => {
-      const o = actx.createOscillator();
-      o.type = 'sine';
-      o.frequency.value = f + (Math.random() - 0.5) * 5;
-      const g = actx.createGain();
-      g.gain.setValueAtTime(0.0001, now);
-      g.gain.linearRampToValueAtTime(0.05, now + 2);
-      g.gain.linearRampToValueAtTime(0.0001, now + 2.8);
-      o.connect(g).connect(master);
-      o.start(now); o.stop(now + 2.85);
-    });
-
-    // Impact chime at 2.5s — the "landing" moment
-    const chime = actx.createOscillator();
-    chime.type = 'sine';
-    chime.frequency.value = 1320;
-    const chimeG = actx.createGain();
-    const ct = now + 2.5;
-    chimeG.gain.setValueAtTime(0.0001, ct);
-    chimeG.gain.linearRampToValueAtTime(0.4, ct + 0.01);
-    chimeG.gain.exponentialRampToValueAtTime(0.001, ct + 0.9);
-    chime.connect(chimeG).connect(master);
-    chime.start(ct); chime.stop(ct + 0.95);
-  };
-
-  // Home page intro trigger — detect via the #works element (home only).
-  // Intro synth audio (playIntroSound) is defined above and kept in code;
-  // it is currently disabled here. Uncomment the try/catch to re-enable.
-  if (document.getElementById('works')) {
-    document.body.classList.add('intro-loading');
-    introState.active = true;
-    introState.start = performance.now();
-    // try { playIntroSound(); } catch (e) { /* autoplay blocked, silent fallback */ }
-    // Start the content fade ~900ms before the intro visually ends so the two
-    // transitions overlap instead of producing a hard cut at t = duration.
-    setTimeout(() => {
-      document.body.classList.remove('intro-loading');
-      document.body.classList.add('intro-done');
-    }, introState.duration - 900);
-  }
 })();
