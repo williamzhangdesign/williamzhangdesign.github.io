@@ -109,6 +109,13 @@
       }
 
       .wave-note { color: var(--muted); font-size: 13px; margin: -4px 0 12px; line-height: 1.5; }
+      .play-btn {
+        flex: 0 0 auto;
+        padding: 6px 10px; font-size: 13px; font-weight: 600;
+        border-radius: 8px; border: 1px solid var(--border);
+        color: var(--muted); text-decoration: none; white-space: nowrap;
+      }
+      .play-btn:hover { color: var(--text); border-color: var(--muted); }
       .dl-all { margin: 0 0 24px; }
       .dl-all:disabled { opacity: 0.6; cursor: wait; }
       .part-label { color: var(--muted); font-size: 13px; margin-left: 6px; }
@@ -281,6 +288,13 @@
         william: [
           "New York, New York",
         ],
+      };
+
+      // -----------------------------------------------------------------------
+      // Play-along links -- keyed by song slug, shown on every row for the song
+      // -----------------------------------------------------------------------
+      const SONG_LINKS = {
+        "spider-man-theme": "https://www.youtube.com/watch?v=6kLXKCcLYD4",
       };
 
       // -----------------------------------------------------------------------
@@ -643,11 +657,15 @@
             if (Array.isArray(file)) file = file[0];
             const row = document.createElement("div");
             row.className = "song-row";
+            const link = SONG_LINKS[slug];
             row.innerHTML =
               `<span class="song-title">${esc(song)}</span>` +
+              `<span style="display:flex;gap:8px">` +
+              (link ? `<a class="play-btn" href="${esc(link)}" target="_blank" rel="noopener">&#9654; Play along</a>` : "") +
               (file
                 ? `<a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>`
-                : `<button class="dl-btn" disabled>Coming soon</button>`);
+                : `<button class="dl-btn" disabled>Coming soon</button>`) +
+              `</span>`;
             els.songsList.appendChild(row);
           }
         } else {
@@ -668,9 +686,13 @@
           els.partsBlock.classList.remove("hidden");
           els.partsList.innerHTML = playerParts.map(({ slug, file }) => {
             const part = unslugify(file.split("/").pop().replace(/\.pdf$/i, ""));
+            const link = SONG_LINKS[slug];
             return `<div class="song-row">
               <span class="song-title">${esc(unslugify(slug))}<span class="part-label">· ${esc(part)}</span></span>
-              <a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>
+              <span style="display:flex;gap:8px">
+                ${link ? `<a class="play-btn" href="${esc(link)}" target="_blank" rel="noopener">&#9654; Play along</a>` : ""}
+                <a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>
+              </span>
             </div>`;
           }).join("");
         } else if (!songs.length) {
