@@ -218,8 +218,8 @@
         </div>
 
         <div id="parts-block">
-          <p class="block-title">Wave 1 · Parts &amp; Charts</p>
-          <p class="wave-note">This is the first wave of music! Download your parts below. More charts will be released as the setlist gets finalized.</p>
+          <p class="block-title">Parts &amp; Charts</p>
+          <p class="wave-note">Download your parts below. More charts will be released as the setlist gets finalized.</p>
           <div id="parts-list"></div>
         </div>
 
@@ -414,6 +414,7 @@
       //   }
       // -----------------------------------------------------------------------
       const W1 = "parts/wave1";
+      const W2 = "parts/wave2";
       const PARTS_FILES = {
         "spider-man-theme": {
           scott: `${W1}/spider-man-theme/trumpet-1.pdf`, benji: `${W1}/spider-man-theme/trumpet-2.pdf`, chris: `${W1}/spider-man-theme/trumpet-3.pdf`,
@@ -544,6 +545,31 @@
           luke: `${W1}/respect/alto-1.pdf`, william: `${W1}/respect/tenor-1.pdf`, caden: `${W1}/respect/bari-sax.pdf`,
           max: `${W1}/respect/bass.pdf`, meredith: `${W1}/respect/piano-vocals.pdf`, sara: `${W1}/respect/piano-vocals.pdf`,
           annie: `${W1}/respect/drums.pdf`, liam: `${W1}/respect/drums.pdf`,
+        },
+        // NOTE: key must equal slugify(song title) -- "Can't" becomes "can-t"
+        "can-t-take-my-eyes-off-you": {
+          scott: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, benji: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, chris: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, elayna: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
+          austin: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, steve: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, jacob: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
+          luke: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, william: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, caden: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
+          alex: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, max: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, meredith: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, sara: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
+          nathan: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, annie: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, liam: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
+          karthik: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
+        },
+        "cheek-to-cheek": {
+          scott: `${W2}/cheek-to-cheek/all-parts.pdf`, benji: `${W2}/cheek-to-cheek/all-parts.pdf`, chris: `${W2}/cheek-to-cheek/all-parts.pdf`, elayna: `${W2}/cheek-to-cheek/all-parts.pdf`,
+          austin: `${W2}/cheek-to-cheek/all-parts.pdf`, steve: `${W2}/cheek-to-cheek/all-parts.pdf`, jacob: `${W2}/cheek-to-cheek/all-parts.pdf`,
+          luke: `${W2}/cheek-to-cheek/all-parts.pdf`, william: `${W2}/cheek-to-cheek/all-parts.pdf`, caden: `${W2}/cheek-to-cheek/all-parts.pdf`,
+          alex: `${W2}/cheek-to-cheek/all-parts.pdf`, max: `${W2}/cheek-to-cheek/all-parts.pdf`, meredith: `${W2}/cheek-to-cheek/all-parts.pdf`, sara: `${W2}/cheek-to-cheek/all-parts.pdf`,
+          nathan: `${W2}/cheek-to-cheek/all-parts.pdf`, annie: `${W2}/cheek-to-cheek/all-parts.pdf`, liam: `${W2}/cheek-to-cheek/all-parts.pdf`,
+          nate: `${W2}/cheek-to-cheek/all-parts.pdf`,
+        },
+        "superstition": {
+          scott: `${W2}/superstition/all-parts.pdf`, benji: `${W2}/superstition/all-parts.pdf`, chris: `${W2}/superstition/all-parts.pdf`, elayna: `${W2}/superstition/all-parts.pdf`,
+          austin: `${W2}/superstition/all-parts.pdf`, steve: `${W2}/superstition/all-parts.pdf`, jacob: `${W2}/superstition/all-parts.pdf`,
+          luke: `${W2}/superstition/all-parts.pdf`, william: `${W2}/superstition/all-parts.pdf`, caden: `${W2}/superstition/all-parts.pdf`,
+          alex: `${W2}/superstition/all-parts.pdf`, max: `${W2}/superstition/all-parts.pdf`, meredith: `${W2}/superstition/all-parts.pdf`, sara: `${W2}/superstition/all-parts.pdf`,
+          nathan: `${W2}/superstition/all-parts.pdf`, annie: `${W2}/superstition/all-parts.pdf`, liam: `${W2}/superstition/all-parts.pdf`,
+          maya: `${W2}/superstition/all-parts.pdf`,
         },
         "treasure": {
           scott: `${W1}/treasure/trumpet-1.pdf`,
