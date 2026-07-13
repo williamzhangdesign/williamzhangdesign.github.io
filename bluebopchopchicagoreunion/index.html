@@ -109,6 +109,13 @@
       }
 
       .wave-note { color: var(--muted); font-size: 13px; margin: -4px 0 12px; line-height: 1.5; }
+      .song-note {
+        margin: -4px 0 8px; padding: 8px 12px;
+        border-left: 2px solid var(--accent);
+        background: rgba(34, 197, 94, 0.06);
+        border-radius: 0 8px 8px 0;
+        color: var(--muted); font-size: 13px; line-height: 1.5;
+      }
       .play-btn {
         flex: 0 0 auto;
         padding: 6px 10px; font-size: 13px; font-weight: 600;
@@ -296,6 +303,32 @@
       const SONG_LINKS = {
         "spider-man-theme": "https://www.youtube.com/watch?v=6kLXKCcLYD4",
         "l-o-v-e": "https://www.youtube.com/watch?v=KZ4BFjptmlI",
+        "mack-the-knife": "https://www.youtube.com/watch?v=j45mLb5TdRE",
+        "moondance": "https://www.youtube.com/watch?v=wAxfyHvUOjM",
+        "orange-colored-sky": "https://musescore.com/user/35545455/scores/6454297",
+        "feeling-good": "https://www.youtube.com/watch?v=E55hXjJ6iAc",
+        "skyfall": "https://www.youtube.com/watch?v=WJWOhvgp4Ww",
+        "i-want-you-back": "https://www.youtube.com/watch?v=V94qlw6_39Q",
+        "sunday-morning": "https://musescore.com/user/842711/scores/4314516",
+        "ive-got-you-under-my-skin": "https://www.youtube.com/watch?v=zLmLIC4ke4E",
+        "september": "https://www.youtube.com/watch?v=Gs069dndIYk",
+        "sweet-caroline": "https://www.youtube.com/watch?v=hBdGc3YPfO8",
+        "uptown-funk": "https://www.youtube.com/watch?v=cG_PXGbki3w",
+        "in-the-mood": "https://www.youtube.com/watch?v=suddKHhymfE",
+        "locked-out-of-heaven": "https://www.youtube.com/watch?v=jxo7fNCtUBY",
+        "respect": "https://www.youtube.com/watch?v=D4PACf-TKBk",
+        "treasure": "https://www.youtube.com/watch?v=VH-ie-qashc",
+      };
+
+      // Song notes -- shown to everyone under the song's rows
+      const SONG_NOTES = {
+        "moondance": "Play the ending as written on the sheet music. The recording does the end a bit differently.",
+        "orange-colored-sky": "Trombone 1: ignore the melody line, we have a vocalist covering it. Bass: the notation part is from the other arrangement, so the form may differ from the tab.",
+        "i-want-you-back": "No vocalist on this chart yet. Someone can come up and sing it!",
+        "sunday-morning": "Our sheet is slightly edited from this version, but play along with it. Don't worry about playing the solos as written, do some random shit and have fun. Maya will get back to us on how she wants to sing it.",
+        "dancing-queen": "No video link. Play along with the Spotify recording, it's all in the original key.",
+        "uptown-funk": "No vocalist claimed. Hopefully someone from the audience takes the words!",
+        "locked-out-of-heaven": "We need someone to sing this one, hopefully from the audience.",
       };
 
       // -----------------------------------------------------------------------
@@ -420,7 +453,8 @@
           austin: `${W1}/orange-colored-sky/trombone-1.pdf`, steve: `${W1}/orange-colored-sky/trombone-2.pdf`, jacob: `${W1}/orange-colored-sky/trombone-2.pdf`,
           luke: `${W1}/orange-colored-sky/alto-1.pdf`, william: `${W1}/orange-colored-sky/tenor-1.pdf`, caden: `${W1}/orange-colored-sky/clarinet-1.pdf`,
           alex: [`${W1}/orange-colored-sky/guitar.pdf`, `${W1}/orange-colored-sky/guitar-tab.pdf`],
-          max: `${W1}/orange-colored-sky/bass.pdf`, meredith: `${W1}/orange-colored-sky/piano.pdf`, sara: `${W1}/orange-colored-sky/piano-simplified.pdf`,
+          max: [`${W1}/orange-colored-sky/bass.pdf`, `${W1}/orange-colored-sky/bass-notation.pdf`],
+          meredith: `${W1}/orange-colored-sky/piano.pdf`, sara: `${W1}/orange-colored-sky/piano-simplified.pdf`,
           annie: `${W1}/orange-colored-sky/drums.pdf`, liam: `${W1}/orange-colored-sky/congas.pdf`, nathan: `${W1}/orange-colored-sky/congas.pdf`,
         },
         "feeling-good": {
@@ -483,10 +517,11 @@
           annie: `${W1}/uptown-funk/drums.pdf`, liam: `${W1}/uptown-funk/drums.pdf`,
         },
         "ive-got-you-under-my-skin": {
-          scott: `${W1}/ive-got-you-under-my-skin/trumpet-1.pdf`, benji: `${W1}/ive-got-you-under-my-skin/trumpet-2.pdf`, chris: `${W1}/ive-got-you-under-my-skin/trumpet-3.pdf`,
-          austin: `${W1}/ive-got-you-under-my-skin/trombone-1.pdf`, steve: `${W1}/ive-got-you-under-my-skin/trombone-3.pdf`, jacob: `${W1}/ive-got-you-under-my-skin/bass-trombone.pdf`,
-          luke: `${W1}/ive-got-you-under-my-skin/alto-1.pdf`, william: `${W1}/ive-got-you-under-my-skin/tenor-1.pdf`, caden: `${W1}/ive-got-you-under-my-skin/bari-sax.pdf`,
-          alex: `${W1}/ive-got-you-under-my-skin/guitar.pdf`, max: `${W1}/ive-got-you-under-my-skin/bass.pdf`, meredith: `${W1}/ive-got-you-under-my-skin/piano.pdf`, sara: `${W1}/ive-got-you-under-my-skin/piano.pdf`,
+          scott: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, benji: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, chris: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, elayna: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
+          austin: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, steve: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, jacob: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
+          luke: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, william: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, caden: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
+          alex: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, max: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, meredith: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, sara: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
+          nathan: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, annie: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, liam: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
         },
         "in-the-mood": {
           scott: `${W1}/in-the-mood/trumpet-1.pdf`,
@@ -668,6 +703,12 @@
                 : `<button class="dl-btn" disabled>Coming soon</button>`) +
               `</span>`;
             els.songsList.appendChild(row);
+            if (SONG_NOTES[slug]) {
+              const note = document.createElement("div");
+              note.className = "song-note";
+              note.textContent = SONG_NOTES[slug];
+              els.songsList.appendChild(note);
+            }
           }
         } else {
           els.songsBlock.classList.add("hidden");
@@ -685,17 +726,29 @@
 
         if (playerParts.length) {
           els.partsBlock.classList.remove("hidden");
-          els.partsList.innerHTML = playerParts.map(({ slug, file }) => {
-            const part = unslugify(file.split("/").pop().replace(/\.pdf$/i, ""));
+          const bySong = new Map();
+          for (const p of playerParts) {
+            if (!bySong.has(p.slug)) bySong.set(p.slug, []);
+            bySong.get(p.slug).push(p.file);
+          }
+          let html = "";
+          for (const [slug, files] of bySong) {
             const link = SONG_LINKS[slug];
-            return `<div class="song-row">
-              <span class="song-title">${esc(unslugify(slug))}<span class="part-label">· ${esc(part)}</span></span>
-              <span style="display:flex;gap:8px">
-                ${link ? `<a class="play-btn" href="${esc(link)}" target="_blank" rel="noopener">&#9654; Play along</a>` : ""}
-                <a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>
-              </span>
-            </div>`;
-          }).join("");
+            for (const file of files) {
+              const part = unslugify(file.split("/").pop().replace(/\.pdf$/i, ""));
+              html += `<div class="song-row">
+                <span class="song-title">${esc(unslugify(slug))}<span class="part-label">· ${esc(part)}</span></span>
+                <span style="display:flex;gap:8px">
+                  ${link ? `<a class="play-btn" href="${esc(link)}" target="_blank" rel="noopener">&#9654; Play along</a>` : ""}
+                  <a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>
+                </span>
+              </div>`;
+            }
+            if (SONG_NOTES[slug]) {
+              html += `<div class="song-note">${esc(SONG_NOTES[slug])}</div>`;
+            }
+          }
+          els.partsList.innerHTML = html;
         } else if (!songs.length) {
           els.partsBlock.classList.remove("hidden");
           els.partsList.innerHTML =
