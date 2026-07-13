@@ -646,7 +646,7 @@
             row.innerHTML =
               `<span class="song-title">${esc(song)}</span>` +
               (file
-                ? `<a class="dl-btn" href="${esc(file)}" download>Download</a>`
+                ? `<a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>`
                 : `<button class="dl-btn" disabled>Coming soon</button>`);
             els.songsList.appendChild(row);
           }
@@ -670,7 +670,7 @@
             const part = unslugify(file.split("/").pop().replace(/\.pdf$/i, ""));
             return `<div class="song-row">
               <span class="song-title">${esc(unslugify(slug))}<span class="part-label">· ${esc(part)}</span></span>
-              <a class="dl-btn" href="${esc(file)}" download>Download</a>
+              <a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>
             </div>`;
           }).join("");
         } else if (!songs.length) {
@@ -714,10 +714,7 @@
           for (const path of myFiles) {
             const res = await fetch(path);
             if (!res.ok) continue;
-            const parts = path.split("/");
-            const song = parts[parts.length - 2];
-            const fname = parts[parts.length - 1];
-            zip.file(`${song} - ${fname}`, await res.blob());
+            zip.file(dlName(path), await res.blob());
           }
           const blob = await zip.generateAsync({ type: "blob" });
           const a = document.createElement("a");
@@ -769,6 +766,14 @@
         els.notFoundView.classList.add("hidden");
         els.gate.classList.remove("hidden");
         els.nameInput.focus();
+      }
+
+      // "parts/wave1/sweet-caroline/trumpet-1.pdf" -> "sweet-caroline-trumpet1.pdf"
+      function dlName(path) {
+        const parts = path.split("/");
+        const song = parts[parts.length - 2];
+        const part = parts[parts.length - 1].replace(/\.pdf$/i, "").replace(/-(\d+)$/, "$1");
+        return `${song}-${part}.pdf`;
       }
 
       function slugify(s) {
