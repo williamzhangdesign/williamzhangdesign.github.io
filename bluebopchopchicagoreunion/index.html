@@ -108,6 +108,9 @@
         border-color: var(--border); color: var(--muted); cursor: default;
       }
 
+      .wave-note { color: var(--muted); font-size: 13px; margin: -4px 0 12px; line-height: 1.5; }
+      .part-label { color: var(--muted); font-size: 13px; margin-left: 6px; }
+
       .survey-row {
         display: flex; align-items: baseline; justify-content: space-between;
         padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px;
@@ -197,7 +200,8 @@
         </div>
 
         <div id="parts-block">
-          <p class="block-title">Parts &amp; Charts</p>
+          <p class="block-title">Wave 1 · Parts &amp; Charts</p>
+          <p class="wave-note">This is the first wave of music! Download your parts below. More charts will be released as the setlist gets finalized.</p>
           <div id="parts-list"></div>
         </div>
 
@@ -233,9 +237,9 @@
           "L-O-V-E",
           "Orange Colored Sky",
           "Beyond the Sea",
-          "Fly Me to the Moon",
           "Moondance",
           "Mack the Knife",
+          "Wake Me Up",
         ],
         maya: [
           "Everybody Wants to Rule the World",
@@ -248,7 +252,6 @@
           "Murder on the Dancefloor",
           "Don't Know Why",
           "Skyfall",
-          "Watermelon Sugar",
           "Valerie",
           "Superstition",
           "I Want You Back",
@@ -256,25 +259,69 @@
           "Rein Me In",
         ],
         gab: [
-          "Fly Me to the Moon",
-          "Skyfall",
-          "Valerie",
-          "Watermelon Sugar",
           "So Easy (To Fall in Love)",
           "Dancing Queen",
         ],
         nate: [
-          "Spider-Man Theme",
           "Play That Funky Music",
           "Skate",
           "Cheek to Cheek",
           "New York, New York",
+          "Chicago",
         ],
         caden: [
           "Ain't No Mountain High Enough (duet)",
           "Valerie (duet)",
+          "This Love",
+        ],
+        william: [
+          "New York, New York",
         ],
       };
+
+      // -----------------------------------------------------------------------
+      // Unassigned songs -- no vocalist claimed yet
+      // -----------------------------------------------------------------------
+      const UNASSIGNED = [
+        "It Isn't Perfect But It Might Be",
+        "Watermelon Sugar",
+        "Fly Me to the Moon",
+        "Sway",
+        "Maneater",
+        "Human Nature",
+        "Come Fly With Me",
+        "Africa",
+        "ABC",
+        "24K Magic",
+        "Uptown Funk",
+        "Happy",
+        "Leave the Door Open",
+        "Finesse",
+        "Last Friday Night",
+        "Die With a Smile",
+        "Crazy",
+        "Move on Up",
+        "Dancing in the Moonlight",
+        "Mr. Brightside",
+        "I've Got You Under My Skin",
+        "Sunflower",
+        "Loving Is Easy",
+        "If You're Too Shy",
+        "Marry You",
+        "Smooth Operator",
+        "Kiss of Life",
+        // MuseScore scores (not on Spotify)
+        "From the Start",
+        "Boogie Wonderland",
+        "Robbers",
+        "Just the Two of Us",
+        "Man I Need",
+        "Juna",
+        "Bags",
+        "Don't You Worry 'Bout a Thing",
+        "Dolphin Shoals",
+        "Family Guy Theme",
+      ];
 
       // -----------------------------------------------------------------------
       // Roster - maps lowercase first name to profile
@@ -289,7 +336,7 @@
         jacob:     { display: "Jacob",    section: "Bones",    instrument: "Trombone" },
         luke:      { display: "Luke",     section: "Saxes",    instrument: "Saxophone" },
         caden:     { display: "Caden",    section: "Saxes",    instrument: "Saxophone / Piano / Vocals", vocalist: true },
-        william:   { display: "William",  section: "Saxes",    instrument: "Saxophone" },
+        william:   { display: "William",  section: "Saxes",    instrument: "Saxophone", vocalist: true },
         alex:      { display: "Alex",     section: "Rhythm",   instrument: "Guitar" },
         max:       { display: "Max",      section: "Rhythm",   instrument: "Bass" },
         meredith:  { display: "Meredith", section: "Rhythm",   instrument: "Piano" },
@@ -314,8 +361,101 @@
       //     gab: "parts/gab/fly-me-to-the-moon.pdf",
       //   }
       // -----------------------------------------------------------------------
+      const W1 = "parts/wave1";
       const PARTS_FILES = {
-        // add entries here as files are uploaded
+        "spider-man-theme": {
+          scott: `${W1}/spider-man-theme/trumpet-1.pdf`, benji: `${W1}/spider-man-theme/trumpet-2.pdf`, chris: `${W1}/spider-man-theme/trumpet-3.pdf`,
+          austin: `${W1}/spider-man-theme/trombone-1.pdf`, steve: `${W1}/spider-man-theme/trombone-2.pdf`, jacob: `${W1}/spider-man-theme/trombone-3.pdf`,
+          luke: `${W1}/spider-man-theme/alto-1.pdf`, william: `${W1}/spider-man-theme/tenor-1.pdf`, caden: `${W1}/spider-man-theme/bari-sax.pdf`,
+          alex: `${W1}/spider-man-theme/guitar.pdf`, max: `${W1}/spider-man-theme/bass.pdf`,
+          meredith: `${W1}/spider-man-theme/vocal-piano.pdf`, sara: `${W1}/spider-man-theme/vocal-piano.pdf`,
+          annie: `${W1}/spider-man-theme/drums.pdf`, liam: `${W1}/spider-man-theme/drums.pdf`,
+          karthik: `${W1}/spider-man-theme/vocal-piano.pdf`,
+        },
+        "l-o-v-e": {
+          scott: `${W1}/l-o-v-e/solo-trumpet.pdf`,
+          austin: `${W1}/l-o-v-e/trombone.pdf`, steve: `${W1}/l-o-v-e/trombone.pdf`, jacob: `${W1}/l-o-v-e/trombone.pdf`,
+          luke: `${W1}/l-o-v-e/alto-sax.pdf`, william: `${W1}/l-o-v-e/tenor-sax.pdf`, caden: `${W1}/l-o-v-e/bari-sax.pdf`,
+          meredith: `${W1}/l-o-v-e/piano.pdf`, sara: `${W1}/l-o-v-e/piano.pdf`, max: `${W1}/l-o-v-e/bass.pdf`,
+          annie: `${W1}/l-o-v-e/drums.pdf`, liam: `${W1}/l-o-v-e/drums.pdf`,
+          karthik: `${W1}/l-o-v-e/vocals.pdf`,
+        },
+        "mack-the-knife": {
+          scott: `${W1}/mack-the-knife/trumpet-1.pdf`, benji: `${W1}/mack-the-knife/trumpet-2.pdf`, chris: `${W1}/mack-the-knife/trumpet-2.pdf`,
+          austin: `${W1}/mack-the-knife/trombone-1.pdf`, steve: `${W1}/mack-the-knife/trombone-2.pdf`, jacob: `${W1}/mack-the-knife/trombone-3.pdf`,
+          luke: `${W1}/mack-the-knife/alto-1.pdf`, william: `${W1}/mack-the-knife/tenor-1.pdf`, caden: `${W1}/mack-the-knife/tenor-2.pdf`,
+          alex: `${W1}/mack-the-knife/guitar.pdf`, meredith: `${W1}/mack-the-knife/piano.pdf`, sara: `${W1}/mack-the-knife/piano.pdf`,
+          annie: `${W1}/mack-the-knife/drums.pdf`, liam: `${W1}/mack-the-knife/drums.pdf`,
+          karthik: `${W1}/mack-the-knife/vocals.pdf`,
+        },
+        "moondance": {
+          scott: `${W1}/moondance/trumpet-1.pdf`, benji: `${W1}/moondance/trumpet-2.pdf`, chris: `${W1}/moondance/trumpet-3.pdf`,
+          austin: `${W1}/moondance/trombone-1.pdf`, steve: `${W1}/moondance/trombone-3.pdf`, jacob: `${W1}/moondance/bass-trombone.pdf`,
+          luke: `${W1}/moondance/alto-1.pdf`, william: `${W1}/moondance/tenor-1.pdf`, caden: `${W1}/moondance/bari-sax.pdf`,
+          alex: `${W1}/moondance/guitar.pdf`, max: `${W1}/moondance/bass.pdf`, meredith: `${W1}/moondance/piano.pdf`, sara: `${W1}/moondance/piano.pdf`,
+          annie: `${W1}/moondance/drums.pdf`, liam: `${W1}/moondance/drums.pdf`,
+          karthik: `${W1}/moondance/vocals.pdf`,
+        },
+        "orange-colored-sky": {
+          scott: `${W1}/orange-colored-sky/trumpet-1.pdf`, benji: `${W1}/orange-colored-sky/trumpet-2.pdf`, chris: `${W1}/orange-colored-sky/trumpet-3.pdf`,
+          austin: `${W1}/orange-colored-sky/trombone-1.pdf`, steve: `${W1}/orange-colored-sky/trombone-2.pdf`, jacob: `${W1}/orange-colored-sky/trombone-3.pdf`,
+          luke: `${W1}/orange-colored-sky/alto-1.pdf`, william: `${W1}/orange-colored-sky/tenor-1.pdf`, caden: `${W1}/orange-colored-sky/bari-sax.pdf`,
+          alex: `${W1}/orange-colored-sky/guitar.pdf`, max: `${W1}/orange-colored-sky/bass.pdf`, meredith: `${W1}/orange-colored-sky/piano.pdf`, sara: `${W1}/orange-colored-sky/piano.pdf`,
+          annie: `${W1}/orange-colored-sky/drum-set.pdf`, liam: `${W1}/orange-colored-sky/drums.pdf`,
+          karthik: `${W1}/orange-colored-sky/full-score.pdf`,
+        },
+        "feeling-good": {
+          scott: `${W1}/feeling-good/all-parts.pdf`, benji: `${W1}/feeling-good/all-parts.pdf`, chris: `${W1}/feeling-good/all-parts.pdf`, elayna: `${W1}/feeling-good/all-parts.pdf`,
+          austin: `${W1}/feeling-good/all-parts.pdf`, steve: `${W1}/feeling-good/all-parts.pdf`, jacob: `${W1}/feeling-good/all-parts.pdf`,
+          luke: `${W1}/feeling-good/all-parts.pdf`, william: `${W1}/feeling-good/all-parts.pdf`, caden: `${W1}/feeling-good/all-parts.pdf`,
+          alex: `${W1}/feeling-good/all-parts.pdf`, max: `${W1}/feeling-good/all-parts.pdf`, meredith: `${W1}/feeling-good/all-parts.pdf`, sara: `${W1}/feeling-good/all-parts.pdf`,
+          nathan: `${W1}/feeling-good/all-parts.pdf`, annie: `${W1}/feeling-good/all-parts.pdf`, liam: `${W1}/feeling-good/all-parts.pdf`,
+          karthik: `${W1}/feeling-good/all-parts.pdf`,
+        },
+        "skyfall": {
+          scott: `${W1}/skyfall/trumpet-1.pdf`, benji: `${W1}/skyfall/trumpet-3.pdf`, chris: `${W1}/skyfall/trumpet-4.pdf`,
+          austin: `${W1}/skyfall/trombone-1.pdf`, steve: `${W1}/skyfall/trombone-2.pdf`, jacob: `${W1}/skyfall/trombone-3.pdf`,
+          luke: `${W1}/skyfall/alto-1.pdf`, william: `${W1}/skyfall/tenor-1.pdf`, caden: `${W1}/skyfall/bari-sax.pdf`,
+          alex: `${W1}/skyfall/guitar.pdf`, max: `${W1}/skyfall/bass.pdf`, meredith: `${W1}/skyfall/piano.pdf`, sara: `${W1}/skyfall/piano.pdf`,
+          maya: `${W1}/skyfall/vocals.pdf`,
+        },
+        "sunday-morning": {
+          scott: `${W1}/sunday-morning/trumpet.pdf`,
+          luke: `${W1}/sunday-morning/alto.pdf`, william: `${W1}/sunday-morning/clarinet.pdf`,
+          alex: `${W1}/sunday-morning/rhythm.pdf`, nathan: `${W1}/sunday-morning/rhythm.pdf`,
+          max: `${W1}/sunday-morning/bass.pdf`, meredith: `${W1}/sunday-morning/piano.pdf`, sara: `${W1}/sunday-morning/piano-melody-riff.pdf`,
+          annie: `${W1}/sunday-morning/drums.pdf`, liam: `${W1}/sunday-morning/drums.pdf`,
+        },
+        "i-want-you-back": {
+          scott: `${W1}/i-want-you-back/trumpet-1.pdf`, benji: `${W1}/i-want-you-back/trumpet-2.pdf`, chris: `${W1}/i-want-you-back/trumpet-3.pdf`,
+          austin: `${W1}/i-want-you-back/trombone-1.pdf`, steve: `${W1}/i-want-you-back/trombone-2.pdf`, jacob: `${W1}/i-want-you-back/trombone-3.pdf`,
+          luke: `${W1}/i-want-you-back/alto-1.pdf`, william: `${W1}/i-want-you-back/tenor-1.pdf`, caden: `${W1}/i-want-you-back/alto-2.pdf`,
+          alex: `${W1}/i-want-you-back/guitar.pdf`, max: `${W1}/i-want-you-back/bass.pdf`, meredith: `${W1}/i-want-you-back/piano.pdf`, sara: `${W1}/i-want-you-back/piano.pdf`,
+          annie: `${W1}/i-want-you-back/drums.pdf`, liam: `${W1}/i-want-you-back/drums.pdf`,
+        },
+        "dancing-queen": {
+          scott: `${W1}/dancing-queen/trumpet.pdf`, benji: `${W1}/dancing-queen/trumpet.pdf`, chris: `${W1}/dancing-queen/trumpet.pdf`, elayna: `${W1}/dancing-queen/flute.pdf`,
+          austin: `${W1}/dancing-queen/trombone-1.pdf`, steve: `${W1}/dancing-queen/trombone-2.pdf`, jacob: `${W1}/dancing-queen/trombone-3.pdf`,
+          luke: `${W1}/dancing-queen/alto-sax.pdf`, william: `${W1}/dancing-queen/clarinet-1.pdf`, caden: `${W1}/dancing-queen/clarinet-2.pdf`,
+          alex: `${W1}/dancing-queen/guitar.pdf`, max: `${W1}/dancing-queen/bass.pdf`, meredith: `${W1}/dancing-queen/piano.pdf`, sara: `${W1}/dancing-queen/honky-tonk-piano.pdf`,
+          annie: [`${W1}/dancing-queen/snare-drum.pdf`, `${W1}/dancing-queen/bass-drum-1.pdf`, `${W1}/dancing-queen/hi-hat.pdf`],
+          liam: [`${W1}/dancing-queen/cabasa.pdf`, `${W1}/dancing-queen/maracas.pdf`, `${W1}/dancing-queen/tam-tam.pdf`, `${W1}/dancing-queen/bass-drum-2.pdf`],
+        },
+        "september": {
+          scott: `${W1}/september/trumpet.pdf`, benji: `${W1}/september/trumpet-1-original.pdf`, chris: `${W1}/september/trumpet-2-original.pdf`, elayna: `${W1}/september/clarinet-strings.pdf`,
+          austin: `${W1}/september/trombone-1-original.pdf`, steve: `${W1}/september/trombone-2-original.pdf`, jacob: `${W1}/september/trombone-2-original.pdf`,
+          luke: `${W1}/september/alto-1.pdf`, william: `${W1}/september/tenor-1-original.pdf`, caden: `${W1}/september/tenor-1-original.pdf`,
+          alex: `${W1}/september/guitar.pdf`, nathan: `${W1}/september/keyboard.pdf`,
+          max: `${W1}/september/bass.pdf`, meredith: `${W1}/september/piano.pdf`, sara: `${W1}/september/piano.pdf`,
+          annie: `${W1}/september/drums.pdf`, liam: `${W1}/september/drums.pdf`,
+        },
+        "sweet-caroline": {
+          scott: `${W1}/sweet-caroline/trumpet-1.pdf`, benji: `${W1}/sweet-caroline/trumpet-2.pdf`, chris: `${W1}/sweet-caroline/trumpet-3.pdf`, elayna: `${W1}/sweet-caroline/flute.pdf`,
+          austin: `${W1}/sweet-caroline/trombone-1.pdf`, steve: `${W1}/sweet-caroline/trombone-2.pdf`, jacob: `${W1}/sweet-caroline/trombone-3.pdf`,
+          luke: `${W1}/sweet-caroline/alto-1.pdf`, william: `${W1}/sweet-caroline/tenor-1.pdf`, caden: `${W1}/sweet-caroline/bari-sax.pdf`,
+          alex: `${W1}/sweet-caroline/guitar.pdf`, max: `${W1}/sweet-caroline/bass.pdf`, meredith: `${W1}/sweet-caroline/piano.pdf`, sara: `${W1}/sweet-caroline/piano.pdf`,
+          annie: `${W1}/sweet-caroline/drums.pdf`, liam: `${W1}/sweet-caroline/drums.pdf`,
+        },
       };
 
       // -----------------------------------------------------------------------
@@ -444,14 +584,16 @@
         els.sectionDisplay.textContent = person.section;
         els.instrumentDisplay.textContent = person.instrument;
 
-        // Vocalist: show song list
+        // Vocalists: their claimed songs, with vocal part downloads where ready
         const songs = (person.vocalist && VOCALIST_SONGS[key]) || [];
+        const claimedSlugs = new Set(songs.map(slugify));
         if (songs.length) {
           els.songsBlock.classList.remove("hidden");
           els.songsList.innerHTML = "";
           for (const song of songs) {
             const slug = slugify(song);
-            const file = (PARTS_FILES[slug] || {})[key];
+            let file = (PARTS_FILES[slug] || {})[key];
+            if (Array.isArray(file)) file = file[0];
             const row = document.createElement("div");
             row.className = "song-row";
             row.innerHTML =
@@ -461,27 +603,35 @@
                 : `<button class="dl-btn" disabled>Coming soon</button>`);
             els.songsList.appendChild(row);
           }
-          // Vocalists: hide the generic parts block
-          els.partsBlock.classList.add("hidden");
         } else {
           els.songsBlock.classList.add("hidden");
-          // Instrument players: show parts block
-          els.partsBlock.classList.remove("hidden");
-          const playerParts = Object.entries(PARTS_FILES)
-            .filter(([, fileMap]) => fileMap[key])
-            .map(([slug, fileMap]) => ({ slug, file: fileMap[key] }));
+        }
 
-          if (playerParts.length) {
-            els.partsList.innerHTML = playerParts.map(({ slug, file }) =>
-              `<div class="song-row">
-                <span class="song-title">${esc(unslugify(slug))}</span>
-                <a class="dl-btn" href="${esc(file)}" download>Download</a>
-              </div>`
-            ).join("");
-          } else {
-            els.partsList.innerHTML =
-              `<div class="coming-soon">Parts are being prepped and will appear here soon. Check back closer to the reunion!</div>`;
-          }
+        // Instrument parts for everyone (vocalist-players like sax/vocal doubles included)
+        const playerParts = [];
+        for (const [slug, fileMap] of Object.entries(PARTS_FILES)) {
+          if (claimedSlugs.has(slug)) continue;
+          const v = fileMap[key];
+          if (!v) continue;
+          const files = Array.isArray(v) ? v : [v];
+          for (const file of files) playerParts.push({ slug, file });
+        }
+
+        if (playerParts.length) {
+          els.partsBlock.classList.remove("hidden");
+          els.partsList.innerHTML = playerParts.map(({ slug, file }) => {
+            const part = unslugify(file.split("/").pop().replace(/\.pdf$/i, ""));
+            return `<div class="song-row">
+              <span class="song-title">${esc(unslugify(slug))}<span class="part-label">· ${esc(part)}</span></span>
+              <a class="dl-btn" href="${esc(file)}" download>Download</a>
+            </div>`;
+          }).join("");
+        } else if (!songs.length) {
+          els.partsBlock.classList.remove("hidden");
+          els.partsList.innerHTML =
+            `<div class="coming-soon">Parts are being prepped and will appear here soon. Check back closer to the reunion!</div>`;
+        } else {
+          els.partsBlock.classList.add("hidden");
         }
 
         els.partsView.classList.remove("hidden");
