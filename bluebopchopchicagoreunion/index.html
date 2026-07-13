@@ -10,7 +10,7 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Chicago Blue Chops Reunion!" />
-    <meta property="og:description" content="August 2026 — tap every weekend you're free." />
+    <meta property="og:description" content="Log in to see your part assignments and download your charts." />
     <meta property="og:image" content="https://williamzhangdesign.github.io/bluebopchopchicagoreunion/blue-chops.png" />
     <meta property="og:image:width" content="960" />
     <meta property="og:image:height" content="720" />
@@ -18,7 +18,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Chicago Blue Chops Reunion!" />
-    <meta name="twitter:description" content="August 2026 — tap every weekend you're free." />
+    <meta name="twitter:description" content="Log in to see your part assignments and download your charts." />
     <meta name="twitter:image" content="https://williamzhangdesign.github.io/bluebopchopchicagoreunion/blue-chops.png" />
     <style>
       :root {
@@ -38,395 +38,506 @@
         background: var(--bg);
         color: var(--text);
         min-height: 100vh;
-        padding: 24px 16px 48px;
+        padding: 24px 16px 64px;
         -webkit-tap-highlight-color: transparent;
       }
       .wrap { max-width: 520px; margin: 0 auto; }
       h1 { font-size: 22px; margin: 0 0 4px; }
       .sub { color: var(--muted); margin: 0 0 20px; font-size: 14px; }
       .invite { font-size: 16px; margin: 0 0 16px; line-height: 1.4; }
+
+      /* Gate */
       .gate label { display: block; margin-bottom: 12px; font-size: 15px; color: var(--muted); }
       input[type="text"] {
-        width: 100%;
-        font: inherit;
-        font-size: 18px;
-        padding: 14px 16px;
-        border-radius: 10px;
-        border: 1px solid var(--border);
-        background: var(--panel);
-        color: var(--text);
-        outline: none;
+        width: 100%; font: inherit; font-size: 18px;
+        padding: 14px 16px; border-radius: 10px;
+        border: 1px solid var(--border); background: var(--panel);
+        color: var(--text); outline: none;
       }
       input[type="text"]:focus { border-color: var(--accent); }
       .btn {
-        display: inline-block;
-        margin-top: 12px;
-        width: 100%;
-        padding: 14px 16px;
-        font: inherit;
-        font-size: 17px;
-        font-weight: 600;
-        border-radius: 10px;
-        border: 1px solid var(--accent);
-        background: var(--accent);
-        color: var(--accent-ink);
-        cursor: pointer;
-      }
-      .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-      .btn .btn-spinner {
-        display: none;
-        width: 16px; height: 16px;
-        border: 2.5px solid var(--accent-ink);
-        border-top-color: transparent;
-        border-radius: 50%;
-        animation: spin 0.7s linear infinite;
-        vertical-align: middle;
-        margin-right: 8px;
-      }
-      .btn.loading { cursor: wait; }
-      .btn.loading .btn-spinner { display: inline-block; }
-      @keyframes spin { to { transform: rotate(360deg); } }
-      .loading-hint {
-        margin-top: 12px; padding: 10px 14px; border-radius: 8px;
-        background: var(--panel); border: 1px dashed var(--border);
-        color: var(--muted); font-size: 13px; text-align: center; line-height: 1.4;
+        display: inline-block; margin-top: 12px; width: 100%;
+        padding: 14px 16px; font: inherit; font-size: 17px; font-weight: 600;
+        border-radius: 10px; border: 1px solid var(--accent);
+        background: var(--accent); color: var(--accent-ink); cursor: pointer;
       }
       .err { color: var(--error); font-size: 13px; margin-top: 8px; min-height: 1em; }
-      .setup-warn {
-        margin-top: 16px; padding: 12px 14px; border-radius: 10px;
-        background: #422006; color: #fed7aa; border: 1px solid #9a3412;
-        font-size: 13px; line-height: 1.5;
-      }
-      .setup-warn code { background: rgba(0,0,0,.3); padding: 1px 5px; border-radius: 4px; }
+
+      /* Parts view */
       .hello { font-size: 18px; margin: 0 0 4px; }
-      .hint { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
-      .weeks { display: grid; gap: 10px; margin-bottom: 24px; }
-      .week {
-        display: flex; align-items: center; justify-content: space-between;
-        min-height: 56px; padding: 12px 16px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        background: var(--panel);
-        color: var(--text);
-        font-size: 17px;
-        cursor: pointer; user-select: none;
-        transition: background 0.12s, border-color 0.12s, transform 0.05s;
-      }
-      .week:active { transform: scale(0.99); }
-      .week[aria-pressed="true"] {
-        background: var(--accent); border-color: var(--accent); color: var(--accent-ink);
-      }
-      .check {
-        width: 22px; height: 22px; border-radius: 50%;
-        border: 1.5px solid var(--muted);
-        display: grid; place-items: center; flex: 0 0 auto;
-      }
-      .week[aria-pressed="true"] .check {
-        border-color: var(--accent-ink); background: var(--accent-ink);
-      }
-      .check svg { display: block; opacity: 0; }
-      .week[aria-pressed="true"] .check svg { opacity: 1; }
-      .summary h2 {
-        font-size: 14px; color: var(--muted);
-        text-transform: uppercase; letter-spacing: 0.08em;
-        margin: 0 0 10px;
-      }
-      .row {
-        display: flex; align-items: baseline; justify-content: space-between;
-        padding: 10px 12px;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        margin-bottom: 8px;
-        background: var(--panel);
-      }
-      .row .label { font-weight: 500; }
-      .row .count { color: var(--muted); font-size: 13px; margin-left: 8px; }
-      .row .names { color: var(--muted); font-size: 13px; max-width: 60%; text-align: right; }
-      .row .names.empty { font-style: italic; }
-      .row .names .golden { color: #c9a227; font-weight: 600; }
-      .status { font-size: 12px; color: var(--muted); margin-top: 12px; text-align: center; min-height: 1em; }
       .switch {
-        display: inline-block; margin-top: 16px;
-        color: var(--muted); font-size: 13px;
+        display: inline-block; color: var(--muted); font-size: 13px;
         background: none; border: 0; padding: 4px 0; cursor: pointer;
       }
       .switch:hover { color: var(--text); }
+
+      .section-card {
+        margin: 18px 0 26px;
+        padding: 16px 18px; border-radius: 14px;
+        border: 1px solid var(--border); background: var(--panel);
+        display: flex; flex-direction: column; gap: 4px;
+      }
+      .section-card .card-label {
+        font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted);
+      }
+      .section-card .card-section { font-size: 22px; font-weight: 700; color: var(--accent); }
+      .section-card .card-instrument { font-size: 15px; color: var(--muted); }
+
+      .block-title {
+        font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+        color: var(--muted); margin: 0 0 10px;
+      }
+
+      .songs { display: grid; gap: 8px; margin-bottom: 28px; }
+      .song-row {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 12px 14px; border-radius: 10px;
+        border: 1px solid var(--border); background: var(--panel);
+        gap: 12px;
+      }
+      .song-title { font-size: 15px; font-weight: 500; }
+
+      .dl-btn {
+        flex: 0 0 auto;
+        padding: 6px 14px; font: inherit; font-size: 13px; font-weight: 600;
+        border-radius: 8px; border: 1px solid var(--accent);
+        background: transparent; color: var(--accent); cursor: pointer;
+        text-decoration: none; white-space: nowrap;
+      }
+      .dl-btn:disabled {
+        border-color: var(--border); color: var(--muted); cursor: default;
+      }
+
+      .survey-row {
+        display: flex; align-items: baseline; justify-content: space-between;
+        padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px;
+        margin-bottom: 8px; background: var(--panel);
+      }
+      .survey-row .sr-label { font-weight: 500; }
+      .survey-row .sr-names { color: var(--muted); font-size: 13px; text-align: right; max-width: 60%; }
+      .survey-row .sr-names.empty { font-style: italic; }
+
+      .coming-soon {
+        padding: 20px 18px; border-radius: 12px;
+        border: 1px dashed var(--border); background: var(--panel);
+        color: var(--muted); font-size: 14px; text-align: center; line-height: 1.6;
+      }
+
+      .not-found-card {
+        margin-top: 24px; padding: 24px 18px; border-radius: 12px;
+        border: 1px solid var(--border); background: var(--panel);
+        text-align: center; line-height: 1.6;
+      }
+      .not-found-card .nf-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+      .not-found-card .nf-sub { font-size: 14px; color: var(--muted); }
+
+      /* Survey */
+      .survey-intro { font-size: 16px; margin: 0 0 22px; line-height: 1.5; }
+      .q-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin: 0 0 10px; }
+      .choices { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+      .choice {
+        padding: 10px 20px; border-radius: 10px;
+        border: 1px solid var(--border); background: var(--panel);
+        color: var(--text); font: inherit; font-size: 16px; cursor: pointer;
+      }
+      .choice[aria-pressed="true"] {
+        background: var(--accent); border-color: var(--accent);
+        color: var(--accent-ink); font-weight: 600;
+      }
+
       .hidden { display: none !important; }
     </style>
   </head>
   <body>
     <div class="wrap">
-      <p class="invite">William is inviting you to come to Chicago for a blue bop/chop reunion/dancing through the decades reunion.</p>
-      <h1>August 2026 — which weekends work?</h1>
-      <p class="sub">No login. Just your first name. Tap every weekend you're free.</p>
-      <p class="sub" style="color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:20px;">All dates are listed as <strong>Friday to Sunday</strong>. You're welcome to come crash earlier if you're staying with me (Will Zhang)!</p>
+      <p class="invite">William is inviting you to come to Chicago for a blue bop/chop reunion / dancing through the decades reunion.</p>
+      <h1>DTTD Chicago Reunion</h1>
+      <p class="sub">Enter your first name to see your assignments and download your parts.</p>
 
       <section id="gate" class="gate">
         <label for="name-input">Your first name</label>
         <input id="name-input" type="text" autocomplete="given-name" autocapitalize="words"
-               inputmode="text" maxlength="30" spellcheck="false" placeholder="e.g. Alex" />
-        <button id="continue-btn" class="btn" type="button"><span class="btn-spinner" aria-hidden="true"></span><span class="btn-label">Continue</span></button>
-        <div id="loading-hint" class="loading-hint hidden">
-          Heads up — this can take a few seconds to load. Hang tight!
-        </div>
+               inputmode="text" maxlength="30" spellcheck="false" placeholder="e.g. Karthik" />
+        <button id="continue-btn" class="btn" type="button">Continue</button>
         <div id="gate-err" class="err"></div>
       </section>
 
-      <section id="picker" class="hidden">
-        <p class="hello">Hey, <span id="hello-name"></span> <button id="switch-btn" class="switch" type="button">(not you?)</button></p>
-        <p class="hint">Tap each weekend you're available. Changes save automatically.</p>
-        <div id="weeks" class="weeks" role="group" aria-label="August 2026 weekends"></div>
+      <section id="survey-view" class="hidden">
+        <p class="survey-intro">One quick thing before your parts, <span id="survey-name"></span>.</p>
 
-        <div id="summary-section" class="summary hidden">
-          <h2>Who's in</h2>
-          <div id="summary"></div>
+        <p class="q-label">Bring a bottle</p>
+        <div class="choices" id="bottle-choices">
+          <button class="choice" data-val="red" aria-pressed="false">Red</button>
+          <button class="choice" data-val="white" aria-pressed="false">White</button>
+          <button class="choice" data-val="prosecco" aria-pressed="false">Prosecco</button>
         </div>
 
-        <div id="status" class="status"></div>
+        <p class="q-label">Crashing on Will's couch in the big house?</p>
+        <div class="choices" id="couch-choices">
+          <button class="choice" data-val="yes" aria-pressed="false">Yes</button>
+          <button class="choice" data-val="no" aria-pressed="false">No</button>
+        </div>
+
+        <button id="survey-submit" class="btn" type="button" disabled>Submit</button>
+        <div id="survey-err" class="err"></div>
+      </section>
+
+      <section id="parts-view" class="hidden">
+        <p class="hello">Hey, <span id="hello-name"></span>! <button id="switch-btn" class="switch" type="button">(not you?)</button></p>
+
+        <div class="section-card">
+          <span class="card-label">Your section</span>
+          <span class="card-section" id="section-display"></span>
+          <span class="card-instrument" id="instrument-display"></span>
+        </div>
+
+        <div id="songs-block" class="hidden">
+          <p class="block-title">Your Songs</p>
+          <div id="songs-list" class="songs"></div>
+        </div>
+
+        <div id="parts-block">
+          <p class="block-title">Parts &amp; Charts</p>
+          <div id="parts-list"></div>
+        </div>
+
+        <div id="survey-results" class="hidden">
+          <p class="block-title" style="margin-top:28px">Survey responses</p>
+          <div id="survey-results-list"></div>
+        </div>
+      </section>
+
+      <section id="not-found-view" class="hidden">
+        <div class="not-found-card">
+          <div class="nf-title">Name not found</div>
+          <div class="nf-sub">That name is not on the roster yet. Double-check your spelling, or reach out to William if something looks wrong.</div>
+        </div>
       </section>
     </div>
 
     <script type="module">
       import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+      const supabase = createClient(
+        "https://xybpmnkamxeneblltnzf.supabase.co",
+        "sb_publishable_bTYxoBB6kE_jIzEv1KazCg_IjDhaT3_"
+      );
 
-      const SUPABASE_URL = "https://xybpmnkamxeneblltnzf.supabase.co";
-      const SUPABASE_KEY = "sb_publishable_bTYxoBB6kE_jIzEv1KazCg_IjDhaT3_";
-      const TABLE = "reunion_users";
-      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-      const WEEKS = [
-        { id: 0, label: "Aug 7 – Aug 9" },
-        { id: 1, label: "Aug 14 – Aug 16" },
-        { id: 2, label: "Aug 21 – Aug 23" },
-        { id: 3, label: "Aug 28 – Aug 30" },
-        { id: 4, label: "Sep 4 – Sep 6" },
-      ];
-      const VALID_IDS = new Set(WEEKS.map((w) => w.id));
-      const CHECK_SVG = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>';
-
-      const state = {
-        name: null,
-        mine: new Set(),
-        all: {},
-        saving: false,
-        dirty: false,
-        committed: false,
-        channel: null,
+      // -----------------------------------------------------------------------
+      // Vocalist song lists (what each vocalist indicated they can/want to sing)
+      // -----------------------------------------------------------------------
+      const VOCALIST_SONGS = {
+        karthik: [
+          "Spider-Man Theme",
+          "Feeling Good",
+          "Can't Take My Eyes Off You",
+          "L-O-V-E",
+          "Orange Colored Sky",
+          "Beyond the Sea",
+          "Fly Me to the Moon",
+          "Moondance",
+          "Mack the Knife",
+        ],
+        maya: [
+          "Everybody Wants to Rule the World",
+          "Sunday Morning",
+          "Signed Sealed Delivered",
+          "Put Your Records On",
+          "Me & Mr. Jones",
+          "Gravity",
+          "Sir Duke",
+          "Murder on the Dancefloor",
+          "Don't Know Why",
+          "Skyfall",
+          "Watermelon Sugar",
+          "Valerie",
+          "Superstition",
+          "I Want You Back",
+          "Save Your Tears",
+          "Rein Me In",
+        ],
+        gab: [
+          "Fly Me to the Moon",
+          "Skyfall",
+          "Valerie",
+          "Watermelon Sugar",
+          "So Easy (To Fall in Love)",
+          "Dancing Queen",
+        ],
+        nate: [
+          "Spider-Man Theme",
+          "Play That Funky Music",
+          "Skate",
+          "Cheek to Cheek",
+          "New York, New York",
+        ],
+        caden: [
+          "Ain't No Mountain High Enough (duet)",
+          "Valerie (duet)",
+        ],
       };
 
+      // -----------------------------------------------------------------------
+      // Roster - maps lowercase first name to profile
+      // -----------------------------------------------------------------------
+      const ROSTER = {
+        scott:     { display: "Scott",    section: "Trumpets", instrument: "Trumpet" },
+        benji:     { display: "Benji",    section: "Trumpets", instrument: "Trumpet" },
+        chris:     { display: "Chris",    section: "Trumpets", instrument: "Trumpet" },
+        elayna:    { display: "Elayna",   section: "Trumpets", instrument: "Flute" },
+        austin:    { display: "Austin",   section: "Bones",    instrument: "Trombone" },
+        steve:     { display: "Steve",    section: "Bones",    instrument: "Trombone" },
+        jacob:     { display: "Jacob",    section: "Bones",    instrument: "Trombone" },
+        luke:      { display: "Luke",     section: "Saxes",    instrument: "Saxophone" },
+        caden:     { display: "Caden",    section: "Saxes",    instrument: "Saxophone / Piano / Vocals", vocalist: true },
+        william:   { display: "William",  section: "Saxes",    instrument: "Saxophone" },
+        alex:      { display: "Alex",     section: "Rhythm",   instrument: "Guitar" },
+        max:       { display: "Max",      section: "Rhythm",   instrument: "Bass" },
+        meredith:  { display: "Meredith", section: "Rhythm",   instrument: "Piano" },
+        sara:      { display: "Sara",     section: "Rhythm",   instrument: "Piano" },
+        nathan:    { display: "Nathan",   section: "Rhythm",   instrument: "Synths / Guitar / Percussion" },
+        annie:     { display: "Annie",    section: "Rhythm",   instrument: "Drums" },
+        liam:      { display: "Liam",     section: "Rhythm",   instrument: "Drumset / Percussion" },
+        karthik:   { display: "Karthik",  section: "Vocals",   instrument: "Vocals", vocalist: true },
+        maya:      { display: "Maya",     section: "Vocals",   instrument: "Vocals", vocalist: true },
+        gab:       { display: "Gab",      section: "Vocals",   instrument: "Vocals", vocalist: true },
+        gabrielle: { display: "Gab",      section: "Vocals",   instrument: "Vocals", vocalist: true },
+        nate:      { display: "Nate",     section: "Vocals",   instrument: "Vocals", vocalist: true },
+      };
+
+      // -----------------------------------------------------------------------
+      // Parts files - populate as PDFs are added to the repo.
+      // Format: { "song-key": { "name-key": "parts/name/file.pdf" } }
+      // Song keys and name keys must be lowercase.
+      // Example:
+      //   "fly-me-to-the-moon": {
+      //     karthik: "parts/karthik/fly-me-to-the-moon.pdf",
+      //     gab: "parts/gab/fly-me-to-the-moon.pdf",
+      //   }
+      // -----------------------------------------------------------------------
+      const PARTS_FILES = {
+        // add entries here as files are uploaded
+      };
+
+      // -----------------------------------------------------------------------
+      // UI
+      // -----------------------------------------------------------------------
       const els = {
-        gate: document.getElementById("gate"),
-        picker: document.getElementById("picker"),
-        nameInput: document.getElementById("name-input"),
-        continueBtn: document.getElementById("continue-btn"),
-        loadingHint: document.getElementById("loading-hint"),
-        gateErr: document.getElementById("gate-err"),
-        helloName: document.getElementById("hello-name"),
-        weeks: document.getElementById("weeks"),
-        summarySection: document.getElementById("summary-section"),
-        summary: document.getElementById("summary"),
-        status: document.getElementById("status"),
-        switchBtn: document.getElementById("switch-btn"),
+        gate:              document.getElementById("gate"),
+        surveyView:        document.getElementById("survey-view"),
+        surveyName:        document.getElementById("survey-name"),
+        bottleChoices:     document.getElementById("bottle-choices"),
+        couchChoices:      document.getElementById("couch-choices"),
+        surveySubmit:      document.getElementById("survey-submit"),
+        surveyErr:         document.getElementById("survey-err"),
+        partsView:         document.getElementById("parts-view"),
+        notFoundView:      document.getElementById("not-found-view"),
+        nameInput:         document.getElementById("name-input"),
+        continueBtn:       document.getElementById("continue-btn"),
+        gateErr:           document.getElementById("gate-err"),
+        helloName:         document.getElementById("hello-name"),
+        sectionDisplay:    document.getElementById("section-display"),
+        instrumentDisplay: document.getElementById("instrument-display"),
+        songsBlock:        document.getElementById("songs-block"),
+        songsList:         document.getElementById("songs-list"),
+        partsBlock:        document.getElementById("parts-block"),
+        partsList:         document.getElementById("parts-list"),
+        surveyResults:     document.getElementById("survey-results"),
+        surveyResultsList: document.getElementById("survey-results-list"),
+        switchBtn:         document.getElementById("switch-btn"),
       };
-
-      function setContinueLoading(loading) {
-        els.continueBtn.disabled = loading;
-        els.continueBtn.classList.toggle("loading", loading);
-        els.loadingHint.classList.toggle("hidden", !loading);
-      }
 
       const saved = localStorage.getItem("firstName");
       if (saved) els.nameInput.value = saved;
       els.nameInput.focus();
 
       els.nameInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") { e.preventDefault(); enterPicker(); }
+        if (e.key === "Enter") { e.preventDefault(); enter(); }
       });
-      els.continueBtn.addEventListener("click", enterPicker);
+      els.continueBtn.addEventListener("click", enter);
       els.switchBtn.addEventListener("click", signOut);
 
-      async function enterPicker() {
+      // -----------------------------------------------------------------------
+      // Survey logic
+      // -----------------------------------------------------------------------
+      let surveyKey = null;
+      let surveyBottle = null;
+      let surveyCouch = null;
+
+      function wireChoices(container, onPick) {
+        container.querySelectorAll(".choice").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            container.querySelectorAll(".choice").forEach((b) => b.setAttribute("aria-pressed", "false"));
+            btn.setAttribute("aria-pressed", "true");
+            onPick(btn.dataset.val);
+            updateSurveySubmit();
+          });
+        });
+      }
+
+      wireChoices(els.bottleChoices, (v) => { surveyBottle = v; });
+      wireChoices(els.couchChoices,  (v) => { surveyCouch  = v; });
+
+      function updateSurveySubmit() {
+        els.surveySubmit.disabled = !(surveyBottle && surveyCouch);
+      }
+
+      els.surveySubmit.addEventListener("click", async () => {
+        els.surveySubmit.disabled = true;
+        els.surveyErr.textContent = "";
+        try {
+          const { error } = await supabase.from("reunion_survey").upsert({
+            name: surveyKey,
+            bottle: surveyBottle,
+            crashing: surveyCouch === "yes",
+          });
+          if (error) throw error;
+        } catch {
+          // still proceed -- mark done and move on regardless
+        }
+        localStorage.setItem("surveyDone_" + surveyKey, "1");
+        showParts(surveyKey, ROSTER[surveyKey]);
+      });
+
+      // -----------------------------------------------------------------------
+      // Main enter flow
+      // -----------------------------------------------------------------------
+      function enter() {
         const raw = els.nameInput.value.trim();
         if (!raw) { els.gateErr.textContent = "Please enter your first name."; return; }
-        if (raw.length > 30) { els.gateErr.textContent = "Please keep it under 30 characters."; return; }
         els.gateErr.textContent = "";
-        setContinueLoading(true);
-        try {
-          await refresh();
-          state.name = raw;
-          localStorage.setItem("firstName", raw);
-          const key = raw.toLowerCase();
-          state.mine = state.all[key] ? new Set(state.all[key].weeks) : new Set();
-          state.committed = !!state.all[key];
-          els.helloName.textContent = raw;
-          els.gate.classList.add("hidden");
-          els.picker.classList.remove("hidden");
-          renderWeeks();
-          if (state.committed) {
-            els.summarySection.classList.remove("hidden");
-            renderSummary();
-          }
-          subscribeRealtime();
-        } catch (err) {
-          els.gateErr.textContent = "Couldn't reach the server. Check your connection and try again.";
-          console.error(err);
-        } finally {
-          setContinueLoading(false);
+
+        const key = raw.toLowerCase();
+        const person = ROSTER[key];
+        localStorage.setItem("firstName", raw);
+
+        els.gate.classList.add("hidden");
+        els.surveyView.classList.add("hidden");
+        els.partsView.classList.add("hidden");
+        els.notFoundView.classList.add("hidden");
+
+        if (!person) {
+          els.notFoundView.classList.remove("hidden");
+          return;
         }
+
+        if (!localStorage.getItem("surveyDone_" + key)) {
+          surveyKey = key;
+          surveyBottle = null;
+          surveyCouch = null;
+          els.bottleChoices.querySelectorAll(".choice").forEach((b) => b.setAttribute("aria-pressed", "false"));
+          els.couchChoices.querySelectorAll(".choice").forEach((b) => b.setAttribute("aria-pressed", "false"));
+          els.surveySubmit.disabled = true;
+          els.surveyName.textContent = person.display;
+          els.surveyView.classList.remove("hidden");
+          return;
+        }
+
+        showParts(key, person);
+      }
+
+      function showParts(key, person) {
+        els.gate.classList.add("hidden");
+        els.surveyView.classList.add("hidden");
+        els.notFoundView.classList.add("hidden");
+
+        els.helloName.textContent = person.display;
+        els.sectionDisplay.textContent = person.section;
+        els.instrumentDisplay.textContent = person.instrument;
+
+        // Vocalist: show song list
+        const songs = (person.vocalist && VOCALIST_SONGS[key]) || [];
+        if (songs.length) {
+          els.songsBlock.classList.remove("hidden");
+          els.songsList.innerHTML = "";
+          for (const song of songs) {
+            const slug = slugify(song);
+            const file = (PARTS_FILES[slug] || {})[key];
+            const row = document.createElement("div");
+            row.className = "song-row";
+            row.innerHTML =
+              `<span class="song-title">${esc(song)}</span>` +
+              (file
+                ? `<a class="dl-btn" href="${esc(file)}" download>Download</a>`
+                : `<button class="dl-btn" disabled>Coming soon</button>`);
+            els.songsList.appendChild(row);
+          }
+          // Vocalists: hide the generic parts block
+          els.partsBlock.classList.add("hidden");
+        } else {
+          els.songsBlock.classList.add("hidden");
+          // Instrument players: show parts block
+          els.partsBlock.classList.remove("hidden");
+          const playerParts = Object.entries(PARTS_FILES)
+            .filter(([, fileMap]) => fileMap[key])
+            .map(([slug, fileMap]) => ({ slug, file: fileMap[key] }));
+
+          if (playerParts.length) {
+            els.partsList.innerHTML = playerParts.map(({ slug, file }) =>
+              `<div class="song-row">
+                <span class="song-title">${esc(unslugify(slug))}</span>
+                <a class="dl-btn" href="${esc(file)}" download>Download</a>
+              </div>`
+            ).join("");
+          } else {
+            els.partsList.innerHTML =
+              `<div class="coming-soon">Parts are being prepped and will appear here soon. Check back closer to the reunion!</div>`;
+          }
+        }
+
+        els.partsView.classList.remove("hidden");
+        fetchSurveyResults();
+      }
+
+      async function fetchSurveyResults() {
+        const { data } = await supabase.from("reunion_survey").select("name, bottle, crashing");
+        if (!data || !data.length) return;
+
+        const bottles = { red: [], white: [], prosecco: [] };
+        const crashing = { yes: [], no: [] };
+        for (const row of data) {
+          const label = (ROSTER[row.name] || {}).display || row.name;
+          if (bottles[row.bottle]) bottles[row.bottle].push(label);
+          crashing[row.crashing ? "yes" : "no"].push(label);
+        }
+
+        const rows = [
+          { label: "Red",      names: bottles.red },
+          { label: "White",    names: bottles.white },
+          { label: "Prosecco", names: bottles.prosecco },
+          { label: "Crashing", names: crashing.yes },
+          { label: "Not crashing", names: crashing.no },
+        ];
+
+        els.surveyResultsList.innerHTML = rows.map(({ label, names }) =>
+          `<div class="survey-row">
+            <span class="sr-label">${esc(label)}</span>
+            <span class="sr-names${names.length ? "" : " empty"}">${names.length ? names.map(esc).join(", ") : "nobody yet"}</span>
+          </div>`
+        ).join("");
+        els.surveyResults.classList.remove("hidden");
       }
 
       function signOut() {
-        unsubscribeRealtime();
-        state.name = null;
-        state.mine = new Set();
-        state.committed = false;
-        state.dirty = false;
         localStorage.removeItem("firstName");
         els.nameInput.value = "";
-        els.summarySection.classList.add("hidden");
-        els.picker.classList.add("hidden");
+        els.partsView.classList.add("hidden");
+        els.notFoundView.classList.add("hidden");
         els.gate.classList.remove("hidden");
         els.nameInput.focus();
       }
 
-      function renderWeeks() {
-        els.weeks.innerHTML = "";
-        for (const w of WEEKS) {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "week";
-          btn.setAttribute("aria-pressed", state.mine.has(w.id) ? "true" : "false");
-          btn.dataset.weekId = String(w.id);
-          btn.innerHTML = `<span class="label">${w.label}</span><span class="check">${CHECK_SVG}</span>`;
-          btn.addEventListener("click", () => toggleWeek(w.id, btn));
-          els.weeks.appendChild(btn);
-        }
+      function slugify(s) {
+        return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
       }
 
-      function renderSummary() {
-        els.summary.innerHTML = "";
-        for (const w of WEEKS) {
-          const takers = [];
-          for (const row of Object.values(state.all)) {
-            if (row.weeks.includes(w.id)) takers.push(row.display);
-          }
-          takers.sort((a, b) => a.localeCompare(b));
-          const row = document.createElement("div");
-          row.className = "row";
-          const GOLDEN_NAMES = new Set(["Maya", "Karthik"]);
-          const namesHtml = takers.length
-            ? `<span class="names">${takers.map(n => GOLDEN_NAMES.has(n) ? `<span class="golden">${escapeHtml(n)}</span>` : escapeHtml(n)).join(", ")}</span>`
-            : `<span class="names empty">nobody yet</span>`;
-          row.innerHTML =
-            `<span><span class="label">${w.label}</span><span class="count">· ${takers.length}</span></span>` +
-            namesHtml;
-          els.summary.appendChild(row);
-        }
+      function unslugify(s) {
+        return s.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
       }
 
-      function setStatus(text, isError) {
-        els.status.textContent = text;
-        els.status.style.color = isError ? "var(--error)" : "var(--muted)";
-      }
-
-      function toggleWeek(id, btn) {
-        if (state.mine.has(id)) state.mine.delete(id);
-        else state.mine.add(id);
-        btn.setAttribute("aria-pressed", state.mine.has(id) ? "true" : "false");
-        saveNow();
-      }
-
-      function saveNow() {
-        setStatus("Saving…");
-        state.dirty = true;
-        if (state.saving) return;
-        save();
-      }
-
-      async function save() {
-        state.saving = true;
-        state.dirty = false;
-        const weeks = [...state.mine].sort((a, b) => a - b);
-        const key = state.name.toLowerCase();
-        state.all[key] = { display: state.name, weeks };
-        try {
-          const { error } = await supabase
-            .from(TABLE)
-            .upsert({ name: key, display: state.name, weeks });
-          if (error) throw error;
-          setStatus("Saved.");
-          if (!state.committed) {
-            state.committed = true;
-            els.summarySection.classList.remove("hidden");
-          }
-          renderSummary();
-        } catch (err) {
-          console.error("save failed", err);
-          setStatus("Couldn't save — retrying.", true);
-          state.dirty = true;
-          setTimeout(() => { if (state.dirty && !state.saving) save(); }, 2000);
-        } finally {
-          state.saving = false;
-          if (state.dirty) save();
-        }
-      }
-
-      async function refresh() {
-        const { data, error } = await supabase
-          .from(TABLE)
-          .select("name, display, weeks");
-        if (error) throw error;
-        const users = {};
-        for (const row of data || []) {
-          users[row.name] = sanitizeRow(row);
-        }
-        state.all = users;
-        if (state.name && !state.dirty && !state.saving) {
-          const key = state.name.toLowerCase();
-          if (state.all[key]) state.mine = new Set(state.all[key].weeks);
-        }
-        if (state.name && state.committed) renderSummary();
-      }
-
-      function sanitizeRow(row) {
-        const display = typeof row.display === "string" ? row.display.slice(0, 30) : row.name;
-        const weeks = Array.isArray(row.weeks)
-          ? [...new Set(row.weeks.filter((n) => Number.isInteger(n) && VALID_IDS.has(n)))].sort((a,b)=>a-b)
-          : [];
-        return { display, weeks };
-      }
-
-      function subscribeRealtime() {
-        if (state.channel) return;
-        state.channel = supabase
-          .channel("reunion-users-changes")
-          .on(
-            "postgres_changes",
-            { event: "*", schema: "public", table: TABLE },
-            (payload) => {
-              if (payload.eventType === "DELETE") {
-                const k = payload.old && payload.old.name;
-                if (k) delete state.all[k];
-              } else if (payload.new && payload.new.name) {
-                state.all[payload.new.name] = sanitizeRow(payload.new);
-              }
-              if (state.committed) renderSummary();
-            }
-          )
-          .subscribe();
-      }
-
-      function unsubscribeRealtime() {
-        if (state.channel) {
-          supabase.removeChannel(state.channel);
-          state.channel = null;
-        }
-      }
-
-      function escapeHtml(s) {
-        return String(s).replace(/[&<>"']/g, (c) => ({
-          "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
-        })[c]);
+      function esc(s) {
+        return String(s).replace(/[&<>"']/g, (c) => (
+          { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+        ));
       }
     </script>
   </body>
