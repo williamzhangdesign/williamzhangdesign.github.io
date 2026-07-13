@@ -210,17 +210,24 @@
           <span class="card-instrument" id="instrument-display"></span>
         </div>
 
-        <button id="download-all" class="btn dl-all hidden" type="button">Download all my parts</button>
 
         <div id="songs-block" class="hidden">
           <p class="block-title">Your Songs</p>
           <div id="songs-list" class="songs"></div>
         </div>
 
-        <div id="parts-block">
-          <p class="block-title">Parts &amp; Charts</p>
-          <p class="wave-note">Download your parts below. More charts will be released as the setlist gets finalized.</p>
-          <div id="parts-list"></div>
+        <div id="wave1-block" class="hidden">
+          <p class="block-title">Wave 1 · Parts &amp; Charts</p>
+          <p class="wave-note">The first wave of music. Download your parts below.</p>
+          <button id="download-w1" class="btn dl-all hidden" type="button">Download all Wave 1 parts</button>
+          <div id="wave1-list"></div>
+        </div>
+
+        <div id="wave2-block" class="hidden">
+          <p class="block-title">Wave 2 · New Charts</p>
+          <p class="wave-note">Fresh batch! More charts will be released as the setlist gets finalized.</p>
+          <button id="download-w2" class="btn dl-all hidden" type="button">Download all Wave 2 parts</button>
+          <div id="wave2-list"></div>
         </div>
 
         <div id="survey-results" class="hidden">
@@ -601,9 +608,12 @@
         instrumentDisplay: document.getElementById("instrument-display"),
         songsBlock:        document.getElementById("songs-block"),
         songsList:         document.getElementById("songs-list"),
-        partsBlock:        document.getElementById("parts-block"),
-        partsList:         document.getElementById("parts-list"),
-        downloadAll:       document.getElementById("download-all"),
+        wave1Block:        document.getElementById("wave1-block"),
+        wave1List:         document.getElementById("wave1-list"),
+        wave2Block:        document.getElementById("wave2-block"),
+        wave2List:         document.getElementById("wave2-list"),
+        dlW1:              document.getElementById("download-w1"),
+        dlW2:              document.getElementById("download-w2"),
         surveyResults:     document.getElementById("survey-results"),
         surveyResultsList: document.getElementById("survey-results-list"),
         switchBtn:         document.getElementById("switch-btn"),
@@ -767,10 +777,9 @@
           for (const file of files) playerParts.push({ slug, file });
         }
 
-        if (playerParts.length) {
-          els.partsBlock.classList.remove("hidden");
+        function renderPartsList(items) {
           const bySong = new Map();
-          for (const p of playerParts) {
+          for (const p of items) {
             if (!bySong.has(p.slug)) bySong.set(p.slug, []);
             bySong.get(p.slug).push(p.file);
           }
@@ -791,63 +800,92 @@
               html += `<div class="song-note">${esc(SONG_NOTES[slug])}</div>`;
             }
           }
-          els.partsList.innerHTML = html;
-        } else if (!songs.length) {
-          els.partsBlock.classList.remove("hidden");
-          els.partsList.innerHTML =
-            `<div class="coming-soon">Parts are being prepped and will appear here soon. Check back closer to the reunion!</div>`;
-        } else {
-          els.partsBlock.classList.add("hidden");
+          return html;
         }
 
-        // Download-all button: every file this person has, deduped
-        myFiles = [];
+        const w1Items = playerParts.filter((p) => !p.file.startsWith(W2));
+        const w2Items = playerParts.filter((p) => p.file.startsWith(W2));
+
+        if (w1Items.length) {
+          els.wave1Block.classList.remove("hidden");
+          els.wave1List.innerHTML = renderPartsList(w1Items);
+        } else if (!songs.length) {
+          els.wave1Block.classList.remove("hidden");
+          els.wave1List.innerHTML =
+            `<div class="coming-soon">Parts are being prepped and will appear here soon. Check back closer to the reunion!</div>`;
+        } else {
+          els.wave1Block.classList.add("hidden");
+        }
+
+        if (w2Items.length) {
+          els.wave2Block.classList.remove("hidden");
+          els.wave2List.innerHTML = renderPartsList(w2Items);
+        } else {
+          els.wave2Block.classList.add("hidden");
+        }
+
+        // Per-wave download-all file sets: player parts + claimed-song files, deduped
+        myName = person.display;
+        w1Files = [];
+        w2Files = [];
         const seen = new Set();
+        const addFile = (f) => {
+          if (!f || seen.has(f)) return;
+          seen.add(f);
+          (f.startsWith(W2) ? w2Files : w1Files).push(f);
+        };
         for (const song of songs) {
           let v = (PARTS_FILES[slugify(song)] || {})[key];
           if (Array.isArray(v)) v = v[0];
-          if (v && !seen.has(v)) { seen.add(v); myFiles.push(v); }
+          addFile(v);
         }
-        for (const { file } of playerParts) {
-          if (!seen.has(file)) { seen.add(file); myFiles.push(file); }
-        }
-        myName = person.display;
-        els.downloadAll.textContent = `Download all my parts (${myFiles.length})`;
-        els.downloadAll.classList.toggle("hidden", myFiles.length < 2);
+        for (const { file } of playerParts) addFile(file);
+
+        els.dlW1.textContent = `Download all Wave 1 parts (${w1Files.length})`;
+        els.dlW1.classList.toggle("hidden", w1Files.length < 2);
+        els.dlW2.textContent = `Download all Wave 2 parts (${w2Files.length})`;
+        els.dlW2.classList.toggle("hidden", w2Files.length < 2);
 
         els.partsView.classList.remove("hidden");
         fetchSurveyResults();
       }
 
-      let myFiles = [];
+      let w1Files = [];
+      let w2Files = [];
       let myName = "";
 
-      els.downloadAll.addEventListener("click", async () => {
-        if (!myFiles.length) return;
-        els.downloadAll.disabled = true;
-        const label = els.downloadAll.textContent;
-        els.downloadAll.textContent = "Zipping…";
-        try {
-          const { default: JSZip } = await import("https://esm.sh/jszip@3.10.1");
-          const zip = new JSZip();
-          for (const path of myFiles) {
-            const res = await fetch(path);
-            if (!res.ok) continue;
-            zip.file(dlName(path), await res.blob());
+      function wireZipButton(btn, getFiles, suffix) {
+        btn.addEventListener("click", async () => {
+          const files = getFiles();
+          if (!files.length) return;
+          btn.disabled = true;
+          const label = btn.textContent;
+          btn.textContent = "Zipping…";
+          try {
+            const { default: JSZip } = await import("https://esm.sh/jszip@3.10.1");
+            const zip = new JSZip();
+            for (const path of files) {
+              const res = await fetch(path);
+              if (!res.ok) continue;
+              zip.file(dlName(path), await res.blob());
+            }
+            const blob = await zip.generateAsync({ type: "blob" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = `dttd-${suffix}-${myName.toLowerCase()}.zip`;
+            a.click();
+            URL.revokeObjectURL(a.href);
+          } catch (err) {
+            console.error("download all failed", err);
+          } finally {
+            btn.disabled = false;
+            btn.textContent = label;
           }
-          const blob = await zip.generateAsync({ type: "blob" });
-          const a = document.createElement("a");
-          a.href = URL.createObjectURL(blob);
-          a.download = `dttd-parts-${myName.toLowerCase()}.zip`;
-          a.click();
-          URL.revokeObjectURL(a.href);
-        } catch (err) {
-          console.error("download all failed", err);
-        } finally {
-          els.downloadAll.disabled = false;
-          els.downloadAll.textContent = label;
-        }
-      });
+        });
+      }
+
+      wireZipButton(els.dlW1, () => w1Files, "wave1");
+      wireZipButton(els.dlW2, () => w2Files, "wave2");
 
       async function fetchSurveyResults() {
         const { data } = await supabase.from("reunion_survey").select("name, bottle, crashing");
