@@ -336,6 +336,7 @@
         "dancing-queen": "No video link. Play along with the Spotify recording, it's all in the original key.",
         "uptown-funk": "No vocalist claimed. Hopefully someone from the audience takes the words!",
         "locked-out-of-heaven": "We need someone to sing this one, hopefully from the audience.",
+        "cheek-to-cheek": "Horn parts are from Luke's improved book. Rhythm section and vocal parts come from the older full book, so flag anything that doesn't line up.",
       };
 
       // -----------------------------------------------------------------------
@@ -555,20 +556,21 @@
         },
         // NOTE: key must equal slugify(song title) -- "Can't" becomes "can-t"
         "can-t-take-my-eyes-off-you": {
-          scott: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, benji: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, chris: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, elayna: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
-          austin: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, steve: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, jacob: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
-          luke: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, william: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, caden: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
-          alex: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, max: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, meredith: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, sara: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
-          nathan: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, annie: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`, liam: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
+          scott: `${W2}/cant-take-my-eyes-off-you/trumpet-1.pdf`, benji: `${W2}/cant-take-my-eyes-off-you/trumpet-2.pdf`, chris: `${W2}/cant-take-my-eyes-off-you/trumpet-3.pdf`,
+          austin: `${W2}/cant-take-my-eyes-off-you/trombone-1.pdf`, steve: `${W2}/cant-take-my-eyes-off-you/trombone-2.pdf`, jacob: `${W2}/cant-take-my-eyes-off-you/trombone-3.pdf`,
+          luke: `${W2}/cant-take-my-eyes-off-you/alto-1.pdf`, william: `${W2}/cant-take-my-eyes-off-you/tenor-1.pdf`, caden: `${W2}/cant-take-my-eyes-off-you/bari-sax.pdf`,
+          alex: `${W2}/cant-take-my-eyes-off-you/guitar.pdf`, max: `${W2}/cant-take-my-eyes-off-you/bass.pdf`, meredith: `${W2}/cant-take-my-eyes-off-you/piano.pdf`, sara: `${W2}/cant-take-my-eyes-off-you/piano.pdf`,
+          nathan: `${W2}/cant-take-my-eyes-off-you/vibraphone.pdf`,
+          annie: `${W2}/cant-take-my-eyes-off-you/drums.pdf`, liam: [`${W2}/cant-take-my-eyes-off-you/drums.pdf`, `${W2}/cant-take-my-eyes-off-you/tambourine.pdf`],
           karthik: `${W2}/cant-take-my-eyes-off-you/all-parts.pdf`,
         },
         "cheek-to-cheek": {
-          scott: `${W2}/cheek-to-cheek/all-parts.pdf`, benji: `${W2}/cheek-to-cheek/all-parts.pdf`, chris: `${W2}/cheek-to-cheek/all-parts.pdf`, elayna: `${W2}/cheek-to-cheek/all-parts.pdf`,
-          austin: `${W2}/cheek-to-cheek/all-parts.pdf`, steve: `${W2}/cheek-to-cheek/all-parts.pdf`, jacob: `${W2}/cheek-to-cheek/all-parts.pdf`,
-          luke: `${W2}/cheek-to-cheek/all-parts.pdf`, william: `${W2}/cheek-to-cheek/all-parts.pdf`, caden: `${W2}/cheek-to-cheek/all-parts.pdf`,
-          alex: `${W2}/cheek-to-cheek/all-parts.pdf`, max: `${W2}/cheek-to-cheek/all-parts.pdf`, meredith: `${W2}/cheek-to-cheek/all-parts.pdf`, sara: `${W2}/cheek-to-cheek/all-parts.pdf`,
-          nathan: `${W2}/cheek-to-cheek/all-parts.pdf`, annie: `${W2}/cheek-to-cheek/all-parts.pdf`, liam: `${W2}/cheek-to-cheek/all-parts.pdf`,
-          nate: `${W2}/cheek-to-cheek/all-parts.pdf`,
+          scott: `${W2}/cheek-to-cheek/trumpet-1.pdf`, benji: `${W2}/cheek-to-cheek/trumpet-2.pdf`, chris: `${W2}/cheek-to-cheek/trumpet-3.pdf`,
+          austin: `${W2}/cheek-to-cheek/trombone-1.pdf`, steve: `${W2}/cheek-to-cheek/trombone-2.pdf`, jacob: `${W2}/cheek-to-cheek/trombone-3.pdf`,
+          luke: `${W2}/cheek-to-cheek/alto-1.pdf`, william: `${W2}/cheek-to-cheek/tenor-1.pdf`, caden: `${W2}/cheek-to-cheek/bari-sax.pdf`,
+          alex: `${W2}/cheek-to-cheek/guitar.pdf`, max: `${W2}/cheek-to-cheek/bass.pdf`, meredith: `${W2}/cheek-to-cheek/piano.pdf`, sara: `${W2}/cheek-to-cheek/piano.pdf`,
+          annie: `${W2}/cheek-to-cheek/drums.pdf`, liam: `${W2}/cheek-to-cheek/drums.pdf`,
+          nate: [`${W2}/cheek-to-cheek/vocals.pdf`, `${W2}/cheek-to-cheek/leadsheet.pdf`],
         },
         "superstition": {
           scott: `${W2}/superstition/all-parts.pdf`, benji: `${W2}/superstition/all-parts.pdf`, chris: `${W2}/superstition/all-parts.pdf`, elayna: `${W2}/superstition/all-parts.pdf`,
@@ -742,20 +744,25 @@
           els.songsList.innerHTML = "";
           for (const song of songs) {
             const slug = slugify(song);
-            let file = (PARTS_FILES[slug] || {})[key];
-            if (Array.isArray(file)) file = file[0];
-            const row = document.createElement("div");
-            row.className = "song-row";
+            const v = (PARTS_FILES[slug] || {})[key];
+            const files = v ? (Array.isArray(v) ? v : [v]) : [null];
             const link = SONG_LINKS[slug];
-            row.innerHTML =
-              `<span class="song-title">${esc(song)}</span>` +
-              `<span style="display:flex;gap:8px">` +
-              (link ? `<a class="play-btn" href="${esc(link)}" target="_blank" rel="noopener">&#9654; Play along</a>` : "") +
-              (file
-                ? `<a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>`
-                : `<button class="dl-btn" disabled>Coming soon</button>`) +
-              `</span>`;
-            els.songsList.appendChild(row);
+            for (const file of files) {
+              const row = document.createElement("div");
+              row.className = "song-row";
+              const part = file && files.length > 1
+                ? `<span class="part-label">· ${esc(unslugify(file.split("/").pop().replace(/\.pdf$/i, "")))}</span>`
+                : "";
+              row.innerHTML =
+                `<span class="song-title">${esc(song)}${part}</span>` +
+                `<span style="display:flex;gap:8px">` +
+                (link ? `<a class="play-btn" href="${esc(link)}" target="_blank" rel="noopener">&#9654; Play along</a>` : "") +
+                (file
+                  ? `<a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>`
+                  : `<button class="dl-btn" disabled>Coming soon</button>`) +
+                `</span>`;
+              els.songsList.appendChild(row);
+            }
             if (SONG_NOTES[slug]) {
               const note = document.createElement("div");
               note.className = "song-note";
@@ -835,9 +842,8 @@
           (f.startsWith(W2) ? w2Files : w1Files).push(f);
         };
         for (const song of songs) {
-          let v = (PARTS_FILES[slugify(song)] || {})[key];
-          if (Array.isArray(v)) v = v[0];
-          addFile(v);
+          const v = (PARTS_FILES[slugify(song)] || {})[key];
+          for (const f of Array.isArray(v) ? v : [v]) addFile(f);
         }
         for (const { file } of playerParts) addFile(file);
 
