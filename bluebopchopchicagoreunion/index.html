@@ -638,7 +638,7 @@
       // -----------------------------------------------------------------------
       // Main enter flow
       // -----------------------------------------------------------------------
-      function enter() {
+      async function enter() {
         const raw = els.nameInput.value.trim();
         if (!raw) { els.gateErr.textContent = "Please enter your first name."; return; }
         els.gateErr.textContent = "";
@@ -647,15 +647,32 @@
         const person = ROSTER[key];
         localStorage.setItem("firstName", raw);
 
+        if (!person) {
+          els.gate.classList.add("hidden");
+          els.surveyView.classList.add("hidden");
+          els.partsView.classList.add("hidden");
+          els.notFoundView.classList.remove("hidden");
+          return;
+        }
+
+        // Already submitted the survey on any device? Never show it again.
+        if (!localStorage.getItem("surveyDone_" + key)) {
+          els.continueBtn.disabled = true;
+          try {
+            const { data } = await supabase
+              .from("reunion_survey").select("name").eq("name", key).maybeSingle();
+            if (data) localStorage.setItem("surveyDone_" + key, "1");
+          } catch (err) {
+            console.error("survey lookup failed", err);
+          } finally {
+            els.continueBtn.disabled = false;
+          }
+        }
+
         els.gate.classList.add("hidden");
         els.surveyView.classList.add("hidden");
         els.partsView.classList.add("hidden");
         els.notFoundView.classList.add("hidden");
-
-        if (!person) {
-          els.notFoundView.classList.remove("hidden");
-          return;
-        }
 
         if (!localStorage.getItem("surveyDone_" + key)) {
           surveyKey = key;
