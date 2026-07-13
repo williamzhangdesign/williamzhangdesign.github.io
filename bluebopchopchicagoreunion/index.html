@@ -109,6 +109,8 @@
       }
 
       .wave-note { color: var(--muted); font-size: 13px; margin: -4px 0 12px; line-height: 1.5; }
+      .dl-all { margin: 0 0 24px; }
+      .dl-all:disabled { opacity: 0.6; cursor: wait; }
       .part-label { color: var(--muted); font-size: 13px; margin-left: 6px; }
 
       .survey-row {
@@ -193,6 +195,8 @@
           <span class="card-section" id="section-display"></span>
           <span class="card-instrument" id="instrument-display"></span>
         </div>
+
+        <button id="download-all" class="btn dl-all hidden" type="button">Download all my parts</button>
 
         <div id="songs-block" class="hidden">
           <p class="block-title">Your Songs</p>
@@ -523,6 +527,7 @@
         songsList:         document.getElementById("songs-list"),
         partsBlock:        document.getElementById("parts-block"),
         partsList:         document.getElementById("parts-list"),
+        downloadAll:       document.getElementById("download-all"),
         surveyResults:     document.getElementById("survey-results"),
         surveyResultsList: document.getElementById("survey-results-list"),
         switchBtn:         document.getElementById("switch-btn"),
@@ -676,9 +681,57 @@
           els.partsBlock.classList.add("hidden");
         }
 
+        // Download-all button: every file this person has, deduped
+        myFiles = [];
+        const seen = new Set();
+        for (const song of songs) {
+          let v = (PARTS_FILES[slugify(song)] || {})[key];
+          if (Array.isArray(v)) v = v[0];
+          if (v && !seen.has(v)) { seen.add(v); myFiles.push(v); }
+        }
+        for (const { file } of playerParts) {
+          if (!seen.has(file)) { seen.add(file); myFiles.push(file); }
+        }
+        myName = person.display;
+        els.downloadAll.textContent = `Download all my parts (${myFiles.length})`;
+        els.downloadAll.classList.toggle("hidden", myFiles.length < 2);
+
         els.partsView.classList.remove("hidden");
         fetchSurveyResults();
       }
+
+      let myFiles = [];
+      let myName = "";
+
+      els.downloadAll.addEventListener("click", async () => {
+        if (!myFiles.length) return;
+        els.downloadAll.disabled = true;
+        const label = els.downloadAll.textContent;
+        els.downloadAll.textContent = "Zipping…";
+        try {
+          const { default: JSZip } = await import("https://esm.sh/jszip@3.10.1");
+          const zip = new JSZip();
+          for (const path of myFiles) {
+            const res = await fetch(path);
+            if (!res.ok) continue;
+            const parts = path.split("/");
+            const song = parts[parts.length - 2];
+            const fname = parts[parts.length - 1];
+            zip.file(`${song} - ${fname}`, await res.blob());
+          }
+          const blob = await zip.generateAsync({ type: "blob" });
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = `dttd-parts-${myName.toLowerCase()}.zip`;
+          a.click();
+          URL.revokeObjectURL(a.href);
+        } catch (err) {
+          console.error("download all failed", err);
+        } finally {
+          els.downloadAll.disabled = false;
+          els.downloadAll.textContent = label;
+        }
+      });
 
       async function fetchSurveyResults() {
         const { data } = await supabase.from("reunion_survey").select("name, bottle, crashing");
