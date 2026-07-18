@@ -230,6 +230,13 @@
           <div id="wave2-list"></div>
         </div>
 
+        <div id="wave3-block" class="hidden">
+          <p class="block-title">Wave 3 · New Charts</p>
+          <p class="wave-note">The latest drop. More on the way.</p>
+          <button id="download-w3" class="btn dl-all hidden" type="button">Download all Wave 3 parts</button>
+          <div id="wave3-list"></div>
+        </div>
+
         <div id="survey-results" class="hidden">
           <p class="block-title" style="margin-top:28px">Survey responses</p>
           <div id="survey-results-list"></div>
@@ -356,6 +363,8 @@
         "put-your-records-on": "No vocal, piano, trombone, or tenor parts in this arrangement. Maya sings from the recording for now.",
         "new-york-new-york": "No drum part in this book. Nate wants to swap New York for Chicago in a way that doesn't fit the line at all.",
         "ain-t-no-mountain-high-enough": "Duet (partner TBD). Piano/vocal sheet only for now, no band chart exists yet.",
+        "come-fly-with-me": "Buble version, a semitone lower than Sinatra. No vocal part in the book; vocalist TBD sings from the recording.",
+        "leave-the-door-open": "Vocal part exists but nobody has claimed this one yet. Someone step up for the Silk Sonic harmonies!",
       };
 
       // -----------------------------------------------------------------------
@@ -442,6 +451,7 @@
       // -----------------------------------------------------------------------
       const W1 = "parts/wave1";
       const W2 = "parts/wave2";
+      const W3 = "parts/wave3";
       const PARTS_FILES = {
         "spider-man-theme": {
           scott: `${W1}/spider-man-theme/trumpet-1.pdf`, benji: `${W1}/spider-man-theme/trumpet-2.pdf`, chris: `${W1}/spider-man-theme/trumpet-3.pdf`,
@@ -651,6 +661,23 @@
           annie: `${W2}/murder-on-the-dancefloor/drums.pdf`, liam: `${W2}/murder-on-the-dancefloor/drums.pdf`,
           maya: `${W2}/murder-on-the-dancefloor/piano.pdf`,
         },
+        "come-fly-with-me": {
+          scott: `${W3}/come-fly-with-me/trumpet-1.pdf`, benji: `${W3}/come-fly-with-me/trumpet-2.pdf`, chris: `${W3}/come-fly-with-me/trumpet-3.pdf`,
+          austin: `${W3}/come-fly-with-me/trombone-1.pdf`, steve: `${W3}/come-fly-with-me/trombone-2.pdf`, jacob: `${W3}/come-fly-with-me/trombone-3.pdf`,
+          luke: `${W3}/come-fly-with-me/alto-1.pdf`, william: `${W3}/come-fly-with-me/tenor-1.pdf`, caden: `${W3}/come-fly-with-me/bari-sax.pdf`,
+          alex: `${W3}/come-fly-with-me/piano-guitar.pdf`, max: `${W3}/come-fly-with-me/bass.pdf`,
+          meredith: `${W3}/come-fly-with-me/piano-guitar.pdf`, sara: `${W3}/come-fly-with-me/piano-guitar.pdf`,
+          nathan: `${W3}/come-fly-with-me/synth-strings.pdf`,
+          annie: `${W3}/come-fly-with-me/drums.pdf`, liam: `${W3}/come-fly-with-me/drums.pdf`,
+        },
+        "leave-the-door-open": {
+          scott: `${W3}/leave-the-door-open/trumpet.pdf`, benji: `${W3}/leave-the-door-open/trumpet.pdf`, chris: `${W3}/leave-the-door-open/trumpet.pdf`,
+          luke: `${W3}/leave-the-door-open/alto-sax.pdf`, william: [`${W3}/leave-the-door-open/alto-sax.pdf`, `${W3}/leave-the-door-open/clarinet.pdf`], caden: `${W3}/leave-the-door-open/clarinet.pdf`,
+          alex: `${W3}/leave-the-door-open/guitar.pdf`, max: `${W3}/leave-the-door-open/bass.pdf`,
+          meredith: `${W3}/leave-the-door-open/piano.pdf`, sara: `${W3}/leave-the-door-open/piano.pdf`,
+          nathan: `${W3}/leave-the-door-open/glockenspiel.pdf`,
+          annie: `${W3}/leave-the-door-open/drums.pdf`, liam: [`${W3}/leave-the-door-open/bongos.pdf`, `${W3}/leave-the-door-open/tambourine.pdf`],
+        },
         "ain-t-no-mountain-high-enough": {
           caden: `${W2}/aint-no-mountain-high-enough/piano-vocal.pdf`,
           meredith: `${W2}/aint-no-mountain-high-enough/piano-vocal.pdf`, sara: `${W2}/aint-no-mountain-high-enough/piano-vocal.pdf`,
@@ -705,8 +732,11 @@
         wave1List:         document.getElementById("wave1-list"),
         wave2Block:        document.getElementById("wave2-block"),
         wave2List:         document.getElementById("wave2-list"),
+        wave3Block:        document.getElementById("wave3-block"),
+        wave3List:         document.getElementById("wave3-list"),
         dlW1:              document.getElementById("download-w1"),
         dlW2:              document.getElementById("download-w2"),
+        dlW3:              document.getElementById("download-w3"),
         surveyResults:     document.getElementById("survey-results"),
         surveyResultsList: document.getElementById("survey-results-list"),
         switchBtn:         document.getElementById("switch-btn"),
@@ -901,8 +931,9 @@
           return html;
         }
 
-        const w1Items = playerParts.filter((p) => !p.file.startsWith(W2));
+        const w1Items = playerParts.filter((p) => p.file.startsWith(W1));
         const w2Items = playerParts.filter((p) => p.file.startsWith(W2));
+        const w3Items = playerParts.filter((p) => p.file.startsWith(W3));
 
         if (w1Items.length) {
           els.wave1Block.classList.remove("hidden");
@@ -922,15 +953,23 @@
           els.wave2Block.classList.add("hidden");
         }
 
+        if (w3Items.length) {
+          els.wave3Block.classList.remove("hidden");
+          els.wave3List.innerHTML = renderPartsList(w3Items);
+        } else {
+          els.wave3Block.classList.add("hidden");
+        }
+
         // Per-wave download-all file sets: player parts + claimed-song files, deduped
         myName = person.display;
         w1Files = [];
         w2Files = [];
+        w3Files = [];
         const seen = new Set();
         const addFile = (f) => {
           if (!f || seen.has(f)) return;
           seen.add(f);
-          (f.startsWith(W2) ? w2Files : w1Files).push(f);
+          (f.startsWith(W3) ? w3Files : f.startsWith(W2) ? w2Files : w1Files).push(f);
         };
         for (const song of songs) {
           const v = (PARTS_FILES[slugify(song)] || {})[key];
@@ -942,6 +981,8 @@
         els.dlW1.classList.toggle("hidden", w1Files.length < 2);
         els.dlW2.textContent = `Download all Wave 2 parts (${w2Files.length})`;
         els.dlW2.classList.toggle("hidden", w2Files.length < 2);
+        els.dlW3.textContent = `Download all Wave 3 parts (${w3Files.length})`;
+        els.dlW3.classList.toggle("hidden", w3Files.length < 2);
 
         els.partsView.classList.remove("hidden");
         fetchSurveyResults();
@@ -949,6 +990,7 @@
 
       let w1Files = [];
       let w2Files = [];
+      let w3Files = [];
       let myName = "";
 
       function wireZipButton(btn, getFiles, suffix) {
@@ -983,6 +1025,7 @@
 
       wireZipButton(els.dlW1, () => w1Files, "wave1");
       wireZipButton(els.dlW2, () => w2Files, "wave2");
+      wireZipButton(els.dlW3, () => w3Files, "wave3");
 
       async function fetchSurveyResults() {
         const { data } = await supabase.from("reunion_survey").select("name, bottle, crashing");
