@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Aug 6 — Florence Tickets</title>
+<style>
+  :root{
+    --marble: #f7f1e4;
+    --marble-raised: #f0e6d2;
+    --ink: #2a221c;
+    --duomo-green: #1f5c3f;
+    --duomo-green-soft: #dbe8de;
+    --duomo-rose: #ac4f47;
+    --duomo-rose-soft: #f1dcd8;
+    --gold: #9c7a2e;
+    --line: #d8c6a0;
+    --steel: #6b6154;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --marble: #181410;
+      --marble-raised: #221c15;
+      --ink: #ede2ce;
+      --duomo-green: #4fae82;
+      --duomo-green-soft: #16281f;
+      --duomo-rose: #e2897f;
+      --duomo-rose-soft: #341c19;
+      --gold: #d1a949;
+      --line: #3c3327;
+      --steel: #a89a80;
+    }
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    margin: 0;
+    background: var(--marble);
+    color: var(--ink);
+    font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono{ font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+  .smallcaps{
+    font-variant: small-caps;
+    letter-spacing: 0.08em;
+  }
+
+  .page{
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 1.1rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  /* Florentine marble inlay band — echoes the Duomo & Baptistery geometric facade */
+  .marble-band{
+    height: 16px;
+    margin: 0 -1.1rem;
+    background-image:
+      linear-gradient(45deg, var(--duomo-green) 25%, transparent 25%, transparent 75%, var(--duomo-green) 75%),
+      linear-gradient(45deg, var(--duomo-green) 25%, transparent 25%, transparent 75%, var(--duomo-green) 75%),
+      linear-gradient(45deg, var(--duomo-rose) 25%, transparent 25%, transparent 75%, var(--duomo-rose) 75%);
+    background-size: 16px 16px, 16px 16px, 16px 16px;
+    background-position: 0 0, 8px 8px, -8px 0;
+    background-color: var(--marble);
+    opacity: 0.85;
+  }
+
+  .masthead{
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.5rem 0 1rem;
+    border-bottom: 2px solid var(--duomo-green);
+  }
+  .masthead .eyebrow{
+    font-size: 0.78rem;
+    color: var(--duomo-rose);
+    font-style: italic;
+  }
+  .masthead h1{
+    margin: 0;
+    font-size: 1.9rem;
+    line-height: 1.1;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  .card{
+    background: var(--marble-raised);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .card-head{
+    padding: 1.1rem 1.2rem 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .card-head .kind{
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    color: var(--duomo-green);
+  }
+  .card-head h2{
+    margin: 0;
+    font-size: 1.35rem;
+    line-height: 1.2;
+  }
+  .big-time{
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 1rem 1.2rem 0.6rem;
+  }
+  .big-time .t{
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 2.2rem;
+    line-height: 1;
+    color: var(--duomo-rose);
+  }
+  .big-time .d{
+    font-size: 0.88rem;
+    color: var(--steel);
+  }
+
+  .fixed-note{
+    margin: 0 1.2rem 1rem;
+    background: var(--duomo-green-soft);
+    border: 1px solid var(--duomo-green);
+    border-radius: 3px;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.82rem;
+    color: var(--duomo-green);
+  }
+
+  .sites{
+    padding: 0 1.2rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .site{
+    display: flex;
+    flex-direction: column;
+    gap: 0.12rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px dotted var(--line);
+  }
+  .site:last-child{ border-bottom: none; padding-bottom: 0; }
+  .site .sname{ font-size: 1rem; }
+  .site .saddr a{
+    color: var(--steel);
+    text-decoration: none;
+    font-size: 0.84rem;
+    border-bottom: 1px dotted var(--line);
+  }
+  .site .saddr a:hover, .site .saddr a:focus-visible{ color: var(--duomo-rose); border-color: var(--duomo-rose); }
+  .site .snote{ font-size: 0.8rem; color: var(--steel); }
+
+  .alertbox{
+    margin: 0 1.2rem 1rem;
+    background: var(--duomo-rose-soft);
+    border: 1px solid var(--duomo-rose);
+    border-radius: 3px;
+    padding: 0.65rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .alertbox .ahead{
+    font-variant: small-caps;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    color: var(--duomo-rose);
+    font-weight: 700;
+  }
+  .alertbox .abody{ font-size: 0.85rem; color: var(--ink); }
+
+  .refs{
+    padding: 0.9rem 1.2rem;
+    background: var(--marble);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.78rem;
+    color: var(--steel);
+  }
+  .refs .r span{ color: var(--ink); }
+
+  .ticket-embed{
+    margin: 0 1.2rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+    background: #4a4640;
+  }
+  .ticket-embed object,
+  .ticket-embed iframe{
+    display: block;
+    width: 100%;
+    height: 70vh;
+    min-height: 420px;
+    border: 0;
+  }
+  .ticket-embed .fallback{
+    padding: 1.2rem;
+    text-align: center;
+    background: var(--marble-raised);
+  }
+  .ticket-embed .fallback a{ color: var(--duomo-green); }
+
+  .pdfbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0 1.2rem 1.2rem;
+    padding: 0.9rem 1rem;
+    background: var(--duomo-green);
+    color: var(--marble);
+    text-decoration: none;
+    border-radius: 100px;
+    font-variant: small-caps;
+    letter-spacing: 0.06em;
+    font-size: 1rem;
+  }
+  .pdfbtn:active{ opacity: 0.85; }
+  .pdfbtn:focus-visible{ outline: 2px solid var(--duomo-rose); outline-offset: 2px; }
+
+  .foot{
+    font-size: 0.8rem;
+    color: var(--steel);
+    text-align: center;
+    padding-top: 0.5rem;
+    font-style: italic;
+  }
+
+  a:focus-visible{ outline: 2px solid var(--duomo-rose); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="marble-band"></div>
+<div class="page">
+
+  <header class="masthead">
+    <div class="eyebrow">Firenze · giovedì</div>
+    <h1>Thursday, Aug 6</h1>
+  </header>
+
+  <!-- ACCADEMIA CARD -->
+  <section class="card">
+    <div class="card-head">
+      <div class="kind">Museum Pass</div>
+      <h2>Accademia + Bargello, 72h</h2>
+    </div>
+    <div class="big-time">
+      <span class="t mono">08:45</span>
+      <span class="d">entry window ends 09:00 · Accademia (David)</span>
+    </div>
+    <div class="fixed-note">Only the Accademia time is fixed. The other 4 sites below are walk-in, any time in the next 72 hours.</div>
+    <div class="sites">
+      <div class="site">
+        <div class="sname">Galleria dell'Accademia</div>
+        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Via+Ricasoli+58-60+Firenze" target="_blank" rel="noopener">Via Ricasoli, 58/60, 50122 Firenze →</a></div>
+        <div class="snote">Fixed slot 08:45 — arrive ~08:30 for screening</div>
+      </div>
+      <div class="site">
+        <div class="sname">Museo del Bargello</div>
+        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Via+del+Proconsolo+4+Firenze" target="_blank" rel="noopener">Via del Proconsolo, 4, 50122 Firenze →</a></div>
+        <div class="snote">Walk-in, any time within 72h</div>
+      </div>
+      <div class="site">
+        <div class="sname">Cappelle Medicee (Medici Chapels)</div>
+        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Piazza+Madonna+degli+Aldobrandini+6+Firenze" target="_blank" rel="noopener">Piazza Madonna degli Aldobrandini, 6 →</a></div>
+        <div class="snote">Walk-in, any time within 72h</div>
+      </div>
+      <div class="site">
+        <div class="sname">Palazzo Davanzati</div>
+        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Via+di+Porta+Rossa+13+Firenze" target="_blank" rel="noopener">Via di Porta Rossa, 13 →</a></div>
+        <div class="snote">Walk-in, any time within 72h</div>
+      </div>
+      <div class="site">
+        <div class="sname">Orsanmichele</div>
+        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Via+dell%27Arte+della+Lana+Firenze" target="_blank" rel="noopener">Via dell'Arte della Lana →</a></div>
+        <div class="snote">Walk-in, any time within 72h</div>
+      </div>
+    </div>
+    <div class="refs">
+      <div class="r">Order: <span>23799139</span> · Client code: <span>4582429</span></div>
+      <div class="r">Paid: <span>€42.00</span> (€38 ticket + €4 fee)</div>
+    </div>
+    <div class="ticket-embed">
+      <object data="accademia-bargello.pdf" type="application/pdf">
+        <div class="fallback">Inline preview isn't supported on this device — <a href="accademia-bargello.pdf" target="_blank" rel="noopener">open the PDF directly →</a></div>
+      </object>
+    </div>
+    <a class="pdfbtn" id="accademia-pdf-link" href="accademia-bargello.pdf" target="_blank" rel="noopener">Open Ticket PDF</a>
+  </section>
+
+  <!-- DUOMO / BRUNELLESCHI CARD -->
+  <section class="card">
+    <div class="card-head">
+      <div class="kind">Brunelleschi Pass</div>
+      <h2>Duomo Complex — Dome Climb</h2>
+    </div>
+    <div class="big-time">
+      <span class="t mono">14:15</span>
+      <span class="d">sharp — Dome climb start (not modifiable)</span>
+    </div>
+    <div class="fixed-note">Valid Aug 6–8. Only the Dome climb has a fixed time — Bell Tower, Baptistery, Museum &amp; Santa Reparata are one visit each, any time in the window.</div>
+
+    <div class="alertbox">
+      <div class="ahead">Before you go</div>
+      <div class="abody">
+        No backpacks or bags allowed inside — mandatory luggage storage at <b>Piazza Duomo n. 38/r</b> first.
+        Bring a photo <b>ID</b> — names are checked at the Dome entrance.
+        463 steps, no lift.
+      </div>
+    </div>
+
+    <div class="sites">
+      <div class="site">
+        <div class="sname">Brunelleschi's Dome — entry</div>
+        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Porta+della+Mandorla+Firenze" target="_blank" rel="noopener">Enter via Porta della Mandorla →</a></div>
+        <div class="snote">14:15 sharp — arrive ~14:00</div>
+      </div>
+      <div class="site">
+        <div class="sname">Luggage storage (mandatory before Dome)</div>
+        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Piazza+Duomo+38r+Firenze" target="_blank" rel="noopener">Piazza Duomo, n. 38/r →</a></div>
+        <div class="snote">Leave bags/backpacks here first</div>
+      </div>
+      <div class="site">
+        <div class="sname">Bell Tower (Campanile)</div>
+        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Campanile+di+Giotto+Piazza+del+Duomo+Firenze" target="_blank" rel="noopener">Piazza del Duomo →</a></div>
+        <div class="snote">414 steps, no lift · currently under restoration (views partially reduced)</div>
+      </div>
+      <div class="site">
+        <div class="sname">Baptistery</div>
+        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Battistero+di+San+Giovanni+Firenze" target="_blank" rel="noopener">North Door entrance →</a></div>
+        <div class="snote">Mosaics under restoration, not visible right now</div>
+      </div>
+      <div class="site">
+        <div class="sname">Opera del Duomo Museum</div>
+        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Piazza+del+Duomo+9+Firenze" target="_blank" rel="noopener">Piazza del Duomo, n. 9 →</a></div>
+        <div class="snote">Walk-in within window</div>
+      </div>
+      <div class="site">
+        <div class="sname">Crypt of Santa Reparata / Cathedral</div>
+        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Via+della+Canonica+1+Firenze" target="_blank" rel="noopener">Via della Canonica, 1 →</a></div>
+        <div class="snote">Enter via Porta Campanile, beside the Bell Tower</div>
+      </div>
+    </div>
+
+    <div class="refs">
+      <div class="r">Order: <span>87-N49XGZE</span> · Booking ref: <span>87-4NDRNMX</span></div>
+      <div class="r">Confirmation: <span>SPCL7YRW7R5R</span> · Paid: <span>€30.00</span></div>
+    </div>
+    <div class="ticket-embed">
+      <object data="duomo-brunelleschi.pdf" type="application/pdf">
+        <div class="fallback">Inline preview isn't supported on this device — <a href="duomo-brunelleschi.pdf" target="_blank" rel="noopener">open the PDF directly →</a></div>
+      </object>
+    </div>
+    <a class="pdfbtn" id="duomo-pdf-link" href="duomo-brunelleschi.pdf" target="_blank" rel="noopener">Open Ticket PDF</a>
+  </section>
+
+  <div class="foot">Marble band above echoes the Duomo &amp; Baptistery façade — Carrara white, Prato green, Maremma rose.</div>
+
+</div>
+</body>
+</html>
