@@ -722,6 +722,13 @@
       els.continueBtn.addEventListener("click", enter);
       els.switchBtn.addEventListener("click", signOut);
 
+      // Debug convenience: ?as=Name pre-fills and submits the name gate.
+      const debugAs = new URLSearchParams(location.search).get("as");
+      if (debugAs) {
+        els.nameInput.value = debugAs;
+        enter();
+      }
+
       // -----------------------------------------------------------------------
       // Survey logic
       // -----------------------------------------------------------------------
