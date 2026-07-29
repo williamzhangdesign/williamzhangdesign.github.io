@@ -1,379 +1,299 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>Aug 6 — Florence Tickets</title>
-<style>
-  :root{
-    --marble: #f7f1e4;
-    --marble-raised: #f0e6d2;
-    --ink: #2a221c;
-    --duomo-green: #1f5c3f;
-    --duomo-green-soft: #dbe8de;
-    --duomo-rose: #ac4f47;
-    --duomo-rose-soft: #f1dcd8;
-    --gold: #9c7a2e;
-    --line: #d8c6a0;
-    --steel: #6b6154;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --marble: #181410;
-      --marble-raised: #221c15;
-      --ink: #ede2ce;
-      --duomo-green: #4fae82;
-      --duomo-green-soft: #16281f;
-      --duomo-rose: #e2897f;
-      --duomo-rose-soft: #341c19;
-      --gold: #d1a949;
-      --line: #3c3327;
-      --steel: #a89a80;
-    }
-  }
-
-  *{ box-sizing: border-box; }
-  body{
-    margin: 0;
-    background: var(--marble);
-    color: var(--ink);
-    font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  .mono{ font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
-  .smallcaps{
-    font-variant: small-caps;
-    letter-spacing: 0.08em;
-  }
-
-  .page{
-    max-width: 520px;
-    margin: 0 auto;
-    padding: 0 1.1rem 4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-
-  /* Florentine marble inlay band — echoes the Duomo & Baptistery geometric facade */
-  .marble-band{
-    height: 16px;
-    margin: 0 -1.1rem;
-    background-image:
-      linear-gradient(45deg, var(--duomo-green) 25%, transparent 25%, transparent 75%, var(--duomo-green) 75%),
-      linear-gradient(45deg, var(--duomo-green) 25%, transparent 25%, transparent 75%, var(--duomo-green) 75%),
-      linear-gradient(45deg, var(--duomo-rose) 25%, transparent 25%, transparent 75%, var(--duomo-rose) 75%);
-    background-size: 16px 16px, 16px 16px, 16px 16px;
-    background-position: 0 0, 8px 8px, -8px 0;
-    background-color: var(--marble);
-    opacity: 0.85;
-  }
-
-  .masthead{
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    padding: 1.5rem 0 1rem;
-    border-bottom: 2px solid var(--duomo-green);
-  }
-  .masthead .eyebrow{
-    font-size: 0.78rem;
-    color: var(--duomo-rose);
-    font-style: italic;
-  }
-  .masthead h1{
-    margin: 0;
-    font-size: 1.9rem;
-    line-height: 1.1;
-    text-wrap: balance;
-    color: var(--ink);
-  }
-
-  .card{
-    background: var(--marble-raised);
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  .card-head{
-    padding: 1.1rem 1.2rem 0.9rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    border-bottom: 1px solid var(--line);
-  }
-  .card-head .kind{
-    font-variant: small-caps;
-    letter-spacing: 0.1em;
-    font-size: 0.85rem;
-    color: var(--duomo-green);
-  }
-  .card-head h2{
-    margin: 0;
-    font-size: 1.35rem;
-    line-height: 1.2;
-  }
-  .big-time{
-    display: flex;
-    align-items: baseline;
-    gap: 0.6rem;
-    padding: 1rem 1.2rem 0.6rem;
-  }
-  .big-time .t{
-    font-family: ui-monospace, "SF Mono", Menlo, monospace;
-    font-variant-numeric: tabular-nums;
-    font-size: 2.2rem;
-    line-height: 1;
-    color: var(--duomo-rose);
-  }
-  .big-time .d{
-    font-size: 0.88rem;
-    color: var(--steel);
-  }
-
-  .fixed-note{
-    margin: 0 1.2rem 1rem;
-    background: var(--duomo-green-soft);
-    border: 1px solid var(--duomo-green);
-    border-radius: 3px;
-    padding: 0.55rem 0.75rem;
-    font-size: 0.82rem;
-    color: var(--duomo-green);
-  }
-
-  .sites{
-    padding: 0 1.2rem 1.1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-  }
-  .site{
-    display: flex;
-    flex-direction: column;
-    gap: 0.12rem;
-    padding-bottom: 0.65rem;
-    border-bottom: 1px dotted var(--line);
-  }
-  .site:last-child{ border-bottom: none; padding-bottom: 0; }
-  .site .sname{ font-size: 1rem; }
-  .site .saddr a{
-    color: var(--steel);
-    text-decoration: none;
-    font-size: 0.84rem;
-    border-bottom: 1px dotted var(--line);
-  }
-  .site .saddr a:hover, .site .saddr a:focus-visible{ color: var(--duomo-rose); border-color: var(--duomo-rose); }
-  .site .snote{ font-size: 0.8rem; color: var(--steel); }
-
-  .alertbox{
-    margin: 0 1.2rem 1rem;
-    background: var(--duomo-rose-soft);
-    border: 1px solid var(--duomo-rose);
-    border-radius: 3px;
-    padding: 0.65rem 0.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  .alertbox .ahead{
-    font-variant: small-caps;
-    letter-spacing: 0.08em;
-    font-size: 0.85rem;
-    color: var(--duomo-rose);
-    font-weight: 700;
-  }
-  .alertbox .abody{ font-size: 0.85rem; color: var(--ink); }
-
-  .refs{
-    padding: 0.9rem 1.2rem;
-    background: var(--marble);
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    font-size: 0.78rem;
-    color: var(--steel);
-  }
-  .refs .r span{ color: var(--ink); }
-
-  .ticket-embed{
-    margin: 0 1.2rem 1rem;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    overflow: hidden;
-    background: #4a4640;
-  }
-  .ticket-embed object,
-  .ticket-embed iframe{
-    display: block;
-    width: 100%;
-    height: 70vh;
-    min-height: 420px;
-    border: 0;
-  }
-  .ticket-embed .fallback{
-    padding: 1.2rem;
-    text-align: center;
-    background: var(--marble-raised);
-  }
-  .ticket-embed .fallback a{ color: var(--duomo-green); }
-
-  .pdfbtn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin: 0 1.2rem 1.2rem;
-    padding: 0.9rem 1rem;
-    background: var(--duomo-green);
-    color: var(--marble);
-    text-decoration: none;
-    border-radius: 100px;
-    font-variant: small-caps;
-    letter-spacing: 0.06em;
-    font-size: 1rem;
-  }
-  .pdfbtn:active{ opacity: 0.85; }
-  .pdfbtn:focus-visible{ outline: 2px solid var(--duomo-rose); outline-offset: 2px; }
-
-  .foot{
-    font-size: 0.8rem;
-    color: var(--steel);
-    text-align: center;
-    padding-top: 0.5rem;
-    font-style: italic;
-  }
-
-  a:focus-visible{ outline: 2px solid var(--duomo-rose); outline-offset: 2px; }
-</style>
-</head>
-<body>
-<div class="marble-band"></div>
-<div class="page">
-
-  <header class="masthead">
-    <div class="eyebrow">Firenze · giovedì</div>
-    <h1>Thursday, Aug 6</h1>
-  </header>
-
-  <!-- ACCADEMIA CARD -->
-  <section class="card">
-    <div class="card-head">
-      <div class="kind">Museum Pass</div>
-      <h2>Accademia + Bargello, 72h</h2>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Password Protected Page</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #dialogText {
+            color: white;
+            background-color: #333333;
+        }
+        
+        #dialogWrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: table;
+            background-color: #EEEEEE;
+        }
+        
+        #dialogWrapCell {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        #mainDialog {
+            max-width: 400px;
+            margin: 5px;
+            border: solid #AAAAAA 1px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px 3px #AAAAAA;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            text-align: left;
+        }
+        #mainDialog > * {
+            padding: 10px 30px;
+        }
+        #passArea {
+            padding: 20px 30px;
+            background-color: white;
+        }
+        #passArea > * {
+            margin: 5px auto;
+        }
+        #pass {
+            width: 100%;
+            height: 40px;
+            font-size: 30px;
+        }
+        
+        #messageWrapper {
+            float: left;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+        
+        .notifyText {
+            display: none;
+        }
+        
+        #invalidPass {
+            color: red;
+        }
+        
+        #success {
+            color: green;
+        }
+        
+        #submitPass {
+            font-size: 20px;
+            border-radius: 5px;
+            background-color: #E7E7E7;
+            border: solid gray 1px;
+            float: right;
+            cursor: pointer;
+        }
+        #contentFrame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        #attribution, #attribution a {
+            color: #999;
+        }
+        .error {
+            display: none;
+            color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
+    <div id="dialogWrap">
+        <div id="dialogWrapCell">
+            <div id="mainDialog">
+                <div id="dialogText">This page is password protected.</div>
+                <div id="passArea">
+                    <p id="passwordPrompt">Password</p>
+                    <input id="pass" type="password" name="pass" autofocus>
+                    <div>
+                        <span id="messageWrapper">
+                            <span id="invalidPass" class="error">Sorry, please try again.</span>
+                            <span id="trycatcherror" class="error">Sorry, something went wrong.</span>
+                            <span id="success" class="notifyText">Success!</span>
+                            &nbsp;
+                        </span>
+                        <button id="submitPass" type="button">Submit</button>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                <div id="securecontext" class="error">
+                    <p>
+                        Sorry, but password protection only works over a secure connection. Please load this page via HTTPS.
+                    </p>
+                </div>
+                <div id="nocrypto" class="error">
+                    <p>
+                        Your web browser appears to be outdated. Please visit this page using a modern browser.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="big-time">
-      <span class="t mono">08:45</span>
-      <span class="d">entry window ends 09:00 · Accademia (David)</span>
+    <div id="attribution">
+        Protected by <a href="https://pagecrypt.lupine.dev/">PageCrypt</a>
     </div>
-    <div class="fixed-note">Only the Accademia time is fixed. The other 4 sites below are walk-in, any time in the next 72 hours.</div>
-    <div class="sites">
-      <div class="site">
-        <div class="sname">Galleria dell'Accademia</div>
-        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Via+Ricasoli+58-60+Firenze" target="_blank" rel="noopener">Via Ricasoli, 58/60, 50122 Firenze →</a></div>
-        <div class="snote">Fixed slot 08:45 — arrive ~08:30 for screening</div>
-      </div>
-      <div class="site">
-        <div class="sname">Museo del Bargello</div>
-        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Via+del+Proconsolo+4+Firenze" target="_blank" rel="noopener">Via del Proconsolo, 4, 50122 Firenze →</a></div>
-        <div class="snote">Walk-in, any time within 72h</div>
-      </div>
-      <div class="site">
-        <div class="sname">Cappelle Medicee (Medici Chapels)</div>
-        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Piazza+Madonna+degli+Aldobrandini+6+Firenze" target="_blank" rel="noopener">Piazza Madonna degli Aldobrandini, 6 →</a></div>
-        <div class="snote">Walk-in, any time within 72h</div>
-      </div>
-      <div class="site">
-        <div class="sname">Palazzo Davanzati</div>
-        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Via+di+Porta+Rossa+13+Firenze" target="_blank" rel="noopener">Via di Porta Rossa, 13 →</a></div>
-        <div class="snote">Walk-in, any time within 72h</div>
-      </div>
-      <div class="site">
-        <div class="sname">Orsanmichele</div>
-        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Via+dell%27Arte+della+Lana+Firenze" target="_blank" rel="noopener">Via dell'Arte della Lana →</a></div>
-        <div class="snote">Walk-in, any time within 72h</div>
-      </div>
-    </div>
-    <div class="refs">
-      <div class="r">Order: <span>23799139</span> · Client code: <span>4582429</span></div>
-      <div class="r">Paid: <span>€42.00</span> (€38 ticket + €4 fee)</div>
-    </div>
-    <div class="ticket-embed">
-      <object data="accademia-bargello.pdf" type="application/pdf">
-        <div class="fallback">Inline preview isn't supported on this device — <a href="accademia-bargello.pdf" target="_blank" rel="noopener">open the PDF directly →</a></div>
-      </object>
-    </div>
-    <a class="pdfbtn" id="accademia-pdf-link" href="accademia-bargello.pdf" target="_blank" rel="noopener">Open Ticket PDF</a>
-  </section>
+    <script>
+    (function() {
 
-  <!-- DUOMO / BRUNELLESCHI CARD -->
-  <section class="card">
-    <div class="card-head">
-      <div class="kind">Brunelleschi Pass</div>
-      <h2>Duomo Complex — Dome Climb</h2>
-    </div>
-    <div class="big-time">
-      <span class="t mono">14:15</span>
-      <span class="d">sharp — Dome climb start (not modifiable)</span>
-    </div>
-    <div class="fixed-note">Valid Aug 6–8. Only the Dome climb has a fixed time — Bell Tower, Baptistery, Museum &amp; Santa Reparata are one visit each, any time in the window.</div>
+        var pl = "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";
+        
+        var submitPass = document.getElementById('submitPass');
+        var passEl = document.getElementById('pass');
+        var invalidPassEl = document.getElementById('invalidPass');
+        var trycatcherror = document.getElementById('trycatcherror');
+        var successEl = document.getElementById('success');
+        var contentFrame = document.getElementById('contentFrame');
+        
+        // Sanity checks
 
-    <div class="alertbox">
-      <div class="ahead">Before you go</div>
-      <div class="abody">
-        No backpacks or bags allowed inside — mandatory luggage storage at <b>Piazza Duomo n. 38/r</b> first.
-        Bring a photo <b>ID</b> — names are checked at the Dome entrance.
-        463 steps, no lift.
-      </div>
-    </div>
+        if (pl === "") {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+            alert("This page is meant to be used with the encryption tool. It doesn't work standalone.");
+            return;
+        }
 
-    <div class="sites">
-      <div class="site">
-        <div class="sname">Brunelleschi's Dome — entry</div>
-        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Porta+della+Mandorla+Firenze" target="_blank" rel="noopener">Enter via Porta della Mandorla →</a></div>
-        <div class="snote">14:15 sharp — arrive ~14:00</div>
-      </div>
-      <div class="site">
-        <div class="sname">Luggage storage (mandatory before Dome)</div>
-        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Piazza+Duomo+38r+Firenze" target="_blank" rel="noopener">Piazza Duomo, n. 38/r →</a></div>
-        <div class="snote">Leave bags/backpacks here first</div>
-      </div>
-      <div class="site">
-        <div class="sname">Bell Tower (Campanile)</div>
-        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Campanile+di+Giotto+Piazza+del+Duomo+Firenze" target="_blank" rel="noopener">Piazza del Duomo →</a></div>
-        <div class="snote">414 steps, no lift · currently under restoration (views partially reduced)</div>
-      </div>
-      <div class="site">
-        <div class="sname">Baptistery</div>
-        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Battistero+di+San+Giovanni+Firenze" target="_blank" rel="noopener">North Door entrance →</a></div>
-        <div class="snote">Mosaics under restoration, not visible right now</div>
-      </div>
-      <div class="site">
-        <div class="sname">Opera del Duomo Museum</div>
-        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Piazza+del+Duomo+9+Firenze" target="_blank" rel="noopener">Piazza del Duomo, n. 9 →</a></div>
-        <div class="snote">Walk-in within window</div>
-      </div>
-      <div class="site">
-        <div class="sname">Crypt of Santa Reparata / Cathedral</div>
-        <div class="saddr"><a href="https://www.google.com/maps/search/?api=1&query=Via+della+Canonica+1+Firenze" target="_blank" rel="noopener">Via della Canonica, 1 →</a></div>
-        <div class="snote">Enter via Porta Campanile, beside the Bell Tower</div>
-      </div>
-    </div>
+        if (!isSecureContext) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#securecontext").style.display = "block";
+            return;
+        }
 
-    <div class="refs">
-      <div class="r">Order: <span>87-N49XGZE</span> · Booking ref: <span>87-4NDRNMX</span></div>
-      <div class="r">Confirmation: <span>SPCL7YRW7R5R</span> · Paid: <span>€30.00</span></div>
-    </div>
-    <div class="ticket-embed">
-      <object data="duomo-brunelleschi.pdf" type="application/pdf">
-        <div class="fallback">Inline preview isn't supported on this device — <a href="duomo-brunelleschi.pdf" target="_blank" rel="noopener">open the PDF directly →</a></div>
-      </object>
-    </div>
-    <a class="pdfbtn" id="duomo-pdf-link" href="duomo-brunelleschi.pdf" target="_blank" rel="noopener">Open Ticket PDF</a>
-  </section>
+        if (!crypto.subtle) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#nocrypto").style.display = "block";
+            return;
+        }
+        
+        function str2ab(str) {
+            var ustr = atob(str);
+            var buf = new ArrayBuffer(ustr.length);
+            var bufView = new Uint8Array(buf);
+            for (var i=0, strLen=ustr.length; i < strLen; i++) {
+                bufView[i] = ustr.charCodeAt(i);
+            }
+            return bufView;
+        }
 
-  <div class="foot">Marble band above echoes the Duomo &amp; Baptistery façade — Carrara white, Prato green, Maremma rose.</div>
+        async function deriveKey(salt, password) {
+            const encoder = new TextEncoder()
+            const baseKey = await crypto.subtle.importKey(
+                'raw',
+                encoder.encode(password),
+                'PBKDF2',
+                false,
+                ['deriveKey'],
+            )
+            return await crypto.subtle.deriveKey(
+                { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+                baseKey,
+                { name: 'AES-GCM', length: 256 },
+                true,
+                ['decrypt'],
+            )
+        }
+        
+        async function doSubmit(evt) {
+            submitPass.disabled = true;
+            passEl.disabled = true;
 
-</div>
-</body>
+            let iv, ciphertext, key;
+            
+            try {
+                var unencodedPl = str2ab(pl);
+
+                const salt = unencodedPl.slice(0, 32)
+                iv = unencodedPl.slice(32, 32 + 16)
+                ciphertext = unencodedPl.slice(32 + 16)
+
+                key = await deriveKey(salt, passEl.value);
+            } catch (e) {
+                trycatcherror.style.display = "inline";
+                console.error(e);
+                return;
+            }
+
+            try {
+                const decryptedArray = new Uint8Array(
+                    await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ciphertext)
+                );
+
+                let decrypted = new TextDecoder().decode(decryptedArray);
+
+                if (decrypted === "") throw "No data returned";
+
+                const basestr = '<base href="." target="_top">';
+                const anchorfixstr = `
+                    <script>
+                        Array.from(document.links).forEach((anchor) => {
+                            const href = anchor.getAttribute("href");
+                            if (href.startsWith("#")) {
+                                anchor.addEventListener("click", function(e) {
+                                    e.preventDefault();
+                                    const targetId = this.getAttribute("href").substring(1);
+                                    const targetEl = document.getElementById(targetId);
+                                    targetEl.scrollIntoView();
+                                });
+                            }
+                        });
+                    <\/script>
+                `;
+                
+                // Set default iframe link targets to _top so all links break out of the iframe
+                if (decrypted.includes("<head>")) decrypted = decrypted.replace("<head>", "<head>" + basestr);
+                else if (decrypted.includes("<!DOCTYPE html>")) decrypted = decrypted.replace("<!DOCTYPE html>", "<!DOCTYPE html>" + basestr);
+                else decrypted = basestr + decrypted;
+
+                // Fix fragment links
+                if (decrypted.includes("</body>")) decrypted = decrypted.replace("</body>", anchorfixstr + '</body>');
+                else if (decrypted.includes("</html>")) decrypted = decrypted.replace("</html>", anchorfixstr + '</html>');
+                else decrypted = decrypted + anchorfixstr;
+                
+                contentFrame.srcdoc = decrypted;
+                
+                successEl.style.display = "inline";
+                setTimeout(function() {
+                    dialogWrap.style.display = "none";
+                }, 1000);
+            } catch (e) {
+                invalidPassEl.style.display = "inline";
+                passEl.value = "";
+                submitPass.disabled = false;
+                passEl.disabled = false;
+                console.error(e);
+                return;
+            }
+        }
+        
+        submitPass.onclick = doSubmit;
+        passEl.onkeypress = function(e){
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            invalidPassEl.style.display = "none";
+            if (keyCode == '13'){
+              // Enter pressed
+              doSubmit();
+              return false;
+            }
+        }
+    })();
+    </script>
+  </body>
 </html>
