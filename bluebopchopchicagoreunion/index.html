@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#150c2e" />
     <title>Chicago Blue Chops Reunion!</title>
     <link rel="icon" type="image/png" href="blue-chops.png" />
     <link rel="apple-touch-icon" href="blue-chops.png" />
@@ -22,14 +22,14 @@
     <meta name="twitter:image" content="https://williamzhangdesign.github.io/bluebopchopchicagoreunion/blue-chops.png" />
     <style>
       :root {
-        --bg: #0f172a;
-        --panel: #1e293b;
-        --text: #f1f5f9;
-        --muted: #94a3b8;
-        --accent: #22c55e;
-        --accent-ink: #052e16;
-        --border: #334155;
-        --error: #f87171;
+        --bg: #150c2e;
+        --panel: #241748;
+        --text: #f5ecdf;
+        --muted: #a897c9;
+        --accent: #f2b455;
+        --accent-ink: #241030;
+        --border: #3d2a63;
+        --error: #ff7a59;
       }
       * { box-sizing: border-box; }
       html, body { margin: 0; padding: 0; }
@@ -44,6 +44,8 @@
       .wrap { max-width: 520px; margin: 0 auto; }
       h1 { font-size: 22px; margin: 0 0 4px; }
       .sub { color: var(--muted); margin: 0 0 20px; font-size: 14px; }
+      .setlist-stats { color: var(--muted); margin: -10px 0 20px; font-size: 13px; }
+      .setlist-stats strong { color: var(--text); font-weight: 700; }
       .invite { font-size: 16px; margin: 0 0 16px; line-height: 1.4; }
 
       /* Gate */
@@ -118,11 +120,11 @@
         border-color: var(--border); color: var(--muted); cursor: default;
       }
 
-      .wave-note { color: var(--muted); font-size: 13px; margin: -4px 0 12px; line-height: 1.5; }
+      .parts-note { color: var(--muted); font-size: 13px; margin: -4px 0 12px; line-height: 1.5; }
       .song-note {
         margin: -4px 0 8px; padding: 8px 12px;
         border-left: 2px solid var(--accent);
-        background: rgba(34, 197, 94, 0.06);
+        background: rgba(242, 180, 85, 0.08);
         border-radius: 0 8px 8px 0;
         color: var(--muted); font-size: 13px; line-height: 1.5;
       }
@@ -136,6 +138,18 @@
       .dl-all { margin: 0 0 24px; }
       .dl-all:disabled { opacity: 0.6; cursor: wait; }
       .part-label { color: var(--muted); font-size: 13px; margin-left: 6px; }
+      .b-list-tag {
+        display: inline-block; margin-left: 6px;
+        font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+        padding: 2px 6px; border-radius: 4px;
+        color: var(--muted); border: 1px dashed var(--border);
+      }
+      .b-list-divider {
+        margin: 14px 0 8px; padding-top: 10px;
+        border-top: 1px dashed var(--border);
+        font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+        color: var(--muted);
+      }
 
       .survey-row {
         display: flex; align-items: baseline; justify-content: space-between;
@@ -182,6 +196,7 @@
       <p class="invite">William is inviting you to come to Chicago for a blue bop/chop reunion / dancing through the decades reunion.</p>
       <h1>DTTD Chicago Reunion</h1>
       <p class="sub">Enter your first name to see your assignments and download your parts.</p>
+      <p class="setlist-stats" id="setlist-stats"></p>
 
       <section id="gate" class="gate">
         <label for="name-input">Your first name</label>
@@ -220,6 +235,11 @@
           <span class="card-instrument" id="instrument-display"></span>
         </div>
 
+        <div id="chair-pills-block" class="hidden">
+          <p class="block-title">Browse by part</p>
+          <div id="chair-pills" class="pill-bar"></div>
+          <p class="pill-note">Your usual chair is selected by default -- tap another part to see (and download) it for every song instead. "Download all" bundles whichever part is currently selected.</p>
+        </div>
 
         <div id="songs-block" class="hidden">
           <p class="block-title">Your Songs</p>
@@ -231,31 +251,11 @@
           <div id="other-songs-list" class="songs"></div>
         </div>
 
-        <div id="chair-pills-block" class="hidden">
-          <p class="block-title">Browse by part</p>
-          <div id="chair-pills" class="pill-bar"></div>
-          <p class="pill-note">Your usual chair is selected by default -- tap another part to see (and download) it for every song instead. "Download all" bundles whichever part is currently selected.</p>
-        </div>
-
-        <div id="wave1-block" class="hidden">
-          <p class="block-title">Wave 1 · Parts &amp; Charts</p>
-          <p class="wave-note">The first wave of music. Download your parts below.</p>
-          <button id="download-w1" class="btn dl-all hidden" type="button">Download all Wave 1 parts</button>
-          <div id="wave1-list"></div>
-        </div>
-
-        <div id="wave2-block" class="hidden">
-          <p class="block-title">Wave 2 · New Charts</p>
-          <p class="wave-note">Fresh batch! More charts will be released as the setlist gets finalized.</p>
-          <button id="download-w2" class="btn dl-all hidden" type="button">Download all Wave 2 parts</button>
-          <div id="wave2-list"></div>
-        </div>
-
-        <div id="wave3-block" class="hidden">
-          <p class="block-title">Wave 3 · New Charts</p>
-          <p class="wave-note">The latest drop. More on the way.</p>
-          <button id="download-w3" class="btn dl-all hidden" type="button">Download all Wave 3 parts</button>
-          <div id="wave3-list"></div>
+        <div id="parts-block" class="hidden">
+          <p class="block-title">Your Parts</p>
+          <p class="parts-note">Every chart released so far, sorted alphabetically. More on the way as the setlist gets finalized.</p>
+          <button id="download-all" class="btn dl-all hidden" type="button">Download all parts</button>
+          <div id="parts-list"></div>
         </div>
 
         <div id="survey-results" class="hidden">
@@ -289,41 +289,43 @@
           "Can't Take My Eyes Off You",
           "L-O-V-E",
           "Orange Colored Sky",
-          "Beyond the Sea",
           "Moondance",
           "Mack the Knife",
-          "Wake Me Up",
           "24K Magic",
+          "Fly Me to the Moon (Bossa Nova)",
+          "I've Got You Under My Skin",
+          "Moves Like Jagger",
         ],
         maya: [
           "Everybody Wants to Rule the World",
           "Sunday Morning",
-          "Signed Sealed Delivered",
           "Put Your Records On",
-          "Me & Mr. Jones",
           "Gravity",
           "Sir Duke",
           "Murder on the Dancefloor",
-          "Don't Know Why",
-          "Skyfall",
-          "Valerie",
-          "Superstition",
-          "I Want You Back",
-          "Save Your Tears",
           "Rein Me In",
+          "Respect",
+          "It Isn't Perfect But It Might Be",
+          "September",
+          "Dancing Queen",
+          "Superstition",
         ],
         gab: [
           "So Easy (To Fall in Love)",
-          "Dancing Queen",
+          "Valerie",
+          "Ain't No Mountain High Enough",
+          "Skyfall",
+          "September",
+          "The Man I Need",
         ],
         nate: [
           "Play That Funky Music",
-          "Skate",
           "Cheek to Cheek",
-          "New York, New York",
           "Chicago",
-          "24K Magic",
-          "The Way You Look Tonight",
+          "Fly Me to the Moon",
+          "Sway",
+          "Come Fly With Me",
+          "Beyond the Sea",
         ],
         caden: [
           "Ain't No Mountain High Enough",
@@ -332,7 +334,6 @@
         ],
         william: [
           "New York, New York",
-          "24K Magic",
         ],
       };
 
@@ -367,32 +368,69 @@
         "sir-duke": "https://www.youtube.com/watch?v=EnNgASBdCeo",
         "superstition": "https://www.youtube.com/watch?v=ftdZ363R9kQ",
         "put-your-records-on": "https://www.youtube.com/watch?v=Hr01oIrRVu8",
+        "new-york-new-york": "https://www.youtube.com/watch?v=ryyW0ymAIrA",
       };
+
+      // B-list: low priority, cut from the official setlist, we'll play these if
+      // there's time -- no need to practice them.
+      const B_LIST = new Set([
+        "respect",
+        "dancing-queen",
+        "put-your-records-on",
+        "l-o-v-e",
+        "orange-colored-sky",
+        "moves-like-jagger",
+      ]);
+      const TOTAL_SONGS = 44; // full tracked song count as of the last inventory pass
+
+      function bListTag(slug) {
+        return B_LIST.has(slug) ? `<span class="b-list-tag">B-list</span>` : "";
+      }
+      // B-list songs always sort after everything else, alphabetical within each group.
+      function blRank(slug) {
+        return B_LIST.has(slug) ? 1 : 0;
+      }
+      const bListDivider =
+        `<div class="b-list-divider">B-list &middot; low priority, we'll play these if there's time -- no need to practice</div>`;
 
       // Song notes -- shown to everyone under the song's rows
       const SONG_NOTES = {
         "moondance": "Play the ending as written on the sheet music. The recording does the end a bit differently. Trumpet 1 has a written-out solo (with a gliss) -- Scott.",
         "orange-colored-sky": "Trombone 1: ignore the melody line, we have a vocalist covering it. Bass: the notation part is from the other arrangement, so the form may differ from the tab. Both Trombone 1 and Trombone 2 have their own individual solo breaks -- Austin and Steve/Jacob.",
-        "i-want-you-back": "No vocalist on this chart yet. Someone can come up and sing it!",
+        "i-want-you-back": "Horns-only chart -- no vocal part, nobody's assigned to sing it.",
         "sunday-morning": "Our sheet is slightly edited from this version, but play along with it. Don't worry about playing the solos as written, do some random shit and have fun. Maya will get back to us on how she wants to sing it.",
         "dancing-queen": "No video link. Play along with the Spotify recording, it's all in the original key.",
-        "uptown-funk": "No vocalist claimed. Hopefully someone from the audience takes the words!",
+        "uptown-funk": "Only one trumpet part exists in this book; extra trumpets are welcome to double it live. No vocalist claimed -- hopefully someone from the audience takes the words!",
+        "in-the-mood": "Only one trumpet part exists in this book; extra trumpets are welcome to double it live.",
+        "treasure": "Only one trumpet part exists in this book; extra trumpets are welcome to double it live.",
+        "murder-on-the-dancefloor": "Only one trombone part exists in this book -- all three trombones (Austin/Steve/Jacob) read it together in unison, it's not an optional double. Chris also shares Benji's trumpet-2 part.",
         "locked-out-of-heaven": "We need someone to sing this one, hopefully from the audience. Trumpet 2 (not 1) has the solo break here -- Benji.",
-        "mack-the-knife": "Switched to the Bobby Darin arrangement (quarter=165, modulates up a half-step every chorus). Only one part per horn now -- Benji/Chris (trumpet), Steve/Jacob (trombone), and Caden (sax) don't have a chair in this arrangement. Heads up: Karthik's vocal chart is still the OLD arrangement (quarter=152, no key changes) -- it does not match the band's new charts. Needs a new vocal part pulled from the Bobby Darin version before this is really usable live.",
-        "cheek-to-cheek": "Horns get two versions: Luke's improved part and the original book part. Rhythm section and vocals come from the original book.",
-        "24k-magic": "Karthik, Nate, and William split the two voice parts. Spencer is on the vocal modulator.",
+        "mack-the-knife": "Switched to the Bobby Darin arrangement (quarter=165, modulates up a half-step every chorus). Only one trumpet part and one trombone part exist in this book; extra trumpets/trombones are welcome to double them live. Caden (bari sax) still doesn't have a chair in this arrangement at all. The old Dave Wolpe vocal chart didn't match this arrangement, so it's been pulled -- Karthik's learning this one by ear off the Spotify recording instead.",
+        "cheek-to-cheek": "Horns play from the original book part -- Luke's improved version was pulled. Rhythm section and vocals also come from the original book.",
+        "24k-magic": "Karthik sings this one, with two voice parts to choose from. Spencer is on the vocal modulator.",
         "sir-duke": "Bones share the single trombone part.",
         "superstition": "No piano, guitar, vocal, or tenor part in this arrangement. Keys, Alex, and Maya work from the score; William doubles the alto line.",
         "put-your-records-on": "No vocal, piano, trombone, or tenor parts in this arrangement. Maya sings from the recording for now.",
-        "new-york-new-york": "No drum part in this book. Nate wants to swap New York for Chicago in a way that doesn't fit the line at all.",
+        "new-york-new-york": "No drum part in this book -- the Play Along link above is a drum tabs video for whoever's on kit. Nate wants to swap New York for Chicago in a way that doesn't fit the line at all.",
         "chicago": "Trombone 1 has two solo breaks near the top of the chart -- Austin.",
-        "ain-t-no-mountain-high-enough": "Duet (partner TBD). Piano/vocal sheet only for now, no band chart exists yet.",
-        "come-fly-with-me": "Buble version, a semitone lower than Sinatra. No vocal part in the book; vocalist TBD sings from the recording.",
+        "ain-t-no-mountain-high-enough": "Duet: Gabrielle and Caden. Piano/vocal sheet only for now, no band chart exists yet.",
+        "come-fly-with-me": "Buble version, a semitone lower than Sinatra. Nate sings this one. No written vocal part in the book -- sing from the recording.",
         "leave-the-door-open": "Vocal part exists but nobody has claimed this one yet. Someone step up for the Silk Sonic harmonies!",
-        "sway": "Michael Bublé version. No vocal part in this book; vocalist TBD sings from the recording. Trumpet 4, Bass Trombone, Alto 2, and Tenor 2 are extra chairs nobody currently covers.",
-        "fly-me-to-the-moon": "Switched to the Sebastian Muller arrangement (Bart Howard/Sinatra, quarter=120). Elayna now has a flute part. This book actually has a written vocal part -- nobody's claimed it yet, so someone can step up. Trumpet 4, Trombone 4, and Alto 2/Tenor 2 are extra chairs nobody currently covers.",
+        "sway": "Michael Bublé version. Nate sings this one. No written vocal part in this book -- sing from the recording. Trumpet 4, Bass Trombone, Alto 2, and Tenor 2 are extra chairs nobody currently covers.",
+        "fly-me-to-the-moon": "Switched to the Sebastian Muller arrangement (Bart Howard/Sinatra, quarter=120). Elayna now has a flute part. Nate sings this one from the written vocal part in the book. Trumpet 4, Trombone 4, and Alto 2/Tenor 2 are extra chairs nobody currently covers.",
+        "fly-me-to-the-moon-bossa-nova": "A completely different chart from the swing version above -- the bossa nova take used as the Neon Genesis Evangelion ending theme. Karthik sings this one, straight off the recording (no written vocal part in this book). Only two trumpets (Scott/Benji, playing the cornet parts) plus rhythm -- there are no trombone or sax parts in this arrangement at all. Liam's on congas; extra Latin percussion (bongos, cabasa, guiro, shaker, timbales) is in the folder if anyone wants a different color.",
+        "beyond-the-sea": "Bobby Darin arrangement. Nate sings this one -- it has a written vocal part. Small combo: only one trumpet part and one trombone part exist in this book; extra trumpets/trombones are welcome to double them live. Tenor sax (William) and bari sax (Caden) still play their own parts; no alto sax part in this arrangement at all.",
+        "i-ve-got-you-under-my-skin": "Karthik sings this one from the same all-parts book everyone else plays from.",
+        "september": "Shared between Maya and Gabrielle. Full vocal set exists -- Lead Vocals plus Backing Vocals 1 and 2 (Simon Peter arrangement) -- split lead/backing between the two of you however you like.",
+        "moves-like-jagger": "Chartless performance -- Karthik's doing this one without written parts, band vamps/plays along.",
+        "everybody-wants-to-rule-the-world": "Chartless performance -- Maya's doing this one without written parts, band vamps/plays along.",
+        "gravity": "Chartless performance -- Maya's doing this one without written parts, band vamps/plays along.",
+        "rein-me-in": "Sam Fender/Olivia Dean, an Accidentones arrangement (Matthew Harbourne). Small combo -- no drum chair in this book. Maya covers both written vocal parts.",
+        "play-that-funky-music": "Wild Cherry. Small combo, no horns or piano in this arrangement -- guitar, bass, drums, hand claps, and Nate on vocals.",
+        "valerie": "Mark Ronson/Amy Winehouse, arr. Daniel Houghton. 2 trumpets, alto, tenor, rhythm, drums -- but only one trombone part exists in this book; extra trombones are welcome to double it live. No written vocal line -- Gabrielle and Caden pull the lyrics off Spotify.",
+        "so-easy-to-fall-in-love": "Currently being arranged -- chart in progress.",
+        "the-man-i-need": "Currently being arranged -- chart in progress.",
         "sing-sing-sing": "Benny Goodman classic, no vocal part. Trumpet 4 and Trombone 4 are extra chairs nobody currently covers.",
-        "the-way-you-look-tonight": "Nate sings this one. No written vocal/lead sheet part exists in this book -- sing from the recording, using Alto 1 or Tenor 1 for the melody line. Trumpet 4 and Trombone 4 are extra chairs nobody currently covers.",
       };
 
       // -----------------------------------------------------------------------
@@ -401,7 +439,6 @@
       const UNASSIGNED = [
         "It Isn't Perfect But It Might Be",
         "Watermelon Sugar",
-        "Fly Me to the Moon",
         "Sway",
         "Maneater",
         "Human Nature",
@@ -453,8 +490,18 @@
         steve:     { display: "Steve",    section: "Bones",    instrument: "Trombone 2", family: "trombones", chair: "Trombone 2" },
         jacob:     { display: "Jacob",    section: "Bones",    instrument: "Trombone 3", family: "trombones", chair: "Trombone 3" },
         luke:      { display: "Luke",     section: "Saxes",    instrument: "Alto 1", family: "saxes", chair: "Alto 1" },
-        caden:     { display: "Caden",    section: "Saxes",    instrument: "Bari Sax / Piano / Vocals", vocalist: true, family: "saxes", chair: "Bari Sax" },
-        william:   { display: "William",  section: "Saxes",    instrument: "Tenor 1 / Clarinet 1", vocalist: true, family: "saxes", chair: "Tenor 1" },
+        caden:     { display: "Caden",    section: "Saxes",    instrument: "Bari Sax / Piano / Vocals", vocalist: true, family: "saxes", chair: "Bari Sax",
+          roles: [
+            { type: "vocal", label: "Voice" },
+            { type: "chair", family: "saxes", chair: "Bari Sax", label: "Bari Sax" },
+            { type: "chair", family: "rhythm", chair: "Piano", label: "Keys" },
+          ] },
+        william:   { display: "William",  section: "Saxes",    instrument: "Tenor 1 / Clarinet 1", vocalist: true, family: "saxes", chair: "Tenor 1",
+          roles: [
+            { type: "vocal", label: "Voice" },
+            { type: "chair", family: "saxes", chair: "Tenor 1", label: "Tenor 1" },
+            { type: "chair", family: "saxes", chair: "Clarinet 1", label: "Clarinet 1" },
+          ] },
         alex:      { display: "Alex",     section: "Rhythm",   instrument: "Guitar", family: "rhythm", chair: "Guitar" },
         max:       { display: "Max",      section: "Rhythm",   instrument: "Bass", family: "rhythm", chair: "Bass" },
         meredith:  { display: "Meredith", section: "Rhythm",   instrument: "Piano", family: "rhythm", chair: "Piano" },
@@ -465,9 +512,14 @@
         karthik:   { display: "Karthik",  section: "Vocals",   instrument: "Vocals", vocalist: true },
         maya:      { display: "Maya",     section: "Vocals",   instrument: "Vocals", vocalist: true },
         gab:       { display: "Gab",      section: "Vocals",   instrument: "Vocals", vocalist: true },
-        gabrielle: { display: "Gab",      section: "Vocals",   instrument: "Vocals", vocalist: true },
         nate:      { display: "Nate",     section: "Vocals",   instrument: "Vocals", vocalist: true },
-        varun:     { display: "Varun",    section: "Vocals",   instrument: "Vocals", vocalist: true },
+      };
+
+      // Alternate spellings/full names that should resolve to the same roster
+      // entry -- everything else in this file (VOCALIST_SONGS, PARTS_FILES,
+      // CHAIR_FILES) is keyed by the canonical name on the right.
+      const NAME_ALIASES = {
+        gabrielle: "gab",
       };
 
       // -----------------------------------------------------------------------
@@ -481,6 +533,29 @@
         saxes: ["Alto 1", "Alto 2", "Tenor 1", "Tenor 2", "Bari Sax", "Clarinet 1", "Clarinet 2"],
         rhythm: ["Piano", "Guitar", "Bass", "Drums", "Synth/Aux"],
       };
+
+      // Chairs that double up on the lowest-numbered sibling within the same
+      // instrument type when a song has no part written for them specifically
+      // (e.g. Trumpet 3 plays Trumpet 1's part on a small-combo chart with only
+      // one trumpet in the book). No fallback for rhythm -- each chair there is
+      // a different instrument, doubling doesn't make sense.
+      const FALLBACK_GROUPS = {
+        trumpets: [["Trumpet 1", "Trumpet 2", "Trumpet 3", "Trumpet 4"]],
+        trombones: [["Trombone 1", "Trombone 2", "Trombone 3", "Trombone 4"]],
+        saxes: [["Alto 1", "Alto 2"], ["Tenor 1", "Tenor 2"], ["Clarinet 1", "Clarinet 2"]],
+      };
+
+      // Returns { file, sourceChair } if `chair` has no part of its own for
+      // `slug` but an earlier chair in its fallback group does; null otherwise.
+      function fallbackFile(family, chair, slug) {
+        const group = (FALLBACK_GROUPS[family] || []).find((g) => g.includes(chair));
+        if (!group) return null;
+        for (const c of group) {
+          const files = ((CHAIR_FILES[family] || {})[c] || {})[slug];
+          if (files) return { file: files[0], sourceChair: c };
+        }
+        return null;
+      }
 
       // -----------------------------------------------------------------------
       // Parts files - populate as PDFs are added to the repo.
@@ -519,7 +594,6 @@
           luke: `${W1}/mack-the-knife/alto-sax.pdf`, william: `${W1}/mack-the-knife/tenor-sax.pdf`,
           alex: `${W1}/mack-the-knife/guitar.pdf`, max: `${W1}/mack-the-knife/bass.pdf`, meredith: `${W1}/mack-the-knife/piano.pdf`, sara: `${W1}/mack-the-knife/piano.pdf`,
           annie: `${W1}/mack-the-knife/drums.pdf`, liam: `${W1}/mack-the-knife/drums.pdf`,
-          karthik: `${W1}/mack-the-knife/vocals.pdf`,
         },
         "moondance": {
           scott: `${W1}/moondance/trumpet-1.pdf`, benji: `${W1}/moondance/trumpet-2.pdf`, chris: `${W1}/moondance/trumpet-3.pdf`,
@@ -551,7 +625,7 @@
           austin: `${W1}/skyfall/trombone-1.pdf`, steve: `${W1}/skyfall/trombone-2.pdf`, jacob: `${W1}/skyfall/trombone-3.pdf`,
           luke: `${W1}/skyfall/alto-1.pdf`, william: `${W1}/skyfall/tenor-1.pdf`, caden: `${W1}/skyfall/bari-sax.pdf`,
           alex: `${W1}/skyfall/guitar.pdf`, max: `${W1}/skyfall/bass.pdf`, meredith: `${W1}/skyfall/piano.pdf`, sara: `${W1}/skyfall/piano.pdf`,
-          maya: `${W1}/skyfall/vocals.pdf`,
+          gab: `${W1}/skyfall/vocals.pdf`,
         },
         "i-want-you-back": {
           scott: `${W1}/i-want-you-back/trumpet-1.pdf`, benji: `${W1}/i-want-you-back/trumpet-2.pdf`, chris: `${W1}/i-want-you-back/trumpet-3.pdf`,
@@ -582,6 +656,8 @@
           alex: `${W1}/september/guitar.pdf`, nathan: `${W1}/september/keyboard.pdf`,
           max: `${W1}/september/bass.pdf`, meredith: `${W1}/september/piano.pdf`, sara: `${W1}/september/piano.pdf`,
           annie: `${W1}/september/drums.pdf`, liam: `${W1}/september/drums.pdf`,
+          maya: [`${W1}/september/vocals-lead.pdf`, `${W1}/september/backing-vocals.pdf`, `${W1}/september/backing-vocals-2.pdf`],
+          gab: [`${W1}/september/vocals-lead.pdf`, `${W1}/september/backing-vocals.pdf`, `${W1}/september/backing-vocals-2.pdf`],
         },
         "sweet-caroline": {
           scott: `${W1}/sweet-caroline/trumpet-1.pdf`, benji: `${W1}/sweet-caroline/trumpet-2.pdf`, chris: `${W1}/sweet-caroline/trumpet-3.pdf`, elayna: `${W1}/sweet-caroline/flute.pdf`,
@@ -625,6 +701,7 @@
           luke: `${W1}/respect/alto-1.pdf`, william: `${W1}/respect/tenor-1.pdf`, caden: `${W1}/respect/bari-sax.pdf`,
           max: `${W1}/respect/bass.pdf`, meredith: `${W1}/respect/piano-vocals.pdf`, sara: `${W1}/respect/piano-vocals.pdf`,
           annie: `${W1}/respect/drums.pdf`, liam: `${W1}/respect/drums.pdf`,
+          maya: `${W1}/respect/piano-vocals.pdf`,
         },
         // NOTE: key must equal slugify(song title) -- "Can't" becomes "can-t"
         "can-t-take-my-eyes-off-you": {
@@ -692,8 +769,6 @@
           max: `${W2}/24k-magic/bass.pdf`, meredith: `${W2}/24k-magic/piano.pdf`, sara: `${W2}/24k-magic/piano.pdf`,
           annie: `${W2}/24k-magic/drums.pdf`, liam: `${W2}/24k-magic/drums.pdf`,
           karthik: [`${W2}/24k-magic/voice-1.pdf`, `${W2}/24k-magic/voice-2.pdf`],
-          nate: [`${W2}/24k-magic/voice-1.pdf`, `${W2}/24k-magic/voice-2.pdf`],
-          william: [`${W2}/24k-magic/voice-1.pdf`, `${W2}/24k-magic/voice-2.pdf`],
         },
         "murder-on-the-dancefloor": {
           scott: `${W2}/murder-on-the-dancefloor/trumpet-1.pdf`, benji: `${W2}/murder-on-the-dancefloor/trumpet-2.pdf`, chris: `${W2}/murder-on-the-dancefloor/trumpet-2.pdf`,
@@ -738,6 +813,45 @@
           alex: `${W3}/fly-me-to-the-moon/guitar.pdf`, max: `${W3}/fly-me-to-the-moon/bass.pdf`,
           meredith: `${W3}/fly-me-to-the-moon/piano.pdf`, sara: `${W3}/fly-me-to-the-moon/piano.pdf`,
           annie: `${W3}/fly-me-to-the-moon/drums.pdf`, liam: `${W3}/fly-me-to-the-moon/drums.pdf`,
+          nate: `${W3}/fly-me-to-the-moon/vocals.pdf`,
+        },
+        "fly-me-to-the-moon-bossa-nova": {
+          scott: `${W3}/fly-me-to-the-moon-bossa-nova/trumpet-1.pdf`, benji: `${W3}/fly-me-to-the-moon-bossa-nova/trumpet-2.pdf`,
+          alex: `${W3}/fly-me-to-the-moon-bossa-nova/guitar.pdf`, max: `${W3}/fly-me-to-the-moon-bossa-nova/bass.pdf`,
+          meredith: `${W3}/fly-me-to-the-moon-bossa-nova/piano.pdf`, sara: `${W3}/fly-me-to-the-moon-bossa-nova/piano.pdf`,
+          annie: `${W3}/fly-me-to-the-moon-bossa-nova/drums.pdf`, liam: `${W3}/fly-me-to-the-moon-bossa-nova/percussion.pdf`,
+        },
+        "beyond-the-sea": {
+          scott: `${W3}/beyond-the-sea/trumpet-1.pdf`,
+          austin: `${W3}/beyond-the-sea/trombone-1.pdf`,
+          william: `${W3}/beyond-the-sea/tenor-1.pdf`, caden: `${W3}/beyond-the-sea/bari-sax.pdf`,
+          max: `${W3}/beyond-the-sea/bass.pdf`, meredith: `${W3}/beyond-the-sea/piano.pdf`, sara: `${W3}/beyond-the-sea/piano.pdf`,
+          annie: `${W3}/beyond-the-sea/drums.pdf`, liam: `${W3}/beyond-the-sea/drums.pdf`,
+          nate: `${W3}/beyond-the-sea/vocals.pdf`,
+        },
+        "rein-me-in": {
+          luke: `${W3}/rein-me-in/alto-sax.pdf`,
+          alex: `${W3}/rein-me-in/guitar.pdf`, max: `${W3}/rein-me-in/bass.pdf`,
+          meredith: `${W3}/rein-me-in/piano.pdf`, sara: `${W3}/rein-me-in/piano.pdf`,
+          maya: [`${W3}/rein-me-in/vocals-1.pdf`, `${W3}/rein-me-in/vocals-2.pdf`],
+        },
+        "play-that-funky-music": {
+          alex: [`${W3}/play-that-funky-music/guitar.pdf`, `${W3}/play-that-funky-music/guitar-tab.pdf`],
+          max: `${W3}/play-that-funky-music/bass.pdf`,
+          nathan: `${W3}/play-that-funky-music/hand-clap.pdf`,
+          annie: `${W3}/play-that-funky-music/drums.pdf`, liam: `${W3}/play-that-funky-music/drums.pdf`,
+          nate: `${W3}/play-that-funky-music/vocals.pdf`,
+        },
+        "valerie": {
+          scott: `${W3}/valerie/trumpet-1.pdf`, benji: `${W3}/valerie/trumpet-2.pdf`,
+          austin: `${W3}/valerie/trombone.pdf`,
+          luke: `${W3}/valerie/alto-sax.pdf`, william: `${W3}/valerie/tenor-sax.pdf`,
+          alex: `${W3}/valerie/guitar.pdf`, max: `${W3}/valerie/bass.pdf`,
+          meredith: `${W3}/valerie/piano.pdf`, sara: `${W3}/valerie/piano.pdf`,
+          annie: `${W3}/valerie/drums.pdf`, liam: `${W3}/valerie/drums.pdf`,
+        },
+        "i-ve-got-you-under-my-skin": {
+          karthik: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
         },
         "sing-sing-sing": {
           scott: `${W3}/sing-sing-sing/trumpet-1.pdf`, benji: `${W3}/sing-sing-sing/trumpet-2.pdf`, chris: `${W3}/sing-sing-sing/trumpet-3.pdf`,
@@ -747,16 +861,9 @@
           meredith: `${W3}/sing-sing-sing/piano.pdf`, sara: `${W3}/sing-sing-sing/piano.pdf`,
           annie: `${W3}/sing-sing-sing/drums.pdf`, liam: `${W3}/sing-sing-sing/drums.pdf`,
         },
-        "the-way-you-look-tonight": {
-          scott: `${W3}/the-way-you-look-tonight/trumpet-1.pdf`, benji: `${W3}/the-way-you-look-tonight/trumpet-2.pdf`, chris: `${W3}/the-way-you-look-tonight/trumpet-3.pdf`,
-          austin: `${W3}/the-way-you-look-tonight/trombone-1.pdf`, steve: `${W3}/the-way-you-look-tonight/trombone-2.pdf`, jacob: `${W3}/the-way-you-look-tonight/trombone-3.pdf`,
-          luke: `${W3}/the-way-you-look-tonight/alto-1.pdf`, william: `${W3}/the-way-you-look-tonight/tenor-1.pdf`, caden: `${W3}/the-way-you-look-tonight/bari-sax.pdf`,
-          alex: `${W3}/the-way-you-look-tonight/guitar.pdf`, max: `${W3}/the-way-you-look-tonight/bass.pdf`,
-          meredith: `${W3}/the-way-you-look-tonight/piano.pdf`, sara: `${W3}/the-way-you-look-tonight/piano.pdf`,
-          annie: `${W3}/the-way-you-look-tonight/drums.pdf`, liam: `${W3}/the-way-you-look-tonight/drums.pdf`,
-        },
         "ain-t-no-mountain-high-enough": {
           caden: `${W2}/aint-no-mountain-high-enough/piano-vocal.pdf`,
+          gab: `${W2}/aint-no-mountain-high-enough/piano-vocal.pdf`,
           meredith: `${W2}/aint-no-mountain-high-enough/piano-vocal.pdf`, sara: `${W2}/aint-no-mountain-high-enough/piano-vocal.pdf`,
         },
         "new-york-new-york": {
@@ -764,7 +871,6 @@
           austin: `${W2}/new-york-new-york/trombone-1.pdf`, steve: `${W2}/new-york-new-york/trombone-2.pdf`, jacob: `${W2}/new-york-new-york/trombone-3.pdf`,
           luke: `${W2}/new-york-new-york/alto-1.pdf`, caden: `${W2}/new-york-new-york/bari-sax.pdf`,
           alex: `${W2}/new-york-new-york/guitar.pdf`, max: `${W2}/new-york-new-york/bass.pdf`, meredith: `${W2}/new-york-new-york/piano.pdf`, sara: `${W2}/new-york-new-york/piano.pdf`,
-          nate: `${W2}/new-york-new-york/vocals.pdf`,
           william: [`${W2}/new-york-new-york/vocals.pdf`, `${W2}/new-york-new-york/tenor-1.pdf`],
         },
         "chicago": {
@@ -786,12 +892,13 @@
 
       // Chair-pill file index -- auto-derived from the actual PDFs on disk.
       // CHAIR_FILES[family][chairLabel][songSlug] = [file, ...]
-      const CHAIR_FILES = {"trumpets":{"Trumpet 1":{"dancing-queen":["parts/wave1/dancing-queen/trumpet.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trumpet-1.pdf"],"in-the-mood":["parts/wave1/in-the-mood/trumpet-1.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/solo-trumpet.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trumpet-1.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/trumpet.pdf"],"moondance":["parts/wave1/moondance/trumpet-1.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/trumpet-1.pdf"],"respect":["parts/wave1/respect/trumpet-1.pdf"],"september":["parts/wave1/september/trumpet-1.pdf","parts/wave1/september/trumpet.pdf"],"skyfall":["parts/wave1/skyfall/trumpet-1.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trumpet-1.pdf"],"sunday-morning":["parts/wave1/sunday-morning/trumpet.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trumpet-1.pdf"],"treasure":["parts/wave1/treasure/trumpet-1.pdf"],"uptown-funk":["parts/wave1/uptown-funk/trumpet-1.pdf"],"24k-magic":["parts/wave2/24k-magic/trumpet.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trumpet-1.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trumpet-1-original.pdf","parts/wave2/cheek-to-cheek/trumpet-1-original.pdf"],"chicago":["parts/wave2/chicago/trumpet-1.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/trumpet-1.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trumpet-1.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/trumpet-1.pdf"],"sir-duke":["parts/wave2/sir-duke/trumpet-1.pdf"],"superstition":["parts/wave2/superstition/trumpet.pdf"],"this-love":["parts/wave2/this-love/trumpet.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trumpet-1.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trumpet-1.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/trumpet.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trumpet-1.pdf"],"sway":["parts/wave3/sway/trumpet-1.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/trumpet-1.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Trumpet 2":{"dancing-queen":["parts/wave1/dancing-queen/trumpet.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trumpet-2.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/solo-trumpet.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trumpet-2.pdf"],"moondance":["parts/wave1/moondance/trumpet-2.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/trumpet-2.pdf"],"respect":["parts/wave1/respect/trumpet-2.pdf"],"september":["parts/wave1/september/trumpet-2.pdf","parts/wave1/september/trumpet.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trumpet-2.pdf"],"sunday-morning":["parts/wave1/sunday-morning/trumpet.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trumpet-2.pdf"],"24k-magic":["parts/wave2/24k-magic/trumpet.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trumpet-2.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trumpet-2-original.pdf","parts/wave2/cheek-to-cheek/trumpet-2-original.pdf"],"chicago":["parts/wave2/chicago/trumpet-2.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/trumpet-2.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trumpet-2.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/trumpet-2.pdf"],"sir-duke":["parts/wave2/sir-duke/trumpet-2.pdf"],"superstition":["parts/wave2/superstition/trumpet.pdf"],"this-love":["parts/wave2/this-love/trumpet.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trumpet-2.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trumpet-2.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/trumpet.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trumpet-2.pdf"],"sway":["parts/wave3/sway/trumpet-2.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/trumpet-2.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Trumpet 3":{"dancing-queen":["parts/wave1/dancing-queen/trumpet.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trumpet-3.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/solo-trumpet.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trumpet-3.pdf"],"moondance":["parts/wave1/moondance/trumpet-3.pdf"],"respect":["parts/wave1/respect/trumpet-3.pdf"],"september":["parts/wave1/september/trumpet.pdf"],"skyfall":["parts/wave1/skyfall/trumpet-3.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trumpet-3.pdf"],"sunday-morning":["parts/wave1/sunday-morning/trumpet.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trumpet-3.pdf"],"24k-magic":["parts/wave2/24k-magic/trumpet.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trumpet-3.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trumpet-3-original.pdf","parts/wave2/cheek-to-cheek/trumpet-3-original.pdf"],"chicago":["parts/wave2/chicago/trumpet-3.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trumpet-3.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/trumpet-3.pdf"],"superstition":["parts/wave2/superstition/trumpet.pdf"],"this-love":["parts/wave2/this-love/trumpet.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trumpet-3.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trumpet-3.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/trumpet.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trumpet-3.pdf"],"sway":["parts/wave3/sway/trumpet-3.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/trumpet-3.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Trumpet 4":{"dancing-queen":["parts/wave1/dancing-queen/trumpet.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/solo-trumpet.pdf"],"september":["parts/wave1/september/trumpet.pdf"],"skyfall":["parts/wave1/skyfall/trumpet-4.pdf"],"sunday-morning":["parts/wave1/sunday-morning/trumpet.pdf"],"24k-magic":["parts/wave2/24k-magic/trumpet.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trumpet-4.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trumpet-4-original.pdf","parts/wave2/cheek-to-cheek/trumpet-4-original.pdf"],"chicago":["parts/wave2/chicago/trumpet-4.pdf"],"superstition":["parts/wave2/superstition/trumpet.pdf"],"this-love":["parts/wave2/this-love/trumpet.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trumpet-4.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trumpet-4.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/trumpet.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trumpet-4.pdf"],"sway":["parts/wave3/sway/trumpet-4.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/trumpet-4.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]}},"trombones":{"Trombone 1":{"dancing-queen":["parts/wave1/dancing-queen/trombone-1.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trombone-1.pdf"],"in-the-mood":["parts/wave1/in-the-mood/trombone-1.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/trombone.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trombone-1.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/trombone.pdf"],"moondance":["parts/wave1/moondance/trombone-1.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/trombone-1.pdf"],"respect":["parts/wave1/respect/trombone-1.pdf"],"september":["parts/wave1/september/trombone-1.pdf"],"skyfall":["parts/wave1/skyfall/trombone-1.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trombone-1.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trombone-1.pdf"],"treasure":["parts/wave1/treasure/trombone-1.pdf"],"uptown-funk":["parts/wave1/uptown-funk/trombone-1.pdf"],"24k-magic":["parts/wave2/24k-magic/trombone.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trombone-1.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trombone-1-original.pdf","parts/wave2/cheek-to-cheek/trombone-1-original.pdf"],"chicago":["parts/wave2/chicago/trombone-1.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/trombone-1.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trombone-1.pdf"],"sir-duke":["parts/wave2/sir-duke/trombone.pdf"],"superstition":["parts/wave2/superstition/trombone.pdf"],"this-love":["parts/wave2/this-love/trombone.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trombone-1.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trombone-1.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trombone-1.pdf"],"sway":["parts/wave3/sway/trombone-1.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/trombone-1.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Trombone 2":{"dancing-queen":["parts/wave1/dancing-queen/trombone-2.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trombone-2.pdf"],"in-the-mood":["parts/wave1/in-the-mood/trombone-2.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/trombone.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trombone-2.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/trombone-2.pdf"],"respect":["parts/wave1/respect/trombone-2.pdf"],"september":["parts/wave1/september/trombone-2.pdf"],"skyfall":["parts/wave1/skyfall/trombone-2.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trombone-2.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trombone-2.pdf"],"treasure":["parts/wave1/treasure/trombone-2.pdf"],"uptown-funk":["parts/wave1/uptown-funk/trombone-2.pdf"],"24k-magic":["parts/wave2/24k-magic/trombone.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trombone-2.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trombone-2-original.pdf","parts/wave2/cheek-to-cheek/trombone-2-original.pdf"],"chicago":["parts/wave2/chicago/trombone-2.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trombone-2.pdf"],"sir-duke":["parts/wave2/sir-duke/trombone.pdf"],"superstition":["parts/wave2/superstition/trombone.pdf"],"this-love":["parts/wave2/this-love/trombone.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trombone-2.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trombone-2.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trombone-2.pdf"],"sway":["parts/wave3/sway/trombone-2.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/trombone-2.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Trombone 3":{"dancing-queen":["parts/wave1/dancing-queen/trombone-3.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trombone-3.pdf"],"in-the-mood":["parts/wave1/in-the-mood/trombone-3.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/trombone.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trombone-3.pdf"],"moondance":["parts/wave1/moondance/trombone-3.pdf"],"respect":["parts/wave1/respect/trombone-3.pdf"],"skyfall":["parts/wave1/skyfall/trombone-3.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trombone-3.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trombone-3.pdf"],"treasure":["parts/wave1/treasure/trombone-3.pdf"],"uptown-funk":["parts/wave1/uptown-funk/trombone-3.pdf"],"24k-magic":["parts/wave2/24k-magic/trombone.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trombone-3.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trombone-3-original.pdf","parts/wave2/cheek-to-cheek/trombone-3-original.pdf"],"chicago":["parts/wave2/chicago/trombone-3.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trombone-3.pdf"],"sir-duke":["parts/wave2/sir-duke/trombone.pdf"],"superstition":["parts/wave2/superstition/trombone.pdf"],"this-love":["parts/wave2/this-love/trombone.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trombone-3.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trombone-3.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trombone-3.pdf"],"sway":["parts/wave3/sway/trombone-3.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/trombone-3.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Trombone 4":{"l-o-v-e":["parts/wave1/l-o-v-e/trombone.pdf"],"moondance":["parts/wave1/moondance/bass-trombone.pdf"],"24k-magic":["parts/wave2/24k-magic/trombone.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trombone-4.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trombone-4.pdf"],"chicago":["parts/wave2/chicago/trombone-4.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trombone-4.pdf"],"sir-duke":["parts/wave2/sir-duke/trombone.pdf"],"superstition":["parts/wave2/superstition/trombone.pdf"],"this-love":["parts/wave2/this-love/trombone.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/bass-trombone.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trombone-4.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trombone-4.pdf"],"sway":["parts/wave3/sway/trombone-4-bass.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/trombone-4.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]}},"saxes":{"Alto 1":{"dancing-queen":["parts/wave1/dancing-queen/alto-sax.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/alto-1.pdf"],"in-the-mood":["parts/wave1/in-the-mood/alto-1.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/alto-sax.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/alto-1.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/alto-sax.pdf"],"moondance":["parts/wave1/moondance/alto-1.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/alto-1.pdf"],"respect":["parts/wave1/respect/alto-1.pdf"],"september":["parts/wave1/september/alto-1.pdf"],"skyfall":["parts/wave1/skyfall/alto-1.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/alto-1.pdf"],"sunday-morning":["parts/wave1/sunday-morning/alto.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/alto-1.pdf"],"treasure":["parts/wave1/treasure/alto-1.pdf"],"uptown-funk":["parts/wave1/uptown-funk/alto-1.pdf"],"24k-magic":["parts/wave2/24k-magic/alto-sax.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/alto-1.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/alto-1-original.pdf","parts/wave2/cheek-to-cheek/alto-1-original.pdf"],"chicago":["parts/wave2/chicago/alto-1.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/alto-1.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/alto-1.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/alto-sax.pdf"],"sir-duke":["parts/wave2/sir-duke/alto-sax.pdf"],"superstition":["parts/wave2/superstition/alto-sax.pdf"],"this-love":["parts/wave2/this-love/alto-sax.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/alto-1.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/alto-1.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/alto-sax.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/alto-1.pdf"],"sway":["parts/wave3/sway/alto-1.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/alto-1.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Alto 2":{"i-want-you-back":["parts/wave1/i-want-you-back/alto-2.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/alto-2.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/alto-2-original.pdf","parts/wave2/cheek-to-cheek/alto-2-original.pdf"],"chicago":["parts/wave2/chicago/alto-2.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/alto-2.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/alto-2.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/alto-2.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/alto-2.pdf"],"sway":["parts/wave3/sway/alto-2.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/alto-2.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Tenor 1":{"i-want-you-back":["parts/wave1/i-want-you-back/tenor-1.pdf"],"in-the-mood":["parts/wave1/in-the-mood/tenor-1.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/tenor-sax.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/tenor-1.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/tenor-sax.pdf"],"moondance":["parts/wave1/moondance/tenor-1.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/tenor-1.pdf"],"respect":["parts/wave1/respect/tenor-1.pdf"],"september":["parts/wave1/september/tenor-1.pdf"],"skyfall":["parts/wave1/skyfall/tenor-1.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/tenor-1.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/tenor-1.pdf"],"treasure":["parts/wave1/treasure/tenor-1.pdf"],"uptown-funk":["parts/wave1/uptown-funk/tenor-1.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/tenor-1.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/tenor-1-original.pdf","parts/wave2/cheek-to-cheek/tenor-1-original.pdf"],"chicago":["parts/wave2/chicago/tenor-1.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/tenor-1.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/tenor-1.pdf"],"sir-duke":["parts/wave2/sir-duke/tenor-sax.pdf"],"this-love":["parts/wave2/this-love/tenor-sax.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/tenor-1.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/tenor-1.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/tenor-1.pdf"],"sway":["parts/wave3/sway/tenor-1.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/tenor-1.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Tenor 2":{"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/tenor-2.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/tenor-2-original.pdf","parts/wave2/cheek-to-cheek/tenor-2-original.pdf"],"chicago":["parts/wave2/chicago/tenor-2.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/tenor-2.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/tenor-2.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/tenor-2.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/tenor-2.pdf"],"sway":["parts/wave3/sway/tenor-2.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/tenor-2.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Bari Sax":{"in-the-mood":["parts/wave1/in-the-mood/bari-sax.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/bari-sax.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/bari-sax.pdf"],"moondance":["parts/wave1/moondance/bari-sax.pdf"],"respect":["parts/wave1/respect/bari-sax.pdf"],"skyfall":["parts/wave1/skyfall/bari-sax.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/bari-sax.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/bari-sax.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/bari-sax.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/bari-sax-original.pdf","parts/wave2/cheek-to-cheek/bari-sax-original.pdf"],"chicago":["parts/wave2/chicago/bari-sax.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/bari-sax.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/bari-sax.pdf"],"sir-duke":["parts/wave2/sir-duke/bari-sax.pdf"],"superstition":["parts/wave2/superstition/bari-sax.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/bari-sax.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/bari-sax.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/bari-sax.pdf"],"sway":["parts/wave3/sway/bari-sax.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/bari-sax.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Clarinet 1":{"dancing-queen":["parts/wave1/dancing-queen/clarinet-1.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/clarinet.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/clarinet-1.pdf"],"sunday-morning":["parts/wave1/sunday-morning/clarinet.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/clarinet-1.pdf"],"treasure":["parts/wave1/treasure/clarinet.pdf"],"sir-duke":["parts/wave2/sir-duke/clarinet.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/clarinet.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/clarinet.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Clarinet 2":{"dancing-queen":["parts/wave1/dancing-queen/clarinet-2.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/clarinet-2.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]}},"rhythm":{"Piano":{"dancing-queen":["parts/wave1/dancing-queen/honky-tonk-piano.pdf","parts/wave1/dancing-queen/piano.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/piano.pdf"],"in-the-mood":["parts/wave1/in-the-mood/piano.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/piano.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/piano.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/piano.pdf"],"moondance":["parts/wave1/moondance/piano.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/piano-simplified.pdf","parts/wave1/orange-colored-sky/piano.pdf"],"respect":["parts/wave1/respect/piano-vocals.pdf"],"september":["parts/wave1/september/piano.pdf"],"skyfall":["parts/wave1/skyfall/piano.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/vocal-piano.pdf"],"sunday-morning":["parts/wave1/sunday-morning/piano-melody-riff.pdf","parts/wave1/sunday-morning/piano.pdf","parts/wave1/sunday-morning/rhythm.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/piano.pdf"],"treasure":["parts/wave1/treasure/piano.pdf"],"uptown-funk":["parts/wave1/uptown-funk/piano.pdf"],"24k-magic":["parts/wave2/24k-magic/piano.pdf"],"aint-no-mountain-high-enough":["parts/wave2/aint-no-mountain-high-enough/piano-vocal.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/piano.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/piano.pdf"],"chicago":["parts/wave2/chicago/piano-guitar.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/piano.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/piano.pdf"],"sir-duke":["parts/wave2/sir-duke/piano.pdf"],"this-love":["parts/wave2/this-love/piano.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/piano-guitar.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/piano.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/piano.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/piano.pdf"],"sway":["parts/wave3/sway/piano.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/piano.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Guitar":{"dancing-queen":["parts/wave1/dancing-queen/guitar.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/guitar.pdf"],"in-the-mood":["parts/wave1/in-the-mood/guitar.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/guitar.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/guitar.pdf"],"moondance":["parts/wave1/moondance/guitar.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/guitar-tab.pdf","parts/wave1/orange-colored-sky/guitar.pdf"],"september":["parts/wave1/september/guitar.pdf"],"skyfall":["parts/wave1/skyfall/guitar.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/guitar.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/guitar.pdf"],"treasure":["parts/wave1/treasure/guitar.pdf"],"uptown-funk":["parts/wave1/uptown-funk/guitar.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/guitar.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/guitar.pdf"],"chicago":["parts/wave2/chicago/piano-guitar.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/electric-guitar-1.pdf","parts/wave2/murder-on-the-dancefloor/electric-guitar.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/guitar.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/electric-guitar.pdf"],"sir-duke":["parts/wave2/sir-duke/guitar.pdf"],"this-love":["parts/wave2/this-love/guitar.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/piano-guitar.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/guitar.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/guitar.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/guitar.pdf"],"sway":["parts/wave3/sway/guitar.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/guitar.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Bass":{"dancing-queen":["parts/wave1/dancing-queen/bass.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/bass.pdf"],"in-the-mood":["parts/wave1/in-the-mood/bass.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/bass.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/bass.pdf"],"moondance":["parts/wave1/moondance/bass.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/bass-notation.pdf","parts/wave1/orange-colored-sky/bass.pdf"],"respect":["parts/wave1/respect/bass.pdf"],"september":["parts/wave1/september/bass.pdf"],"skyfall":["parts/wave1/skyfall/bass.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/bass.pdf"],"sunday-morning":["parts/wave1/sunday-morning/bass.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/bass.pdf"],"treasure":["parts/wave1/treasure/bass.pdf"],"uptown-funk":["parts/wave1/uptown-funk/bass.pdf"],"24k-magic":["parts/wave2/24k-magic/bass.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/bass.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/bass.pdf"],"chicago":["parts/wave2/chicago/bass.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/bass.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/bass.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/bass.pdf"],"sir-duke":["parts/wave2/sir-duke/bass.pdf"],"superstition":["parts/wave2/superstition/bass-guitar.pdf","parts/wave2/superstition/bass.pdf"],"this-love":["parts/wave2/this-love/acoustic-bass.pdf","parts/wave2/this-love/bass.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/bass.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/bass.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/bass.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/bass.pdf"],"sway":["parts/wave3/sway/bass.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/bass.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Drums":{"i-want-you-back":["parts/wave1/i-want-you-back/drums.pdf"],"in-the-mood":["parts/wave1/in-the-mood/drums.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/drums.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/drums.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/drums.pdf"],"moondance":["parts/wave1/moondance/drums.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/drums.pdf"],"respect":["parts/wave1/respect/drums.pdf"],"september":["parts/wave1/september/drums.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/drums.pdf"],"sunday-morning":["parts/wave1/sunday-morning/drums.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/drums.pdf"],"treasure":["parts/wave1/treasure/drums.pdf"],"uptown-funk":["parts/wave1/uptown-funk/drums.pdf"],"24k-magic":["parts/wave2/24k-magic/drums.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/drums.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/drums.pdf"],"chicago":["parts/wave2/chicago/drums.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/drums.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/drums.pdf"],"sir-duke":["parts/wave2/sir-duke/drums.pdf"],"superstition":["parts/wave2/superstition/drums.pdf"],"this-love":["parts/wave2/this-love/drums.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/drums.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/drums.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/drums.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/drums.pdf"],"sway":["parts/wave3/sway/drums.pdf"],"the-way-you-look-tonight":["parts/wave3/the-way-you-look-tonight/drums.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Synth/Aux":{"dancing-queen":["parts/wave1/dancing-queen/bass-drum-1.pdf","parts/wave1/dancing-queen/bass-drum-2.pdf","parts/wave1/dancing-queen/cabasa.pdf","parts/wave1/dancing-queen/hi-hat.pdf","parts/wave1/dancing-queen/maracas.pdf","parts/wave1/dancing-queen/snare-drum.pdf","parts/wave1/dancing-queen/tam-tam.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/aux-percussion.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/congas.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/tambourine.pdf","parts/wave2/cant-take-my-eyes-off-you/vibraphone.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/acoustic-guitar.pdf"],"superstition":["parts/wave2/superstition/claves.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/synth-strings.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/bongos.pdf","parts/wave3/leave-the-door-open/glockenspiel.pdf","parts/wave3/leave-the-door-open/tambourine.pdf"],"sway":["parts/wave3/sway/percussion.pdf","parts/wave3/sway/synth.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]}}};
+      const CHAIR_FILES = {"trumpets":{"Trumpet 1":{"dancing-queen":["parts/wave1/dancing-queen/trumpet.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trumpet-1.pdf"],"in-the-mood":["parts/wave1/in-the-mood/trumpet-1.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/solo-trumpet.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trumpet-1.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/trumpet.pdf"],"moondance":["parts/wave1/moondance/trumpet-1.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/trumpet-1.pdf"],"respect":["parts/wave1/respect/trumpet-1.pdf"],"september":["parts/wave1/september/trumpet.pdf"],"skyfall":["parts/wave1/skyfall/trumpet-1.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trumpet-1.pdf"],"sunday-morning":["parts/wave1/sunday-morning/trumpet.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trumpet-1.pdf"],"treasure":["parts/wave1/treasure/trumpet-1.pdf"],"uptown-funk":["parts/wave1/uptown-funk/trumpet-1.pdf"],"24k-magic":["parts/wave2/24k-magic/trumpet.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trumpet-1.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trumpet-1-original.pdf"],"chicago":["parts/wave2/chicago/trumpet-1.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/trumpet-1.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trumpet-1.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/trumpet-1.pdf"],"sir-duke":["parts/wave2/sir-duke/trumpet-1.pdf"],"superstition":["parts/wave2/superstition/trumpet.pdf"],"this-love":["parts/wave2/this-love/trumpet.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trumpet-1.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trumpet-1.pdf"],"fly-me-to-the-moon-bossa-nova":["parts/wave3/fly-me-to-the-moon-bossa-nova/trumpet-1.pdf"],"beyond-the-sea":["parts/wave3/beyond-the-sea/trumpet-1.pdf"],"valerie":["parts/wave3/valerie/trumpet-1.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/trumpet.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trumpet-1.pdf"],"sway":["parts/wave3/sway/trumpet-1.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Trumpet 2":{"dancing-queen":["parts/wave1/dancing-queen/trumpet.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trumpet-2.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/solo-trumpet.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trumpet-2.pdf"],"moondance":["parts/wave1/moondance/trumpet-2.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/trumpet-2.pdf"],"respect":["parts/wave1/respect/trumpet-2.pdf"],"september":["parts/wave1/september/trumpet-1.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trumpet-2.pdf"],"sunday-morning":["parts/wave1/sunday-morning/trumpet.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trumpet-2.pdf"],"24k-magic":["parts/wave2/24k-magic/trumpet.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trumpet-2.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trumpet-2-original.pdf"],"chicago":["parts/wave2/chicago/trumpet-2.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/trumpet-2.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trumpet-2.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/trumpet-2.pdf"],"sir-duke":["parts/wave2/sir-duke/trumpet-2.pdf"],"superstition":["parts/wave2/superstition/trumpet.pdf"],"this-love":["parts/wave2/this-love/trumpet.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trumpet-2.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trumpet-2.pdf"],"fly-me-to-the-moon-bossa-nova":["parts/wave3/fly-me-to-the-moon-bossa-nova/trumpet-2.pdf"],"valerie":["parts/wave3/valerie/trumpet-2.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/trumpet.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trumpet-2.pdf"],"sway":["parts/wave3/sway/trumpet-2.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"],"skyfall":["parts/wave1/skyfall/trumpet-3.pdf"]},"Trumpet 3":{"dancing-queen":["parts/wave1/dancing-queen/trumpet.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trumpet-3.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/solo-trumpet.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trumpet-3.pdf"],"moondance":["parts/wave1/moondance/trumpet-3.pdf"],"respect":["parts/wave1/respect/trumpet-3.pdf"],"september":["parts/wave1/september/trumpet-2.pdf"],"skyfall":["parts/wave1/skyfall/trumpet-4.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trumpet-3.pdf"],"sunday-morning":["parts/wave1/sunday-morning/trumpet.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trumpet-3.pdf"],"24k-magic":["parts/wave2/24k-magic/trumpet.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trumpet-3.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trumpet-3-original.pdf"],"chicago":["parts/wave2/chicago/trumpet-3.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trumpet-3.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/trumpet-3.pdf"],"superstition":["parts/wave2/superstition/trumpet.pdf"],"this-love":["parts/wave2/this-love/trumpet.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trumpet-3.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trumpet-3.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/trumpet.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trumpet-3.pdf"],"sway":["parts/wave3/sway/trumpet-3.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/trumpet-2.pdf"],"sir-duke":["parts/wave2/sir-duke/trumpet-2.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/trumpet-2.pdf"]},"Trumpet 4":{"dancing-queen":["parts/wave1/dancing-queen/trumpet.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/solo-trumpet.pdf"],"skyfall":["parts/wave1/skyfall/trumpet-4.pdf"],"sunday-morning":["parts/wave1/sunday-morning/trumpet.pdf"],"24k-magic":["parts/wave2/24k-magic/trumpet.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trumpet-4.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trumpet-4-original.pdf"],"chicago":["parts/wave2/chicago/trumpet-4.pdf"],"superstition":["parts/wave2/superstition/trumpet.pdf"],"this-love":["parts/wave2/this-love/trumpet.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trumpet-4.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trumpet-4.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/trumpet.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trumpet-4.pdf"],"sway":["parts/wave3/sway/trumpet-4.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]}},"trombones":{"Trombone 1":{"dancing-queen":["parts/wave1/dancing-queen/trombone-1.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trombone-1.pdf"],"in-the-mood":["parts/wave1/in-the-mood/trombone-1.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/trombone.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trombone-1.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/trombone.pdf"],"moondance":["parts/wave1/moondance/trombone-1.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/trombone-1.pdf"],"respect":["parts/wave1/respect/trombone-1.pdf"],"september":["parts/wave1/september/trombone-1.pdf"],"skyfall":["parts/wave1/skyfall/trombone-1.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trombone-1.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trombone-1.pdf"],"treasure":["parts/wave1/treasure/trombone-1.pdf"],"uptown-funk":["parts/wave1/uptown-funk/trombone-1.pdf"],"24k-magic":["parts/wave2/24k-magic/trombone.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trombone-1.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trombone-1-original.pdf"],"chicago":["parts/wave2/chicago/trombone-1.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/trombone-1.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trombone-1.pdf"],"sir-duke":["parts/wave2/sir-duke/trombone.pdf"],"superstition":["parts/wave2/superstition/trombone.pdf"],"this-love":["parts/wave2/this-love/trombone.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trombone-1.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trombone-1.pdf"],"beyond-the-sea":["parts/wave3/beyond-the-sea/trombone-1.pdf"],"valerie":["parts/wave3/valerie/trombone.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trombone-1.pdf"],"sway":["parts/wave3/sway/trombone-1.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Trombone 2":{"dancing-queen":["parts/wave1/dancing-queen/trombone-2.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trombone-2.pdf"],"in-the-mood":["parts/wave1/in-the-mood/trombone-2.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/trombone.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trombone-2.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/trombone-2.pdf"],"respect":["parts/wave1/respect/trombone-2.pdf"],"september":["parts/wave1/september/trombone-2.pdf"],"skyfall":["parts/wave1/skyfall/trombone-2.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trombone-2.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trombone-2.pdf"],"treasure":["parts/wave1/treasure/trombone-2.pdf"],"uptown-funk":["parts/wave1/uptown-funk/trombone-2.pdf"],"24k-magic":["parts/wave2/24k-magic/trombone.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trombone-2.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trombone-2-original.pdf"],"chicago":["parts/wave2/chicago/trombone-2.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trombone-2.pdf"],"sir-duke":["parts/wave2/sir-duke/trombone.pdf"],"superstition":["parts/wave2/superstition/trombone.pdf"],"this-love":["parts/wave2/this-love/trombone.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trombone-2.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trombone-2.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trombone-2.pdf"],"sway":["parts/wave3/sway/trombone-2.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/trombone-1.pdf"],"moondance":["parts/wave1/moondance/trombone-3.pdf"]},"Trombone 3":{"dancing-queen":["parts/wave1/dancing-queen/trombone-3.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/trombone-3.pdf"],"in-the-mood":["parts/wave1/in-the-mood/trombone-3.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/trombone.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/trombone-3.pdf"],"moondance":["parts/wave1/moondance/bass-trombone.pdf"],"respect":["parts/wave1/respect/trombone-3.pdf"],"skyfall":["parts/wave1/skyfall/trombone-3.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/trombone-3.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/trombone-3.pdf"],"treasure":["parts/wave1/treasure/trombone-3.pdf"],"uptown-funk":["parts/wave1/uptown-funk/trombone-3.pdf"],"24k-magic":["parts/wave2/24k-magic/trombone.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trombone-3.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/trombone-3-original.pdf"],"chicago":["parts/wave2/chicago/trombone-3.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trombone-3.pdf"],"sir-duke":["parts/wave2/sir-duke/trombone.pdf"],"superstition":["parts/wave2/superstition/trombone.pdf"],"this-love":["parts/wave2/this-love/trombone.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/trombone-3.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trombone-3.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trombone-3.pdf"],"sway":["parts/wave3/sway/trombone-3.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/trombone-2.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/trombone-1.pdf"],"september":["parts/wave1/september/trombone-2.pdf"]},"Trombone 4":{"l-o-v-e":["parts/wave1/l-o-v-e/trombone.pdf"],"moondance":["parts/wave1/moondance/bass-trombone.pdf"],"24k-magic":["parts/wave2/24k-magic/trombone.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/trombone-4.pdf"],"chicago":["parts/wave2/chicago/trombone-4.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/trombone-4.pdf"],"sir-duke":["parts/wave2/sir-duke/trombone.pdf"],"superstition":["parts/wave2/superstition/trombone.pdf"],"this-love":["parts/wave2/this-love/trombone.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/bass-trombone.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/trombone-4.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/trombone-4.pdf"],"sway":["parts/wave3/sway/trombone-4-bass.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]}},"saxes":{"Alto 1":{"dancing-queen":["parts/wave1/dancing-queen/alto-sax.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/alto-1.pdf"],"in-the-mood":["parts/wave1/in-the-mood/alto-1.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/alto-sax.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/alto-1.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/alto-sax.pdf"],"moondance":["parts/wave1/moondance/alto-1.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/alto-1.pdf"],"respect":["parts/wave1/respect/alto-1.pdf"],"september":["parts/wave1/september/alto-1.pdf"],"skyfall":["parts/wave1/skyfall/alto-1.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/alto-1.pdf"],"sunday-morning":["parts/wave1/sunday-morning/alto.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/alto-1.pdf"],"treasure":["parts/wave1/treasure/alto-1.pdf"],"uptown-funk":["parts/wave1/uptown-funk/alto-1.pdf"],"24k-magic":["parts/wave2/24k-magic/alto-sax.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/alto-1.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/alto-1-original.pdf"],"chicago":["parts/wave2/chicago/alto-1.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/alto-1.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/alto-1.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/alto-sax.pdf"],"sir-duke":["parts/wave2/sir-duke/alto-sax.pdf"],"superstition":["parts/wave2/superstition/alto-sax.pdf"],"this-love":["parts/wave2/this-love/alto-sax.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/alto-1.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/alto-1.pdf"],"rein-me-in":["parts/wave3/rein-me-in/alto-sax.pdf"],"valerie":["parts/wave3/valerie/alto-sax.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/alto-sax.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/alto-1.pdf"],"sway":["parts/wave3/sway/alto-1.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Alto 2":{"i-want-you-back":["parts/wave1/i-want-you-back/alto-2.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/alto-2.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/alto-2-original.pdf"],"chicago":["parts/wave2/chicago/alto-2.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/alto-2.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/alto-2.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/alto-2.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/alto-2.pdf"],"sway":["parts/wave3/sway/alto-2.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Tenor 1":{"i-want-you-back":["parts/wave1/i-want-you-back/tenor-1.pdf"],"in-the-mood":["parts/wave1/in-the-mood/tenor-1.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/tenor-sax.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/tenor-1.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/tenor-sax.pdf"],"moondance":["parts/wave1/moondance/tenor-1.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/tenor-1.pdf"],"respect":["parts/wave1/respect/tenor-1.pdf"],"september":["parts/wave1/september/tenor-1.pdf"],"skyfall":["parts/wave1/skyfall/tenor-1.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/tenor-1.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/tenor-1.pdf"],"treasure":["parts/wave1/treasure/tenor-1.pdf"],"uptown-funk":["parts/wave1/uptown-funk/tenor-1.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/tenor-1.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/tenor-1-original.pdf"],"chicago":["parts/wave2/chicago/tenor-1.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/tenor-1.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/tenor-1.pdf"],"sir-duke":["parts/wave2/sir-duke/tenor-sax.pdf"],"this-love":["parts/wave2/this-love/tenor-sax.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/tenor-1.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/tenor-1.pdf"],"beyond-the-sea":["parts/wave3/beyond-the-sea/tenor-1.pdf"],"valerie":["parts/wave3/valerie/tenor-sax.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/tenor-1.pdf"],"sway":["parts/wave3/sway/tenor-1.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Tenor 2":{"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/tenor-2.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/tenor-2-original.pdf"],"chicago":["parts/wave2/chicago/tenor-2.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/tenor-2.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/tenor-2.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/tenor-2.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/tenor-2.pdf"],"sway":["parts/wave3/sway/tenor-2.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Bari Sax":{"in-the-mood":["parts/wave1/in-the-mood/bari-sax.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/bari-sax.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/bari-sax.pdf"],"moondance":["parts/wave1/moondance/bari-sax.pdf"],"respect":["parts/wave1/respect/bari-sax.pdf"],"skyfall":["parts/wave1/skyfall/bari-sax.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/bari-sax.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/bari-sax.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/bari-sax.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/bari-sax-original.pdf"],"chicago":["parts/wave2/chicago/bari-sax.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/bari-sax.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/bari-sax.pdf"],"sir-duke":["parts/wave2/sir-duke/bari-sax.pdf"],"superstition":["parts/wave2/superstition/bari-sax.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/bari-sax.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/bari-sax.pdf"],"beyond-the-sea":["parts/wave3/beyond-the-sea/bari-sax.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/bari-sax.pdf"],"sway":["parts/wave3/sway/bari-sax.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Clarinet 1":{"dancing-queen":["parts/wave1/dancing-queen/clarinet-1.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/clarinet.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/clarinet-1.pdf"],"sunday-morning":["parts/wave1/sunday-morning/clarinet.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/clarinet-1.pdf"],"treasure":["parts/wave1/treasure/clarinet.pdf"],"sir-duke":["parts/wave2/sir-duke/clarinet.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/clarinet.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/clarinet.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Clarinet 2":{"dancing-queen":["parts/wave1/dancing-queen/clarinet-2.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/clarinet-2.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]}},"rhythm":{"Piano":{"dancing-queen":["parts/wave1/dancing-queen/honky-tonk-piano.pdf","parts/wave1/dancing-queen/piano.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/piano.pdf"],"in-the-mood":["parts/wave1/in-the-mood/piano.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/piano.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/piano.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/piano.pdf"],"moondance":["parts/wave1/moondance/piano.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/piano-simplified.pdf","parts/wave1/orange-colored-sky/piano.pdf"],"respect":["parts/wave1/respect/piano-vocals.pdf"],"september":["parts/wave1/september/piano.pdf"],"skyfall":["parts/wave1/skyfall/piano.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/vocal-piano.pdf"],"sunday-morning":["parts/wave1/sunday-morning/piano-melody-riff.pdf","parts/wave1/sunday-morning/piano.pdf","parts/wave1/sunday-morning/rhythm.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/piano.pdf"],"treasure":["parts/wave1/treasure/piano.pdf"],"uptown-funk":["parts/wave1/uptown-funk/piano.pdf"],"24k-magic":["parts/wave2/24k-magic/piano.pdf"],"aint-no-mountain-high-enough":["parts/wave2/aint-no-mountain-high-enough/piano-vocal.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/piano.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/piano.pdf"],"chicago":["parts/wave2/chicago/piano-guitar.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/piano.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/piano.pdf"],"sir-duke":["parts/wave2/sir-duke/piano.pdf"],"this-love":["parts/wave2/this-love/piano.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/piano-guitar.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/piano.pdf"],"fly-me-to-the-moon-bossa-nova":["parts/wave3/fly-me-to-the-moon-bossa-nova/piano.pdf"],"beyond-the-sea":["parts/wave3/beyond-the-sea/piano.pdf"],"rein-me-in":["parts/wave3/rein-me-in/piano.pdf"],"valerie":["parts/wave3/valerie/piano.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/piano.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/piano.pdf"],"sway":["parts/wave3/sway/piano.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Guitar":{"dancing-queen":["parts/wave1/dancing-queen/guitar.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/guitar.pdf"],"in-the-mood":["parts/wave1/in-the-mood/guitar.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/guitar.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/guitar.pdf"],"moondance":["parts/wave1/moondance/guitar.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/guitar-tab.pdf","parts/wave1/orange-colored-sky/guitar.pdf"],"september":["parts/wave1/september/guitar.pdf"],"skyfall":["parts/wave1/skyfall/guitar.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/guitar.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/guitar.pdf"],"treasure":["parts/wave1/treasure/guitar.pdf"],"uptown-funk":["parts/wave1/uptown-funk/guitar.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/guitar.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/guitar.pdf"],"chicago":["parts/wave2/chicago/piano-guitar.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/electric-guitar-1.pdf","parts/wave2/murder-on-the-dancefloor/electric-guitar.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/guitar.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/electric-guitar.pdf"],"sir-duke":["parts/wave2/sir-duke/guitar.pdf"],"this-love":["parts/wave2/this-love/guitar.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/piano-guitar.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/guitar.pdf"],"fly-me-to-the-moon-bossa-nova":["parts/wave3/fly-me-to-the-moon-bossa-nova/guitar.pdf"],"rein-me-in":["parts/wave3/rein-me-in/guitar.pdf"],"play-that-funky-music":["parts/wave3/play-that-funky-music/guitar.pdf","parts/wave3/play-that-funky-music/guitar-tab.pdf"],"valerie":["parts/wave3/valerie/guitar.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/guitar.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/guitar.pdf"],"sway":["parts/wave3/sway/guitar.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Bass":{"dancing-queen":["parts/wave1/dancing-queen/bass.pdf"],"i-want-you-back":["parts/wave1/i-want-you-back/bass.pdf"],"in-the-mood":["parts/wave1/in-the-mood/bass.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/bass.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/bass.pdf"],"moondance":["parts/wave1/moondance/bass.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/bass-notation.pdf","parts/wave1/orange-colored-sky/bass.pdf"],"respect":["parts/wave1/respect/bass.pdf"],"september":["parts/wave1/september/bass.pdf"],"skyfall":["parts/wave1/skyfall/bass.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/bass.pdf"],"sunday-morning":["parts/wave1/sunday-morning/bass.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/bass.pdf"],"treasure":["parts/wave1/treasure/bass.pdf"],"uptown-funk":["parts/wave1/uptown-funk/bass.pdf"],"24k-magic":["parts/wave2/24k-magic/bass.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/bass.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/bass.pdf"],"chicago":["parts/wave2/chicago/bass.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/bass.pdf"],"new-york-new-york":["parts/wave2/new-york-new-york/bass.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/bass.pdf"],"sir-duke":["parts/wave2/sir-duke/bass.pdf"],"superstition":["parts/wave2/superstition/bass-guitar.pdf","parts/wave2/superstition/bass.pdf"],"this-love":["parts/wave2/this-love/acoustic-bass.pdf","parts/wave2/this-love/bass.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/bass.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/bass.pdf"],"fly-me-to-the-moon-bossa-nova":["parts/wave3/fly-me-to-the-moon-bossa-nova/bass.pdf"],"beyond-the-sea":["parts/wave3/beyond-the-sea/bass.pdf"],"rein-me-in":["parts/wave3/rein-me-in/bass.pdf"],"play-that-funky-music":["parts/wave3/play-that-funky-music/bass.pdf"],"valerie":["parts/wave3/valerie/bass.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/bass.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/bass.pdf"],"sway":["parts/wave3/sway/bass.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Drums":{"i-want-you-back":["parts/wave1/i-want-you-back/drums.pdf"],"in-the-mood":["parts/wave1/in-the-mood/drums.pdf"],"l-o-v-e":["parts/wave1/l-o-v-e/drums.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/drums.pdf"],"mack-the-knife":["parts/wave1/mack-the-knife/drums.pdf"],"moondance":["parts/wave1/moondance/drums.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/drums.pdf"],"respect":["parts/wave1/respect/drums.pdf"],"september":["parts/wave1/september/drums.pdf"],"spider-man-theme":["parts/wave1/spider-man-theme/drums.pdf"],"sunday-morning":["parts/wave1/sunday-morning/drums.pdf"],"sweet-caroline":["parts/wave1/sweet-caroline/drums.pdf"],"treasure":["parts/wave1/treasure/drums.pdf"],"uptown-funk":["parts/wave1/uptown-funk/drums.pdf"],"24k-magic":["parts/wave2/24k-magic/drums.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/drums.pdf"],"cheek-to-cheek":["parts/wave2/cheek-to-cheek/drums.pdf"],"chicago":["parts/wave2/chicago/drums.pdf"],"murder-on-the-dancefloor":["parts/wave2/murder-on-the-dancefloor/drums.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/drums.pdf"],"sir-duke":["parts/wave2/sir-duke/drums.pdf"],"superstition":["parts/wave2/superstition/drums.pdf"],"this-love":["parts/wave2/this-love/drums.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/drums.pdf"],"fly-me-to-the-moon":["parts/wave3/fly-me-to-the-moon/drums.pdf"],"fly-me-to-the-moon-bossa-nova":["parts/wave3/fly-me-to-the-moon-bossa-nova/drums.pdf"],"beyond-the-sea":["parts/wave3/beyond-the-sea/drums.pdf"],"play-that-funky-music":["parts/wave3/play-that-funky-music/drums.pdf"],"valerie":["parts/wave3/valerie/drums.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/drums.pdf"],"sing-sing-sing":["parts/wave3/sing-sing-sing/drums.pdf"],"sway":["parts/wave3/sway/drums.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]},"Synth/Aux":{"dancing-queen":["parts/wave1/dancing-queen/bass-drum-1.pdf","parts/wave1/dancing-queen/bass-drum-2.pdf","parts/wave1/dancing-queen/cabasa.pdf","parts/wave1/dancing-queen/hi-hat.pdf","parts/wave1/dancing-queen/maracas.pdf","parts/wave1/dancing-queen/snare-drum.pdf","parts/wave1/dancing-queen/tam-tam.pdf"],"locked-out-of-heaven":["parts/wave1/locked-out-of-heaven/aux-percussion.pdf"],"orange-colored-sky":["parts/wave1/orange-colored-sky/congas.pdf"],"cant-take-my-eyes-off-you":["parts/wave2/cant-take-my-eyes-off-you/tambourine.pdf","parts/wave2/cant-take-my-eyes-off-you/vibraphone.pdf"],"put-your-records-on":["parts/wave2/put-your-records-on/acoustic-guitar.pdf"],"superstition":["parts/wave2/superstition/claves.pdf"],"come-fly-with-me":["parts/wave3/come-fly-with-me/synth-strings.pdf"],"leave-the-door-open":["parts/wave3/leave-the-door-open/bongos.pdf","parts/wave3/leave-the-door-open/glockenspiel.pdf","parts/wave3/leave-the-door-open/tambourine.pdf"],"sway":["parts/wave3/sway/percussion.pdf","parts/wave3/sway/synth.pdf"],"fly-me-to-the-moon-bossa-nova":["parts/wave3/fly-me-to-the-moon-bossa-nova/percussion.pdf"],"play-that-funky-music":["parts/wave3/play-that-funky-music/hand-clap.pdf"],"feeling-good":["parts/wave1/feeling-good/all-parts.pdf"],"ive-got-you-under-my-skin":["parts/wave1/ive-got-you-under-my-skin/all-parts.pdf"]}}};
 
       // -----------------------------------------------------------------------
       // UI
       // -----------------------------------------------------------------------
       const els = {
+        setlistStats:      document.getElementById("setlist-stats"),
         gate:              document.getElementById("gate"),
         surveyView:        document.getElementById("survey-view"),
         surveyName:        document.getElementById("survey-name"),
@@ -813,19 +920,17 @@
         otherSongsList:    document.getElementById("other-songs-list"),
         chairPillsBlock:   document.getElementById("chair-pills-block"),
         chairPills:        document.getElementById("chair-pills"),
-        wave1Block:        document.getElementById("wave1-block"),
-        wave1List:         document.getElementById("wave1-list"),
-        wave2Block:        document.getElementById("wave2-block"),
-        wave2List:         document.getElementById("wave2-list"),
-        wave3Block:        document.getElementById("wave3-block"),
-        wave3List:         document.getElementById("wave3-list"),
-        dlW1:              document.getElementById("download-w1"),
-        dlW2:              document.getElementById("download-w2"),
-        dlW3:              document.getElementById("download-w3"),
+        partsBlock:        document.getElementById("parts-block"),
+        partsList:         document.getElementById("parts-list"),
+        dlAll:             document.getElementById("download-all"),
         surveyResults:     document.getElementById("survey-results"),
         surveyResultsList: document.getElementById("survey-results-list"),
         switchBtn:         document.getElementById("switch-btn"),
       };
+
+      els.setlistStats.innerHTML =
+        `Official setlist: <strong>${TOTAL_SONGS - B_LIST.size} songs</strong> &middot; ` +
+        `B-list (low priority, we'll play if there's time -- no need to practice): <strong>${B_LIST.size} songs</strong>`;
 
       const saved = localStorage.getItem("firstName");
       if (saved) els.nameInput.value = saved;
@@ -894,7 +999,7 @@
         if (!raw) { els.gateErr.textContent = "Please enter your first name."; return; }
         els.gateErr.textContent = "";
 
-        const key = raw.toLowerCase();
+        const key = NAME_ALIASES[raw.toLowerCase()] || raw.toLowerCase();
         const person = ROSTER[key];
         localStorage.setItem("firstName", raw);
 
@@ -946,17 +1051,50 @@
         els.notFoundView.classList.add("hidden");
 
         els.helloName.textContent = person.display;
-        els.sectionDisplay.textContent = person.section;
-        els.instrumentDisplay.textContent = person.instrument;
+
+        if (person.roles) {
+          showMultiRoleParts(key, person);
+          els.partsView.classList.remove("hidden");
+          fetchSurveyResults();
+          return;
+        }
+
+        // Winds (trumpets/bones/saxes, including flute): lead with the specific
+        // chair -- "Trumpet 2", "Alto 1" -- not the generic section name.
+        const isWind = ["Trumpets", "Bones", "Saxes"].includes(person.section);
+        els.sectionDisplay.textContent = isWind ? person.instrument : person.section;
+        els.instrumentDisplay.textContent = isWind ? person.section : person.instrument;
 
         // Vocalists: their claimed songs, with vocal part downloads where ready
-        const songs = (person.vocalist && VOCALIST_SONGS[key]) || [];
+        const songs = [...((person.vocalist && VOCALIST_SONGS[key]) || [])].sort((a, b) => {
+          const r = blRank(slugify(a)) - blRank(slugify(b));
+          return r || a.localeCompare(b);
+        });
         const claimedSlugs = new Set(songs.map(slugify));
+        renderOwnSongs(key, songs);
+        renderOtherVocalistsSongs(person, claimedSlugs);
+
+        selectedChair = person.chair || null;
+        renderChairPills(key, person, songs, claimedSlugs);
+        renderInstrumentParts(key, person, songs, claimedSlugs);
+
+        els.partsView.classList.remove("hidden");
+        fetchSurveyResults();
+      }
+
+      // Renders "Your Songs" -- a vocalist's own claimed songs, with vocal part
+      // downloads where a written part exists ("Use Spotify" otherwise).
+      function renderOwnSongs(key, songs) {
         if (songs.length) {
           els.songsBlock.classList.remove("hidden");
           els.songsList.innerHTML = "";
+          let dividerShown = false;
           for (const song of songs) {
             const slug = slugify(song);
+            if (B_LIST.has(slug) && !dividerShown) {
+              dividerShown = true;
+              els.songsList.insertAdjacentHTML("beforeend", bListDivider);
+            }
             const v = (PARTS_FILES[slug] || {})[key];
             const files = v ? (Array.isArray(v) ? v : [v]) : [null];
             const link = SONG_LINKS[slug];
@@ -967,12 +1105,12 @@
                 ? `<span class="part-label">· ${esc(unslugify(file.split("/").pop().replace(/\.pdf$/i, "")))}</span>`
                 : "";
               row.innerHTML =
-                `<span class="song-title">${esc(song)}${part}</span>` +
+                `<span class="song-title">${esc(song)}${part}${bListTag(slug)}</span>` +
                 `<span style="display:flex;gap:8px">` +
                 (link ? `<a class="play-btn" href="${esc(link)}" target="_blank" rel="noopener">&#9654; Play along</a>` : "") +
                 (file
                   ? `<a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>`
-                  : `<button class="dl-btn" disabled>Coming soon</button>`) +
+                  : `<button class="dl-btn" disabled>Use Spotify</button>`) +
                 `</span>`;
               els.songsList.appendChild(row);
             }
@@ -986,8 +1124,11 @@
         } else {
           els.songsBlock.classList.add("hidden");
         }
+      }
 
-        // Other vocalists' songs -- browse (and download) what everyone else is singing
+      // Renders "Other Vocalists' Songs" -- browse (and download) what everyone
+      // else is singing, excluding whatever's already in "Your Songs".
+      function renderOtherVocalistsSongs(person, claimedSlugs) {
         if (person.vocalist) {
           const rows = [];
           for (const [otherKey, otherPerson] of Object.entries(ROSTER)) {
@@ -1000,6 +1141,10 @@
               for (const file of files) rows.push({ song, slug, singer: otherPerson.display, file });
             }
           }
+          // Note: no B-list sectioning here -- B-list is about the viewer's OWN
+          // practice priority, not other vocalists' songs, so this list stays
+          // plain alphabetical.
+          rows.sort((a, b) => a.song.localeCompare(b.song));
           if (rows.length) {
             els.otherSongsBlock.classList.remove("hidden");
             els.otherSongsList.innerHTML = rows.map(({ song, slug, singer, file }) => {
@@ -1010,7 +1155,7 @@
                   ${link ? `<a class="play-btn" href="${esc(link)}" target="_blank" rel="noopener">&#9654; Play along</a>` : ""}
                   ${file
                     ? `<a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>`
-                    : `<button class="dl-btn" disabled>Coming soon</button>`}
+                    : `<button class="dl-btn" disabled>Use Spotify</button>`}
                 </span>
               </div>`;
             }).join("");
@@ -1020,13 +1165,6 @@
         } else {
           els.otherSongsBlock.classList.add("hidden");
         }
-
-        selectedChair = person.chair || null;
-        renderChairPills(key, person, songs, claimedSlugs);
-        renderInstrumentParts(key, person, songs, claimedSlugs);
-
-        els.partsView.classList.remove("hidden");
-        fetchSurveyResults();
       }
 
       let selectedChair = null;
@@ -1050,22 +1188,117 @@
         });
       }
 
+      // -----------------------------------------------------------------------
+      // Multi-role people (Caden, William): instead of one family's worth of
+      // flexible chairs, their pill bar is exactly their own confirmed roles --
+      // Voice / Bari Sax / Keys, etc. Only one role's content shows at a time,
+      // and "Download all" is scoped to that role alone (no merging).
+      // -----------------------------------------------------------------------
+      let selectedRoleIndex = 0;
+
+      function showMultiRoleParts(key, person) {
+        selectedRoleIndex = 0;
+        renderRolePills(key, person);
+        renderRoleContent(key, person);
+      }
+
+      function renderRolePills(key, person) {
+        els.chairPillsBlock.classList.remove("hidden");
+        els.chairPills.innerHTML = person.roles.map((r, i) =>
+          `<button class="pill" type="button" data-i="${i}" aria-pressed="${i === selectedRoleIndex}">${esc(r.label)}</button>`
+        ).join("");
+        els.chairPills.querySelectorAll(".pill").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            selectedRoleIndex = Number(btn.dataset.i);
+            renderRolePills(key, person);
+            renderRoleContent(key, person);
+          });
+        });
+      }
+
+      function renderRoleContent(key, person) {
+        const role = person.roles[selectedRoleIndex];
+        els.sectionDisplay.textContent = role.label;
+        els.instrumentDisplay.textContent = person.instrument;
+
+        myName = person.display;
+        allFiles = [];
+        const seen = new Set();
+        const addFile = (f) => { if (!f || seen.has(f)) return; seen.add(f); allFiles.push(f); };
+
+        if (role.type === "vocal") {
+          els.partsBlock.classList.add("hidden");
+          const songs = [...(VOCALIST_SONGS[key] || [])].sort((a, b) => a.localeCompare(b));
+          const claimedSlugs = new Set(songs.map(slugify));
+          renderOwnSongs(key, songs);
+          renderOtherVocalistsSongs(person, claimedSlugs);
+          for (const song of songs) {
+            const v = (PARTS_FILES[slugify(song)] || {})[key];
+            for (const f of Array.isArray(v) ? v : [v]) addFile(f);
+          }
+        } else {
+          els.songsBlock.classList.add("hidden");
+          els.otherSongsBlock.classList.add("hidden");
+          const chairFiles = (CHAIR_FILES[role.family] || {})[role.chair] || {};
+          const playerParts = [];
+          for (const [slug, files] of Object.entries(chairFiles)) {
+            for (const file of files) playerParts.push({ slug, file });
+          }
+          const fbGroup = (FALLBACK_GROUPS[role.family] || []).find((g) => g.includes(role.chair));
+          if (fbGroup) {
+            const familyChairFiles = CHAIR_FILES[role.family] || {};
+            const covered = new Set(Object.keys(chairFiles));
+            const groupSlugs = new Set();
+            for (const c of fbGroup) for (const s of Object.keys(familyChairFiles[c] || {})) groupSlugs.add(s);
+            for (const slug of groupSlugs) {
+              if (covered.has(slug)) continue;
+              const fb = fallbackFile(role.family, role.chair, slug);
+              if (fb) playerParts.push({ slug, file: fb.file, doubling: fb.sourceChair });
+            }
+          }
+          const sortedParts = [...playerParts].sort((a, b) => {
+          const r = blRank(a.slug) - blRank(b.slug);
+          return r || unslugify(a.slug).localeCompare(unslugify(b.slug));
+        });
+          if (sortedParts.length) {
+            els.partsBlock.classList.remove("hidden");
+            els.partsList.innerHTML = renderPartsList(sortedParts);
+          } else {
+            els.partsBlock.classList.remove("hidden");
+            els.partsList.innerHTML =
+              `<div class="coming-soon">Parts are being prepped and will appear here soon. Check back closer to the reunion!</div>`;
+          }
+          for (const { file } of playerParts) addFile(file);
+        }
+
+        els.dlAll.textContent = `Download all parts (${allFiles.length})`;
+        els.dlAll.classList.toggle("hidden", allFiles.length < 2);
+      }
+
       function renderPartsList(items) {
         const bySong = new Map();
         for (const p of items) {
           if (!bySong.has(p.slug)) bySong.set(p.slug, []);
-          bySong.get(p.slug).push(p.file);
+          bySong.get(p.slug).push(p);
         }
         let html = "";
-        for (const [slug, files] of bySong) {
+        let dividerShown = false;
+        for (const [slug, parts] of bySong) {
+          if (B_LIST.has(slug) && !dividerShown) {
+            dividerShown = true;
+            html += bListDivider;
+          }
           const link = SONG_LINKS[slug];
-          for (const file of files) {
-            const part = unslugify(file.split("/").pop().replace(/\.pdf$/i, ""));
+          for (const p of parts) {
+            const part = unslugify(p.file.split("/").pop().replace(/\.pdf$/i, ""));
+            const doubling = p.doubling
+              ? `<span class="part-label">&middot; doubling ${esc(p.doubling)}</span>`
+              : "";
             html += `<div class="song-row">
-              <span class="song-title">${esc(unslugify(slug))}<span class="part-label">· ${esc(part)}</span></span>
+              <span class="song-title">${esc(unslugify(slug))}<span class="part-label">· ${esc(part)}</span>${doubling}${bListTag(slug)}</span>
               <span style="display:flex;gap:8px">
                 ${link ? `<a class="play-btn" href="${esc(link)}" target="_blank" rel="noopener">&#9654; Play along</a>` : ""}
-                <a class="dl-btn" href="${esc(file)}" download="${esc(dlName(file))}">Download</a>
+                <a class="dl-btn" href="${esc(p.file)}" download="${esc(dlName(p.file))}">Download</a>
               </span>
             </div>`;
           }
@@ -1088,6 +1321,20 @@
             if (claimedSlugs.has(slug)) continue;
             for (const file of files) playerParts.push({ slug, file });
           }
+          // Double up on the lowest-numbered sibling chair for songs with no
+          // part written specifically for this chair.
+          const group = (FALLBACK_GROUPS[person.family] || []).find((g) => g.includes(selectedChair));
+          if (group) {
+            const familyChairFiles = CHAIR_FILES[person.family] || {};
+            const covered = new Set(Object.keys(chairFiles));
+            const groupSlugs = new Set();
+            for (const c of group) for (const s of Object.keys(familyChairFiles[c] || {})) groupSlugs.add(s);
+            for (const slug of groupSlugs) {
+              if (covered.has(slug) || claimedSlugs.has(slug)) continue;
+              const fb = fallbackFile(person.family, selectedChair, slug);
+              if (fb) playerParts.push({ slug, file: fb.file, doubling: fb.sourceChair });
+            }
+          }
         } else {
           for (const [slug, fileMap] of Object.entries(PARTS_FILES)) {
             if (claimedSlugs.has(slug)) continue;
@@ -1098,46 +1345,31 @@
           }
         }
 
-        const w1Items = playerParts.filter((p) => p.file.startsWith(W1));
-        const w2Items = playerParts.filter((p) => p.file.startsWith(W2));
-        const w3Items = playerParts.filter((p) => p.file.startsWith(W3));
+        const sortedParts = [...playerParts].sort((a, b) => {
+          const r = blRank(a.slug) - blRank(b.slug);
+          return r || unslugify(a.slug).localeCompare(unslugify(b.slug));
+        });
 
-        if (w1Items.length) {
-          els.wave1Block.classList.remove("hidden");
-          els.wave1List.innerHTML = renderPartsList(w1Items);
+        if (sortedParts.length) {
+          els.partsBlock.classList.remove("hidden");
+          els.partsList.innerHTML = renderPartsList(sortedParts);
         } else if (!songs.length) {
-          els.wave1Block.classList.remove("hidden");
-          els.wave1List.innerHTML =
+          els.partsBlock.classList.remove("hidden");
+          els.partsList.innerHTML =
             `<div class="coming-soon">Parts are being prepped and will appear here soon. Check back closer to the reunion!</div>`;
         } else {
-          els.wave1Block.classList.add("hidden");
+          els.partsBlock.classList.add("hidden");
         }
 
-        if (w2Items.length) {
-          els.wave2Block.classList.remove("hidden");
-          els.wave2List.innerHTML = renderPartsList(w2Items);
-        } else {
-          els.wave2Block.classList.add("hidden");
-        }
-
-        if (w3Items.length) {
-          els.wave3Block.classList.remove("hidden");
-          els.wave3List.innerHTML = renderPartsList(w3Items);
-        } else {
-          els.wave3Block.classList.add("hidden");
-        }
-
-        // Per-wave download-all file sets: player parts (whatever chair is
-        // currently selected) + claimed-song files, deduped
+        // Download-all file set: player parts (whatever chair is currently
+        // selected) + claimed-song files, deduped
         myName = person.display;
-        w1Files = [];
-        w2Files = [];
-        w3Files = [];
+        allFiles = [];
         const seen = new Set();
         const addFile = (f) => {
           if (!f || seen.has(f)) return;
           seen.add(f);
-          (f.startsWith(W3) ? w3Files : f.startsWith(W2) ? w2Files : w1Files).push(f);
+          allFiles.push(f);
         };
         for (const song of songs) {
           const v = (PARTS_FILES[slugify(song)] || {})[key];
@@ -1145,17 +1377,11 @@
         }
         for (const { file } of playerParts) addFile(file);
 
-        els.dlW1.textContent = `Download all Wave 1 parts (${w1Files.length})`;
-        els.dlW1.classList.toggle("hidden", w1Files.length < 2);
-        els.dlW2.textContent = `Download all Wave 2 parts (${w2Files.length})`;
-        els.dlW2.classList.toggle("hidden", w2Files.length < 2);
-        els.dlW3.textContent = `Download all Wave 3 parts (${w3Files.length})`;
-        els.dlW3.classList.toggle("hidden", w3Files.length < 2);
+        els.dlAll.textContent = `Download all parts (${allFiles.length})`;
+        els.dlAll.classList.toggle("hidden", allFiles.length < 2);
       }
 
-      let w1Files = [];
-      let w2Files = [];
-      let w3Files = [];
+      let allFiles = [];
       let myName = "";
 
       function wireZipButton(btn, getFiles, suffix) {
@@ -1188,9 +1414,7 @@
         });
       }
 
-      wireZipButton(els.dlW1, () => w1Files, "wave1");
-      wireZipButton(els.dlW2, () => w2Files, "wave2");
-      wireZipButton(els.dlW3, () => w3Files, "wave3");
+      wireZipButton(els.dlAll, () => allFiles, "parts");
 
       async function fetchSurveyResults() {
         const { data } = await supabase.from("reunion_survey").select("name, bottle, crashing");
@@ -1231,11 +1455,63 @@
       }
 
       // "parts/wave1/sweet-caroline/trumpet-1.pdf" -> "sweet-caroline-trumpet1.pdf"
+      // Clean display titles for download filenames -- keyed by PARTS_FILES song slug.
+      const SONG_TITLES = {
+        "spider-man-theme": "Spider-Man Theme",
+        "l-o-v-e": "L-O-V-E",
+        "mack-the-knife": "Mack the Knife",
+        "moondance": "Moondance",
+        "orange-colored-sky": "Orange Colored Sky",
+        "feeling-good": "Feeling Good",
+        "skyfall": "Skyfall",
+        "i-want-you-back": "I Want You Back",
+        "dancing-queen": "Dancing Queen",
+        "sunday-morning": "Sunday Morning",
+        "september": "September",
+        "sweet-caroline": "Sweet Caroline",
+        "uptown-funk": "Uptown Funk",
+        "ive-got-you-under-my-skin": "I've Got You Under My Skin",
+        "i-ve-got-you-under-my-skin": "I've Got You Under My Skin",
+        "in-the-mood": "In the Mood",
+        "locked-out-of-heaven": "Locked Out of Heaven",
+        "respect": "Respect",
+        "can-t-take-my-eyes-off-you": "Can't Take My Eyes Off You",
+        "cheek-to-cheek": "Cheek to Cheek",
+        "put-your-records-on": "Put Your Records On",
+        "superstition": "Superstition",
+        "sir-duke": "Sir Duke",
+        "this-love": "This Love",
+        "24k-magic": "24K Magic",
+        "murder-on-the-dancefloor": "Murder on the Dancefloor",
+        "come-fly-with-me": "Come Fly With Me",
+        "leave-the-door-open": "Leave the Door Open",
+        "sway": "Sway",
+        "fly-me-to-the-moon": "Fly Me to the Moon",
+        "fly-me-to-the-moon-bossa-nova": "Fly Me to the Moon (Bossa Nova)",
+        "beyond-the-sea": "Beyond the Sea",
+        "rein-me-in": "Rein Me In",
+        "play-that-funky-music": "Play That Funky Music",
+        "valerie": "Valerie",
+        "valerie-duet": "Valerie",
+        "sing-sing-sing": "Sing Sing Sing",
+        "ain-t-no-mountain-high-enough": "Ain't No Mountain High Enough",
+        "new-york-new-york": "New York, New York",
+        "chicago": "Chicago",
+        "treasure": "Treasure",
+      };
+
+      // "parts/wave3/valerie/trumpet-1.pdf" -> "Valerie-Trumpet-1.pdf"
+      // "parts/wave1/mack-the-knife/alto-sax.pdf" -> "Mack the Knife-Alto Sax.pdf" (no chair number when there's only one)
       function dlName(path) {
         const parts = path.split("/");
-        const song = parts[parts.length - 2];
-        const part = parts[parts.length - 1].replace(/\.pdf$/i, "").replace(/-(\d+)$/, "$1");
-        return `${song}-${part}.pdf`;
+        const slug = parts[parts.length - 2];
+        const base = parts[parts.length - 1].replace(/\.pdf$/i, "");
+        const numbered = base.match(/^(.+)-(\d+)$/);
+        const instBase = numbered ? numbered[1] : base;
+        const chairNum = numbered ? numbered[2] : null;
+        const instrument = instBase.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+        const title = SONG_TITLES[slug] || unslugify(slug);
+        return `${title}-${instrument}${chairNum ? "-" + chairNum : ""}.pdf`;
       }
 
       function slugify(s) {
