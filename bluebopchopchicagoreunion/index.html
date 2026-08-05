@@ -124,6 +124,22 @@
       .sub { color: var(--muted); margin: 0 0 20px; font-size: 14px; }
       .setlist-stats { color: var(--muted); margin: -10px 0 20px; font-size: 13px; }
       .setlist-stats strong { color: var(--text); font-weight: 700; }
+
+      /* Link out to the shared Song Book -- visible to everyone, on every screen */
+      .songbook-link {
+        display: inline-flex; align-items: center; gap: 8px;
+        margin: 0 0 22px;
+        padding: 11px 18px; border-radius: 999px;
+        font-size: 14px; font-weight: 600; text-decoration: none;
+        color: var(--accent-bright);
+        border: 1px solid var(--accent-bright);
+        background: rgba(192, 132, 252, 0.08);
+        -webkit-backdrop-filter: blur(20px) saturate(150%);
+        backdrop-filter: blur(20px) saturate(150%);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 6px 20px rgba(0, 0, 0, 0.25);
+      }
+      .songbook-link:hover { background: rgba(192, 132, 252, 0.16); color: var(--text); }
+      .songbook-link .arrow { font-size: 12px; opacity: 0.8; }
       .invite { font-size: 16px; margin: 0 0 16px; line-height: 1.4; }
 
       /* Gate */
@@ -284,6 +300,12 @@
       <h1>DTTD Chicago Reunion</h1>
       <p class="sub">Enter your first name to see your assignments and download your parts.</p>
       <p class="setlist-stats" id="setlist-stats"></p>
+
+      <a class="songbook-link"
+         href="https://claude.ai/code/artifact/bccd1158-d455-4230-9819-910350421c0d"
+         target="_blank" rel="noopener">
+        See who&rsquo;s singing what <span class="arrow">&#8599;</span>
+      </a>
 
       <section id="gate" class="gate">
         <label for="name-input">Your first name</label>
