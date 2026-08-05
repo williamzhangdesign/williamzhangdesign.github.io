@@ -614,6 +614,7 @@
             { type: "vocal", label: "Voice" },
             { type: "chair", family: "saxes", chair: "Tenor 1", label: "Tenor 1" },
             { type: "chair", family: "saxes", chair: "Clarinet 1", label: "Clarinet 1" },
+            { type: "chair", family: "saxes", chair: "Alto 1", label: "Alto (Doubling Luke)" },
           ] },
         alex:      { display: "Alex",     section: "Rhythm",   instrument: "Guitar", family: "rhythm", chair: "Guitar" },
         max:       { display: "Max",      section: "Rhythm",   instrument: "Bass", family: "rhythm", chair: "Bass" },
@@ -684,6 +685,11 @@
             "sweet-caroline", "valerie",
           ],
         },
+        // William doubles Luke's alto line, but only on the charts where he
+        // isn't already holding a tenor or clarinet part.
+        william: {
+          "Alto 1": ["24k-magic", "put-your-records-on", "rein-me-in"],
+        },
         caden: {
           Piano: [
             "24k-magic", "dancing-queen", "fly-me-to-the-moon-bossa-nova",
@@ -705,12 +711,18 @@
         "Every chart released so far, sorted alphabetically. More on the way as the setlist gets finalized.";
 
       // Explains the split when someone's only seeing their share of a chair.
+      const ASSIGNMENT_NOTES = {
+        Piano: (n) =>
+          `Piano is split three ways -- these ${n} songs are yours. Meredith, Sara, and Caden ` +
+          `each cover a third of the book, so you only see your own share here.`,
+        "Alto 1": (n) =>
+          `Just the ${n} charts that have no tenor or clarinet part for you -- on these you double ` +
+          `Luke's alto line. Everything else is already covered by your other parts.`,
+      };
       function setPartsNote(key, chair) {
         const assigned = assignedSlugs(key, chair);
-        els.partsNote.textContent = assigned
-          ? `${chair} is split three ways -- these ${assigned.size} songs are yours. ` +
-            `Meredith, Sara, and Caden each cover a third of the book, so you only see your own share here.`
-          : DEFAULT_PARTS_NOTE;
+        const build = assigned && ASSIGNMENT_NOTES[chair];
+        els.partsNote.textContent = build ? build(assigned.size) : DEFAULT_PARTS_NOTE;
       }
 
       // Returns { file, sourceChair } if `chair` has no part of its own for
