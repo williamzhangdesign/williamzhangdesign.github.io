@@ -519,14 +519,14 @@
       // Song notes -- shown to everyone under the song's rows
       const SONG_NOTES = {
         "moondance": "Play the ending as written on the sheet music. The recording does the end a bit differently. Trumpet 1 has a written-out solo (with a gliss) -- Scott.",
-        "orange-colored-sky": "Karthik sings this one -- no vocal sheet needed, he's got it. Trombone 1: ignore the melody line, we have a vocalist covering it. Bass: the notation part is from the other arrangement, so the form may differ from the tab. Both Trombone 1 and Trombone 2 have their own individual solo breaks -- Austin and Steve/Jacob.",
+        "orange-colored-sky": "Karthik sings this one -- no vocal sheet needed, he's got it. Trombone 1: ignore the melody line, we have a vocalist covering it. Bass: the notation part is from the other arrangement, so the form may differ from the tab. Both Trombone 1 and Trombone 2 have their own individual solo breaks -- Austin and Steve/Carmen.",
         "i-want-you-back": "Horns-only chart -- no vocal part, nobody's assigned to sing it.",
         "skyfall": "Heads up on the trumpet numbering: this arrangement only has three trumpet parts and they're labelled 1, 3, and 4 -- there is no Trumpet 2. So Benji's part is the file named trumpet-3 and Chris's is trumpet-4. That's correct, not a mix-up. No drum part in this book either -- Annie, make one up by ear.",
         "dancing-queen": "No video link. Play along with the Spotify recording, it's all in the original key. No drum kit part in this book -- Annie, make one up by ear. (The written percussion here is split into separate bass drum / snare / hi-hat / cabasa / maracas / tam-tam parts, all under Liam's Aux.)",
         "uptown-funk": "Only one trumpet part exists in this book; extra trumpets are welcome to double it live. No vocalist claimed -- hopefully someone from the audience takes the words!",
         "in-the-mood": "Only one trumpet part exists in this book; extra trumpets are welcome to double it live.",
         "treasure": "Only one trumpet part exists in this book; extra trumpets are welcome to double it live.",
-        "murder-on-the-dancefloor": "Only one trombone part exists in this book -- all three trombones (Austin/Steve/Jacob) read it together in unison, it's not an optional double. Chris also shares Benji's trumpet-2 part.",
+        "murder-on-the-dancefloor": "Only one trombone part exists in this book -- all three trombones (Austin/Steve/Carmen) read it together in unison, it's not an optional double. Chris also shares Benji's trumpet-2 part.",
         "locked-out-of-heaven": "Instrumental -- we're not putting a singer on this one. Trumpet 2 (not 1) has the solo break here -- Benji.",
         "mack-the-knife": "Switched to the Bobby Darin arrangement (quarter=165, modulates up a half-step every chorus). Only one trumpet part and one trombone part exist in this book; extra trumpets/trombones are welcome to double them live. Caden (bari sax) still doesn't have a chair in this arrangement at all. The old Dave Wolpe vocal chart didn't match this arrangement, so it's been pulled -- Karthik's learning this one by ear off the Spotify recording instead.",
         "cheek-to-cheek": "Horns play from the original book part -- Luke's improved version was pulled. Rhythm section and vocals also come from the original book.",
@@ -608,7 +608,7 @@
         elayna:    { display: "Elayna",   section: "Trumpets", instrument: "Flute" },
         austin:    { display: "Austin",   section: "Bones",    instrument: "Trombone 1", family: "trombones", chair: "Trombone 1" },
         steve:     { display: "Steve",    section: "Bones",    instrument: "Trombone 2", family: "trombones", chair: "Trombone 2" },
-        jacob:     { display: "Jacob",    section: "Bones",    instrument: "Trombone 3", family: "trombones", chair: "Trombone 3" },
+        carmen:     { display: "Carmen",    section: "Bones",    instrument: "Trombone 3", family: "trombones", chair: "Trombone 3" },
         luke:      { display: "Luke",     section: "Saxes",    instrument: "Alto 1", family: "saxes", chair: "Alto 1" },
         caden:     { display: "Caden",    section: "Saxes",    instrument: "Bari Sax / Piano / Vocals", vocalist: true, family: "saxes", chair: "Bari Sax",
           roles: [
@@ -769,7 +769,7 @@
       const PARTS_FILES = {
         "spider-man-theme": {
           scott: `${W1}/spider-man-theme/trumpet-1.pdf`, benji: `${W1}/spider-man-theme/trumpet-2.pdf`, chris: `${W1}/spider-man-theme/trumpet-3.pdf`,
-          austin: `${W1}/spider-man-theme/trombone-1.pdf`, steve: `${W1}/spider-man-theme/trombone-2.pdf`, jacob: `${W1}/spider-man-theme/trombone-3.pdf`,
+          austin: `${W1}/spider-man-theme/trombone-1.pdf`, steve: `${W1}/spider-man-theme/trombone-2.pdf`, carmen: `${W1}/spider-man-theme/trombone-3.pdf`,
           luke: `${W1}/spider-man-theme/alto-1.pdf`, william: `${W1}/spider-man-theme/tenor-1.pdf`, caden: `${W1}/spider-man-theme/bari-sax.pdf`,
           alex: `${W1}/spider-man-theme/guitar.pdf`, max: `${W1}/spider-man-theme/bass.pdf`,
           meredith: `${W1}/spider-man-theme/vocal-piano.pdf`, sara: `${W1}/spider-man-theme/vocal-piano.pdf`,
@@ -778,7 +778,7 @@
         },
         "l-o-v-e": {
           scott: `${W1}/l-o-v-e/solo-trumpet.pdf`,
-          austin: `${W1}/l-o-v-e/trombone.pdf`, steve: `${W1}/l-o-v-e/trombone.pdf`, jacob: `${W1}/l-o-v-e/trombone.pdf`,
+          austin: `${W1}/l-o-v-e/trombone.pdf`, steve: `${W1}/l-o-v-e/trombone.pdf`, carmen: `${W1}/l-o-v-e/trombone.pdf`,
           luke: `${W1}/l-o-v-e/alto-sax.pdf`, william: [`${W1}/l-o-v-e/tenor-sax.pdf`, `${W1}/l-o-v-e/clarinet.pdf`], caden: `${W1}/l-o-v-e/bari-sax.pdf`,
           meredith: `${W1}/l-o-v-e/piano.pdf`, sara: `${W1}/l-o-v-e/piano.pdf`, max: `${W1}/l-o-v-e/bass.pdf`,
           annie: `${W1}/l-o-v-e/drums.pdf`, liam: `${W1}/l-o-v-e/drums.pdf`,
@@ -793,7 +793,7 @@
         },
         "moondance": {
           scott: `${W1}/moondance/trumpet-1.pdf`, benji: `${W1}/moondance/trumpet-2.pdf`, chris: `${W1}/moondance/trumpet-3.pdf`,
-          austin: `${W1}/moondance/trombone-1.pdf`, steve: `${W1}/moondance/trombone-3.pdf`, jacob: `${W1}/moondance/bass-trombone.pdf`,
+          austin: `${W1}/moondance/trombone-1.pdf`, steve: `${W1}/moondance/trombone-3.pdf`, carmen: `${W1}/moondance/bass-trombone.pdf`,
           luke: `${W1}/moondance/alto-1.pdf`, william: `${W1}/moondance/tenor-1.pdf`, caden: `${W1}/moondance/bari-sax.pdf`,
           alex: `${W1}/moondance/guitar.pdf`, max: `${W1}/moondance/bass.pdf`, meredith: `${W1}/moondance/piano.pdf`, sara: `${W1}/moondance/piano.pdf`,
           annie: `${W1}/moondance/drums.pdf`, liam: `${W1}/moondance/drums.pdf`,
@@ -801,7 +801,7 @@
         },
         "orange-colored-sky": {
           scott: `${W1}/orange-colored-sky/trumpet-1.pdf`, benji: `${W1}/orange-colored-sky/trumpet-2.pdf`, chris: `${W1}/orange-colored-sky/trumpet-2.pdf`,
-          austin: `${W1}/orange-colored-sky/trombone-1.pdf`, steve: `${W1}/orange-colored-sky/trombone-2.pdf`, jacob: `${W1}/orange-colored-sky/trombone-2.pdf`,
+          austin: `${W1}/orange-colored-sky/trombone-1.pdf`, steve: `${W1}/orange-colored-sky/trombone-2.pdf`, carmen: `${W1}/orange-colored-sky/trombone-2.pdf`,
           luke: `${W1}/orange-colored-sky/alto-1.pdf`, william: [`${W1}/orange-colored-sky/tenor-1.pdf`, `${W1}/orange-colored-sky/clarinet-1.pdf`], caden: `${W1}/orange-colored-sky/clarinet-1.pdf`,
           alex: [`${W1}/orange-colored-sky/guitar.pdf`, `${W1}/orange-colored-sky/guitar-tab.pdf`],
           max: [`${W1}/orange-colored-sky/bass.pdf`, `${W1}/orange-colored-sky/bass-notation.pdf`],
@@ -810,7 +810,7 @@
         },
         "feeling-good": {
           scott: `${W1}/feeling-good/all-parts.pdf`, benji: `${W1}/feeling-good/all-parts.pdf`, chris: `${W1}/feeling-good/all-parts.pdf`, elayna: `${W1}/feeling-good/all-parts.pdf`,
-          austin: `${W1}/feeling-good/all-parts.pdf`, steve: `${W1}/feeling-good/all-parts.pdf`, jacob: `${W1}/feeling-good/all-parts.pdf`,
+          austin: `${W1}/feeling-good/all-parts.pdf`, steve: `${W1}/feeling-good/all-parts.pdf`, carmen: `${W1}/feeling-good/all-parts.pdf`,
           luke: `${W1}/feeling-good/all-parts.pdf`, william: `${W1}/feeling-good/all-parts.pdf`, caden: `${W1}/feeling-good/all-parts.pdf`,
           alex: `${W1}/feeling-good/all-parts.pdf`, max: `${W1}/feeling-good/all-parts.pdf`, meredith: `${W1}/feeling-good/piano.pdf`, sara: `${W1}/feeling-good/piano.pdf`,
           nathan: `${W1}/feeling-good/all-parts.pdf`, annie: `${W1}/feeling-good/all-parts.pdf`, liam: `${W1}/feeling-good/all-parts.pdf`,
@@ -818,21 +818,21 @@
         },
         "skyfall": {
           scott: `${W1}/skyfall/trumpet-1.pdf`, benji: `${W1}/skyfall/trumpet-3.pdf`, chris: `${W1}/skyfall/trumpet-4.pdf`,
-          austin: `${W1}/skyfall/trombone-1.pdf`, steve: `${W1}/skyfall/trombone-2.pdf`, jacob: `${W1}/skyfall/trombone-3.pdf`,
+          austin: `${W1}/skyfall/trombone-1.pdf`, steve: `${W1}/skyfall/trombone-2.pdf`, carmen: `${W1}/skyfall/trombone-3.pdf`,
           luke: `${W1}/skyfall/alto-1.pdf`, william: `${W1}/skyfall/tenor-1.pdf`, caden: `${W1}/skyfall/bari-sax.pdf`,
           alex: `${W1}/skyfall/guitar.pdf`, max: `${W1}/skyfall/bass.pdf`, meredith: `${W1}/skyfall/piano.pdf`, sara: `${W1}/skyfall/piano.pdf`,
           gab: `${W1}/skyfall/vocals.pdf`,
         },
         "i-want-you-back": {
           scott: `${W1}/i-want-you-back/trumpet-1.pdf`, benji: `${W1}/i-want-you-back/trumpet-2.pdf`, chris: `${W1}/i-want-you-back/trumpet-3.pdf`,
-          austin: `${W1}/i-want-you-back/trombone-1.pdf`, steve: `${W1}/i-want-you-back/trombone-2.pdf`, jacob: `${W1}/i-want-you-back/trombone-3.pdf`,
+          austin: `${W1}/i-want-you-back/trombone-1.pdf`, steve: `${W1}/i-want-you-back/trombone-2.pdf`, carmen: `${W1}/i-want-you-back/trombone-3.pdf`,
           luke: `${W1}/i-want-you-back/alto-1.pdf`, william: `${W1}/i-want-you-back/tenor-1.pdf`, caden: `${W1}/i-want-you-back/alto-2.pdf`,
           alex: `${W1}/i-want-you-back/guitar.pdf`, max: `${W1}/i-want-you-back/bass.pdf`, meredith: `${W1}/i-want-you-back/piano.pdf`, sara: `${W1}/i-want-you-back/piano.pdf`,
           annie: `${W1}/i-want-you-back/drums.pdf`, liam: `${W1}/i-want-you-back/drums.pdf`,
         },
         "dancing-queen": {
           scott: `${W1}/dancing-queen/trumpet.pdf`, benji: `${W1}/dancing-queen/trumpet.pdf`, chris: `${W1}/dancing-queen/trumpet.pdf`, elayna: `${W1}/dancing-queen/flute.pdf`,
-          austin: `${W1}/dancing-queen/trombone-1.pdf`, steve: `${W1}/dancing-queen/trombone-2.pdf`, jacob: `${W1}/dancing-queen/trombone-3.pdf`,
+          austin: `${W1}/dancing-queen/trombone-1.pdf`, steve: `${W1}/dancing-queen/trombone-2.pdf`, carmen: `${W1}/dancing-queen/trombone-3.pdf`,
           luke: `${W1}/dancing-queen/alto-sax.pdf`, william: [`${W1}/dancing-queen/alto-sax.pdf`, `${W1}/dancing-queen/clarinet-1.pdf`, `${W1}/dancing-queen/clarinet-2.pdf`], caden: `${W1}/dancing-queen/clarinet-2.pdf`,
           alex: `${W1}/dancing-queen/guitar.pdf`, max: `${W1}/dancing-queen/bass.pdf`, meredith: `${W1}/dancing-queen/piano.pdf`, sara: `${W1}/dancing-queen/honky-tonk-piano.pdf`,
           annie: [`${W1}/dancing-queen/snare-drum.pdf`, `${W1}/dancing-queen/bass-drum-1.pdf`, `${W1}/dancing-queen/hi-hat.pdf`],
@@ -840,7 +840,7 @@
         },
         "september": {
           scott: `${W1}/september/trumpet.pdf`, benji: `${W1}/september/trumpet-1.pdf`, chris: `${W1}/september/trumpet-2.pdf`, elayna: `${W1}/september/clarinet-strings.pdf`,
-          austin: `${W1}/september/trombone-1.pdf`, steve: `${W1}/september/trombone-2.pdf`, jacob: `${W1}/september/trombone-2.pdf`,
+          austin: `${W1}/september/trombone-1.pdf`, steve: `${W1}/september/trombone-2.pdf`, carmen: `${W1}/september/trombone-2.pdf`,
           luke: `${W1}/september/alto-1.pdf`,
           alex: `${W1}/september/guitar.pdf`, nathan: `${W1}/september/keyboard.pdf`,
           max: `${W1}/september/bass.pdf`, meredith: `${W1}/september/piano.pdf`, sara: `${W1}/september/piano.pdf`,
@@ -855,35 +855,35 @@
         },
         "sweet-caroline": {
           scott: `${W1}/sweet-caroline/trumpet-1.pdf`, benji: `${W1}/sweet-caroline/trumpet-2.pdf`, chris: `${W1}/sweet-caroline/trumpet-3.pdf`, elayna: `${W1}/sweet-caroline/flute.pdf`,
-          austin: `${W1}/sweet-caroline/trombone-1.pdf`, steve: `${W1}/sweet-caroline/trombone-2.pdf`, jacob: `${W1}/sweet-caroline/trombone-3.pdf`,
+          austin: `${W1}/sweet-caroline/trombone-1.pdf`, steve: `${W1}/sweet-caroline/trombone-2.pdf`, carmen: `${W1}/sweet-caroline/trombone-3.pdf`,
           luke: `${W1}/sweet-caroline/alto-1.pdf`, william: [`${W1}/sweet-caroline/tenor-1.pdf`, `${W1}/sweet-caroline/clarinet-1.pdf`, `${W1}/sweet-caroline/clarinet-2.pdf`], caden: `${W1}/sweet-caroline/bari-sax.pdf`,
           alex: `${W1}/sweet-caroline/guitar.pdf`, max: `${W1}/sweet-caroline/bass.pdf`, meredith: `${W1}/sweet-caroline/piano.pdf`, sara: `${W1}/sweet-caroline/piano.pdf`,
           annie: `${W1}/sweet-caroline/drums.pdf`, liam: `${W1}/sweet-caroline/drums.pdf`,
         },
         "uptown-funk": {
           scott: `${W1}/uptown-funk/trumpet-1.pdf`,
-          austin: `${W1}/uptown-funk/trombone-1.pdf`, steve: `${W1}/uptown-funk/trombone-2.pdf`, jacob: `${W1}/uptown-funk/trombone-3.pdf`,
+          austin: `${W1}/uptown-funk/trombone-1.pdf`, steve: `${W1}/uptown-funk/trombone-2.pdf`, carmen: `${W1}/uptown-funk/trombone-3.pdf`,
           luke: `${W1}/uptown-funk/alto-1.pdf`, william: `${W1}/uptown-funk/tenor-1.pdf`,
           alex: `${W1}/uptown-funk/guitar.pdf`, max: `${W1}/uptown-funk/bass.pdf`, meredith: `${W1}/uptown-funk/piano.pdf`, sara: `${W1}/uptown-funk/piano.pdf`,
           annie: `${W1}/uptown-funk/drums.pdf`, liam: `${W1}/uptown-funk/drums.pdf`,
         },
         "ive-got-you-under-my-skin": {
           scott: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, benji: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, chris: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, elayna: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
-          austin: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, steve: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, jacob: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
+          austin: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, steve: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, carmen: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
           luke: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, william: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, caden: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
           alex: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, max: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, meredith: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, sara: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
           nathan: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, annie: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`, liam: `${W1}/ive-got-you-under-my-skin/all-parts.pdf`,
         },
         "in-the-mood": {
           scott: `${W1}/in-the-mood/trumpet-1.pdf`,
-          austin: `${W1}/in-the-mood/trombone-1.pdf`, steve: `${W1}/in-the-mood/trombone-2.pdf`, jacob: `${W1}/in-the-mood/trombone-3.pdf`,
+          austin: `${W1}/in-the-mood/trombone-1.pdf`, steve: `${W1}/in-the-mood/trombone-2.pdf`, carmen: `${W1}/in-the-mood/trombone-3.pdf`,
           luke: `${W1}/in-the-mood/alto-1.pdf`, william: `${W1}/in-the-mood/tenor-1.pdf`, caden: `${W1}/in-the-mood/bari-sax.pdf`,
           alex: `${W1}/in-the-mood/guitar.pdf`, max: `${W1}/in-the-mood/bass.pdf`, meredith: `${W1}/in-the-mood/piano.pdf`, sara: `${W1}/in-the-mood/piano.pdf`,
           annie: `${W1}/in-the-mood/drums.pdf`, liam: `${W1}/in-the-mood/drums.pdf`,
         },
         "locked-out-of-heaven": {
           scott: `${W1}/locked-out-of-heaven/trumpet-1.pdf`, benji: `${W1}/locked-out-of-heaven/trumpet-2.pdf`, chris: `${W1}/locked-out-of-heaven/trumpet-3.pdf`,
-          austin: `${W1}/locked-out-of-heaven/trombone-1.pdf`, steve: `${W1}/locked-out-of-heaven/trombone-2.pdf`, jacob: `${W1}/locked-out-of-heaven/trombone-3.pdf`,
+          austin: `${W1}/locked-out-of-heaven/trombone-1.pdf`, steve: `${W1}/locked-out-of-heaven/trombone-2.pdf`, carmen: `${W1}/locked-out-of-heaven/trombone-3.pdf`,
           luke: `${W1}/locked-out-of-heaven/alto-1.pdf`, william: `${W1}/locked-out-of-heaven/tenor-1.pdf`, caden: `${W1}/locked-out-of-heaven/bari-sax.pdf`,
           alex: `${W1}/locked-out-of-heaven/guitar.pdf`, max: `${W1}/locked-out-of-heaven/bass.pdf`, meredith: `${W1}/locked-out-of-heaven/piano.pdf`, sara: `${W1}/locked-out-of-heaven/piano.pdf`,
           nathan: `${W1}/locked-out-of-heaven/aux-percussion.pdf`,
@@ -891,7 +891,7 @@
         },
         "respect": {
           scott: `${W1}/respect/trumpet-1.pdf`, benji: `${W1}/respect/trumpet-2.pdf`, chris: `${W1}/respect/trumpet-3.pdf`,
-          austin: `${W1}/respect/trombone-1.pdf`, steve: `${W1}/respect/trombone-2.pdf`, jacob: `${W1}/respect/trombone-3.pdf`,
+          austin: `${W1}/respect/trombone-1.pdf`, steve: `${W1}/respect/trombone-2.pdf`, carmen: `${W1}/respect/trombone-3.pdf`,
           luke: `${W1}/respect/alto-1.pdf`, william: `${W1}/respect/tenor-1.pdf`, caden: `${W1}/respect/bari-sax.pdf`,
           max: `${W1}/respect/bass.pdf`, meredith: `${W1}/respect/piano-vocals.pdf`, sara: `${W1}/respect/piano-vocals.pdf`,
           annie: `${W1}/respect/drums.pdf`, liam: `${W1}/respect/drums.pdf`,
@@ -900,7 +900,7 @@
         // NOTE: key must equal slugify(song title) -- "Can't" becomes "can-t"
         "can-t-take-my-eyes-off-you": {
           scott: `${W2}/cant-take-my-eyes-off-you/trumpet-1.pdf`, benji: `${W2}/cant-take-my-eyes-off-you/trumpet-2.pdf`, chris: `${W2}/cant-take-my-eyes-off-you/trumpet-3.pdf`,
-          austin: `${W2}/cant-take-my-eyes-off-you/trombone-1.pdf`, steve: `${W2}/cant-take-my-eyes-off-you/trombone-2.pdf`, jacob: `${W2}/cant-take-my-eyes-off-you/trombone-3.pdf`,
+          austin: `${W2}/cant-take-my-eyes-off-you/trombone-1.pdf`, steve: `${W2}/cant-take-my-eyes-off-you/trombone-2.pdf`, carmen: `${W2}/cant-take-my-eyes-off-you/trombone-3.pdf`,
           luke: `${W2}/cant-take-my-eyes-off-you/alto-1.pdf`, william: `${W2}/cant-take-my-eyes-off-you/tenor-1.pdf`, caden: `${W2}/cant-take-my-eyes-off-you/bari-sax.pdf`,
           alex: `${W2}/cant-take-my-eyes-off-you/guitar.pdf`, max: `${W2}/cant-take-my-eyes-off-you/bass.pdf`, meredith: `${W2}/cant-take-my-eyes-off-you/piano.pdf`, sara: `${W2}/cant-take-my-eyes-off-you/piano.pdf`,
           nathan: `${W2}/cant-take-my-eyes-off-you/vibraphone.pdf`,
@@ -913,7 +913,7 @@
           chris: `${W2}/cheek-to-cheek/trumpet-3-original.pdf`,
           austin: `${W2}/cheek-to-cheek/trombone-1-original.pdf`,
           steve: `${W2}/cheek-to-cheek/trombone-2-original.pdf`,
-          jacob: `${W2}/cheek-to-cheek/trombone-3-original.pdf`,
+          carmen: `${W2}/cheek-to-cheek/trombone-3-original.pdf`,
           luke: `${W2}/cheek-to-cheek/alto-1-original.pdf`,
           william: `${W2}/cheek-to-cheek/tenor-1-original.pdf`,
           caden: `${W2}/cheek-to-cheek/bari-sax-original.pdf`,
@@ -930,7 +930,7 @@
         },
         "sir-duke": {
           scott: `${W2}/sir-duke/trumpet-1.pdf`, benji: `${W2}/sir-duke/trumpet-2.pdf`, chris: `${W2}/sir-duke/trumpet-2.pdf`,
-          austin: `${W2}/sir-duke/trombone.pdf`, steve: `${W2}/sir-duke/trombone.pdf`, jacob: `${W2}/sir-duke/trombone.pdf`,
+          austin: `${W2}/sir-duke/trombone.pdf`, steve: `${W2}/sir-duke/trombone.pdf`, carmen: `${W2}/sir-duke/trombone.pdf`,
           luke: `${W2}/sir-duke/alto-sax.pdf`, william: [`${W2}/sir-duke/tenor-sax.pdf`, `${W2}/sir-duke/clarinet.pdf`], caden: `${W2}/sir-duke/bari-sax.pdf`,
           alex: `${W2}/sir-duke/guitar.pdf`, max: `${W2}/sir-duke/bass.pdf`,
           meredith: `${W2}/sir-duke/piano.pdf`, sara: `${W2}/sir-duke/piano.pdf`,
@@ -939,7 +939,7 @@
         },
         "this-love": {
           scott: `${W2}/this-love/trumpet.pdf`, benji: `${W2}/this-love/trumpet.pdf`, chris: `${W2}/this-love/trumpet.pdf`,
-          austin: `${W2}/this-love/trombone.pdf`, steve: `${W2}/this-love/trombone.pdf`, jacob: `${W2}/this-love/trombone.pdf`,
+          austin: `${W2}/this-love/trombone.pdf`, steve: `${W2}/this-love/trombone.pdf`, carmen: `${W2}/this-love/trombone.pdf`,
           luke: `${W2}/this-love/alto-sax.pdf`, william: [`${W2}/this-love/tenor-sax.pdf`, `${W2}/this-love/alto-sax.pdf`],
           alex: `${W2}/this-love/guitar.pdf`, max: [`${W2}/this-love/bass.pdf`, `${W2}/this-love/acoustic-bass.pdf`],
           meredith: `${W2}/this-love/piano.pdf`, sara: `${W2}/this-love/piano.pdf`,
@@ -948,7 +948,7 @@
         },
         "24k-magic": {
           scott: `${W2}/24k-magic/trumpet.pdf`, benji: `${W2}/24k-magic/trumpet.pdf`, chris: `${W2}/24k-magic/trumpet.pdf`,
-          austin: `${W2}/24k-magic/trombone.pdf`, steve: `${W2}/24k-magic/trombone.pdf`, jacob: `${W2}/24k-magic/trombone.pdf`,
+          austin: `${W2}/24k-magic/trombone.pdf`, steve: `${W2}/24k-magic/trombone.pdf`, carmen: `${W2}/24k-magic/trombone.pdf`,
           luke: `${W2}/24k-magic/alto-sax.pdf`,
           max: `${W2}/24k-magic/bass.pdf`, meredith: `${W2}/24k-magic/piano.pdf`, sara: `${W2}/24k-magic/piano.pdf`,
           annie: `${W2}/24k-magic/drums.pdf`, liam: `${W2}/24k-magic/drums.pdf`,
@@ -956,7 +956,7 @@
         },
         "murder-on-the-dancefloor": {
           scott: `${W2}/murder-on-the-dancefloor/trumpet-1.pdf`, benji: `${W2}/murder-on-the-dancefloor/trumpet-2.pdf`, chris: `${W2}/murder-on-the-dancefloor/trumpet-2.pdf`,
-          austin: `${W2}/murder-on-the-dancefloor/trombone-1.pdf`, steve: `${W2}/murder-on-the-dancefloor/trombone-1.pdf`, jacob: `${W2}/murder-on-the-dancefloor/trombone-1.pdf`,
+          austin: `${W2}/murder-on-the-dancefloor/trombone-1.pdf`, steve: `${W2}/murder-on-the-dancefloor/trombone-1.pdf`, carmen: `${W2}/murder-on-the-dancefloor/trombone-1.pdf`,
           luke: `${W2}/murder-on-the-dancefloor/alto-1.pdf`, william: `${W2}/murder-on-the-dancefloor/tenor-1.pdf`, caden: `${W2}/murder-on-the-dancefloor/bari-sax.pdf`,
           alex: `${W2}/murder-on-the-dancefloor/electric-guitar.pdf`, nathan: `${W2}/murder-on-the-dancefloor/electric-guitar-1.pdf`,
           max: `${W2}/murder-on-the-dancefloor/bass.pdf`, meredith: `${W2}/murder-on-the-dancefloor/piano.pdf`, sara: `${W2}/murder-on-the-dancefloor/piano.pdf`,
@@ -965,7 +965,7 @@
         },
         "come-fly-with-me": {
           scott: `${W3}/come-fly-with-me/trumpet-1.pdf`, benji: `${W3}/come-fly-with-me/trumpet-2.pdf`, chris: `${W3}/come-fly-with-me/trumpet-3.pdf`,
-          austin: `${W3}/come-fly-with-me/trombone-1.pdf`, steve: `${W3}/come-fly-with-me/trombone-2.pdf`, jacob: `${W3}/come-fly-with-me/trombone-3.pdf`,
+          austin: `${W3}/come-fly-with-me/trombone-1.pdf`, steve: `${W3}/come-fly-with-me/trombone-2.pdf`, carmen: `${W3}/come-fly-with-me/trombone-3.pdf`,
           luke: `${W3}/come-fly-with-me/alto-1.pdf`, william: `${W3}/come-fly-with-me/tenor-1.pdf`, caden: `${W3}/come-fly-with-me/bari-sax.pdf`,
           alex: `${W3}/come-fly-with-me/piano-guitar.pdf`, max: `${W3}/come-fly-with-me/bass.pdf`,
           meredith: `${W3}/come-fly-with-me/piano-guitar.pdf`, sara: `${W3}/come-fly-with-me/piano-guitar.pdf`,
@@ -974,7 +974,7 @@
         },
         "sway": {
           scott: `${W3}/sway/trumpet-1.pdf`, benji: `${W3}/sway/trumpet-2.pdf`, chris: `${W3}/sway/trumpet-3.pdf`,
-          austin: `${W3}/sway/trombone-1.pdf`, steve: `${W3}/sway/trombone-2.pdf`, jacob: `${W3}/sway/trombone-3.pdf`,
+          austin: `${W3}/sway/trombone-1.pdf`, steve: `${W3}/sway/trombone-2.pdf`, carmen: `${W3}/sway/trombone-3.pdf`,
           luke: `${W3}/sway/alto-1.pdf`, william: `${W3}/sway/tenor-1.pdf`, caden: `${W3}/sway/bari-sax.pdf`,
           alex: `${W3}/sway/guitar.pdf`, max: `${W3}/sway/bass.pdf`,
           meredith: `${W3}/sway/piano.pdf`, sara: `${W3}/sway/piano.pdf`,
@@ -983,7 +983,7 @@
         },
         "fly-me-to-the-moon": {
           scott: `${W3}/fly-me-to-the-moon/trumpet-1.pdf`, benji: `${W3}/fly-me-to-the-moon/trumpet-2.pdf`, chris: `${W3}/fly-me-to-the-moon/trumpet-3.pdf`,
-          austin: `${W3}/fly-me-to-the-moon/trombone-1.pdf`, steve: `${W3}/fly-me-to-the-moon/trombone-2.pdf`, jacob: `${W3}/fly-me-to-the-moon/trombone-3.pdf`,
+          austin: `${W3}/fly-me-to-the-moon/trombone-1.pdf`, steve: `${W3}/fly-me-to-the-moon/trombone-2.pdf`, carmen: `${W3}/fly-me-to-the-moon/trombone-3.pdf`,
           luke: `${W3}/fly-me-to-the-moon/alto-1.pdf`, william: `${W3}/fly-me-to-the-moon/tenor-1.pdf`, caden: `${W3}/fly-me-to-the-moon/bari-sax.pdf`,
           elayna: `${W3}/fly-me-to-the-moon/flute.pdf`,
           alex: `${W3}/fly-me-to-the-moon/guitar.pdf`, max: `${W3}/fly-me-to-the-moon/bass.pdf`,
@@ -1032,7 +1032,7 @@
         },
         "sing-sing-sing": {
           scott: `${W3}/sing-sing-sing/trumpet-1.pdf`, benji: `${W3}/sing-sing-sing/trumpet-2.pdf`, chris: `${W3}/sing-sing-sing/trumpet-3.pdf`,
-          austin: `${W3}/sing-sing-sing/trombone-1.pdf`, steve: `${W3}/sing-sing-sing/trombone-2.pdf`, jacob: `${W3}/sing-sing-sing/trombone-3.pdf`,
+          austin: `${W3}/sing-sing-sing/trombone-1.pdf`, steve: `${W3}/sing-sing-sing/trombone-2.pdf`, carmen: `${W3}/sing-sing-sing/trombone-3.pdf`,
           luke: `${W3}/sing-sing-sing/alto-1.pdf`, william: [`${W3}/sing-sing-sing/tenor-1.pdf`, `${W3}/sing-sing-sing/clarinet.pdf`], caden: `${W3}/sing-sing-sing/bari-sax.pdf`,
           alex: `${W3}/sing-sing-sing/guitar.pdf`, max: `${W3}/sing-sing-sing/bass.pdf`,
           meredith: `${W3}/sing-sing-sing/piano.pdf`, sara: `${W3}/sing-sing-sing/piano.pdf`,
@@ -1045,14 +1045,14 @@
         },
         "new-york-new-york": {
           scott: `${W2}/new-york-new-york/trumpet-1.pdf`, benji: `${W2}/new-york-new-york/trumpet-2.pdf`, chris: `${W2}/new-york-new-york/trumpet-3.pdf`,
-          austin: `${W2}/new-york-new-york/trombone-1.pdf`, steve: `${W2}/new-york-new-york/trombone-2.pdf`, jacob: `${W2}/new-york-new-york/trombone-3.pdf`,
+          austin: `${W2}/new-york-new-york/trombone-1.pdf`, steve: `${W2}/new-york-new-york/trombone-2.pdf`, carmen: `${W2}/new-york-new-york/trombone-3.pdf`,
           luke: `${W2}/new-york-new-york/alto-1.pdf`, caden: `${W2}/new-york-new-york/bari-sax.pdf`,
           alex: `${W2}/new-york-new-york/guitar.pdf`, max: `${W2}/new-york-new-york/bass.pdf`, meredith: `${W2}/new-york-new-york/piano.pdf`, sara: `${W2}/new-york-new-york/piano.pdf`,
           william: [`${W2}/new-york-new-york/vocals.pdf`, `${W2}/new-york-new-york/tenor-1.pdf`],
         },
         "chicago": {
           scott: `${W2}/chicago/trumpet-1.pdf`, benji: `${W2}/chicago/trumpet-2.pdf`, chris: `${W2}/chicago/trumpet-3.pdf`,
-          austin: `${W2}/chicago/trombone-1.pdf`, steve: `${W2}/chicago/trombone-2.pdf`, jacob: `${W2}/chicago/trombone-3.pdf`,
+          austin: `${W2}/chicago/trombone-1.pdf`, steve: `${W2}/chicago/trombone-2.pdf`, carmen: `${W2}/chicago/trombone-3.pdf`,
           luke: `${W2}/chicago/alto-1.pdf`, william: [`${W2}/chicago/tenor-1.pdf`, `${W2}/chicago/alto-1.pdf`], caden: `${W2}/chicago/bari-sax.pdf`,
           alex: `${W2}/chicago/piano-guitar.pdf`, max: `${W2}/chicago/bass.pdf`, meredith: `${W2}/chicago/piano-guitar.pdf`, sara: `${W2}/chicago/piano-guitar.pdf`,
           annie: `${W2}/chicago/drums.pdf`, liam: `${W2}/chicago/drums.pdf`,
@@ -1060,7 +1060,7 @@
         },
         "treasure": {
           scott: `${W1}/treasure/trumpet-1.pdf`,
-          austin: `${W1}/treasure/trombone-1.pdf`, steve: `${W1}/treasure/trombone-2.pdf`, jacob: `${W1}/treasure/trombone-3.pdf`,
+          austin: `${W1}/treasure/trombone-1.pdf`, steve: `${W1}/treasure/trombone-2.pdf`, carmen: `${W1}/treasure/trombone-3.pdf`,
           luke: `${W1}/treasure/alto-1.pdf`, william: [`${W1}/treasure/tenor-1.pdf`, `${W1}/treasure/clarinet.pdf`], caden: `${W1}/treasure/clarinet.pdf`, elayna: `${W1}/treasure/flute.pdf`,
           alex: `${W1}/treasure/guitar.pdf`, max: `${W1}/treasure/bass.pdf`, meredith: `${W1}/treasure/piano.pdf`, sara: `${W1}/treasure/piano.pdf`,
           annie: `${W1}/treasure/drums.pdf`, liam: `${W1}/treasure/drums.pdf`,
