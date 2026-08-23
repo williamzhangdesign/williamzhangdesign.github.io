@@ -125,10 +125,13 @@
       .setlist-stats { color: var(--muted); margin: -10px 0 20px; font-size: 13px; }
       .setlist-stats strong { color: var(--text); font-weight: 700; }
 
-      /* Link out to the shared Song Book -- visible to everyone, on every screen */
+      /* Links out to the shared docs -- visible to everyone, on every screen */
+      .link-row {
+        display: flex; flex-wrap: wrap; gap: 10px;
+        margin: 0 0 22px;
+      }
       .songbook-link {
         display: inline-flex; align-items: center; gap: 8px;
-        margin: 0 0 22px;
         padding: 11px 18px; border-radius: 999px;
         font-size: 14px; font-weight: 600; text-decoration: none;
         color: var(--accent-bright);
@@ -301,11 +304,18 @@
       <p class="sub">Enter your first name to see your assignments and download your parts.</p>
       <p class="setlist-stats" id="setlist-stats"></p>
 
-      <a class="songbook-link"
-         href="https://claude.ai/code/artifact/bccd1158-d455-4230-9819-910350421c0d"
-         target="_blank" rel="noopener">
-        See who&rsquo;s singing what <span class="arrow">&#8599;</span>
-      </a>
+      <div class="link-row">
+        <a class="songbook-link"
+           href="https://claude.ai/code/artifact/bccd1158-d455-4230-9819-910350421c0d"
+           target="_blank" rel="noopener">
+          See who&rsquo;s singing what <span class="arrow">&#8599;</span>
+        </a>
+        <a class="songbook-link"
+           href="https://claude.ai/code/artifact/ef4f374b-32dd-4393-8041-a5270ea376d5"
+           target="_blank" rel="noopener">
+          Draft running order <span class="arrow">&#8599;</span>
+        </a>
+      </div>
 
       <section id="gate" class="gate">
         <label for="name-input">Your first name</label>
