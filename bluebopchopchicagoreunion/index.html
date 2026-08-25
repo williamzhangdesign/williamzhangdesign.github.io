@@ -427,6 +427,7 @@
           "Dancing Queen",
         ],
         gab: [
+          "Boogeyman",
           "So Easy (To Fall in Love)",
           "Ain't No Mountain High Enough",
           "Skyfall",
@@ -436,6 +437,9 @@
         jasper: [
           "Valerie",
           "September",
+        ],
+        john: [
+          "Ain't That a Kick in the Head",
         ],
         nate: [
           "Play That Funky Music",
@@ -545,6 +549,9 @@
         "come-fly-with-me": "Buble version, a semitone lower than Sinatra. Nate sings this one. No written vocal part in the book -- sing from the recording.",
         "sway": "Michael Bublé version. Nate sings this one. No written vocal part in this book -- sing from the recording. Trumpet 4, Bass Trombone, Alto 2, and Tenor 2 are extra chairs nobody currently covers.",
         "fly-me-to-the-moon": "Switched to the Sebastian Muller arrangement (Bart Howard/Sinatra, quarter=120). Elayna now has a flute part. Nate sings this one from the written vocal part in the book. Trumpet 4, Trombone 4, and Alto 2/Tenor 2 are extra chairs nobody currently covers.",
+        "boogeyman": "Ella Duke. Gabrielle sings it. No chart written yet -- pull the lyrics off the recording for now; parts folder is waiting at parts/wave4/boogeyman.",
+        "ain-t-that-a-kick-in-the-head": "Dean Martin. John Sweeney's only number. No chart written yet -- parts folder is waiting at parts/wave4/ain-t-that-a-kick-in-the-head.",
+        "move-on-up": "Curtis Mayfield. Added from the playlist, early in Act Two. No singer assigned and no chart yet -- parts folder is waiting at parts/wave4/move-on-up.",
         "fly-me-to-the-moon-bossa-nova": "A completely different chart from the swing version above -- the bossa nova take used as the Neon Genesis Evangelion ending theme. This one is INSTRUMENTAL: William plays the melody on sax. There is no written sax part in this arrangement, so he reads the Trumpet 1 chart (same Bb transposition, an octave down). Only two trumpets (Scott/Benji, playing the cornet parts) plus rhythm -- no trombone parts at all. Liam is on congas; extra Latin percussion (bongos, cabasa, guiro, shaker, timbales) is in the folder if anyone wants a different color.",
         "beyond-the-sea": "The Bobby Darin standard -- the parts are headed \"Robbie Williams, arr. Bill Horowitz\" because that's his swing cover of it, so that's the right chart. Nate sings this one -- it has a written vocal part. Small combo: only one trumpet part and one trombone part exist in this book; extra trumpets/trombones are welcome to double them live. Tenor sax (William) and bari sax (Caden) still play their own parts; no alto sax part in this arrangement at all.",
         "september": "All hands -- every vocalist is on this one. Full vocal set exists (Simon Peter arrangement): Lead Vocals plus Backing Vocals 1 and 2, and everyone gets all three, so sort out who takes lead and who stacks the backing. William plays the clarinet/strings line on clarinet.",
@@ -644,6 +651,7 @@
         gab:       { display: "Gab",      section: "Vocals",   instrument: "Vocals", vocalist: true },
         nate:      { display: "Nate",     section: "Vocals",   instrument: "Vocals", vocalist: true },
         jasper:    { display: "Jasper",   section: "Vocals",   instrument: "Vocals", vocalist: true },
+        john:      { display: "John Sweeney", section: "Vocals", instrument: "Vocals", vocalist: true },
       };
 
       // Alternate spellings/full names that should resolve to the same roster
@@ -651,6 +659,8 @@
       // CHAIR_FILES) is keyed by the canonical name on the right.
       const NAME_ALIASES = {
         gabrielle: "gab",
+        sweeney: "john",
+        johnsweeney: "john",
       };
 
       // -----------------------------------------------------------------------
@@ -771,6 +781,7 @@
       const W1 = "parts/wave1";
       const W2 = "parts/wave2";
       const W3 = "parts/wave3";
+      const W4 = "parts/wave4";
       const PARTS_FILES = {
         "spider-man-theme": {
           scott: `${W1}/spider-man-theme/trumpet-1.pdf`, benji: `${W1}/spider-man-theme/trumpet-2.pdf`, chris: `${W1}/spider-man-theme/trumpet-3.pdf`,
@@ -1668,6 +1679,9 @@
         "sway": "Sway",
         "fly-me-to-the-moon": "Fly Me to the Moon",
         "fly-me-to-the-moon-bossa-nova": "Fly Me to the Moon (Bossa Nova)",
+        "ain-t-that-a-kick-in-the-head": "Ain't That a Kick in the Head",
+        "boogeyman": "Boogeyman",
+        "move-on-up": "Move on Up",
         "beyond-the-sea": "Beyond the Sea",
         "rein-me-in": "Rein Me In",
         "play-that-funky-music": "Play That Funky Music",
