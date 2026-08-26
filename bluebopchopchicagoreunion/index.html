@@ -435,7 +435,6 @@
           "Sir Duke",
           "Murder on the Dancefloor",
           "Rein Me In",
-          "Respect",
           "It Isn't Perfect But It Might Be",
           "September",
           "Dancing Queen",
@@ -447,6 +446,9 @@
           "Skyfall",
           "September",
           "The Man I Need",
+        ],
+        sara: [
+          "Respect",
         ],
         jasper: [
           "Valerie",
@@ -532,11 +534,12 @@
         "Come Fly With Me", "Feeling Good",
         // -- interval: Jasper's rap set --
         "Sir Duke", "Beyond the Sea", "Move on Up", "Ain't No Mountain High Enough",
-        "It Isn't Perfect But It Might Be", "Boogeyman", "Valerie", "This Love",
+        "It Isn't Perfect But It Might Be", "Boogeyman", "Valerie",
+        "New York, New York", "This Love",
         "Sunday Morning", "Moondance", "I Want You Back",
         "Everybody Wants to Rule the World", "Treasure", "Uptown Funk",
         "Murder on the Dancefloor", "Play That Funky Music", "Spider-Man Theme",
-        "Respect", "New York, New York", "Sweet Caroline",
+        "Respect", "Sweet Caroline",
         "Can't Take My Eyes Off You", "Fly Me to the Moon (Bossa Nova)",
       ];
       const ACT_ONE_LENGTH = 17;
@@ -714,7 +717,7 @@
         alex:      { display: "Alex",     section: "Rhythm",   instrument: "Guitar", family: "rhythm", chair: "Guitar" },
         max:       { display: "Max",      section: "Rhythm",   instrument: "Bass", family: "rhythm", chair: "Bass" },
         meredith:  { display: "Meredith", section: "Rhythm",   instrument: "Piano", family: "rhythm", chair: "Piano" },
-        sara:      { display: "Sara",     section: "Rhythm",   instrument: "Piano", family: "rhythm", chair: "Piano" },
+        sara:      { display: "Sara",     section: "Rhythm",   instrument: "Piano / Vocals", vocalist: true, family: "rhythm", chair: "Piano" },
         nathan:    { display: "Nathan",   section: "Rhythm",   instrument: "Synths / Percussion" },
         annie:     { display: "Annie",    section: "Rhythm",   instrument: "Drums", family: "rhythm", chair: "Drums" },
         liam:      { display: "Liam",     section: "Rhythm",   instrument: "Drumset / Percussion", family: "rhythm", chair: "Drums",
@@ -778,10 +781,10 @@
         },
         sara: {
           Piano: [
-            "boogeyman", "respect",
+            "boogeyman",
             "beyond-the-sea", "cheek-to-cheek", "come-fly-with-me",
             "fly-me-to-the-moon", "ive-got-you-under-my-skin", "locked-out-of-heaven",
-            "murder-on-the-dancefloor", "respect", "sir-duke", "spider-man-theme",
+            "murder-on-the-dancefloor", "sir-duke", "spider-man-theme",
             "sweet-caroline", "valerie",
           ],
         },
@@ -793,7 +796,7 @@
         caden: {
           Piano: [
             "dancing-queen", "fly-me-to-the-moon-bossa-nova",
-            "the-man-i-need", "move-on-up",
+            "the-man-i-need", "move-on-up", "respect",
             "i-want-you-back", "mack-the-knife",
             "orange-colored-sky", "rein-me-in", "september",
             "treasure", "uptown-funk",
@@ -983,7 +986,7 @@
           luke: `${W2}/respect/alto-1.pdf`, william: `${W2}/respect/tenor-1.pdf`, caden: `${W2}/respect/bari-sax.pdf`,
           max: `${W2}/respect/bass.pdf`, meredith: `${W2}/respect/piano-vocals.pdf`, sara: `${W2}/respect/piano-vocals.pdf`,
           annie: `${W2}/respect/drums.pdf`, liam: `${W2}/respect/drums.pdf`,
-          maya: `${W2}/respect/vocals.pdf`,
+          sara: `${W2}/respect/vocals.pdf`,
         },
         // NOTE: key must equal slugify(song title) -- "Can't" becomes "can-t"
         "can-t-take-my-eyes-off-you": {
