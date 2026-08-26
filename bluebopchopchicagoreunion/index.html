@@ -710,7 +710,7 @@
         max:       { display: "Max",      section: "Rhythm",   instrument: "Bass", family: "rhythm", chair: "Bass" },
         meredith:  { display: "Meredith", section: "Rhythm",   instrument: "Piano", family: "rhythm", chair: "Piano" },
         sara:      { display: "Sara",     section: "Rhythm",   instrument: "Piano", family: "rhythm", chair: "Piano" },
-        nathan:    { display: "Nathan",   section: "Rhythm",   instrument: "Piano / Synths / Percussion", family: "rhythm", chair: "Piano" },
+        nathan:    { display: "Nathan",   section: "Rhythm",   instrument: "Synths / Percussion" },
         annie:     { display: "Annie",    section: "Rhythm",   instrument: "Drums", family: "rhythm", chair: "Drums" },
         liam:      { display: "Liam",     section: "Rhythm",   instrument: "Drumset / Percussion", family: "rhythm", chair: "Drums",
           roles: [
@@ -763,18 +763,9 @@
       // When someone has an entry here for the chair they're browsing, they see
       // only their own share instead of the whole chair's book.
       const CHAIR_ASSIGNMENTS = {
-        // Nathan has taken over Meredith's share of the piano book. Her entry
-        // stays as-is so none of her data is lost.
-        nathan: {
-          Piano: [
-            "ain-t-that-a-kick-in-the-head",
-            "aint-no-mountain-high-enough", "cant-take-my-eyes-off-you", "chicago",
-            "feeling-good", "in-the-mood", "l-o-v-e", "moondance",
-            "new-york-new-york", "sing-sing-sing", "skyfall", "sway", "this-love",
-          ],
-        },
         meredith: {
           Piano: [
+            "ain-t-that-a-kick-in-the-head",
             "aint-no-mountain-high-enough", "cant-take-my-eyes-off-you", "chicago",
             "feeling-good", "in-the-mood", "l-o-v-e", "moondance",
             "new-york-new-york", "sing-sing-sing", "skyfall", "sway", "this-love",
@@ -818,7 +809,7 @@
       // Explains the split when someone's only seeing their share of a chair.
       const ASSIGNMENT_NOTES = {
         Piano: (n) =>
-          `Piano is split three ways -- these ${n} songs are yours. Nathan, Sara, and Caden ` +
+          `Piano is split three ways -- these ${n} songs are yours. Meredith, Sara, and Caden ` +
           `each cover a third of the book, so you only see your own share here.`,
         "Alto 1": (n) =>
           `Just the ${n} charts that have no tenor or clarinet part for you -- on these you double ` +
